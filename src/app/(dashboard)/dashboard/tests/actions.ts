@@ -113,9 +113,17 @@ export async function autoFillSection(formData: FormData) {
     .eq("is_active", true);
   const { data: existing } = await supabase
     .from("mock_section_questions")
-    .select("question_id")
+    .select("question_id, question:mock_questions(part)")
     .eq("section_id", sectionId);
+
   const used = new Set((existing ?? []).map((r) => r.question_id));
+  // How many are already in this section, per part — so auto-fill tops up to
+  // the target instead of adding another full set each time.
+  const haveByPart = new Map<number, number>();
+  (existing ?? []).forEach((r) => {
+    const part = (r.question as unknown as { part: number } | null)?.part;
+    if (part != null) haveByPart.set(part, (haveByPart.get(part) ?? 0) + 1);
+  });
 
   const rows: { section_id: string; question_id: string; position: number }[] = [];
   let position = existing?.length ?? 0;
@@ -123,14 +131,17 @@ export async function autoFillSection(formData: FormData) {
 
   for (const [partStr, want] of Object.entries(targets)) {
     const part = Number(partStr);
+    const need = Math.max(0, want - (haveByPart.get(part) ?? 0));
+    if (need === 0) continue;
     const pool = (bank ?? []).filter((q) => q.part === part && !used.has(q.id));
     // Fisher–Yates shuffle
     for (let i = pool.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [pool[i], pool[j]] = [pool[j], pool[i]];
     }
-    const picked = pool.slice(0, want);
-    if (picked.length < want) missing.push(`part ${part}: need ${want}, bank has ${picked.length}`);
+    const picked = pool.slice(0, need);
+    if (picked.length < need)
+      missing.push(`part ${part}: need ${need} more, bank has ${picked.length}`);
     picked.forEach((q) => rows.push({ section_id: sectionId, question_id: q.id, position: position++ }));
   }
 
