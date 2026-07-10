@@ -3,7 +3,8 @@ import { createClient } from "@/lib/supabase/server";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { MODULES, TYPE_PARTS } from "@/lib/question-import";
-import { importQuestions, toggleQuestionActive, deleteQuestion, deleteSet } from "./actions";
+import { BulkQuestionList } from "@/components/dashboard/bulk-question-list";
+import { importQuestions, deleteSet, bulkDeleteQuestions, bulkSetActive } from "./actions";
 
 const CEFR = ["A1", "A2", "B1", "B2", "C1", "C2"];
 const inputCls =
@@ -229,49 +230,11 @@ export default async function QuestionsPage({
             Questions <span className="figures text-[13px] text-ink-muted">({(questions ?? []).length})</span>
           </h2>
         </div>
-        {(questions ?? []).length === 0 ? (
-          <Card className="p-6">
-            <p className="text-[14px] text-ink-muted">No questions match.</p>
-          </Card>
-        ) : (
-          <Card className="divide-y divide-line overflow-x-auto">
-            {(questions ?? []).map((q) => (
-              <div key={q.id} className="px-4 py-3 flex items-center gap-4">
-                <span className="figures text-[12px] text-ink-muted w-24 shrink-0">
-                  {q.module} · P{q.part}
-                </span>
-                <span className="text-[13px] text-ink-soft w-36 shrink-0">{q.question_type}</span>
-                <Link
-                  href={`/dashboard/questions/${q.id}/edit`}
-                  className="text-[14px] flex-1 min-w-48 truncate hover:text-crimson hover:underline underline-offset-2"
-                >
-                  {q.prompt ?? "—"}
-                </Link>
-                <span className="figures text-[12px] text-ink-muted w-8 shrink-0">
-                  {q.difficulty ?? ""}
-                </span>
-                {!q.is_active ? (
-                  <span className="rounded bg-pending-bg text-pending px-2 py-0.5 text-[11px] shrink-0">
-                    retired
-                  </span>
-                ) : null}
-                <form action={toggleQuestionActive} className="shrink-0">
-                  <input type="hidden" name="id" value={q.id} />
-                  <input type="hidden" name="active" value={String(q.is_active)} />
-                  <Button variant="ghost" type="submit" className="!px-2 !py-1 text-[12px]">
-                    {q.is_active ? "Retire" : "Restore"}
-                  </Button>
-                </form>
-                <form action={deleteQuestion} className="shrink-0">
-                  <input type="hidden" name="id" value={q.id} />
-                  <Button variant="ghost" type="submit" className="!px-2 !py-1 text-[12px] text-alert">
-                    Delete
-                  </Button>
-                </form>
-              </div>
-            ))}
-          </Card>
-        )}
+        <BulkQuestionList
+          questions={questions ?? []}
+          bulkDelete={bulkDeleteQuestions}
+          bulkSetActive={bulkSetActive}
+        />
       </section>
     </div>
   );

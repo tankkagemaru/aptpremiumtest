@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { togglePublish } from "../actions";
+import { togglePublish, deleteTest } from "../actions";
 
 export default async function TestDetailPage({
   params,
@@ -51,13 +51,21 @@ export default async function TestDetailPage({
             {(test.exam as unknown as { name: string } | null)?.name}
           </p>
         </div>
-        <form action={togglePublish}>
-          <input type="hidden" name="id" value={test.id} />
-          <input type="hidden" name="published" value={String(test.is_published)} />
-          <Button variant={test.is_published ? "secondary" : "primary"} type="submit">
-            {test.is_published ? "Unpublish" : "Publish"}
-          </Button>
-        </form>
+        <div className="flex gap-2">
+          <form action={togglePublish}>
+            <input type="hidden" name="id" value={test.id} />
+            <input type="hidden" name="published" value={String(test.is_published)} />
+            <Button variant={test.is_published ? "secondary" : "primary"} type="submit">
+              {test.is_published ? "Unpublish" : "Publish"}
+            </Button>
+          </form>
+          <form action={deleteTest}>
+            <input type="hidden" name="id" value={test.id} />
+            <Button variant="ghost" type="submit" className="text-alert">
+              Delete test
+            </Button>
+          </form>
+        </div>
       </div>
 
       <Card className="divide-y divide-line">

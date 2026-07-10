@@ -172,6 +172,40 @@ export async function deleteSet(formData: FormData) {
   );
 }
 
+/** Delete a selected set of questions (retire any that already have answers). */
+export async function bulkDeleteQuestions(formData: FormData) {
+  const ids = formData.getAll("ids").map(String).filter(Boolean);
+  if (ids.length === 0) fail(["Select at least one question."]);
+
+  const supabase = await createClient();
+  await supabase.from("mock_section_questions").delete().in("question_id", ids);
+  const { data: used } = await supabase
+    .from("mock_responses")
+    .select("question_id")
+    .in("question_id", ids);
+  const usedIds = new Set((used ?? []).map((r) => r.question_id));
+  const deletable = ids.filter((id) => !usedIds.has(id));
+  const retire = ids.filter((id) => usedIds.has(id));
+
+  if (deletable.length) await supabase.from("mock_questions").delete().in("id", deletable);
+  if (retire.length) {
+    await supabase.from("mock_questions").update({ is_active: false }).in("id", retire);
+  }
+  revalidatePath(PAGE);
+  redirect(`${PAGE}?deleted=${deletable.length}&retired=${retire.length}&tag=selection`);
+}
+
+/** Retire or restore a selected set of questions. */
+export async function bulkSetActive(formData: FormData) {
+  const ids = formData.getAll("ids").map(String).filter(Boolean);
+  const active = String(formData.get("active")) === "true";
+  if (ids.length === 0) fail(["Select at least one question."]);
+  const supabase = await createClient();
+  await supabase.from("mock_questions").update({ is_active: active }).in("id", ids);
+  revalidatePath(PAGE);
+  redirect(PAGE);
+}
+
 export async function toggleQuestionActive(formData: FormData) {
   const id = String(formData.get("id"));
   const active = String(formData.get("active")) === "true";

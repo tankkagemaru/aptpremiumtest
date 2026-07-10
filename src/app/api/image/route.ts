@@ -58,17 +58,17 @@ export async function POST(request: Request) {
     topic = (options.image_prompt as string) || derive();
   }
 
-  let img: Buffer;
+  let img: Awaited<ReturnType<typeof generateImage>>;
   try {
     img = await generateImage(buildImagePrompt(topic));
   } catch (e) {
     return NextResponse.json({ error: `Image generation failed: ${(e as Error).message}` }, { status: 502 });
   }
 
-  const path = `speaking/${questionId}${q.question_type === "s3_compare" ? `-${index}` : ""}.png`;
+  const path = `speaking/${questionId}${q.question_type === "s3_compare" ? `-${index}` : ""}.${img.ext}`;
   const { error: upErr } = await supabase.storage
     .from(BUCKET)
-    .upload(path, img, { contentType: "image/png", upsert: true });
+    .upload(path, img.buffer, { contentType: img.contentType, upsert: true });
   if (upErr) return NextResponse.json({ error: `Upload failed: ${upErr.message}` }, { status: 500 });
 
   if (q.question_type === "s3_compare") {

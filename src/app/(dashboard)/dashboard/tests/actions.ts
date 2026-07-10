@@ -55,6 +55,22 @@ export async function createTest(formData: FormData) {
   redirect(`/dashboard/tests/${test.id}`);
 }
 
+export async function deleteTest(formData: FormData) {
+  const id = String(formData.get("id"));
+  const supabase = await createClient();
+  // sections + section_questions cascade; blocked if the test has attempts.
+  const { error } = await supabase.from("mock_tests").delete().eq("id", id);
+  if (error) {
+    redirect(
+      `/dashboard/tests?error=${encodeURIComponent(
+        "This test has student attempts and can't be deleted — unpublish it instead."
+      )}`
+    );
+  }
+  revalidatePath("/dashboard/tests");
+  redirect("/dashboard/tests?deleted=1");
+}
+
 export async function togglePublish(formData: FormData) {
   const id = String(formData.get("id"));
   const published = String(formData.get("published")) === "true";

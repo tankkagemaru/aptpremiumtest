@@ -9,9 +9,9 @@ import { createTest } from "./actions";
 export default async function TestsPage({
   searchParams,
 }: {
-  searchParams: Promise<{ error?: string; q?: string; status?: string }>;
+  searchParams: Promise<{ error?: string; q?: string; status?: string; deleted?: string }>;
 }) {
-  const { error, q, status } = await searchParams;
+  const { error, q, status, deleted } = await searchParams;
   const supabase = await createClient();
 
   let testQuery = supabase
@@ -36,6 +36,9 @@ export default async function TestsPage({
 
       {error ? (
         <p className="rounded-md bg-alert-bg text-alert px-3 py-2 text-[13px]">{error}</p>
+      ) : null}
+      {deleted ? (
+        <p className="rounded-md bg-good-bg text-good px-3 py-2 text-[13px]">Test deleted.</p>
       ) : null}
 
       <Card className="p-6">
