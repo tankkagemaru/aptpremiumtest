@@ -18,6 +18,7 @@ export default async function TestsPage({
   let testQuery = supabase
     .from("mock_tests")
     .select("id, title, is_published, created_at, exam:mock_exams(name)")
+    .eq("is_generated", false)
     .order("created_at", { ascending: false });
   if (q) testQuery = testQuery.ilike("title", `%${q}%`);
   if (status === "published") testQuery = testQuery.eq("is_published", true);
@@ -42,8 +43,17 @@ export default async function TestsPage({
         <p className="rounded-md bg-good-bg text-good px-3 py-2 text-[13px]">Test deleted.</p>
       ) : null}
 
+      <Card className="p-5 bg-cream-50">
+        <p className="text-[13px] text-ink-soft">
+          Students now start a <strong>fresh, randomized test</strong> generated from the
+          question bank per the exam blueprint — you don&apos;t need to build tests for
+          them. Use this page only to create an <em>optional</em> fixed/curated test
+          (e.g. a specific set for a class).
+        </p>
+      </Card>
+
       <Card className="p-6">
-        <h2 className="text-lg mb-4">Create a test</h2>
+        <h2 className="text-lg mb-4">Create a curated test</h2>
         <form action={createTest} className="flex flex-wrap items-end gap-4">
           <div className="flex-1 min-w-56">
             <Field label="Title" htmlFor="title">

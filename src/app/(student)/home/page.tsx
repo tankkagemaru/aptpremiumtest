@@ -4,7 +4,7 @@ import { getProfile } from "@/lib/auth";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ProgressTrend } from "@/components/result/progress-trend";
-import { startAttempt } from "./actions";
+import { startAttempt, startExamAttempt } from "./actions";
 
 export const dynamic = "force-dynamic";
 
@@ -36,11 +36,19 @@ export default async function StudentHome({
       profile?.studentId
         ? supabase
             .from("mock_attempts")
-            .select("id, test_id, status, started_at")
+            .select("id, test_id, status, started_at, test:mock_tests(exam_id)")
             .order("started_at", { ascending: false })
             .limit(10)
         : Promise.resolve({ data: [] as never[] }),
     ]);
+
+  const openByExam = new Map<string, string>(); // exam_id -> attempt_id
+  (attempts ?? []).forEach((a) => {
+    const examId = (a.test as unknown as { exam_id: string } | null)?.exam_id;
+    if (a.status === "in_progress" && examId && !openByExam.has(examId)) {
+      openByExam.set(examId, a.id);
+    }
+  });
 
   // Length / section count per published test (only sections that have questions)
   const testIds = (tests ?? []).map((t) => t.id);
@@ -107,47 +115,56 @@ export default async function StudentHome({
                     </li>
                   ))}
                 </ul>
-                {examTests.length === 0 ? (
-                  <p className="inline-block rounded-md bg-pending-bg text-pending px-2.5 py-1 text-[12px]">
-                    Tests coming soon
-                  </p>
-                ) : (
-                  <ul className="space-y-2">
-                    {examTests.map((t) => {
-                      const open = (attempts ?? []).find(
-                        (a) => a.test_id === t.id && a.status === "in_progress"
-                      );
-                      return (
-                        <li
-                          key={t.id}
-                          className="border border-line rounded-md px-3 py-2 text-[14px] flex items-center justify-between gap-3"
-                        >
-                          <span className="min-w-0">
-                            <span className="block truncate">{t.title}</span>
-                            {testMeta.get(t.id) ? (
-                              <span className="figures text-[12px] text-ink-muted">
-                                {testMeta.get(t.id)!.sections} sections · ~
-                                {testMeta.get(t.id)!.minutes} min
-                              </span>
+                {/* Primary: on-demand randomized test from the bank */}
+                {profile?.studentId ? (
+                  <form action={startExamAttempt}>
+                    <input type="hidden" name="exam_id" value={exam.id} />
+                    <Button
+                      type="submit"
+                      variant={openByExam.has(exam.id) ? "secondary" : "primary"}
+                      className="w-full"
+                    >
+                      {openByExam.has(exam.id) ? "Continue practice test" : "Start practice test"}
+                    </Button>
+                  </form>
+                ) : null}
+                <p className="text-[12px] text-ink-muted mt-2">
+                  A fresh, randomized test is built from the question bank each time.
+                </p>
+
+                {/* Optional: curated fixed tests */}
+                {examTests.length > 0 ? (
+                  <div className="mt-4 border-t border-line pt-3">
+                    <p className="label-caps mb-2">Or a set test</p>
+                    <ul className="space-y-2">
+                      {examTests.map((t) => {
+                        const open = (attempts ?? []).find(
+                          (a) => a.test_id === t.id && a.status === "in_progress"
+                        );
+                        return (
+                          <li
+                            key={t.id}
+                            className="border border-line rounded-md px-3 py-2 text-[14px] flex items-center justify-between gap-3"
+                          >
+                            <span className="min-w-0 truncate">{t.title}</span>
+                            {profile?.studentId ? (
+                              <form action={startAttempt}>
+                                <input type="hidden" name="test_id" value={t.id} />
+                                <Button
+                                  type="submit"
+                                  variant="secondary"
+                                  className="!px-3 !py-1.5 text-[13px]"
+                                >
+                                  {open ? "Continue" : "Start"}
+                                </Button>
+                              </form>
                             ) : null}
-                          </span>
-                          {profile?.studentId ? (
-                            <form action={startAttempt}>
-                              <input type="hidden" name="test_id" value={t.id} />
-                              <Button
-                                type="submit"
-                                variant={open ? "secondary" : "primary"}
-                                className="!px-3 !py-1.5 text-[13px]"
-                              >
-                                {open ? "Continue" : "Start test"}
-                              </Button>
-                            </form>
-                          ) : null}
-                        </li>
-                      );
-                    })}
-                  </ul>
-                )}
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                ) : null}
               </Card>
             );
           })}
