@@ -7,6 +7,20 @@ import { getProfile } from "@/lib/auth";
 
 const PAGE = "/dashboard/students";
 
+/** Delete a student's test attempt (cascades responses, grades, result). */
+export async function deleteAttempt(formData: FormData) {
+  const attemptId = String(formData.get("attempt_id"));
+  const studentId = String(formData.get("student_id"));
+  const supabase = await createClient();
+  const { error } = await supabase.from("mock_attempts").delete().eq("id", attemptId);
+  const dest = `${PAGE}/${studentId}`;
+  if (error) {
+    redirect(`${dest}?error=${encodeURIComponent(error.message)}`);
+  }
+  revalidatePath(dest);
+  redirect(`${dest}?removed=1`);
+}
+
 export async function createAccount(formData: FormData) {
   const profile = await getProfile();
   if (profile?.role !== "admin") {

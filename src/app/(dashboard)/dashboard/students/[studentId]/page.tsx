@@ -2,13 +2,18 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { deleteAttempt } from "../actions";
 
 export default async function StudentDetail({
   params,
+  searchParams,
 }: {
   params: Promise<{ studentId: string }>;
+  searchParams: Promise<{ removed?: string; error?: string }>;
 }) {
   const { studentId } = await params;
+  const { removed, error } = await searchParams;
   const supabase = await createClient();
 
   const { data: student } = await supabase
@@ -50,6 +55,14 @@ export default async function StudentDetail({
 
       <section>
         <h2 className="text-lg mb-3">Mock test attempts</h2>
+        {removed ? (
+          <p className="mb-3 rounded-md bg-good-bg text-good px-3 py-2 text-[13px]">
+            Attempt removed.
+          </p>
+        ) : null}
+        {error ? (
+          <p className="mb-3 rounded-md bg-alert-bg text-alert px-3 py-2 text-[13px]">{error}</p>
+        ) : null}
         {(attempts ?? []).length === 0 ? (
           <Card className="p-6">
             <p className="text-[14px] text-ink-muted">No mock attempts yet.</p>
@@ -64,7 +77,7 @@ export default async function StudentDetail({
                   : a.status === "grading" || a.status === "submitted"
                     ? `/dashboard/grading/${a.id}`
                     : null;
-              const row = (
+              const info = (
                 <>
                   <div className="min-w-0">
                     <p className="text-[14px] truncate">{test?.title}</p>
@@ -75,17 +88,25 @@ export default async function StudentDetail({
                   <span className="text-[12px] text-ink-soft shrink-0">{a.status}</span>
                 </>
               );
-              return href ? (
-                <Link
-                  key={a.id}
-                  href={href}
-                  className="px-4 py-2.5 flex items-center justify-between gap-4 hover:bg-cream-50"
-                >
-                  {row}
-                </Link>
-              ) : (
-                <div key={a.id} className="px-4 py-2.5 flex items-center justify-between gap-4">
-                  {row}
+              return (
+                <div key={a.id} className="px-4 py-2.5 flex items-center gap-3">
+                  {href ? (
+                    <Link
+                      href={href}
+                      className="flex-1 flex items-center justify-between gap-4 hover:text-crimson"
+                    >
+                      {info}
+                    </Link>
+                  ) : (
+                    <div className="flex-1 flex items-center justify-between gap-4">{info}</div>
+                  )}
+                  <form action={deleteAttempt} className="shrink-0">
+                    <input type="hidden" name="attempt_id" value={a.id} />
+                    <input type="hidden" name="student_id" value={studentId} />
+                    <Button variant="ghost" type="submit" className="!px-2 !py-1 text-[12px] text-alert">
+                      Remove
+                    </Button>
+                  </form>
                 </div>
               );
             })}
