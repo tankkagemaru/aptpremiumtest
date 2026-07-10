@@ -9,16 +9,21 @@ import { createTest } from "./actions";
 export default async function TestsPage({
   searchParams,
 }: {
-  searchParams: Promise<{ error?: string }>;
+  searchParams: Promise<{ error?: string; q?: string; status?: string }>;
 }) {
-  const { error } = await searchParams;
+  const { error, q, status } = await searchParams;
   const supabase = await createClient();
 
+  let testQuery = supabase
+    .from("mock_tests")
+    .select("id, title, is_published, created_at, exam:mock_exams(name)")
+    .order("created_at", { ascending: false });
+  if (q) testQuery = testQuery.ilike("title", `%${q}%`);
+  if (status === "published") testQuery = testQuery.eq("is_published", true);
+  else if (status === "draft") testQuery = testQuery.eq("is_published", false);
+
   const [{ data: tests }, { data: exams }] = await Promise.all([
-    supabase
-      .from("mock_tests")
-      .select("id, title, is_published, created_at, exam:mock_exams(name)")
-      .order("created_at", { ascending: false }),
+    testQuery,
     supabase.from("mock_exams").select("id, name").eq("is_active", true),
   ]);
 
@@ -64,9 +69,33 @@ export default async function TestsPage({
         </p>
       </Card>
 
+      <form method="get" className="flex flex-wrap items-end gap-3">
+        <div>
+          <label className="label-caps block mb-1">Search title</label>
+          <input
+            name="q"
+            defaultValue={q ?? ""}
+            placeholder="text…"
+            className="rounded-md border border-line bg-paper px-2.5 py-1.5 text-[13px] focus:outline-none focus:border-crimson"
+          />
+        </div>
+        <select
+          name="status"
+          defaultValue={status ?? ""}
+          className="rounded-md border border-line bg-paper px-2.5 py-1.5 text-[13px]"
+        >
+          <option value="">all</option>
+          <option value="published">published</option>
+          <option value="draft">draft</option>
+        </select>
+        <Button type="submit" variant="secondary">
+          Filter
+        </Button>
+      </form>
+
       {(tests ?? []).length === 0 ? (
         <Card className="p-6">
-          <p className="text-[14px] text-ink-muted">No tests yet.</p>
+          <p className="text-[14px] text-ink-muted">No tests match.</p>
         </Card>
       ) : (
         <Card className="divide-y divide-line">

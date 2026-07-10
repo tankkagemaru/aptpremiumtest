@@ -878,7 +878,17 @@ function TypeEditor({ type, q, opts, correct, patch, setOpt, setCorrect }: Edito
       return (
         <>
           {Prompt("Instruction")}
-          <MediaField label="Photo (mock-media)" folder="speaking" accept="image/*" value={q.media ?? ""} onChange={(p) => patch({ media: p })} />
+          <Txt
+            label="Image prompt (what the AI photo should show)"
+            value={(opts.image_prompt as string) ?? ""}
+            onChange={(v) => setOpt("image_prompt", v)}
+            placeholder="a busy outdoor street market"
+          />
+          <p className="text-[12px] text-ink-muted -mt-2">
+            Leave the photo below blank to generate it from this prompt on the
+            Speaking images page. Or upload your own.
+          </p>
+          <MediaField label="Photo (optional)" folder="speaking" accept="image/*" value={q.media ?? ""} onChange={(p) => patch({ media: p })} />
           <StringList label="Questions (3)" items={questions} onChange={(v) => setOpt("questions", v)} fixed={3} />
           <Txt label="Response seconds" value={String(opts.response_seconds ?? "")} onChange={(v) => setOpt("response_seconds", Number(v) || 0)} />
         </>
@@ -887,11 +897,18 @@ function TypeEditor({ type, q, opts, correct, patch, setOpt, setCorrect }: Edito
     case "s3_compare": {
       const questions = (opts.questions as string[]) ?? [];
       const images = (opts.images as string[]) ?? ["", ""];
+      const iprompts = (opts.image_prompts as string[]) ?? ["", ""];
       return (
         <>
           {Prompt("Instruction")}
-          <MediaField label="Photo 1" folder="speaking" accept="image/*" value={images[0] ?? ""} onChange={(p) => setOpt("images", [p, images[1] ?? ""])} />
-          <MediaField label="Photo 2" folder="speaking" accept="image/*" value={images[1] ?? ""} onChange={(p) => setOpt("images", [images[0] ?? "", p])} />
+          <Txt label="Image prompt 1" value={iprompts[0] ?? ""} onChange={(v) => setOpt("image_prompts", [v, iprompts[1] ?? ""])} placeholder="a quiet public library reading room" />
+          <Txt label="Image prompt 2" value={iprompts[1] ?? ""} onChange={(v) => setOpt("image_prompts", [iprompts[0] ?? "", v])} placeholder="a lively coffee shop" />
+          <p className="text-[12px] text-ink-muted -mt-2">
+            Leave the photos below blank to generate them from these prompts on the
+            Speaking images page.
+          </p>
+          <MediaField label="Photo 1 (optional)" folder="speaking" accept="image/*" value={images[0] ?? ""} onChange={(p) => setOpt("images", [p, images[1] ?? ""])} />
+          <MediaField label="Photo 2 (optional)" folder="speaking" accept="image/*" value={images[1] ?? ""} onChange={(p) => setOpt("images", [images[0] ?? "", p])} />
           <StringList label="Questions (3)" items={questions} onChange={(v) => setOpt("questions", v)} fixed={3} />
           <Txt label="Response seconds" value={String(opts.response_seconds ?? "")} onChange={(v) => setOpt("response_seconds", Number(v) || 0)} />
         </>

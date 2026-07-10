@@ -135,18 +135,41 @@ export async function saveQuestion(payload: string): Promise<{ error?: string } 
   redirect(PAGE);
 }
 
-/** Jump to a random active question's editor (optionally within a module). */
-export async function editRandomQuestion(formData: FormData) {
-  const module = String(formData.get("module") ?? "");
+/** Delete every question carrying a given tag (a whole set). Questions that
+ *  already have student answers are retired instead of deleted. */
+export async function deleteSet(formData: FormData) {
+  const tag = String(formData.get("tag") ?? "").trim();
+  if (!tag) fail(["No set specified."]);
+
   const supabase = await createClient();
-  let query = supabase.from("mock_questions").select("id").eq("is_active", true);
-  if (module) query = query.eq("module", module);
-  const { data } = await query;
-  if (!data || data.length === 0) {
-    redirect(`${PAGE}?error=${encodeURIComponent("No questions to edit yet.")}`);
+  const { data: qs } = await supabase
+    .from("mock_questions")
+    .select("id")
+    .contains("tags", [tag]);
+  const ids = (qs ?? []).map((q) => q.id);
+  if (ids.length === 0) fail([`No questions found with tag "${tag}".`]);
+
+  // Detach from any tests first (section links have no cascade)
+  await supabase.from("mock_section_questions").delete().in("question_id", ids);
+
+  // Questions with recorded answers can't be deleted — retire them
+  const { data: used } = await supabase
+    .from("mock_responses")
+    .select("question_id")
+    .in("question_id", ids);
+  const usedIds = new Set((used ?? []).map((r) => r.question_id));
+  const deletable = ids.filter((id) => !usedIds.has(id));
+  const retire = ids.filter((id) => usedIds.has(id));
+
+  if (deletable.length) await supabase.from("mock_questions").delete().in("id", deletable);
+  if (retire.length) {
+    await supabase.from("mock_questions").update({ is_active: false }).in("id", retire);
   }
-  const pick = data![Math.floor(Math.random() * data!.length)];
-  redirect(`${PAGE}/${pick.id}/edit`);
+
+  revalidatePath(PAGE);
+  redirect(
+    `${PAGE}?deleted=${deletable.length}&retired=${retire.length}&tag=${encodeURIComponent(tag)}`
+  );
 }
 
 export async function toggleQuestionActive(formData: FormData) {
