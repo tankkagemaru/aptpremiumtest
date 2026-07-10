@@ -65,7 +65,14 @@ export default async function SectionPage({
   };
   const questions: StudentQuestion[] = await Promise.all(
     orderedQuestions.map(async (q) => {
-      const signedMediaUrl = q.media_url ? await sign(q.media_url) : null;
+      // Listening audio is served (and generated-if-needed) by the /api/tts
+      // endpoint — no pre-signing, works even if not pre-generated.
+      const signedMediaUrl =
+        q.module === "listening"
+          ? `/api/tts?q=${q.id}`
+          : q.media_url
+            ? await sign(q.media_url)
+            : null;
       // s3_compare keeps its two images inside options.images
       const rawImages = (q.options?.images as string[] | undefined) ?? [];
       if (rawImages.length > 0) {

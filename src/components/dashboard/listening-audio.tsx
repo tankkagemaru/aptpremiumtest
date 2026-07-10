@@ -89,8 +89,10 @@ export function ListeningAudio() {
           </div>
         </div>
         <p className="text-[13px] text-ink-muted mt-3">
-          Audio is voiced from each question&apos;s transcript with an AI voice —
-          no recording needed. Multi-speaker transcripts get distinct voices.
+          Listening audio is voiced from each question&apos;s transcript automatically
+          the first time it&apos;s played — no recording needed. Pre-generating here is
+          optional: it warms the cache so students never wait on first play.
+          Multi-speaker transcripts get distinct voices.
         </p>
       </Card>
 
