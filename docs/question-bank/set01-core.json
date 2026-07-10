@@ -1,0 +1,313 @@
+{
+  "exam": "aptis-general",
+  "module": "core",
+  "questions": [
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "A1",
+      "prompt": "My cousin ______ a pilot for a large airline.",
+      "options": { "choices": ["is", "are", "am"] },
+      "correct_answers": { "choice": 0 },
+      "tags": ["set-01", "travel"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "A1",
+      "prompt": "The students ______ new tablets in the classroom.",
+      "options": { "choices": ["has", "have", "having"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-01", "education"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "A1",
+      "prompt": "She is reading ______ interesting book about trains.",
+      "options": { "choices": ["a", "an", "the"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-01", "travel"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "A1",
+      "prompt": "My brother ______ films every weekend.",
+      "options": { "choices": ["watch", "watching", "watches"] },
+      "correct_answers": { "choice": 2 },
+      "tags": ["set-01", "hobbies"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "A1",
+      "prompt": "The cinema is ______ the city centre.",
+      "options": { "choices": ["at", "in", "on"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-01", "city life"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "A2",
+      "prompt": "We ______ a documentary at the film club yesterday.",
+      "options": { "choices": ["watching", "watch", "watched"] },
+      "correct_answers": { "choice": 2 },
+      "tags": ["set-01", "hobbies"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "A2",
+      "prompt": "This laptop is ______ than my old one.",
+      "options": { "choices": ["fast", "faster", "fastest"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-01", "technology"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "A2",
+      "prompt": "Next month our class ______ visit a science museum.",
+      "options": { "choices": ["is going to", "going to", "went to"] },
+      "correct_answers": { "choice": 0 },
+      "tags": ["set-01", "education"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "A2",
+      "prompt": "She ______ to Japan for a holiday last year.",
+      "options": { "choices": ["goed", "went", "gone"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-01", "travel"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "A2",
+      "prompt": "There aren't ______ seats left for the evening show.",
+      "options": { "choices": ["much", "some", "many"] },
+      "correct_answers": { "choice": 2 },
+      "tags": ["set-01", "city life"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "B1",
+      "prompt": "I ______ this director's films since I was a teenager.",
+      "options": { "choices": ["enjoyed", "have enjoyed", "was enjoying"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-01", "hobbies"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "B1",
+      "prompt": "If the weather is good, we ______ the outdoor screening as planned.",
+      "options": { "choices": ["will hold", "would hold", "held"] },
+      "correct_answers": { "choice": 0 },
+      "tags": ["set-01", "education"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "B1",
+      "prompt": "If I ______ more free time, I would travel across Europe by train.",
+      "options": { "choices": ["have", "had", "would have"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-01", "travel"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "B1",
+      "prompt": "The new terminal ______ by thousands of passengers every day.",
+      "options": { "choices": ["uses", "is used", "using"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-01", "travel"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "B1",
+      "prompt": "Our film society ______ to that cinema three times this year.",
+      "options": { "choices": ["went", "has been", "have been"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-01", "education"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "B1",
+      "prompt": "My colleague ______ on the new travel app all morning.",
+      "options": { "choices": ["has been working", "is working", "worked"] },
+      "correct_answers": { "choice": 0 },
+      "tags": ["set-01", "technology"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "B2",
+      "prompt": "If they had booked earlier, they ______ a cheaper flight.",
+      "options": { "choices": ["would get", "would have got", "will get"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-01", "travel"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "B2",
+      "prompt": "The lecturer told the students that she ______ the results the following week.",
+      "options": { "choices": ["will announce", "would announce", "announces"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-01", "education"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "B2",
+      "prompt": "The engineer ______ designed the museum's booking system won a national award.",
+      "options": { "choices": ["who", "which", "whose"] },
+      "correct_answers": { "choice": 0 },
+      "tags": ["set-01", "technology"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "B2",
+      "prompt": "I wish I ______ more languages before I moved abroad to study.",
+      "options": { "choices": ["learnt", "had learnt", "have learnt"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-01", "education"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "B2",
+      "prompt": "We had the projector ______ before the festival began.",
+      "options": { "choices": ["repaired", "repairing", "to repair"] },
+      "correct_answers": { "choice": 0 },
+      "tags": ["set-01", "technology"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "C1",
+      "prompt": "No sooner ______ the lights dimmed than the audience fell completely silent.",
+      "options": { "choices": ["had", "have", "did"] },
+      "correct_answers": { "choice": 0 },
+      "tags": ["set-01", "hobbies"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "C1",
+      "prompt": "If she had studied engineering at university, she ______ a software developer today.",
+      "options": { "choices": ["will be", "would have been", "would be"] },
+      "correct_answers": { "choice": 2 },
+      "tags": ["set-01", "education"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "C1",
+      "prompt": "______ was the reliability of the high-speed trains that impressed the visitors most.",
+      "options": { "choices": ["It", "What", "There"] },
+      "correct_answers": { "choice": 0 },
+      "tags": ["set-01", "travel"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "C1",
+      "prompt": "You ______ have told me the venue had changed; I waited outside in the rain for an hour.",
+      "options": { "choices": ["might", "must", "can"] },
+      "correct_answers": { "choice": 0 },
+      "tags": ["set-01", "city life"]
+    },
+    {
+      "question_type": "vocab_set",
+      "difficulty": "A2",
+      "prompt": "Match each word on the left with the word in the bank that has the same meaning.",
+      "options": {
+        "kind": "synonym",
+        "bank": ["tiny", "simple", "beautiful", "wealthy", "freezing", "gentle", "clever", "distant", "hollow", "spicy"],
+        "items": [
+          { "text": "small" },
+          { "text": "easy" },
+          { "text": "pretty" },
+          { "text": "rich" },
+          { "text": "cold" }
+        ]
+      },
+      "correct_answers": { "answers": ["tiny", "simple", "beautiful", "wealthy", "freezing"] },
+      "tags": ["set-01", "education"]
+    },
+    {
+      "question_type": "vocab_set",
+      "difficulty": "B1",
+      "prompt": "Choose the word from the bank that matches each definition.",
+      "options": {
+        "kind": "definition",
+        "bank": ["tourist", "documentary", "fare", "passport", "platform", "souvenir", "subtitle", "luggage", "timetable", "receipt"],
+        "items": [
+          { "text": "a person who travels to a place for pleasure" },
+          { "text": "a film or programme that gives facts about real events" },
+          { "text": "the money you pay for a journey" },
+          { "text": "an official document that lets you travel between countries" },
+          { "text": "the place where you wait to get on a train" }
+        ]
+      },
+      "correct_answers": { "answers": ["tourist", "documentary", "fare", "passport", "platform"] },
+      "tags": ["set-01", "travel"]
+    },
+    {
+      "question_type": "vocab_set",
+      "difficulty": "B1",
+      "prompt": "Choose the word from the bank that best completes each sentence.",
+      "options": {
+        "kind": "usage",
+        "bank": ["validate", "guide", "stream", "summarise", "compare", "download", "translate", "reserve", "record", "display"],
+        "items": [
+          { "text": "Please remember to ______ your ticket at the machine before boarding." },
+          { "text": "Volunteers will ______ visitors around the museum on Saturday." },
+          { "text": "You can ______ the film online without saving it to your device." },
+          { "text": "Our teacher asked us to ______ the article in three sentences." },
+          { "text": "The new app helps travellers ______ prices across different airlines." }
+        ]
+      },
+      "correct_answers": { "answers": ["validate", "guide", "stream", "summarise", "compare"] },
+      "tags": ["set-01", "technology"]
+    },
+    {
+      "question_type": "vocab_set",
+      "difficulty": "B2",
+      "prompt": "Choose the verb from the bank that combines with each phrase to make a common collocation.",
+      "options": {
+        "kind": "collocation",
+        "bank": ["do", "make", "take", "pay", "score", "have", "get", "give", "reach", "keep"],
+        "items": [
+          { "text": "______ the housework" },
+          { "text": "______ a difference" },
+          { "text": "______ a photograph" },
+          { "text": "______ attention" },
+          { "text": "______ a goal in the final minute" }
+        ]
+      },
+      "correct_answers": { "answers": ["do", "make", "take", "pay", "score"] },
+      "tags": ["set-01", "sport"]
+    },
+    {
+      "question_type": "vocab_set",
+      "difficulty": "B2",
+      "prompt": "Match each word on the left with its meaning in the bank.",
+      "options": {
+        "kind": "matching",
+        "bank": [
+          "to travel regularly between home and work",
+          "able to be replaced naturally and used again",
+          "the latest time by which something must be finished",
+          "the subjects that are taught in a school or college",
+          "to change something so that it becomes better or more modern",
+          "to cancel a journey at short notice",
+          "a machine that cannot be repaired",
+          "the earliest time a task can begin",
+          "a short break between two school terms",
+          "to reduce the price of a product"
+        ],
+        "items": [
+          { "text": "commute" },
+          { "text": "renewable" },
+          { "text": "deadline" },
+          { "text": "curriculum" },
+          { "text": "upgrade" }
+        ]
+      },
+      "correct_answers": { "answers": [
+        "to travel regularly between home and work",
+        "able to be replaced naturally and used again",
+        "the latest time by which something must be finished",
+        "the subjects that are taught in a school or college",
+        "to change something so that it becomes better or more modern"
+      ] },
+      "tags": ["set-01", "education"]
+    }
+  ]
+}

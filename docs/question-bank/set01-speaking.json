@@ -1,0 +1,65 @@
+{
+  "exam": "aptis-general",
+  "module": "speaking",
+  "questions": [
+    {
+      "question_type": "s1_personal",
+      "difficulty": "A2",
+      "prompt": "Answer three questions about yourself. You have 30 seconds for each answer.",
+      "options": {
+        "questions": [
+          "Please tell me about your family.",
+          "What do you usually do at the weekend?",
+          "Tell me about the town or city where you live."
+        ],
+        "response_seconds": 30
+      },
+      "tags": ["set-01", "family"]
+    },
+    {
+      "question_type": "s2_photo",
+      "difficulty": "B1",
+      "prompt": "Describe the picture, then answer two questions. You have 45 seconds for each answer.",
+      "media": "speaking/set01-s2-cinema-audience.jpg",
+      "options": {
+        "questions": [
+          "Describe the picture.",
+          "Tell me about the last time you went to the cinema.",
+          "Do you prefer watching films at the cinema or at home? Why?"
+        ],
+        "response_seconds": 45
+      },
+      "tags": ["set-01", "hobbies"]
+    },
+    {
+      "question_type": "s3_compare",
+      "difficulty": "B2",
+      "prompt": "Compare the two pictures, then answer two questions. You have 45 seconds for each answer.",
+      "options": {
+        "images": ["speaking/set01-s3-airport.jpg", "speaking/set01-s3-train.jpg"],
+        "questions": [
+          "Describe and compare the two pictures.",
+          "Which of these ways of travelling would you prefer for a long journey? Why?",
+          "Why do you think people choose different ways of travelling?"
+        ],
+        "response_seconds": 45
+      },
+      "tags": ["set-01", "travel"]
+    },
+    {
+      "question_type": "s4_abstract",
+      "difficulty": "C1",
+      "prompt": "You will talk about one topic for two minutes. You have one minute to prepare your ideas.",
+      "options": {
+        "questions": [
+          "Tell me about a skill you have learned using the internet or a mobile app.",
+          "How did learning in this way make you feel?",
+          "Why do you think some people prefer learning online while others prefer a classroom?"
+        ],
+        "prep_seconds": 60,
+        "response_seconds": 120
+      },
+      "tags": ["set-01", "technology"]
+    }
+  ]
+}

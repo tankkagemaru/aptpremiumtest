@@ -1,0 +1,45 @@
+{
+  "exam": "aptis-general",
+  "module": "writing",
+  "questions": [
+    { "question_type": "w1_form",
+      "prompt": "You have just joined the City Kitchen Cooking Club. Answer the questions about yourself. Use 1–5 words for each answer.",
+      "options": { "questions": [
+        { "text": "What is your favourite dish to cook?" },
+        { "text": "How often do you cook at home?" },
+        { "text": "Who do you usually cook for?" },
+        { "text": "What food would you like to learn to make?" },
+        { "text": "When are you free to attend classes?" }
+      ] },
+      "tags": ["set-03", "hobbies"] },
+
+    { "question_type": "w2_short",
+      "prompt": "You are a new member of the City Kitchen Cooking Club. Write a short message to introduce yourself to the other members. Write 20–30 words.",
+      "options": { "min_words": 20, "max_words": 30 },
+      "tags": ["set-03", "hobbies"] },
+
+    { "question_type": "w3_chat",
+      "prompt": "You are chatting with other members in the club's online chat room. Reply to each message. Write 30–40 words for each reply.",
+      "options": { "messages": [
+        { "author": "Mei Ling", "text": "Welcome to the club! What made you want to join us?" },
+        { "author": "Hassan", "text": "We're planning next month's menu. What kind of food do you enjoy cooking most?" },
+        { "author": "Grace", "text": "Tell us about the best meal you have ever eaten." }
+      ], "min_words": 30, "max_words": 40 },
+      "tags": ["set-03", "hobbies"] },
+
+    { "question_type": "w4_email",
+      "prompt": "You have received this email from the City Kitchen Cooking Club. Write two replies.",
+      "options": {
+        "email": {
+          "subject": "Important change to our Saturday classes",
+          "from": "City Kitchen Cooking Club",
+          "body": "Dear member, We are writing to let you know that, from the first of next month, our Saturday cooking classes will move to a new kitchen at Northgate Community Hall. The current centre is being refurbished and will be closed for six months. Classes will also start one hour earlier, at nine o'clock, so please try to arrive in good time. The new hall has more space and much better equipment. We hope you will enjoy the change. Kind regards, The Committee"
+        },
+        "tasks": [
+          { "register": "informal", "audience": "a friend in the club", "min_words": 40, "max_words": 50 },
+          { "register": "formal", "audience": "the club manager", "min_words": 120, "max_words": 150 }
+        ]
+      },
+      "tags": ["set-03", "hobbies"] }
+  ]
+}

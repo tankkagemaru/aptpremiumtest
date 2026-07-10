@@ -454,8 +454,13 @@ function TypeEditor({ type, q, opts, correct, patch, setOpt, setCorrect }: Edito
   );
   const Listening = () => (
     <>
-      <MediaField label="Audio (mock-media)" folder="listening" accept="audio/*" value={q.media ?? ""} onChange={(p) => patch({ media: p })} />
       <Area label="Transcript" value={q.passage ?? ""} onChange={(v) => patch({ passage: v })} rows={4} />
+      <p className="text-[12px] text-ink-muted -mt-2">
+        Audio is voiced from this transcript on the Listening audio page — no
+        upload needed. Use cues like <code>[Man]</code> / <code>[Woman]</code> for
+        distinct speaker voices. To use your own recording instead, upload it below.
+      </p>
+      <MediaField label="Audio (optional)" folder="listening" accept="audio/*" value={q.media ?? ""} onChange={(p) => patch({ media: p })} />
     </>
   );
 

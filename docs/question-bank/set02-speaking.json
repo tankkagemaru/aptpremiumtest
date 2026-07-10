@@ -1,0 +1,65 @@
+{
+  "exam": "aptis-general",
+  "module": "speaking",
+  "questions": [
+    {
+      "question_type": "s1_personal",
+      "difficulty": "A2",
+      "prompt": "Answer three questions about yourself.",
+      "options": {
+        "questions": [
+          "What do you usually eat for breakfast?",
+          "How do you travel to school or work?",
+          "What do you like to do at the weekend?"
+        ],
+        "response_seconds": 30
+      },
+      "tags": ["set-02", "food"]
+    },
+    {
+      "question_type": "s2_photo",
+      "difficulty": "B1",
+      "prompt": "Describe the picture, then answer two questions.",
+      "media": "speaking/set02-s2-hilltop-picnic.jpg",
+      "options": {
+        "questions": [
+          "Describe the picture.",
+          "Tell me about a time you ate a meal outdoors.",
+          "Do you prefer eating at home or outside in nature? Why?"
+        ],
+        "response_seconds": 45
+      },
+      "tags": ["set-02", "food"]
+    },
+    {
+      "question_type": "s3_compare",
+      "difficulty": "B2",
+      "prompt": "Compare the two pictures, then answer two questions.",
+      "options": {
+        "images": ["speaking/set02-s3-mountain.jpg", "speaking/set02-s3-gym.jpg"],
+        "questions": [
+          "Describe and compare the two pictures.",
+          "Which type of exercise would you prefer? Why?",
+          "Why do you think some people prefer exercising outdoors while others prefer a gym?"
+        ],
+        "response_seconds": 45
+      },
+      "tags": ["set-02", "health"]
+    },
+    {
+      "question_type": "s4_abstract",
+      "difficulty": "C1",
+      "prompt": "You will talk about one topic for two minutes. You have one minute to prepare.",
+      "options": {
+        "questions": [
+          "Tell me about a time you set yourself a difficult physical challenge.",
+          "How did you feel while you were doing it?",
+          "Why do you think some people enjoy pushing themselves to achieve difficult goals?"
+        ],
+        "prep_seconds": 60,
+        "response_seconds": 120
+      },
+      "tags": ["set-02", "health"]
+    }
+  ]
+}

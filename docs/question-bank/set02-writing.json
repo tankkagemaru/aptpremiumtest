@@ -1,0 +1,60 @@
+{
+  "exam": "aptis-general",
+  "module": "writing",
+  "questions": [
+    {
+      "question_type": "w1_form",
+      "difficulty": "A2",
+      "prompt": "You are joining the Highland Trails Hiking Club. Answer the questions. Use 1-5 words.",
+      "options": {
+        "questions": [
+          { "text": "How often do you go walking?" },
+          { "text": "What is your favourite kind of scenery?" },
+          { "text": "What do you usually take on a hike?" },
+          { "text": "Who do you like to walk with?" },
+          { "text": "Which trail would you like to try?" }
+        ]
+      },
+      "tags": ["set-02", "hiking"]
+    },
+    {
+      "question_type": "w2_short",
+      "difficulty": "A2",
+      "prompt": "You are a new member of the Highland Trails Hiking Club. Tell the club a little about yourself and why you enjoy walking. Write 20-30 words.",
+      "options": { "min_words": 20, "max_words": 30 },
+      "tags": ["set-02", "hiking"]
+    },
+    {
+      "question_type": "w3_chat",
+      "difficulty": "B1",
+      "prompt": "You are chatting with members in the Highland Trails Hiking Club group chat. Reply to each message. Write 30-40 words per reply.",
+      "options": {
+        "messages": [
+          { "author": "Diana", "text": "Welcome to the club! What made you want to join our hikes?" },
+          { "author": "Rashid", "text": "We're planning a picnic at the summit next month. What food should we bring?" },
+          { "author": "Chloe", "text": "Tell us about a beautiful place in nature that you have visited." }
+        ],
+        "min_words": 30,
+        "max_words": 40
+      },
+      "tags": ["set-02", "food"]
+    },
+    {
+      "question_type": "w4_email",
+      "difficulty": "B2",
+      "prompt": "You received this email from the Highland Trails Hiking Club. Write two replies.",
+      "options": {
+        "email": {
+          "subject": "Important change to our Saturday walks",
+          "from": "The Highland Trails Committee",
+          "body": "Dear members, We are writing to tell you about an important change to our Saturday walks. From 1 August, our meeting point will move from the town square to the new Riverside car park, and we will set off half an hour earlier, at 7:30 a.m. This change lets us reach the trails before they become busy and helps us avoid the town-centre traffic. Any regular walker who needs a lift should contact the committee. We hope you understand, and we look forward to seeing you. Best wishes, The Highland Trails Committee"
+        },
+        "tasks": [
+          { "register": "informal", "audience": "a friend in the club", "min_words": 40, "max_words": 50 },
+          { "register": "formal", "audience": "the club committee", "min_words": 120, "max_words": 150 }
+        ]
+      },
+      "tags": ["set-02", "hiking"]
+    }
+  ]
+}

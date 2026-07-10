@@ -92,7 +92,13 @@ All indices are **0-based**.
   "correct_answers": { "answers": [1, 0] } }
 ```
 
-## Listening (media + transcript required on every item)
+## Listening (transcript required; audio auto-generated)
+
+> **Audio is voiced from the `passage` transcript** using AI text-to-speech on the
+> dashboard's **Listening audio** page — you do not need to record or upload audio.
+> `media` is optional; include it only to use your own recording instead.
+> Use speaker cues like `[Man]` / `[Woman]` / `[Speaker A]` in the transcript and
+> each speaker gets a distinct voice.
 
 `l1_mc4`
 ```json

@@ -1,0 +1,43 @@
+{
+  "exam": "aptis-general",
+  "module": "speaking",
+  "questions": [
+    { "question_type": "s1_personal",
+      "prompt": "Answer three questions about yourself. You have 30 seconds for each answer.",
+      "options": { "questions": [
+        "Please tell me about your daily routine.",
+        "What kinds of food do you like to eat?",
+        "Describe your favourite place in your home town."
+      ], "response_seconds": 30 },
+      "tags": ["set-03", "food"] },
+
+    { "question_type": "s2_photo",
+      "prompt": "Describe the picture, then answer two questions. You have 45 seconds for each answer.",
+      "media": "speaking/set03-s2-cooking-class.jpg",
+      "options": { "questions": [
+        "Describe the picture.",
+        "Tell me about a time you cooked or prepared food together with other people.",
+        "Do you prefer cooking at home or eating in restaurants? Why?"
+      ], "response_seconds": 45 },
+      "tags": ["set-03", "hobbies"] },
+
+    { "question_type": "s3_compare",
+      "prompt": "Compare the two pictures, then answer two questions. You have 45 seconds for each answer.",
+      "options": { "images": ["speaking/set03-s3-street-food.jpg", "speaking/set03-s3-restaurant.jpg"],
+        "questions": [
+          "Describe and compare the two pictures.",
+          "Which of these places would you prefer to eat at? Why?",
+          "Why do you think people choose to eat out in different kinds of places?"
+        ], "response_seconds": 45 },
+      "tags": ["set-03", "food"] },
+
+    { "question_type": "s4_abstract",
+      "prompt": "You will talk about one topic for two minutes. You have one minute to prepare.",
+      "options": { "questions": [
+        "Tell me about a skill you have learned as an adult.",
+        "How did you feel while you were learning it?",
+        "Why do you think some people give up when learning something new, while others keep going?"
+      ], "prep_seconds": 60, "response_seconds": 120 },
+      "tags": ["set-03", "work"] }
+  ]
+}

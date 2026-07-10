@@ -18,60 +18,67 @@ function fail(errors: string[]): never {
 }
 
 export async function importQuestions(formData: FormData) {
-  const file = formData.get("file");
-  if (!(file instanceof File) || file.size === 0) fail(["Choose a .json file first."]);
-  if (file.size > 5 * 1024 * 1024) fail(["File is larger than 5 MB."]);
-
-  let raw: unknown;
-  try {
-    raw = JSON.parse(await file.text());
-  } catch {
-    fail(["The file is not valid JSON."]);
-  }
-
-  const result = validateImportFile(raw);
-  if (!result.ok || !result.file) fail(result.errors);
-  const data = result.file;
+  const files = formData
+    .getAll("file")
+    .filter((f): f is File => f instanceof File && f.size > 0);
+  if (files.length === 0) fail(["Choose one or more .json files first."]);
 
   const supabase = await createClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();
 
-  const { data: exam } = await supabase
-    .from("mock_exams")
-    .select("id")
-    .eq("code", data.exam)
-    .maybeSingle();
-  if (!exam) fail([`Unknown exam code "${data.exam}".`]);
-
-  const rows = data.questions.map((q) => ({
-    exam_id: exam.id,
-    module: data.module,
-    part: q.part ?? TYPE_PARTS[q.question_type].part,
-    question_type: q.question_type,
-    prompt: q.prompt ?? null,
-    passage: q.passage ?? null,
-    media_url: q.media ?? null,
-    options: q.options ?? null,
-    correct_answers: q.correct_answers ?? null,
-    points: q.points ?? 1,
-    difficulty: q.difficulty ?? null,
-    tags: q.tags ?? null,
-    created_by: user?.id ?? null,
-  }));
-
-  // Insert in chunks so one bad row doesn't abort a large import silently.
   let imported = 0;
-  for (let i = 0; i < rows.length; i += 50) {
-    const chunk = rows.slice(i, i + 50);
-    const { error } = await supabase.from("mock_questions").insert(chunk);
-    if (error) fail([`Imported ${imported} of ${rows.length}, then failed: ${error.message}`]);
-    imported += chunk.length;
+
+  for (const file of files) {
+    if (file.size > 5 * 1024 * 1024) fail([`${file.name} is larger than 5 MB.`]);
+    let raw: unknown;
+    try {
+      raw = JSON.parse(await file.text());
+    } catch {
+      fail([`${file.name} is not valid JSON.`]);
+    }
+    const result = validateImportFile(raw);
+    if (!result.ok || !result.file) {
+      fail([`${file.name}:`, ...result.errors]);
+    }
+    const data = result.file;
+
+    const { data: exam } = await supabase
+      .from("mock_exams")
+      .select("id")
+      .eq("code", data.exam)
+      .maybeSingle();
+    if (!exam) fail([`${file.name}: unknown exam code "${data.exam}".`]);
+
+    const rows = data.questions.map((q) => ({
+      exam_id: exam.id,
+      module: data.module,
+      part: q.part ?? TYPE_PARTS[q.question_type].part,
+      question_type: q.question_type,
+      prompt: q.prompt ?? null,
+      passage: q.passage ?? null,
+      media_url: q.media ?? null,
+      options: q.options ?? null,
+      correct_answers: q.correct_answers ?? null,
+      points: q.points ?? 1,
+      difficulty: q.difficulty ?? null,
+      tags: q.tags ?? null,
+      created_by: user?.id ?? null,
+    }));
+
+    for (let i = 0; i < rows.length; i += 50) {
+      const chunk = rows.slice(i, i + 50);
+      const { error } = await supabase.from("mock_questions").insert(chunk);
+      if (error) {
+        fail([`Imported ${imported} so far, then ${file.name} failed: ${error.message}`]);
+      }
+      imported += chunk.length;
+    }
   }
 
   revalidatePath(PAGE);
-  redirect(`${PAGE}?imported=${imported}&module=${data.module}`);
+  redirect(`${PAGE}?imported=${imported}&files=${files.length}`);
 }
 
 /** Create or update one question from the form-based editor. */

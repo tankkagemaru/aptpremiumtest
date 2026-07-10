@@ -1,0 +1,309 @@
+{
+  "exam": "aptis-general",
+  "module": "core",
+  "questions": [
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "A1",
+      "prompt": "There ______ a small lake near the start of the trail.",
+      "options": { "choices": ["is", "are", "be"] },
+      "correct_answers": { "choice": 0 },
+      "tags": ["set-02", "environment"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "A1",
+      "prompt": "We ______ walking in the fresh mountain air.",
+      "options": { "choices": ["like", "likes", "liking"] },
+      "correct_answers": { "choice": 0 },
+      "tags": ["set-02", "health"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "A1",
+      "prompt": "High above the cliff, we saw ______ eagle.",
+      "options": { "choices": ["a", "an", "the"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-02", "environment"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "A1",
+      "prompt": "My new walking boots ______ very comfortable.",
+      "options": { "choices": ["is", "am", "are"] },
+      "correct_answers": { "choice": 2 },
+      "tags": ["set-02", "hiking"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "A1",
+      "prompt": "The narrow path ______ beside the river.",
+      "options": { "choices": ["go", "goes", "going"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-02", "environment"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "A2",
+      "prompt": "Last weekend we ______ to the top of the hill.",
+      "options": { "choices": ["walk", "walked", "walking"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-02", "hiking"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "A2",
+      "prompt": "This trail is ______ than the coastal one.",
+      "options": { "choices": ["steepest", "steep", "steeper"] },
+      "correct_answers": { "choice": 2 },
+      "tags": ["set-02", "environment"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "A2",
+      "prompt": "We ______ to plant young trees by the lake next Sunday.",
+      "options": { "choices": ["going", "are going", "go"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-02", "environment"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "A2",
+      "prompt": "Look — it ______ raining over the valley now.",
+      "options": { "choices": ["are", "is", "be"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-02", "environment"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "A2",
+      "prompt": "There aren't ______ people on the trail today.",
+      "options": { "choices": ["much", "many", "some"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-02", "hiking"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "B1",
+      "prompt": "We ______ never seen so many wild deer on one walk.",
+      "options": { "choices": ["have", "has", "had"] },
+      "correct_answers": { "choice": 0 },
+      "tags": ["set-02", "environment"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "B1",
+      "prompt": "If it rains tomorrow, we ______ the hike until next week.",
+      "options": { "choices": ["postpone", "will postpone", "would postpone"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-02", "hiking"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "B1",
+      "prompt": "If I ______ fitter, I would join the mountain race.",
+      "options": { "choices": ["am", "were", "will be"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-02", "health"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "B1",
+      "prompt": "The wooden footbridge ______ built two years ago.",
+      "options": { "choices": ["was", "were", "is"] },
+      "correct_answers": { "choice": 0 },
+      "tags": ["set-02", "environment"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "B1",
+      "prompt": "My legs ache because I ______ walking all day.",
+      "options": { "choices": ["was", "have been", "am"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-02", "health"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "B1",
+      "prompt": "There ______ a café at the trailhead, but it closed last year.",
+      "options": { "choices": ["used to be", "use to be", "used to being"] },
+      "correct_answers": { "choice": 0 },
+      "tags": ["set-02", "food"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "B2",
+      "prompt": "If we ______ earlier, we would have reached the peak before dark.",
+      "options": { "choices": ["left", "had left", "have left"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-02", "hiking"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "B2",
+      "prompt": "The guide told us that the weather ______ change quickly in the hills.",
+      "options": { "choices": ["can", "could", "will"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-02", "environment"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "B2",
+      "prompt": "That is the ranger ______ dog found the lost walker.",
+      "options": { "choices": ["whose", "who", "which"] },
+      "correct_answers": { "choice": 0 },
+      "tags": ["set-02", "hiking"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "B2",
+      "prompt": "I wish I ______ brought more water on that hot climb.",
+      "options": { "choices": ["had", "have", "would"] },
+      "correct_answers": { "choice": 0 },
+      "tags": ["set-02", "health"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "B2",
+      "prompt": "Before the trip, we ______ our old tent repaired at the shop.",
+      "options": { "choices": ["did", "had", "made"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-02", "hiking"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "C1",
+      "prompt": "______ had we set off than a thick fog rolled in.",
+      "options": { "choices": ["No sooner", "Hardly", "Not until"] },
+      "correct_answers": { "choice": 0 },
+      "tags": ["set-02", "environment"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "C1",
+      "prompt": "If she had trained harder last winter, she ______ on the expedition team now.",
+      "options": { "choices": ["would have been", "would be", "will be"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-02", "sport"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "C1",
+      "prompt": "______ was the deep silence of the forest that impressed me most.",
+      "options": { "choices": ["There", "It", "What"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-02", "environment"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "C1",
+      "prompt": "She ______ well have taken the lower path; nobody is certain.",
+      "options": { "choices": ["can", "may", "must"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-02", "hiking"]
+    },
+    {
+      "question_type": "vocab_set",
+      "difficulty": "A2",
+      "prompt": "Match each word with the word that has the same meaning.",
+      "options": {
+        "kind": "synonym",
+        "bank": ["large", "delicious", "exhausted", "freezing", "rapid", "sweet", "heavy", "gentle", "narrow", "empty"],
+        "items": [{ "text": "big" }, { "text": "tasty" }, { "text": "tired" }, { "text": "cold" }, { "text": "quick" }]
+      },
+      "correct_answers": { "answers": ["large", "delicious", "exhausted", "freezing", "rapid"] },
+      "tags": ["set-02", "food"]
+    },
+    {
+      "question_type": "vocab_set",
+      "difficulty": "B1",
+      "prompt": "Choose the word that matches each definition.",
+      "options": {
+        "kind": "definition",
+        "bank": ["summit", "litter", "compass", "habitat", "boulder", "trail", "shelter", "ridge", "current", "drizzle"],
+        "items": [
+          { "text": "the highest point of a mountain" },
+          { "text": "rubbish left in a public place" },
+          { "text": "a tool that shows you which direction is north" },
+          { "text": "the natural home of an animal or plant" },
+          { "text": "a very large rock" }
+        ]
+      },
+      "correct_answers": { "answers": ["summit", "litter", "compass", "habitat", "boulder"] },
+      "tags": ["set-02", "environment"]
+    },
+    {
+      "question_type": "vocab_set",
+      "difficulty": "B1",
+      "prompt": "Choose the word that best completes each sentence.",
+      "options": {
+        "kind": "usage",
+        "bank": ["stamina", "sunburn", "blister", "dehydrated", "sprain", "muscle", "posture", "appetite", "injury", "bruise"],
+        "items": [
+          { "text": "After hours in the sun with no water, several walkers became badly ______." },
+          { "text": "Wearing the wrong socks gave me a painful ______ on my heel." },
+          { "text": "Regular hill walking builds the ______ you need for longer routes." },
+          { "text": "She twisted her ankle and suffered a mild ______." },
+          { "text": "A big breakfast gave the team a healthy ______ for the climb." }
+        ]
+      },
+      "correct_answers": { "answers": ["dehydrated", "blister", "stamina", "sprain", "appetite"] },
+      "tags": ["set-02", "health"]
+    },
+    {
+      "question_type": "vocab_set",
+      "difficulty": "B2",
+      "prompt": "Choose the word that goes with each word to make a common expression.",
+      "options": {
+        "kind": "collocation",
+        "bank": ["footprint", "forecast", "bag", "pole", "lunch", "engine", "window", "garden", "pillow", "curtain"],
+        "items": [
+          { "text": "carbon ______" },
+          { "text": "weather ______" },
+          { "text": "sleeping ______" },
+          { "text": "walking ______" },
+          { "text": "packed ______" }
+        ]
+      },
+      "correct_answers": { "answers": ["footprint", "forecast", "bag", "pole", "lunch"] },
+      "tags": ["set-02", "environment"]
+    },
+    {
+      "question_type": "vocab_set",
+      "difficulty": "B2",
+      "prompt": "Match each word with its correct explanation.",
+      "options": {
+        "kind": "matching",
+        "bank": [
+          "food that spoils quickly unless it is kept cool",
+          "to fill a container again",
+          "the amount of food served to one person",
+          "to limit supplies so that they last longer",
+          "the process of taking in enough water",
+          "food that is very good for your health",
+          "a small bite taken between meals",
+          "food left uneaten after a meal",
+          "a substance added to improve flavour",
+          "a container that keeps drinks hot"
+        ],
+        "items": [
+          { "text": "perishable" },
+          { "text": "refill" },
+          { "text": "portion" },
+          { "text": "ration" },
+          { "text": "hydration" }
+        ]
+      },
+      "correct_answers": {
+        "answers": [
+          "food that spoils quickly unless it is kept cool",
+          "to fill a container again",
+          "the amount of food served to one person",
+          "to limit supplies so that they last longer",
+          "the process of taking in enough water"
+        ]
+      },
+      "tags": ["set-02", "food"]
+    }
+  ]
+}

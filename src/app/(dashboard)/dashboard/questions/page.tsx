@@ -17,10 +17,11 @@ export default async function QuestionsPage({
   searchParams: Promise<{
     error?: string;
     imported?: string;
+    files?: string;
     module?: string;
   }>;
 }) {
-  const { error, imported, module: moduleFilter } = await searchParams;
+  const { error, imported, files, module: moduleFilter } = await searchParams;
   const supabase = await createClient();
 
   const counts = await Promise.all(
@@ -50,7 +51,10 @@ export default async function QuestionsPage({
           <p className="label-caps mb-2">02 · Question bank</p>
           <h1 className="text-2xl">Question bank</h1>
         </div>
-        <div className="flex gap-2">
+        <div className="flex flex-wrap gap-2">
+          <Link href="/dashboard/questions/audio">
+            <Button variant="secondary">Listening audio</Button>
+          </Link>
           <form action={editRandomQuestion}>
             <input type="hidden" name="module" value={moduleFilter ?? ""} />
             <Button variant="secondary" type="submit">
@@ -70,7 +74,8 @@ export default async function QuestionsPage({
       ) : null}
       {imported ? (
         <p className="rounded-md bg-good-bg text-good px-3 py-2 text-[13px]">
-          Imported {imported} question{imported === "1" ? "" : "s"}.
+          Imported {imported} question{imported === "1" ? "" : "s"}
+          {files ? ` from ${files} file${files === "1" ? "" : "s"}` : ""}.
         </p>
       ) : null}
 
@@ -93,15 +98,17 @@ export default async function QuestionsPage({
         <Card className="p-6">
           <h2 className="text-lg mb-1">Import questions</h2>
           <p className="text-[13px] text-ink-muted mb-4">
-            Upload a .json file in the import format (see{" "}
+            Upload one or more .json files in the import format (see{" "}
             <code className="figures text-[12px]">docs/question-import-format.md</code>
-            ). The file is validated before anything is saved.
+            ). Select several at once to import a whole set. Each file is
+            validated before anything is saved.
           </p>
           <form action={importQuestions} className="flex flex-wrap items-center gap-3">
             <input
               type="file"
               name="file"
               accept=".json,application/json"
+              multiple
               required
               className="text-[13px] text-ink-soft file:mr-3 file:rounded-md file:border file:border-line file:bg-paper file:px-3 file:py-1.5 file:text-ink"
             />

@@ -1,0 +1,170 @@
+{
+  "exam": "aptis-general",
+  "module": "core",
+  "questions": [
+    { "question_type": "grammar_mc3", "difficulty": "A1",
+      "prompt": "My brother ______ a very keen swimmer.",
+      "options": { "choices": ["are", "is", "be"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-03", "sport"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A1",
+      "prompt": "We ______ football practice every Tuesday evening.",
+      "options": { "choices": ["have", "has", "having"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-03", "sport"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A1",
+      "prompt": "There is ______ old market in the city centre.",
+      "options": { "choices": ["a", "an", "the"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-03", "city life"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A1",
+      "prompt": "My father ______ fresh vegetables in his garden.",
+      "options": { "choices": ["grows", "grow", "growing"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-03", "hobbies"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A1",
+      "prompt": "We play basketball ______ Saturday mornings.",
+      "options": { "choices": ["in", "on", "at"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-03", "sport"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A2",
+      "prompt": "Last weekend we ______ a new café near the stadium.",
+      "options": { "choices": ["visit", "visited", "visiting"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-03", "city life"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A2",
+      "prompt": "Tennis is ______ than I expected, so my arms really ache.",
+      "options": { "choices": ["tiring", "more tiring", "most tiring"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-03", "sport"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A2",
+      "prompt": "Next month they ______ open a new sports centre in town.",
+      "options": { "choices": ["are going to", "going to", "will to"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-03", "city life"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A2",
+      "prompt": "He ______ arrives early for training on match days.",
+      "options": { "choices": ["always", "is always", "always is"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-03", "sport"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A2",
+      "prompt": "There aren't ______ parking spaces near the arena.",
+      "options": { "choices": ["much", "many", "a lot"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-03", "city life"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B1",
+      "prompt": "I ______ tennis for five years, and I still love the game.",
+      "options": { "choices": ["play", "have played", "played"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-03", "sport"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B1",
+      "prompt": "If the weather improves, we ______ the match outdoors.",
+      "options": { "choices": ["will hold", "would hold", "held"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-03", "sport"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B1",
+      "prompt": "If I had more free time, I ______ join the rowing team.",
+      "options": { "choices": ["will", "would", "can"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-03", "hobbies"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B1",
+      "prompt": "Last year a new stadium ______ next to the river.",
+      "options": { "choices": ["built", "was built", "has been building"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-03", "city life"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B1",
+      "prompt": "You ______ book the court in advance, because it gets very busy.",
+      "options": { "choices": ["might", "should", "could"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-03", "sport"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B1",
+      "prompt": "She ______ for the city marathon since January.",
+      "options": { "choices": ["trains", "is training", "has been training"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-03", "sport"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B2",
+      "prompt": "If we ______ earlier, we would have caught the first bus to the game.",
+      "options": { "choices": ["had left", "left", "have left"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-03", "city life"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B2",
+      "prompt": "The coach said that the training session ______ the following week.",
+      "options": { "choices": ["would start", "will start", "starts"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-03", "sport"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B2",
+      "prompt": "The chef ______ recipe won the contest now runs our weekend workshop.",
+      "options": { "choices": ["who", "whose", "which"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-03", "hobbies"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B2",
+      "prompt": "I wish I ______ more time to practise the guitar at weekends.",
+      "options": { "choices": ["had", "have", "would have"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-03", "hobbies"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B2",
+      "prompt": "By the time we arrived, the workshop ______ already begun.",
+      "options": { "choices": ["has", "had", "was"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-03", "work"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "C1",
+      "prompt": "Not only ______ the venue changed, but the start time had moved too.",
+      "options": { "choices": ["did", "had", "was"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-03", "work"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "C1",
+      "prompt": "If she had trained harder last season, she ______ a professional player now.",
+      "options": { "choices": ["would be", "would have been", "will be"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-03", "sport"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "C1",
+      "prompt": "______ impressed the judges most was the team's sheer determination.",
+      "options": { "choices": ["What", "That", "Which"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-03", "work"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "C1",
+      "prompt": "You ______ have told me the class was cancelled — I waited a whole hour!",
+      "options": { "choices": ["must", "might", "need"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-03", "hobbies"] },
+
+    { "question_type": "vocab_set", "difficulty": "A2",
+      "prompt": "Choose the word from the bank that has the same meaning as each word below.",
+      "options": { "kind": "synonym",
+        "bank": ["large", "fast", "delicious", "exhausted", "cheerful", "narrow", "gentle", "empty", "modern", "polite"],
+        "items": [ { "text": "big" }, { "text": "quick" }, { "text": "tasty" }, { "text": "tired" }, { "text": "happy" } ] },
+      "correct_answers": { "answers": ["large", "fast", "delicious", "exhausted", "cheerful"] },
+      "tags": ["set-03", "hobbies"] },
+
+    { "question_type": "vocab_set", "difficulty": "B1",
+      "prompt": "Match each cooking word with its definition.",
+      "options": { "kind": "definition",
+        "bank": ["a set of instructions for preparing a dish", "a food item used to make a dish", "a tool used when preparing food", "an amount of food for one person", "food remaining after a meal", "a place where meals are sold to the public", "a person who serves food in a restaurant", "the price charged for a meal", "a container used for storing cold drinks", "a written list of the dishes available"],
+        "items": [ { "text": "recipe" }, { "text": "ingredient" }, { "text": "utensil" }, { "text": "portion" }, { "text": "leftovers" } ] },
+      "correct_answers": { "answers": ["a set of instructions for preparing a dish", "a food item used to make a dish", "a tool used when preparing food", "an amount of food for one person", "food remaining after a meal"] },
+      "tags": ["set-03", "hobbies"] },
+
+    { "question_type": "vocab_set", "difficulty": "B1",
+      "prompt": "Choose the word from the bank that best completes each sentence.",
+      "options": { "kind": "usage",
+        "bank": ["preheat", "postpone", "chop", "renew", "renovate", "borrow", "whisper", "celebrate", "deliver", "measure"],
+        "items": [ { "text": "Please ______ the oven to 180 degrees before you start baking." }, { "text": "The referee may ______ the match if the rain gets heavier." }, { "text": "You should ______ the onions finely before adding them to the pan." }, { "text": "Remember to ______ your club membership before it expires." }, { "text": "The council plans to ______ the old market hall next year." } ] },
+      "correct_answers": { "answers": ["preheat", "postpone", "chop", "renew", "renovate"] },
+      "tags": ["set-03", "work"] },
+
+    { "question_type": "vocab_set", "difficulty": "B2",
+      "prompt": "Choose the word from the bank that goes with each verb to make a common expression.",
+      "options": { "kind": "collocation",
+        "bank": ["cake", "goal", "club", "recipe", "record", "garden", "photo", "corner", "ticket", "habit"],
+        "items": [ { "text": "bake a ______" }, { "text": "score a ______" }, { "text": "join a ______" }, { "text": "follow a ______" }, { "text": "set a ______" } ] },
+      "correct_answers": { "answers": ["cake", "goal", "club", "recipe", "record"] },
+      "tags": ["set-03", "hobbies"] },
+
+    { "question_type": "vocab_set", "difficulty": "B2",
+      "prompt": "Match each word about work with the phrase that explains it.",
+      "options": { "kind": "matching",
+        "bank": ["the time by which a task must be finished", "a person you work with", "the daily journey between home and work", "extra hours worked beyond the normal schedule", "a set period of working time in a workplace", "a short holiday taken away from work", "money paid to staff at the end of the year", "a meeting held early every morning", "a room where staff eat their lunch", "the person in charge of a department"],
+        "items": [ { "text": "deadline" }, { "text": "colleague" }, { "text": "commute" }, { "text": "overtime" }, { "text": "shift" } ] },
+      "correct_answers": { "answers": ["the time by which a task must be finished", "a person you work with", "the daily journey between home and work", "extra hours worked beyond the normal schedule", "a set period of working time in a workplace"] },
+      "tags": ["set-03", "work"] }
+  ]
+}

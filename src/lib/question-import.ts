@@ -113,26 +113,24 @@ function checkQuestion(q: ImportQuestion): string[] {
       if (!isStrArr(o.headings)) e.push("options.headings must be the heading list");
       if (!isArr(c.answers)) e.push("correct_answers.answers must map each paragraph to a heading index");
       break;
+    // Listening: audio is generated from the transcript (passage), so `media`
+    // is optional — supply it only to use your own recording instead.
     case "l1_mc4":
-      if (!q.media) e.push("media (audio path in mock-media) is required");
       if (!q.passage) e.push("passage (audio transcript) is required");
       if (!isStrArr(o.choices, 4)) e.push("options.choices must be 4 strings");
       if (typeof c.choice !== "number") e.push("correct_answers.choice must be a 0-based index");
       break;
     case "l2_speaker_match":
-      if (!q.media) e.push("media (audio path) is required");
       if (!q.passage) e.push("passage (transcript) is required");
       if (!isStrArr(o.statements)) e.push("options.statements must be an array");
       if (!isArr(c.answers)) e.push("correct_answers.answers must map statements to speakers (0-3)");
       break;
     case "l3_opinion_id":
-      if (!q.media) e.push("media (audio path) is required");
       if (!q.passage) e.push("passage (transcript) is required");
       if (!isStrArr(o.statements)) e.push("options.statements must be an array");
       if (!isArr(c.answers)) e.push('correct_answers.answers must be "man"|"woman"|"both" per statement');
       break;
     case "l4_monologue_mc":
-      if (!q.media) e.push("media (audio path) is required");
       if (!q.passage) e.push("passage (transcript) is required");
       if (!isArr(o.questions)) e.push("options.questions must be [{text, choices:[4]}]");
       if (!isArr(c.answers)) e.push("correct_answers.answers must be 0-based indices per question");

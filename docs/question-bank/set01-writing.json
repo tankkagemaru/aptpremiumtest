@@ -1,0 +1,60 @@
+{
+  "exam": "aptis-general",
+  "module": "writing",
+  "questions": [
+    {
+      "question_type": "w1_form",
+      "difficulty": "A2",
+      "prompt": "You have just joined the Premium Film Club. Answer the questions about yourself. Use 1-5 words for each answer.",
+      "options": {
+        "questions": [
+          { "text": "What is your favourite type of film?" },
+          { "text": "How often do you watch films?" },
+          { "text": "Who do you usually watch films with?" },
+          { "text": "Which cinema is nearest to your home?" },
+          { "text": "What film would you like to see next?" }
+        ]
+      },
+      "tags": ["set-01", "hobbies"]
+    },
+    {
+      "question_type": "w2_short",
+      "difficulty": "B1",
+      "prompt": "You are a new member of the Premium Film Club. Introduce yourself to the other members and say why you enjoy films. Write 20-30 words.",
+      "options": { "min_words": 20, "max_words": 30 },
+      "tags": ["set-01", "hobbies"]
+    },
+    {
+      "question_type": "w3_chat",
+      "difficulty": "B1",
+      "prompt": "You are chatting with other members in the Premium Film Club's online group. Reply to each message. Write 30-40 words for each reply.",
+      "options": {
+        "messages": [
+          { "author": "Harith", "text": "Welcome to the club! What made you want to join us?" },
+          { "author": "Bianca", "text": "We're choosing next month's film. What kind of film do you think we should watch, and why?" },
+          { "author": "Kenji", "text": "Tell us about a film you really enjoyed watching recently." }
+        ],
+        "min_words": 30,
+        "max_words": 40
+      },
+      "tags": ["set-01", "hobbies"]
+    },
+    {
+      "question_type": "w4_email",
+      "difficulty": "B2",
+      "prompt": "You have received this email from the Premium Film Club. Read it and write two replies.",
+      "options": {
+        "email": {
+          "subject": "A change to our meeting night",
+          "from": "Premium Film Club Committee",
+          "body": "Dear member, we are writing to let you know about an important change. From next month, our weekly film evenings will move from Friday to Wednesday, and they will now start at 7 p.m. instead of 8 p.m. We have made this change because the cinema is fully booked on Friday nights. The earlier start should also help members who travel home by bus. Please let us know if the new day causes you any difficulty. Thank you for your understanding."
+        },
+        "tasks": [
+          { "register": "informal", "audience": "a friend in the club", "min_words": 40, "max_words": 50 },
+          { "register": "formal", "audience": "the club manager", "min_words": 120, "max_words": 150 }
+        ]
+      },
+      "tags": ["set-01", "hobbies"]
+    }
+  ]
+}

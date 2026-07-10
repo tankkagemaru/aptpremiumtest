@@ -1,0 +1,232 @@
+{
+  "exam": "aptis-general",
+  "module": "listening",
+  "questions": [
+    {
+      "question_type": "l1_mc4",
+      "difficulty": "A2",
+      "prompt": "Listen to the voicemail. What time will the group leave the car park?",
+      "media": "listening/set02-l1-q01.mp3",
+      "passage": "TRANSCRIPT: [Voicemail] Nadia: Hi everyone, it's Nadia from the walking club. Just a quick note about Sunday. The bus arrives at eight, but we won't set off from the car park until half past eight, because Sam is bringing the first-aid kit at a quarter past. Please don't be late. Thanks!",
+      "options": { "choices": ["8:15", "8:00", "8:30", "9:00"] },
+      "correct_answers": { "choice": 2 },
+      "tags": ["set-02", "hiking"]
+    },
+    {
+      "question_type": "l1_mc4",
+      "difficulty": "A2",
+      "prompt": "Listen to the announcement. What must members remember to bring on Saturday?",
+      "media": "listening/set02-l1-q02.mp3",
+      "passage": "TRANSCRIPT: [Announcement] Good morning, walkers. For tomorrow's coastal route, the forecast is dry but very windy. You won't need waterproofs, and lunch will be provided at the café. However, please remember to bring a hat and a full bottle of water, because there are no shops along the cliff path.",
+      "options": { "choices": ["waterproofs", "lunch", "a water bottle", "a map"] },
+      "correct_answers": { "choice": 2 },
+      "tags": ["set-02", "health"]
+    },
+    {
+      "question_type": "l1_mc4",
+      "difficulty": "A2",
+      "prompt": "Listen to the conversation. Where will they meet?",
+      "media": "listening/set02-l1-q03.mp3",
+      "passage": "TRANSCRIPT: Leo: Shall we meet at the station café? Mei: It's closed for repairs this week. Let's meet by the library instead, the one opposite the park. Leo: Not the bus stop? Mei: No, the library is much easier to find.",
+      "options": { "choices": ["the station café", "the library", "the bus stop", "the park"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-02", "city life"]
+    },
+    {
+      "question_type": "l1_mc4",
+      "difficulty": "A2",
+      "prompt": "Listen to the message. How many people are expected on the walk now?",
+      "media": "listening/set02-l1-q04.mp3",
+      "passage": "TRANSCRIPT: [Voicemail] Priya: Hi, it's Priya, with an update on numbers for the waterfall walk. We had fifteen names last week, but three people dropped out, and then two new members joined today. So we're now expecting fourteen walkers in total. See you Sunday!",
+      "options": { "choices": ["14", "12", "15", "17"] },
+      "correct_answers": { "choice": 0 },
+      "tags": ["set-02", "hiking"]
+    },
+    {
+      "question_type": "l1_mc4",
+      "difficulty": "B1",
+      "prompt": "Listen to the voicemail. Why has the route been changed?",
+      "media": "listening/set02-l1-q05.mp3",
+      "passage": "TRANSCRIPT: [Voicemail] Daniel: Hi all, Daniel here, with a small change for tomorrow. We were going to climb the north ridge, but heavy rain last night has made the rocks slippery and unsafe. The views up there would have been lovely, but safety comes first, so we'll take the gentler valley path instead.",
+      "options": { "choices": ["The path is too long", "The rocks are dangerous", "The views are poor", "A bridge is closed"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-02", "environment"]
+    },
+    {
+      "question_type": "l1_mc4",
+      "difficulty": "B1",
+      "prompt": "Listen to the announcement. How much does the guided walk now cost for an adult?",
+      "media": "listening/set02-l1-q06.mp3",
+      "passage": "TRANSCRIPT: [Announcement] A reminder about fees for the guided mountain walk. The price used to be twenty ringgit per person, but from this month it includes a hot lunch and a printed trail map. Because of that, the new cost is thirty-five ringgit. Members under sixteen still pay twenty.",
+      "options": { "choices": ["RM55", "RM35", "RM20", "RM15"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-02", "food"]
+    },
+    {
+      "question_type": "l1_mc4",
+      "difficulty": "B1",
+      "prompt": "Listen to the club member. What does she recommend bringing?",
+      "media": "listening/set02-l1-q07.mp3",
+      "passage": "TRANSCRIPT: Grace: If you're joining the forest walk, take my advice — the ground is very muddy after the storm. Trainers just aren't enough; you'll want proper boots with a good grip. And although it's sunny, do pack a light jacket, because it gets surprisingly cold under the trees.",
+      "options": { "choices": ["walking boots", "trainers", "an umbrella", "sunglasses"] },
+      "correct_answers": { "choice": 0 },
+      "tags": ["set-02", "hiking"]
+    },
+    {
+      "question_type": "l1_mc4",
+      "difficulty": "B1",
+      "prompt": "Listen to the message. What time should walkers expect to be back?",
+      "media": "listening/set02-l1-q08.mp3",
+      "passage": "TRANSCRIPT: [Voicemail] Hassan: Hi, it's Hassan from the club. For Saturday's route, we leave at eight in the morning. The walk itself takes about five hours, plus an hour for lunch at the lake. So please tell your families we should be back at the car park by around two in the afternoon.",
+      "options": { "choices": ["1 p.m.", "2 p.m.", "3 p.m.", "8 a.m."] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-02", "hiking"]
+    },
+    {
+      "question_type": "l1_mc4",
+      "difficulty": "B1",
+      "prompt": "Listen to the exchange. What did Omar leave at home?",
+      "media": "listening/set02-l1-q09.mp3",
+      "passage": "TRANSCRIPT: Tan: Have you got everything, Omar? Sun cream, snacks, first-aid kit? Omar: Yes... sun cream, yes. Snacks, yes. Oh no — I've got a few plasters, but I've left the whole first-aid box at home. Tan: Don't worry, I packed a spare one for the group.",
+      "options": { "choices": ["sun cream", "snacks", "the first-aid kit", "his water"] },
+      "correct_answers": { "choice": 2 },
+      "tags": ["set-02", "health"]
+    },
+    {
+      "question_type": "l1_mc4",
+      "difficulty": "B2",
+      "prompt": "Listen to the walker. How does he feel about the new car park?",
+      "media": "listening/set02-l1-q10.mp3",
+      "passage": "TRANSCRIPT: Vikram: They've built a big new car park at the foot of the trail. I can see why — it's certainly easier for families to reach the hills now. Still, I can't help feeling we've lost something. The place used to feel wild and quiet, and it's rather crowded at weekends these days.",
+      "options": { "choices": ["He is completely against it", "He sees benefits but has mixed feelings", "He thinks it is perfect", "He wants it removed at once"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-02", "environment"]
+    },
+    {
+      "question_type": "l1_mc4",
+      "difficulty": "B2",
+      "prompt": "Listen to the announcement. Why is the walk starting late?",
+      "media": "listening/set02-l1-q11.mp3",
+      "passage": "TRANSCRIPT: [Announcement] Apologies for the delay to this morning's departure. It isn't the weather — the sky is perfectly clear. The problem is that the minibus had a flat tyre on the way here, and the driver is fitting the spare wheel now. We expect to leave about twenty minutes behind schedule. Thank you for your patience.",
+      "options": { "choices": ["Bad weather", "A vehicle problem", "Too few members", "A closed road"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-02", "travel"]
+    },
+    {
+      "question_type": "l1_mc4",
+      "difficulty": "B2",
+      "prompt": "Listen to the club leader. What is her main message to new members?",
+      "media": "listening/set02-l1-q12.mp3",
+      "passage": "TRANSCRIPT: Aisha: Welcome, everyone. I know you're keen to reach the summit, but please listen. Walking well isn't about speed. If you rush, you'll tire early and miss the scenery. Set a slow, steady pace, drink often, and you'll all make it to the top feeling strong. This is meant to be enjoyed, not endured.",
+      "options": { "choices": ["Walk as fast as possible", "Take a steady pace and enjoy it", "Skip breaks to save time", "Only experts should take part"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-02", "health"]
+    },
+    {
+      "question_type": "l1_mc4",
+      "difficulty": "B2",
+      "prompt": "Listen to the voicemail. What will the club do if it rains heavily on Sunday?",
+      "media": "listening/set02-l1-q13.mp3",
+      "passage": "TRANSCRIPT: [Voicemail] Ben: Hi team, Ben here about Sunday. If the weather stays dry, we'll do the full ridge walk as planned. If there's just light rain, we'll still go, but take the shorter loop. However, if it rains heavily, we'll cancel the hike and meet at the community hall for a talk on trail photography instead.",
+      "options": { "choices": ["Do the full ridge walk", "Take the shorter loop", "Cancel the hike and meet indoors", "Go to the lake"] },
+      "correct_answers": { "choice": 2 },
+      "tags": ["set-02", "hobbies"]
+    },
+    {
+      "question_type": "l2_speaker_match",
+      "difficulty": "B1",
+      "prompt": "Four people talk about what they enjoy most about their hiking club. Match each statement to a speaker.",
+      "media": "listening/set02-l2-q14.mp3",
+      "passage": "TRANSCRIPT: Speaker A (Rosa): For me, the best part comes at the very top. We all sit down together, share our sandwiches and fruit, and enjoy a proper meal with a wonderful view. Honestly, food always tastes better on a mountain. Speaker B (Imran): I joined mainly to get healthier, and it has really worked. Six months ago I was out of breath after ten minutes; now I can climb for hours. I feel so much stronger and fitter. Speaker C (Jia): I bring my camera every time. I love kneeling in the grass to photograph a rare flower, or waiting quietly for a bird to appear. The wildlife up in the hills is simply beautiful. Speaker D (Marcus): I'm quite shy, so at first I was nervous. But everyone was so friendly, and now the group feels like a circle of good friends. That's really why I keep coming back each week.",
+      "options": {
+        "statements": [
+          "I have become much fitter since I started.",
+          "The best part is sharing a meal at the top.",
+          "I mainly come to make new friends.",
+          "I enjoy taking pictures of birds and flowers."
+        ]
+      },
+      "correct_answers": { "answers": [1, 0, 3, 2] },
+      "tags": ["set-02", "health"]
+    },
+    {
+      "question_type": "l3_opinion_id",
+      "difficulty": "B2",
+      "prompt": "Listen to Elena and Karim discussing how to find your way on the trail. Who expresses each opinion?",
+      "media": "listening/set02-l3-q15.mp3",
+      "passage": "TRANSCRIPT: Elena: Honestly, Karim, I think these walking apps are wonderful. When I first joined the club I had no idea how to find my way, and the app on my phone showed me exactly where to go. For a beginner, that's a huge help. Karim: I agree they're useful for newcomers. But I'd never rely on a phone alone. Batteries run flat, especially in the cold, and then what? If your only map is on a dead phone, you could be in real trouble on the mountain. Elena: Well, I still find the app convenient, but I do carry a paper map too, just in case. Karim: Good — so do I. A paper map and compass never run out of power. I really think everyone in the club should keep a printed map in their bag, whatever else they carry. Elena: Definitely. On that we completely agree. Karim: The thing that worries me is that people never learn the old skills. Reading contour lines, judging distance — those things really matter. Elena: They do, and actually I've started teaching myself proper map-reading this year. I want to understand the land, not just follow a blue dot on a screen.",
+      "options": {
+        "statements": [
+          "Navigation apps are especially helpful for beginners.",
+          "Everyone should carry a paper map as a backup.",
+          "Relying only on a phone can be dangerous if the battery dies.",
+          "Learning to read a map properly is an important skill."
+        ]
+      },
+      "correct_answers": { "answers": ["woman", "both", "man", "both"] },
+      "tags": ["set-02", "technology"]
+    },
+    {
+      "question_type": "l4_monologue_mc",
+      "difficulty": "C1",
+      "prompt": "Listen to the extract from a talk about walking and the environment, then answer both questions.",
+      "media": "listening/set02-l4-q16.mp3",
+      "passage": "TRANSCRIPT: [Talk] Speaker: Good evening. Tonight I want to challenge a comfortable assumption — that walking is always gentle on the natural world. It's true that a single walker leaves almost no trace. The difficulty arises with numbers. When a quiet hill becomes famous, perhaps through a single photograph shared online, visitor numbers can multiply tenfold in one season. The soil, never designed for such traffic, is stripped of its plants and washed away by the rain, leaving deep scars that can take decades to heal. Now, I'm not asking anyone to stay at home. Far from it — contact with wild places is precious, and the people who love the hills are exactly the people who will fight to protect them. My point is subtler. We need to spread our footsteps more widely, to celebrate the ordinary, unfashionable hills as well as the famous peaks. A landscape that everyone visits at once is a landscape under threat. If we truly value these places, we must sometimes have the discipline to choose the quieter path — and to encourage others to do the same.",
+      "options": {
+        "questions": [
+          {
+            "text": "What is the speaker's main argument?",
+            "choices": [
+              "People should stop visiting popular hills entirely",
+              "Concentrated visitor numbers, not walking itself, damage the land",
+              "Walking causes no real harm to the environment",
+              "Photographs of hills should never be shared online"
+            ]
+          },
+          {
+            "text": "What does the speaker imply about people who love the hills?",
+            "choices": [
+              "They rarely follow the rules",
+              "They are the main cause of the damage",
+              "They are likely to help protect wild places",
+              "They only ever visit famous peaks"
+            ]
+          }
+        ]
+      },
+      "correct_answers": { "answers": [1, 2] },
+      "tags": ["set-02", "environment"]
+    },
+    {
+      "question_type": "l4_monologue_mc",
+      "difficulty": "C1",
+      "prompt": "Listen to the extract from a talk about walking and health, then answer both questions.",
+      "media": "listening/set02-l4-q17.mp3",
+      "passage": "TRANSCRIPT: [Talk] Speaker: Most of us walk to keep our bodies healthy — to strengthen the heart, to control our weight. What fascinates me, though, is what a long walk does to the mind. Researchers have noticed that people often solve their most stubborn problems not at their desks, but halfway up a hill. Why should this be? One idea is that the steady, repetitive rhythm of walking quietens the busy, anxious part of the brain, allowing looser, more creative connections to form. Add to that the open horizon, the absence of screens, and the simple fact that no one can email you on a mountain ridge, and you have ideal conditions for fresh thinking. I'd go further. I suspect that in our crowded, hurried lives, a walk is less a form of exercise than a form of rest — a rare chance for an overloaded mind to breathe. So the next time you feel stuck on a difficult question, don't reach for more coffee. Reach for your boots.",
+      "options": {
+        "questions": [
+          {
+            "text": "Which effect of walking most interests the speaker?",
+            "choices": [
+              "Its effect on the heart",
+              "Its effect on thinking and the mind",
+              "Its effect on body weight",
+              "Its low cost"
+            ]
+          },
+          {
+            "text": "What does the speaker suggest by calling a walk 'a form of rest'?",
+            "choices": [
+              "Walking is physically exhausting",
+              "Walking mainly builds strong muscles",
+              "Walking gives an overloaded mind a valuable break",
+              "Walking should replace a full night's sleep"
+            ]
+          }
+        ]
+      },
+      "correct_answers": { "answers": [1, 2] },
+      "tags": ["set-02", "health"]
+    }
+  ]
+}

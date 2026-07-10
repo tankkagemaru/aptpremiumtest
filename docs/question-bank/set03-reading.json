@@ -1,0 +1,83 @@
+{
+  "exam": "aptis-general",
+  "module": "reading",
+  "questions": [
+    { "question_type": "r1_gap_mc3", "difficulty": "A2",
+      "prompt": "Read the message from a cooking club member. Choose the best word for each gap.",
+      "passage": "Hi Priya, Thanks for [[1]] me to the cooking club. I really [[2]] the class last week. Next Tuesday we [[3]] going to make fresh pasta. Could you [[4]] your own apron? The kitchen is [[5]] the second floor of the community centre. See you [[6]] six o'clock. Best wishes, Adam",
+      "options": { "gaps": [
+        { "choices": ["invite", "inviting", "invited"] },
+        { "choices": ["enjoy", "enjoyed", "enjoying"] },
+        { "choices": ["is", "are", "am"] },
+        { "choices": ["bring", "brings", "bringing"] },
+        { "choices": ["in", "on", "at"] },
+        { "choices": ["in", "on", "at"] }
+      ] },
+      "correct_answers": { "answers": ["inviting", "enjoyed", "are", "bring", "on", "at"] },
+      "tags": ["set-03", "hobbies"] },
+
+    { "question_type": "r2_ordering", "difficulty": "A2",
+      "prompt": "Put the sentences in the correct order to tell the story.",
+      "options": { "fixed_first": "Last month, Daniel signed up for an evening cooking course in the city.",
+        "sentences": [
+          "Finally, he cooked a three-course meal for his whole family.",
+          "At first, he could barely chop an onion without help.",
+          "So he practised at home every single evening after work.",
+          "After a few weeks, his knife skills had improved a great deal.",
+          "His relatives were amazed and asked him for second helpings."
+        ] },
+      "correct_answers": { "order": [1, 2, 3, 0, 4] },
+      "tags": ["set-03", "hobbies"] },
+
+    { "question_type": "r3_opinion_match", "difficulty": "B1",
+      "prompt": "Four people give their views on cooking at home versus eating out. Who says the following?",
+      "options": { "people": [
+        { "name": "Person A", "text": "For me, nothing beats cooking at home. I find chopping vegetables after a long day surprisingly calming, and I know exactly what goes into my food. Eating out is fun once in a while, but the bills add up quickly. By planning my meals for the whole week, I now spend far less than I used to, and I waste almost nothing." },
+        { "name": "Person B", "text": "Honestly, my job leaves me exhausted, so during the week I usually order a takeaway or grab something near the office. It is quick, and I do not have to wash up afterwards. I do miss proper home cooking, though, and at weekends I try to prepare at least one fresh meal from scratch to make up for it." },
+        { "name": "Person C", "text": "I subscribe to a recipe box that delivers the exact ingredients every week. It has taught me dishes I would never have dared to attempt, and there is nothing left over to throw away. The only real drawback is the price, which is higher than shopping for myself. Still, I see it as paying for lessons as much as for dinner." },
+        { "name": "Person D", "text": "Cooking, to me, is really about company. Most Saturdays a few friends come round and we prepare a big meal together, sharing out the jobs and swapping recipes. Sitting alone in a restaurant has never appealed to me at all. The food we make is not always perfect, but the laughter in the kitchen matters far more than the result." }
+      ],
+        "questions": [
+          "Who says that preparing food helps them to relax?",
+          "Who values cooking mainly as a chance to be with other people?",
+          "Who has learned new dishes through a delivery service?",
+          "Who spends less money by planning meals in advance?",
+          "Who prefers quick, convenient food during a busy working week?",
+          "Who feels a service is worthwhile despite its cost?",
+          "Who dislikes eating on their own?"
+        ] },
+      "correct_answers": { "answers": [0, 3, 2, 0, 1, 2, 3] },
+      "tags": ["set-03", "food"] },
+
+    { "question_type": "r4_banked_cloze", "difficulty": "B2",
+      "prompt": "Read the article about community cooking clubs. Choose the correct word from the bank for each gap.",
+      "passage": "Community cooking clubs have become a popular feature of city life in recent years. Once seen as a simple [[1]] for retired people, they now [[2]] members of every age and background. Many join in order to learn practical [[3]] such as filleting fish or baking bread, while others are mainly seeking company. Researchers who study urban leisure [[4]] that shared cooking reduces loneliness and encourages healthier eating. A typical session begins with a short [[5]] from a volunteer, after which small groups prepare a dish together. Ingredients are usually bought in [[6]], which keeps costs low and cuts down on waste. Members then sit down to [[7]] the meal they have made. Organisers say the greatest [[8]] is not the food itself but the friendships that form around the table, often lasting long after the course has ended.",
+      "options": { "bank": ["pastime", "attract", "skills", "report", "demonstration", "bulk", "enjoy", "reward", "location", "profit", "prevent", "measure"] },
+      "correct_answers": { "answers": ["pastime", "attract", "skills", "report", "demonstration", "bulk", "enjoy", "reward"] },
+      "tags": ["set-03", "city life"] },
+
+    { "question_type": "r5_heading_match", "difficulty": "C1",
+      "prompt": "Read the article about city food markets. Match a heading to each paragraph. There is one heading you do not need.",
+      "options": { "paragraphs": [
+        "Markets selling fresh produce have existed in cities for thousands of years, long before supermarkets appeared. In medieval towns, traders gathered in a central square on fixed days, and strict rules governed weights, prices and hygiene. These gatherings were not only places to buy food but also spaces where news was exchanged and deals were struck. In many ways, the market square was the beating heart of early city life.",
+        "During the twentieth century, many of these markets fell into decline. As families moved to the suburbs and bought cars, large supermarkets on the edge of town offered lower prices and easy parking. Traditional stalls struggled to compete, and one by one the old halls closed or were left half empty. For several decades, the covered market seemed like a relic with no place in a modern economy.",
+        "In the last twenty years, however, the trend has reversed. Rising interest in fresh, local and seasonal food has drawn shoppers back to the stalls. City councils, keen to breathe life into neglected districts, have restored historic market buildings and reopened them with modern facilities. What had looked like a dying institution has been reinvented as a symbol of a lively, forward-looking city.",
+        "Today's markets are as much about eating as buying. Many now house food halls where dozens of small kitchens serve dishes from around the world under one roof. Visitors wander between stalls, sampling street food and sharing long communal tables. For younger city dwellers in particular, a Saturday at the market has become a social outing rather than a simple shopping trip.",
+        "These spaces also play an important economic role. Renting a market stall costs far less than opening a restaurant, so newcomers can test their recipes and build a following without huge risk. A number of well-known food businesses began as a single counter in a covered market. In this way, markets act as affordable launch pads for ambitious cooks and small traders.",
+        "Not everyone welcomes the change. As markets grow fashionable, rents can climb, pushing out the very traders who first made them special. Some critics argue that trendy food halls serve tourists rather than local residents, and that traditional butchers and greengrocers are being replaced by expensive snack bars. Balancing commercial success with the everyday needs of a neighbourhood remains a delicate task.",
+        "Looking ahead, supporters believe markets can help build greener cities. Because goods often travel only a short distance from farm to stall, they can cut the transport and packaging associated with supermarket shopping. Several markets now compost their waste and ban single-use plastics. If these efforts spread, the humble market hall may prove to be not a step backwards but a model for the sustainable city of the future."
+      ],
+        "headings": [
+          "Success brings new problems",
+          "Trading in the earliest cities",
+          "A model for the sustainable city",
+          "A surprising return to popularity",
+          "How to bargain for the best price",
+          "Somewhere to gather, not just to buy",
+          "Losing out to the supermarket",
+          "A low-cost start for ambitious cooks"
+        ] },
+      "correct_answers": { "answers": [1, 6, 3, 5, 7, 0, 2] },
+      "tags": ["set-03", "city life"] }
+  ]
+}

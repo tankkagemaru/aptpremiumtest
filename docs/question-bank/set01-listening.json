@@ -1,0 +1,200 @@
+{
+  "exam": "aptis-general",
+  "module": "listening",
+  "questions": [
+    {
+      "question_type": "l1_mc4",
+      "difficulty": "A2",
+      "prompt": "Listen to the voicemail. What time will they meet at the museum?",
+      "media": "listening/set01-l1-q01.mp3",
+      "passage": "TRANSCRIPT: [Marco, cheerful voicemail] Hi, it's Marco. Just a quick message about our trip to the film museum tomorrow. I know I first said we'd meet at ten o'clock, but the doors don't open until later now, so let's meet at half past ten instead. See you by the main entrance. Bye!",
+      "options": { "choices": ["9:30", "10:00", "10:30", "11:00"] },
+      "correct_answers": { "choice": 2 },
+      "tags": ["set-01", "travel"]
+    },
+    {
+      "question_type": "l1_mc4",
+      "difficulty": "A2",
+      "prompt": "Listen to the station announcement. Which platform is the Riverton train leaving from?",
+      "media": "listening/set01-l1-q02.mp3",
+      "passage": "TRANSCRIPT: [Station announcer] Good morning. This is a platform announcement. The ten-fifteen train to Riverton will now depart from platform four, not platform two. Passengers for Riverton, please make your way to platform four. Thank you.",
+      "options": { "choices": ["Platform 2", "Platform 4", "Platform 3", "Platform 5"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-01", "travel"]
+    },
+    {
+      "question_type": "l1_mc4",
+      "difficulty": "A2",
+      "prompt": "Listen to the message from the language school. Why is the Wednesday class cancelled?",
+      "media": "listening/set01-l1-q03.mp3",
+      "passage": "TRANSCRIPT: [School receptionist] Hello, this is a message from Greenside Language School for Aisha. Unfortunately, your Wednesday evening class is cancelled this week because the teacher is unwell. The class will take place on Thursday at the same time instead. Sorry for any trouble.",
+      "options": { "choices": ["The teacher is ill", "The room is closed", "It is a public holiday", "There are too few students"] },
+      "correct_answers": { "choice": 0 },
+      "tags": ["set-01", "education"]
+    },
+    {
+      "question_type": "l1_mc4",
+      "difficulty": "A2",
+      "prompt": "Listen to the conversation. How is Tomás travelling to the conference?",
+      "media": "listening/set01-l1-q04.mp3",
+      "passage": "TRANSCRIPT: [Man] How are you getting to the conference, Tomás? Are you driving? [Tomás] No, the car park there is always full, so I'm taking the train. It's faster anyway, and I can read on the way.",
+      "options": { "choices": ["By car", "By train", "By bus", "By bicycle"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-01", "work"]
+    },
+    {
+      "question_type": "l1_mc4",
+      "difficulty": "B1",
+      "prompt": "Listen to the voicemail. Why has the club changed Saturday's plan?",
+      "media": "listening/set01-l1-q05.mp3",
+      "passage": "TRANSCRIPT: [Lena, friendly voicemail] Hi, it's Lena from the travel club. I'm calling about Saturday's cycling trip. The forecast says heavy rain all morning, so we've decided to change the plan. Instead of cycling along the river, we'll visit the transport museum in town and go cycling next weekend instead. Let me know if that still suits you.",
+      "options": { "choices": ["Bad weather is expected", "The museum is closing soon", "Too few people signed up", "The river path is closed"] },
+      "correct_answers": { "choice": 0 },
+      "tags": ["set-01", "travel"]
+    },
+    {
+      "question_type": "l1_mc4",
+      "difficulty": "B1",
+      "prompt": "Listen to the message from the box office. How much is a three-day festival pass?",
+      "media": "listening/set01-l1-q06.mp3",
+      "passage": "TRANSCRIPT: [Ravi, returning a call] Hi, this is Ravi from the box office returning your call. You asked about tickets for the film festival. A single evening ticket is twelve pounds, but if you buy a pass for all three days, it's only thirty pounds, which saves you quite a bit. Students get a further two pounds off. Give me a call back to book.",
+      "options": { "choices": ["£12", "£24", "£30", "£36"] },
+      "correct_answers": { "choice": 2 },
+      "tags": ["set-01", "hobbies"]
+    },
+    {
+      "question_type": "l1_mc4",
+      "difficulty": "B1",
+      "prompt": "Listen to the workplace notice. What should staff do while the car park is closed?",
+      "media": "listening/set01-l1-q07.mp3",
+      "passage": "TRANSCRIPT: [Elena, workplace announcement] Morning, everyone. Elena here with a quick notice. From next Monday, the staff car park will be closed for repairs for two weeks. During that time, please use the public car park on Mill Street, which is only a five-minute walk away. The company will cover the parking fee, so keep your tickets.",
+      "options": { "choices": ["Work from home", "Park on Mill Street", "Arrive earlier than usual", "Share cars with colleagues"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-01", "work"]
+    },
+    {
+      "question_type": "l1_mc4",
+      "difficulty": "B1",
+      "prompt": "Listen to the conversation at the travel desk. By what time should Noor arrive at the airport?",
+      "media": "listening/set01-l1-q08.mp3",
+      "passage": "TRANSCRIPT: [Agent] Your flight to Vienna is at six in the evening, so please arrive by four. [Noor] Four? I thought two hours before departure was enough. [Agent] Normally it is, but the airport is extremely busy this month, so we're advising three hours for all international flights.",
+      "options": { "choices": ["2:00", "3:00", "4:00", "6:00"] },
+      "correct_answers": { "choice": 2 },
+      "tags": ["set-01", "travel"]
+    },
+    {
+      "question_type": "l1_mc4",
+      "difficulty": "B1",
+      "prompt": "Listen to the library announcement. What has changed about the library this term?",
+      "media": "listening/set01-l1-q09.mp3",
+      "passage": "TRANSCRIPT: [Felix, library staff] Hello, this is Felix from the university library. A quick reminder that from this term the library will open an hour earlier, at eight in the morning, to help students who like to study before lectures. Closing time stays the same at ten at night. The quiet study floor has moved up to level three.",
+      "options": { "choices": ["It opens earlier", "It closes later", "It has fewer floors", "It is quieter at night"] },
+      "correct_answers": { "choice": 0 },
+      "tags": ["set-01", "education"]
+    },
+    {
+      "question_type": "l1_mc4",
+      "difficulty": "B2",
+      "prompt": "Listen to the radio interview. How does Sofia feel about giving up flying?",
+      "media": "listening/set01-l1-q10.mp3",
+      "passage": "TRANSCRIPT: [Host] Sofia, you gave up flying two years ago. Any regrets? [Sofia] Honestly, none at all. People assume I must miss it, but taking the train has actually made travelling far more enjoyable for me. I see so much more of each country, and I arrive feeling relaxed rather than exhausted. The only real drawback is that it takes a bit more planning.",
+      "options": { "choices": ["She has no regrets", "She misses it a little", "She finds it exhausting", "She thinks it mainly saves money"] },
+      "correct_answers": { "choice": 0 },
+      "tags": ["set-01", "environment"]
+    },
+    {
+      "question_type": "l1_mc4",
+      "difficulty": "B2",
+      "prompt": "Listen to the event update. What will happen if there is a storm on Saturday?",
+      "media": "listening/set01-l1-q11.mp3",
+      "passage": "TRANSCRIPT: [Adam, event organiser] This is Adam with an update for everyone attending Saturday's outdoor screening. If it rains only lightly, the film will still go ahead, so bring a coat. However, if there's a storm, we'll move indoors to the community hall, and the start time will shift from eight to half past eight. We'll post the final decision online by six o'clock.",
+      "options": { "choices": ["The film will be cancelled", "The film will move indoors", "The film will start at eight", "The film will be shown next week"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-01", "hobbies"]
+    },
+    {
+      "question_type": "l1_mc4",
+      "difficulty": "B2",
+      "prompt": "Listen to the voicemail from the IT team. What is causing the caller's problem?",
+      "media": "listening/set01-l1-q12.mp3",
+      "passage": "TRANSCRIPT: [Yuki, IT support] Hi, it's Yuki from the IT team. I'm returning your message about the new booking software. The good news is that the system itself is working perfectly. The problem you're seeing is simply that your web browser is out of date, so the buttons don't appear properly. Just update the browser and it should all work. There's no need to reinstall anything.",
+      "options": { "choices": ["The software is broken", "The browser is out of date", "The internet is too slow", "The account is locked"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-01", "technology"]
+    },
+    {
+      "question_type": "l1_mc4",
+      "difficulty": "B2",
+      "prompt": "Listen to the announcement at the technology fair. What does the speaker advise visitors to do?",
+      "media": "listening/set01-l1-q13.mp3",
+      "passage": "TRANSCRIPT: [Harper, event host] Welcome to the technology fair. A quick note on timings. The main hall opens at nine, but the popular robotics demonstration starts at eleven and fills up fast, so do arrive early to be sure of a seat. Lunch is served from twelve, and the closing talk begins at four. Tickets bought today also include entry to tomorrow's workshops at no extra cost.",
+      "options": { "choices": ["Arrive before nine", "Come early for the robotics demonstration", "Buy lunch in advance", "Skip the closing talk"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["set-01", "technology"]
+    },
+    {
+      "question_type": "l2_speaker_match",
+      "difficulty": "B1",
+      "prompt": "Four people talk about the best way to learn something new. Match each statement to a speaker.",
+      "media": "listening/set01-l2-q14.mp3",
+      "passage": "TRANSCRIPT: [Speaker A] For me, the internet is everything. Whenever I want to pick up a new skill, I search for video tutorials and follow along at my own pace. I can pause, rewind and watch the tricky parts again. It costs nothing, and I never feel embarrassed about making mistakes. [Speaker B] I've tried studying on my own, but I always lose focus. What works for me is sitting in a proper class with a teacher who can correct me straight away and answer my questions. Having a fixed time each week also forces me to keep going. [Speaker C] Honestly, you only really learn by doing. I meet up with a couple of friends and we practise together, testing each other and laughing at our mistakes. Talking it through with other people makes everything stick far better than studying alone ever could. [Speaker D] I'm rather old-fashioned, I suppose. Give me a good book and a quiet corner, and I'm happy. I read slowly, underline the important parts and write everything down in a notebook. Putting it into my own words is how I remember it.",
+      "options": {
+        "statements": [
+          "This person learns best by studying with a teacher in a class.",
+          "This person mainly uses videos on the internet to learn.",
+          "This person thinks practising with other people is the most effective way.",
+          "This person prefers reading and writing notes by hand."
+        ]
+      },
+      "correct_answers": { "answers": [1, 0, 2, 3] },
+      "tags": ["set-01", "education"]
+    },
+    {
+      "question_type": "l3_opinion_id",
+      "difficulty": "B2",
+      "prompt": "Listen to two people discussing whether cars should be banned from the city centre. Who expresses each opinion?",
+      "media": "listening/set01-l3-q15.mp3",
+      "passage": "TRANSCRIPT: [Woman] Did you read that the council wants to ban cars from the whole city centre? [Man] I did. I think it's a brilliant idea, honestly. The air would be so much cleaner. [Woman] I agree the air quality would improve, no question about it. But I worry about older people and anyone carrying heavy shopping. How are they supposed to get around? [Man] That's fair. Though if the buses ran more often, most people would manage perfectly well. [Woman] Maybe. My bigger concern is the small shops. If drivers can't park nearby, some owners are afraid they'll lose customers. [Man] I've actually heard the opposite. In several other cities, streets without cars became lively and the shops did better, not worse. [Woman] I'd want to see the evidence before I believed that. [Man] Well, we both want a nicer city centre; we just disagree on how to get there. [Woman] True. And we both think the buses need to improve first. [Man] Definitely. That's the one thing we completely agree on.",
+      "options": {
+        "statements": [
+          "believes that banning cars would make the air cleaner",
+          "is worried that small shops could lose customers",
+          "thinks car-free streets have helped shops in other cities",
+          "believes the bus service must be improved"
+        ]
+      },
+      "correct_answers": { "answers": ["both", "woman", "man", "both"] },
+      "tags": ["set-01", "city life"]
+    },
+    {
+      "question_type": "l4_monologue_mc",
+      "difficulty": "C1",
+      "prompt": "Listen to the lecture extract about smartphones and memory, then answer both questions.",
+      "media": "listening/set01-l4-q16.mp3",
+      "passage": "TRANSCRIPT: [Lecturer] Good afternoon. Today I want to challenge a popular worry: the idea that smartphones are ruining our memories. It's often claimed that because we store phone numbers and facts on our devices, our brains have grown lazy. But the research paints a more interesting picture. What actually happens is that we remember less of the information itself, yet we become remarkably good at remembering where to find it. In other words, we're not losing memory; we're changing what we choose to remember. This isn't new, by the way. For centuries, people have used notebooks and libraries as external stores. The phone is simply a faster version of a very old habit. The real question is not whether we remember less, but whether we are thinking less deeply, and there, I must admit, the evidence is genuinely mixed.",
+      "options": {
+        "questions": [
+          { "text": "What is the speaker's main argument?", "choices": ["Smartphones are seriously damaging human memory", "Smartphones change what we remember rather than weaken memory", "People should stop relying on notebooks and libraries", "Human memory has not changed at all in recent years"] },
+          { "text": "What does the speaker suggest about the effect on deep thinking?", "choices": ["She is certain it has no effect", "She believes the evidence is not yet clear", "She thinks it clearly improves our thinking", "She refuses to discuss the question"] }
+        ]
+      },
+      "correct_answers": { "answers": [1, 1] },
+      "tags": ["set-01", "technology"]
+    },
+    {
+      "question_type": "l4_monologue_mc",
+      "difficulty": "C1",
+      "prompt": "Listen to the talk about tourism, then answer both questions.",
+      "media": "listening/set01-l4-q17.mp3",
+      "passage": "TRANSCRIPT: [Speaker] In this final section, let's look at a surprising trend: popular destinations that are deliberately trying to attract fewer visitors. For decades, success was measured purely by numbers; the more tourists, the better. Recently, though, several famous towns have introduced booking systems, daily limits and higher charges in the peak season. Now, you might assume the goal is simply to make more money, and in a few cases that is part of it. But when you talk to local officials, a different motive emerges. Their main fear is that overcrowding is driving away the very charm that made these places attractive in the first place. Interestingly, early results suggest that the visitors who do come report enjoying their trips more. Fewer crowds, it turns out, can mean happier guests, and residents who no longer feel like strangers in their own streets.",
+      "options": {
+        "questions": [
+          { "text": "What is the main point of this talk?", "choices": ["Tourist towns are struggling to attract enough visitors", "Some destinations are limiting visitors to protect their appeal", "Tourism no longer brings any money to local towns", "Tourists now prefer crowded places to quiet ones"] },
+          { "text": "What does the speaker imply is the main reason for these limits?", "choices": ["It is mostly about earning more money", "It is chiefly about preserving the town's character", "It is intended to help nearby airports", "It is a response to a sudden fall in tourism"] }
+        ]
+      },
+      "correct_answers": { "answers": [1, 1] },
+      "tags": ["set-01", "travel"]
+    }
+  ]
+}

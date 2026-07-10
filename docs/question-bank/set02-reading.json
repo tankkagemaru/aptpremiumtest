@@ -1,0 +1,104 @@
+{
+  "exam": "aptis-general",
+  "module": "reading",
+  "questions": [
+    {
+      "question_type": "r1_gap_mc3",
+      "difficulty": "A2",
+      "prompt": "Read the message from a friend. Choose the best word for each gap.",
+      "passage": "Hi Lena, I [[1]] so happy that you want to join our weekend hiking group! We [[2]] meet at the station at eight o'clock [[3]] Saturday. Please bring a bottle [[4]] water and some fruit. The first walk [[5]] not difficult, so don't worry at all. There [[6]] a lovely picnic spot at the top of the hill. See you soon, Faridah",
+      "options": {
+        "gaps": [
+          { "choices": ["am", "is", "are"] },
+          { "choices": ["usual", "usually", "using"] },
+          { "choices": ["in", "on", "at"] },
+          { "choices": ["of", "for", "with"] },
+          { "choices": ["is", "are", "be"] },
+          { "choices": ["is", "are", "have"] }
+        ]
+      },
+      "correct_answers": { "answers": ["am", "usually", "on", "of", "is", "is"] },
+      "tags": ["set-02", "hiking"]
+    },
+    {
+      "question_type": "r2_ordering",
+      "difficulty": "A2",
+      "prompt": "Put the sentences in the right order to tell the story.",
+      "options": {
+        "fixed_first": "One cold morning in March, Arun set out to explore a new forest trail.",
+        "sentences": [
+          "Suddenly, dark clouds appeared and a light rain began to fall.",
+          "First, he checked his map and filled his flask with hot tea.",
+          "Luckily, he found the path home before the storm grew worse.",
+          "After an hour of climbing, he reached a quiet clearing full of birdsong.",
+          "There, he stopped to eat a sandwich and take a few photographs."
+        ]
+      },
+      "correct_answers": { "order": [1, 3, 4, 0, 2] },
+      "tags": ["set-02", "environment"]
+    },
+    {
+      "question_type": "r3_opinion_match",
+      "difficulty": "B1",
+      "prompt": "Four people give their views on whether hiking trails should be developed with more facilities. Who says the following?",
+      "options": {
+        "people": [
+          { "name": "Bianca", "text": "I love that our local hills now have proper car parks and clear signs. It means families with young children and older walkers can enjoy nature safely. A small café at the start is wonderful too — a warm drink after a cold walk is pure joy. Wild beauty is lovely, but if nobody can reach it easily, what is the point?" },
+          { "name": "Kwok Wai", "text": "Every new car park means less space for wildlife. I understand the wish for comfort, but concrete and cafés change the very thing we come to see. I would rather carry my own food and read a paper map. The quiet, untouched feeling of a wild trail is exactly what makes hill walking special for me." },
+          { "name": "Yusra", "text": "I don't need a café on the mountain, but good signs and marked paths really do save lives. Last winter a friend of mine got lost because the route was unmarked. Facilities should focus on safety, not shopping. Keep the wildness, but make sure people can find their way home before dark." },
+          { "name": "Tomas", "text": "Visitors bring money to small mountain villages, and that money keeps shops and buses running. Sensible facilities — a car park, a café, a few benches — encourage more people to come and spend. As long as it is done tidily, I think careful development helps both walkers and the local community." }
+        ],
+        "questions": [
+          "Who worries that building work reduces space for animals?",
+          "Who thinks facilities help the local economy?",
+          "Who values being able to buy a hot drink after walking?",
+          "Who prefers to use a paper map rather than modern facilities?",
+          "Who believes clear signs can prevent accidents?",
+          "Who says easy access matters for families and older people?",
+          "Who wants safety improved but not shops on the mountain?"
+        ]
+      },
+      "correct_answers": { "answers": [1, 3, 0, 1, 2, 0, 2] },
+      "tags": ["set-02", "environment"]
+    },
+    {
+      "question_type": "r4_banked_cloze",
+      "difficulty": "B2",
+      "prompt": "Read the text about responsible hiking. Choose the correct word from the bank for each gap.",
+      "passage": "Hiking has become one of Malaysia's most popular outdoor [[1]], but growing numbers of walkers can place real [[2]] on fragile mountain environments. Responsible clubs now follow a simple set of [[3]]. Members are asked to stay on marked paths so that the plants beside the trail are not [[4]]. They carry reusable bottles instead of buying single-use plastic, which sharply [[5]] the amount of waste left behind. Meals are planned carefully to avoid heavy packaging, and every scrap of [[6]] is taken home. Some groups even collect litter dropped by others, leaving the hillside [[7]] than they found it. Such small habits, repeated by thousands of walkers, can make a measurable [[8]] to the health of the countryside.",
+      "options": {
+        "bank": ["activities", "pressure", "guidelines", "damaged", "reduces", "rubbish", "cleaner", "difference", "protection", "increases", "polluted", "shelter"]
+      },
+      "correct_answers": { "answers": ["activities", "pressure", "guidelines", "damaged", "reduces", "rubbish", "cleaner", "difference"] },
+      "tags": ["set-02", "environment"]
+    },
+    {
+      "question_type": "r5_heading_match",
+      "difficulty": "C1",
+      "prompt": "Read the article about the history of walking. Match a heading to each paragraph. There is one heading you do not need.",
+      "options": {
+        "paragraphs": [
+          "For most of human history, people walked because they had no choice. Journeys on foot meant trade, work or the search for food, and few would have described a long march across rough country as a pleasure. Only in the last two centuries, as carriages and later trains removed the need to walk far, did the idea of travelling on foot purely for enjoyment slowly take hold among ordinary families.",
+          "Earlier generations often regarded high peaks with fear, seeing them as dangerous, ugly places best avoided. During the nineteenth century, however, writers and painters began to celebrate wild scenery as something noble and inspiring. Their poems and pictures encouraged readers to view rugged landscapes not as threats but as sources of wonder, and this shift in feeling did much to persuade the public that a day among the hills was worth the effort.",
+          "Doctors today have no doubt about the value of a good walk. Moving steadily uphill strengthens the heart, improves breathing and helps control weight, while time spent outdoors lowers stress and lifts the spirits. Unlike many forms of exercise, it demands no special skill and can be enjoyed at almost any age. For a great number of people, a regular ramble has become the simplest medicine they know.",
+          "Success, however, brings its own problems. When thousands of boots follow the same route, soft ground is worn into wide, muddy scars that take years to recover. Rare plants are trampled, wildlife is disturbed, and litter gathers at popular viewpoints. What began as a gentle pastime can, in large numbers, threaten the very landscapes that draw people out of doors in the first place.",
+          "Serious walkers know that a long day in the hills cannot be managed on enthusiasm alone. The body burns energy quickly in cold, thin air, so meals must be planned with care. Light, high-energy snacks, plenty of water and a warm drink can make the difference between a happy outing and an exhausting one. Experienced groups treat the contents of their rucksacks as seriously as the route itself.",
+          "The equipment carried by a modern walker would astonish someone from a hundred years ago. Satellite navigation now traces every step on a small screen, waterproof fabrics keep out the heaviest rain, and lightweight boots protect the ankles over rocky ground. While some argue that gadgets remove a sense of adventure, few would deny that they have made the hills safer and open to many more people.",
+          "Looking ahead, the challenge is to keep enjoying wild places without wearing them out. Some clubs now repair paths, limit group sizes and teach members to leave no trace of their visit. Local communities are learning to welcome visitors while protecting the scenery that attracts them. If walkers and residents can work together, the hills may stay both open and unspoilt for the generations still to come."
+        ],
+        "headings": [
+          "The body and mind benefit",
+          "Looking to a greener future",
+          "From necessity to leisure",
+          "Tools that changed the trail",
+          "When popularity causes harm",
+          "Fuelling the long walk",
+          "Changing attitudes to mountains",
+          "A sport for serious competition"
+        ]
+      },
+      "correct_answers": { "answers": [2, 6, 0, 4, 5, 3, 1] },
+      "tags": ["set-02", "environment"]
+    }
+  ]
+}

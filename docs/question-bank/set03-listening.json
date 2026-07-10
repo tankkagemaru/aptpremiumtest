@@ -1,0 +1,144 @@
+{
+  "exam": "aptis-general",
+  "module": "listening",
+  "questions": [
+    { "question_type": "l1_mc4", "difficulty": "A2",
+      "prompt": "Listen to the voicemail. What time does Saturday's cooking class now start?",
+      "media": "listening/set03-l1-q01.mp3",
+      "passage": "TRANSCRIPT: [Woman] Hi, it's Nadia from the cooking club. Just a quick note about Saturday. The class was going to start at ten o'clock, but the kitchen is being cleaned in the morning, so we'll now begin at half past ten. It should still finish by one. See you then!",
+      "options": { "choices": ["10:30", "10:00", "9:30", "1:00"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-03", "hobbies"] },
+
+    { "question_type": "l1_mc4", "difficulty": "A2",
+      "prompt": "Listen to the announcement. Where should the runners meet before the race?",
+      "media": "listening/set03-l1-q02.mp3",
+      "passage": "TRANSCRIPT: [Man] Good morning, everyone, and welcome to the city fun run. A quick reminder: the finish line is down by the river, and the water station is near the park gates. Before we start, though, all runners should gather at the main square, next to the town hall clock. We begin in twenty minutes.",
+      "options": { "choices": ["by the river", "at the park gates", "at the main square", "by the town hall café"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-03", "sport"] },
+
+    { "question_type": "l1_mc4", "difficulty": "A2",
+      "prompt": "Listen to the conversation in a shop. What does the man buy?",
+      "media": "listening/set03-l1-q03.mp3",
+      "passage": "TRANSCRIPT: [Man] Excuse me, do you have any fresh basil? [Woman] I'm afraid we've sold out of basil today. We do have parsley and coriander, though. [Man] Hmm. I need something for a tomato sauce. I'll take the parsley, then, please. [Woman] Of course. That's one pound fifty.",
+      "options": { "choices": ["basil", "parsley", "coriander", "tomatoes"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-03", "food"] },
+
+    { "question_type": "l1_mc4", "difficulty": "A2",
+      "prompt": "Listen to the message. Which day has the group meeting moved to?",
+      "media": "listening/set03-l1-q04.mp3",
+      "passage": "TRANSCRIPT: [Woman] Hi, this is a message for members of the walking group. Our usual Wednesday meeting can't go ahead this week, because the guide is away. We thought about Thursday, but the café is closed then, so we've decided to meet on Friday instead. It's the same time as always, ten in the morning.",
+      "options": { "choices": ["Wednesday", "Thursday", "Saturday", "Friday"] },
+      "correct_answers": { "choice": 3 }, "tags": ["set-03", "hobbies"] },
+
+    { "question_type": "l1_mc4", "difficulty": "B1",
+      "prompt": "Listen to the voicemail. Why has the football match been postponed?",
+      "media": "listening/set03-l1-q05.mp3",
+      "passage": "TRANSCRIPT: [Man] Hi Sam, it's Tom from the five-a-side league. Bad news about tonight's match, I'm afraid. It's not raining, surprisingly, and the other team can still make it, but the floodlights at the pitch have broken down, and it'll be far too dark to play safely. So we've had to move the game to next Tuesday. Sorry for the late notice.",
+      "options": { "choices": ["It is raining heavily", "The other team cannot come", "The floodlights are not working", "The pitch is closed for repairs"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-03", "sport"] },
+
+    { "question_type": "l1_mc4", "difficulty": "B1",
+      "prompt": "Listen to the announcement. How much do club members normally pay for the workshop?",
+      "media": "listening/set03-l1-q06.mp3",
+      "passage": "TRANSCRIPT: [Woman] Attention, please. Tickets for next month's weekend cookery workshop are now on sale. The standard price is forty pounds, but club members pay just twenty-five. If you book before Friday, there's a further five-pound discount for everyone. Places are limited, so please sign up at the front desk.",
+      "options": { "choices": ["£25", "£20", "£40", "£45"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-03", "hobbies"] },
+
+    { "question_type": "l1_mc4", "difficulty": "B1",
+      "prompt": "Listen to the conversation. What will the friends do first?",
+      "media": "listening/set03-l1-q07.mp3",
+      "passage": "TRANSCRIPT: [Woman] Shall we go straight to the cinema? [Man] The film doesn't start until eight, and it's only six now. [Woman] True. We could get some dinner first, then. [Man] Actually, I'm not hungry yet. Why don't we have a quick look round that new bookshop, and eat afterwards? [Woman] Good idea. Let's do that.",
+      "options": { "choices": ["go to the cinema", "have dinner", "visit the bookshop", "go home"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-03", "city life"] },
+
+    { "question_type": "l1_mc4", "difficulty": "B1",
+      "prompt": "Listen to the message. How does the speaker suggest getting to the venue?",
+      "media": "listening/set03-l1-q08.mp3",
+      "passage": "TRANSCRIPT: [Man] Hi, it's about tomorrow's food festival down at the docks. I'd avoid driving if I were you — the car park is already full, and the roads nearby are being resurfaced. The train stops right outside, but there are engineering works this weekend. Honestly, the easiest option is the number 12 bus. It runs every ten minutes from the centre.",
+      "options": { "choices": ["by car", "by train", "on foot", "by bus"] },
+      "correct_answers": { "choice": 3 }, "tags": ["set-03", "city life"] },
+
+    { "question_type": "l1_mc4", "difficulty": "B1",
+      "prompt": "Listen to the announcement. What is happening at eleven o'clock?",
+      "media": "listening/set03-l1-q09.mp3",
+      "passage": "TRANSCRIPT: [Woman] Welcome to the community centre open day. Here's a quick guide to what's on. At ten there's a bread-making demonstration in the main hall. At eleven, our head chef will show you how to prepare a simple curry. The children's baking session is at twelve, and the whole day ends with a shared lunch at one. Enjoy!",
+      "options": { "choices": ["a bread-making demonstration", "a curry cookery demonstration", "a children's baking session", "a shared lunch"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-03", "food"] },
+
+    { "question_type": "l1_mc4", "difficulty": "B2",
+      "prompt": "Listen to the voicemail. What does the caller want the listener to do?",
+      "media": "listening/set03-l1-q10.mp3",
+      "passage": "TRANSCRIPT: [Man] Hi Rachel, it's Daniel from the events team. I know you've already booked the caterers for the awards evening, and that's all sorted, thanks. The thing is, we've had three more people confirm, so we're now up to forty-five guests. Could you let the caterers know the new number before they finalise the order tomorrow morning? Thanks.",
+      "options": { "choices": ["book the caterers", "cancel the order", "update the guest number with the caterers", "invite three more people"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-03", "work"] },
+
+    { "question_type": "l1_mc4", "difficulty": "B2",
+      "prompt": "Listen to the conversation about a new gym. How does the woman feel about it?",
+      "media": "listening/set03-l1-q11.mp3",
+      "passage": "TRANSCRIPT: [Man] Have you tried the new gym on the high street? [Woman] I went last week. The equipment is brand new, I'll give them that. [Man] So you'll join, then? [Woman] I'm not so sure. It's always packed in the evenings, and honestly, for the price they charge, I expected the changing rooms to be a lot cleaner. [Man] Fair enough.",
+      "options": { "choices": ["She is impressed and will definitely join", "She has mixed feelings and is undecided", "She thinks it is excellent value for money", "She dislikes the new equipment"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-03", "sport"] },
+
+    { "question_type": "l1_mc4", "difficulty": "B2",
+      "prompt": "Listen to the station announcement. What should passengers for Greenford do?",
+      "media": "listening/set03-l1-q12.mp3",
+      "passage": "TRANSCRIPT: [Woman] Attention, please. The 14:20 service to Greenford has been cancelled due to a signalling fault. Passengers for Greenford should take the next train to Hartley, then change onto the local shuttle bus, which will be waiting outside the station. We apologise for the disruption. Your tickets remain valid on the alternative route.",
+      "options": { "choices": ["travel to Hartley and take a shuttle bus", "wait for the 14:20 to be repaired", "buy a new ticket", "drive to Greenford"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-03", "travel"] },
+
+    { "question_type": "l1_mc4", "difficulty": "B2",
+      "prompt": "Listen to the conversation. Why has the team decided to hold the meeting online?",
+      "media": "listening/set03-l1-q13.mp3",
+      "passage": "TRANSCRIPT: [Woman] Are we still meeting in person on Thursday? [Man] We've decided to hold it online this time. [Woman] Is that because of the train strike? [Man] Partly, but mainly because two of the team are working from the Leeds office that week, and it's simply easier for everyone to join from their own desks. [Woman] Makes sense.",
+      "options": { "choices": ["because of a train strike", "because the meeting room is booked", "because it is cheaper", "because some staff are in another office"] },
+      "correct_answers": { "choice": 3 }, "tags": ["set-03", "work"] },
+
+    { "question_type": "l2_speaker_match", "difficulty": "B1",
+      "prompt": "Four people talk about a hobby they have recently taken up. Match each statement to the correct speaker.",
+      "media": "listening/set03-l2-q14.mp3",
+      "passage": "TRANSCRIPT: Speaker A: For me, baking bread is pure relaxation. After a stressful day, kneading the dough and waiting for it to rise clears my head completely. I never worry about whether it turns out perfectly — the process itself is what calms me down.\nSpeaker B: I started running with a local club about six months ago. Honestly, I'm not that fast, but that was never really the point. I'd just moved to the city and didn't know a single person, and joining the group was the easiest way to make friends and feel at home.\nSpeaker C: I picked up photography last spring. What I love most is that it gets me outside and walking for hours. I'll happily spend a whole morning in the park or down by the coast, just looking for the right light. It's completely changed how I see the world around me.\nSpeaker D: I spend all day at a desk staring at a screen, so I wanted a hobby that used my hands instead. Pottery is perfect for that. There's something really satisfying about shaping wet clay into something solid and useful that you can actually hold.",
+      "options": { "statements": [
+        "This person was tired of sitting at a computer all day.",
+        "This person took up the hobby mainly in order to relax.",
+        "This person wanted to make new friends after moving.",
+        "This person enjoys being outdoors while doing it."
+      ] },
+      "correct_answers": { "answers": [3, 0, 1, 2] },
+      "tags": ["set-03", "hobbies"] },
+
+    { "question_type": "l3_opinion_id", "difficulty": "B2",
+      "prompt": "Listen to two people discussing a plan to close the city centre to cars. Who expresses each opinion?",
+      "media": "listening/set03-l3-q15.mp3",
+      "passage": "TRANSCRIPT: [Woman] Did you see the council wants to ban cars from the whole city centre? [Man] I did, and I think it's a brilliant idea. The air would be so much cleaner, and the streets could be full of cafés and markets instead of traffic. [Woman] I like the sound of cleaner air too, I'll admit. But I do worry about people who can't walk far — elderly residents, or anyone carrying heavy shopping. How are they supposed to get around? [Man] That's fair. I suppose there'd have to be exceptions for taxis and delivery vans, at least at certain hours. [Woman] Exactly. And the shops need their deliveries, otherwise they'll lose business and blame the council. [Man] True. Although, in the cities that have already tried it, most local shops actually report more customers, not fewer. [Woman] Really? I didn't know that. Still, none of it works unless the buses and trains are frequent and cheap. [Man] Oh, completely. If people can't rely on public transport, they'll never leave their cars at home. That has to come first. [Woman] On that, at least, we're in total agreement.",
+      "options": { "statements": [
+        "The ban would improve the city's air quality.",
+        "People with mobility difficulties might struggle to get around.",
+        "Shops in car-free areas often gain more customers, not fewer.",
+        "Good public transport is essential for the plan to succeed."
+      ] },
+      "correct_answers": { "answers": ["both", "woman", "man", "both"] },
+      "tags": ["set-03", "city life"] },
+
+    { "question_type": "l4_monologue_mc", "difficulty": "C1",
+      "prompt": "Listen to the extract from a talk about taste, and answer both questions.",
+      "media": "listening/set03-l4a-q16.mp3",
+      "passage": "TRANSCRIPT: [Female speaker] Most of us grew up believing there were four basic tastes: sweet, sour, salty and bitter. Yet there is a fifth, one that Western science was surprisingly slow to accept. It's called umami, a Japanese word usually translated as 'savouriness'. Umami is the deep, mouth-filling taste you notice in ripe tomatoes, aged cheese, mushrooms and slow-cooked meat. A Japanese chemist first identified the compound responsible more than a century ago, but for decades many European researchers dismissed the idea, assuming umami was simply a combination of the other tastes. It was only when scientists located specific receptors on the tongue that respond to it that the debate was finally settled. What I find most interesting is not the chemistry itself, but what it tells us about how knowledge travels. A discovery made in one part of the world can be ignored elsewhere for generations, not because the evidence is weak, but because it doesn't fit the assumptions people already hold. Umami was hiding in plain sight in kitchens everywhere, and yet it took a shift in thinking, as much as a shift in technology, before it was finally recognised.",
+      "options": { "questions": [
+        { "text": "What does the speaker find most interesting about the story of umami?", "choices": ["the exact chemistry of the taste", "how a genuine discovery can be overlooked because of existing beliefs", "the fact that it was first identified in Japan", "the range of foods that contain it"] },
+        { "text": "What does the speaker say finally settled the debate?", "choices": ["a better translation of the Japanese word", "the growing popularity of tomatoes and cheese", "the discovery of specific taste receptors on the tongue", "the support of European chefs"] }
+      ] },
+      "correct_answers": { "answers": [1, 2] },
+      "tags": ["set-03", "food"] },
+
+    { "question_type": "l4_monologue_mc", "difficulty": "C1",
+      "prompt": "Listen to the extract from a talk about food-delivery apps, and answer both questions.",
+      "media": "listening/set03-l4b-q17.mp3",
+      "passage": "TRANSCRIPT: [Male speaker] Food-delivery apps have transformed how city dwellers eat. With a few taps, dinner from almost any restaurant appears at your door within the hour. It's undeniably convenient, and for restaurants it can open up a whole new stream of customers. But I want to sound a note of caution. The commissions these platforms charge can swallow up to a third of a restaurant's takings on every order. For a small kitchen working on thin margins, that is enormous. Some owners tell me they feel trapped: they can't afford the fees, yet they can't afford to be the only restaurant in the street that isn't on the app either. There's a further, quieter effect. When we order from our sofas, we stop walking to the high street, and the casual life of the neighbourhood — the chance meetings, the passing trade for other shops — slowly fades. I'm not suggesting we abandon these apps; they're clearly here to stay. But I do think, as customers, we should occasionally ask who really pays for our convenience, and be willing now and then to walk to the restaurant ourselves.",
+      "options": { "questions": [
+        { "text": "What is the speaker's main concern about delivery apps?", "choices": ["the high fees charged to restaurants and the wider effect on neighbourhoods", "the food often arrives cold", "the apps are too difficult to use", "restaurants receive far too many orders"] },
+        { "text": "What does the speaker recommend that customers do?", "choices": ["stop using delivery apps altogether", "sometimes visit restaurants in person instead", "only order from large chain restaurants", "complain to the platforms about the fees"] }
+      ] },
+      "correct_answers": { "answers": [0, 1] },
+      "tags": ["set-03", "work"] }
+  ]
+}

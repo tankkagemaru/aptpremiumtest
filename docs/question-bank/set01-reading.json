@@ -1,0 +1,104 @@
+{
+  "exam": "aptis-general",
+  "module": "reading",
+  "questions": [
+    {
+      "question_type": "r1_gap_mc3",
+      "difficulty": "A2",
+      "prompt": "Read the email from a friend. Choose the best word for each gap.",
+      "passage": "Hi Jordan, I [[1]] some great news! Our film club [[2]] going to visit a cinema museum next Saturday. The coach [[3]] at nine o'clock, so please arrive early. There [[4]] a small café at the museum where we can have lunch. Remember to bring [[5]] warm jacket because the film rooms are cold. I really hope you [[6]] come with us. See you soon, Priya",
+      "options": {
+        "gaps": [
+          { "choices": ["have", "has", "am"] },
+          { "choices": ["is", "are", "be"] },
+          { "choices": ["leave", "leaves", "leaving"] },
+          { "choices": ["is", "are", "have"] },
+          { "choices": ["a", "an", "the"] },
+          { "choices": ["can", "are", "do"] }
+        ]
+      },
+      "correct_answers": { "answers": ["have", "is", "leaves", "is", "a", "can"] },
+      "tags": ["set-01", "travel"]
+    },
+    {
+      "question_type": "r2_ordering",
+      "difficulty": "A2",
+      "prompt": "Put the sentences in the right order to tell the story.",
+      "options": {
+        "fixed_first": "Last month, Daniel decided to organise a weekend trip for the photography class.",
+        "sentences": [
+          "During the trip, they took hundreds of photographs together.",
+          "First, he asked everyone which city they wanted to visit.",
+          "In the end, everyone agreed it had been their best weekend of the year.",
+          "Then he booked a comfortable coach and a friendly hostel.",
+          "Most of the students chose a small town by the sea."
+        ]
+      },
+      "correct_answers": { "order": [1, 4, 3, 0, 2] },
+      "tags": ["set-01", "travel"]
+    },
+    {
+      "question_type": "r3_opinion_match",
+      "difficulty": "B1",
+      "prompt": "Four people give their views on whether it is better to watch films at the cinema or at home. Who says the following?",
+      "options": {
+        "people": [
+          { "name": "Person A", "text": "For me, nothing beats the cinema. The enormous screen and powerful sound make even a simple story feel exciting. I also love the moment when the lights go down and everyone finally stops talking. Yes, the tickets cost more than a streaming subscription, but I honestly think the experience is worth every penny." },
+          { "name": "Person B", "text": "I almost always watch films at home now. Streaming services are far cheaper than cinema tickets, and I can pause whenever I want to make a cup of tea. The picture quality on modern televisions is excellent too. The only thing I miss is the giant screen, but comfort matters more to me." },
+          { "name": "Person C", "text": "It really depends on the film. I still go to the cinema for big adventure films that need a huge screen, but I watch quiet dramas and older classics at home. Choosing the right place for each film makes both experiences better. I would never say that one is simply better than the other." },
+          { "name": "Person D", "text": "Honestly, I go to the cinema mainly for the people. My friends and I meet there every Friday, and we discuss the film afterwards in a café nearby. Watching alone at home feels a little lonely to me. What really annoys me, though, is when strangers check their phones during the film." }
+        ],
+        "questions": [
+          "Who enjoys the silence just as the film begins?",
+          "Who likes being able to stop the film whenever they wish?",
+          "Who chooses where to watch according to the type of film?",
+          "Who values watching films as a way of spending time with friends?",
+          "Who is bothered by other people using their phones?",
+          "Who believes the price of a ticket is justified?",
+          "Who praises how good pictures look on home screens?"
+        ]
+      },
+      "correct_answers": { "answers": [0, 1, 2, 3, 3, 0, 1] },
+      "tags": ["set-01", "hobbies"]
+    },
+    {
+      "question_type": "r4_banked_cloze",
+      "difficulty": "B2",
+      "prompt": "Read the text about night trains. Choose the correct word from the bank for each gap. There are more words than gaps.",
+      "passage": "After years of decline, the night train is making a surprising [[1]] across Europe. Faced with growing concern about the environmental [[2]] of flying, many travellers are choosing to sleep on board a train instead of catching an early-morning plane. Several rail companies have [[3]] new routes that connect major cities overnight, allowing passengers to [[4]] the journey while they sleep. Supporters argue that these services are far more [[5]] than short flights, since a single train produces only a fraction of the emissions. Critics, however, point out that tickets can be [[6]] and that carriages are often fully [[7]] weeks in advance. Even so, demand continues to rise, and governments are being [[8]] to invest in the ageing network. For many travellers, the romance of waking up in a brand-new country is reason enough to book a berth.",
+      "options": {
+        "bank": ["comeback", "impact", "launched", "complete", "sustainable", "expensive", "booked", "urged", "delay", "reduced", "cancelled", "crowded"]
+      },
+      "correct_answers": { "answers": ["comeback", "impact", "launched", "complete", "sustainable", "expensive", "booked", "urged"] },
+      "tags": ["set-01", "travel"]
+    },
+    {
+      "question_type": "r5_heading_match",
+      "difficulty": "C1",
+      "prompt": "Read the text about online education. Match a heading to each paragraph. There is one heading you do not need.",
+      "options": {
+        "paragraphs": [
+          "Long before the internet, students could already study from a distance. Universities posted printed lessons to learners who lived far from any campus, and some even broadcast lectures on the radio. These early schemes were slow and offered little contact with teachers, yet they proved that education did not have to happen inside a single building. They quietly laid the foundations for the flexible courses that millions of people now take online.",
+          "The arrival of fast internet connections changed everything. Suddenly, a lecturer in one country could speak live to students on the other side of the world. Video, quizzes and discussion boards were gathered onto single platforms that anyone could open from a laptop. As these tools became cheaper and simpler to use, online courses spread from a handful of universities to schools, companies and hobby groups everywhere.",
+          "For many learners, the greatest advantage is freedom. A parent can watch a lecture after the children are asleep, and a worker can study during a lunch break. People who live far from a city, or who cannot easily leave the house, gain access to courses that were once impossible to reach. For them, online study is not merely convenient; it opens doors that had previously stayed firmly shut.",
+          "Yet studying alone in front of a screen brings difficulties of its own. Without a fixed timetable or classmates sitting nearby, some learners lose motivation and quietly give up. The gentle encouragement of a room full of other students is surprisingly hard to copy online. Course designers now spend much of their effort trying to keep distant learners feeling connected and determined to reach the end.",
+          "As the number of courses exploded, so did worries about quality. Almost anyone could build a website and sell a certificate, and employers were unsure which qualifications to trust. In response, universities and independent bodies began inspecting courses and awarding recognised badges. Learners are now advised to look carefully at who stands behind a course before paying, rather than trusting attractive advertising alone.",
+          "Online education has also become big business. Companies now earn substantial sums by selling courses, and traditional universities have opened digital departments to compete. Some critics worry that the pressure to make money may push providers to enrol as many students as possible while spending very little on teaching. Others reply that competition has driven prices down and forced everyone to improve what they offer.",
+          "What comes next is far from certain. Some predict that classrooms will largely disappear, replaced by lessons that adjust automatically to each individual learner. Others believe the future is 'blended', mixing online material with valuable time spent face to face. Whatever happens, few people now expect education to return fully to the way it looked before. The screen has earned a permanent place beside the traditional desk."
+        ],
+        "headings": [
+          "The tools that made rapid expansion possible",
+          "Opening education to people once left out",
+          "Money enters the classroom",
+          "Learning at a distance is nothing new",
+          "The struggle to stay motivated alone",
+          "A permanent but uncertain future",
+          "Deciding which courses can be trusted",
+          "Why teachers resist new technology"
+        ]
+      },
+      "correct_answers": { "answers": [3, 0, 1, 4, 6, 2, 5] },
+      "tags": ["set-01", "education"]
+    }
+  ]
+}
