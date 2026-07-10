@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Field } from "@/components/ui/field";
+import { SubmitButton } from "@/components/ui/submit-button";
 import { createAccount } from "../students/actions";
 
 export const dynamic = "force-dynamic";
@@ -72,7 +73,7 @@ export default async function SettingsPage({
                 </select>
               </Field>
               <div className="sm:col-span-2">
-                <Button type="submit">Create account</Button>
+                <SubmitButton pendingLabel="Creating…">Create account</SubmitButton>
               </div>
             </form>
           </Card>

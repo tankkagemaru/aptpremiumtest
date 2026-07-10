@@ -7,8 +7,8 @@
   --cream-50: #faf4ea;
   --paper: #fdf9f1;
   --ink: #1b1612;
-  --ink-soft: #4a4239;
-  --ink-muted: #6e655c;
+  --ink-soft: #443d34;
+  --ink-muted: #5c534a;
   --line: #e8dfd2;
   --crimson: #a8242e;
   --crimson-soft: #c84d56;
@@ -22,15 +22,16 @@
   --alert-bg: #f5d8db;
 }
 
-/* Dark mode: same tokens, values flipped to warm near-black; crimson lifted so it still reads. */
+/* Dark mode: same tokens, values flipped to warm near-black; crimson lifted so it still reads.
+   Applies when the OS is dark (unless the user forced light) OR when data-theme="dark". */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --cream: #17130f;
     --cream-50: #1e1912;
     --paper: #221c14;
     --ink: #f0e8dc;
-    --ink-soft: #c8beaf;
-    --ink-muted: #95897a;
+    --ink-soft: #cabfae;
+    --ink-muted: #a49887;
     --line: #2e271e;
     --crimson: #d95d66;
     --crimson-soft: #e37b82;
@@ -43,6 +44,25 @@
     --alert: #d95d66;
     --alert-bg: #3b2125;
   }
+}
+:root[data-theme="dark"] {
+  --cream: #17130f;
+  --cream-50: #1e1912;
+  --paper: #221c14;
+  --ink: #f0e8dc;
+  --ink-soft: #cabfae;
+  --ink-muted: #a49887;
+  --line: #2e271e;
+  --crimson: #d95d66;
+  --crimson-soft: #e37b82;
+  --crimson-bg: #3b2125;
+  --gold: #c79a62;
+  --good: #7fae8a;
+  --good-bg: #24352a;
+  --pending: #c79a62;
+  --pending-bg: #3a2f1d;
+  --alert: #d95d66;
+  --alert-bg: #3b2125;
 }
 
 @theme inline {
@@ -85,6 +105,19 @@ h3 {
   font-family: var(--font-playfair), Georgia, serif;
   font-weight: 500;
   letter-spacing: -0.01em;
+}
+
+/* Visible keyboard focus everywhere (accessibility) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--crimson);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 @layer utilities {

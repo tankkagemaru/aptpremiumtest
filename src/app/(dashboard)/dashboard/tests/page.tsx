@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Field } from "@/components/ui/field";
+import { SubmitButton } from "@/components/ui/submit-button";
 import { createTest } from "./actions";
 
 export default async function TestsPage({
@@ -64,7 +65,7 @@ export default async function TestsPage({
               </select>
             </Field>
           </div>
-          <Button type="submit">Create</Button>
+          <SubmitButton pendingLabel="Creating…">Create</SubmitButton>
         </form>
         <p className="text-[12px] text-ink-muted mt-3">
           The five APTIS sections are created automatically with official timings —

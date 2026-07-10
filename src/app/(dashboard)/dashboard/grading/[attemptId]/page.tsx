@@ -5,6 +5,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { isAiConfigured } from "@/lib/ai/writing";
 import { MODULE_LABEL } from "@/lib/scoring/cefr";
+import { SubmitButton } from "@/components/ui/submit-button";
 import { GradingRubric } from "@/components/dashboard/grading-rubric";
 import { runAiWriting, saveGrade, verifyAndRelease, regenerateAnalysis } from "../actions";
 
@@ -370,7 +371,9 @@ export default async function GradingWorkspace({
                 This computes final scale scores and CEFR levels for every module,
                 then releases the result to the student.
               </p>
-              <Button type="submit">Verify &amp; release result</Button>
+              <SubmitButton pendingLabel="Releasing & analysing…">
+                Verify &amp; release result
+              </SubmitButton>
             </form>
           )}
         </Card>
@@ -467,9 +470,9 @@ function GradeForm({
             className="w-full rounded-md border border-line bg-paper px-3 py-2 text-[15px] focus:outline-none focus:border-crimson focus:ring-1 focus:ring-crimson"
           />
         </div>
-        <Button type="submit" variant="secondary">
+        <SubmitButton variant="secondary" pendingLabel="Saving…">
           Save {MODULE_LABEL[module]?.toLowerCase()} grade
-        </Button>
+        </SubmitButton>
       </form>
     </Card>
   );

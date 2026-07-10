@@ -3,6 +3,7 @@ import { createClient } from "@/lib/supabase/server";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { MODULES, TYPE_PARTS } from "@/lib/question-import";
+import { SubmitButton } from "@/components/ui/submit-button";
 import { BulkQuestionList } from "@/components/dashboard/bulk-question-list";
 import { importQuestions, deleteSet, bulkDeleteQuestions, bulkSetActive } from "./actions";
 
@@ -179,7 +180,7 @@ export default async function QuestionsPage({
             required
             className="text-[13px] text-ink-soft file:mr-3 file:rounded-md file:border file:border-line file:bg-paper file:px-3 file:py-1.5 file:text-ink"
           />
-          <Button type="submit">Import</Button>
+          <SubmitButton pendingLabel="Importing…">Import</SubmitButton>
         </form>
       </Card>
 

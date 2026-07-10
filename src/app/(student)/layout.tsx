@@ -4,6 +4,7 @@ import { type ReactNode } from "react";
 import { getProfile } from "@/lib/auth";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/brand/logo";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 export default async function StudentLayout({
   children,
@@ -21,9 +22,10 @@ export default async function StudentLayout({
             <Logo subtitle="Mock tests" />
           </Link>
           <div className="flex items-center gap-3 shrink-0">
-            <span className="text-[13px] text-ink-muted hidden sm:inline">
+            <span className="text-[13px] text-ink-muted hidden md:inline">
               {profile.fullName}
             </span>
+            <ThemeToggle />
             <form action="/auth/signout" method="post">
               <Button variant="secondary" type="submit">
                 Sign out
