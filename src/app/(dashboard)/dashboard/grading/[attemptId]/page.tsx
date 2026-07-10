@@ -61,7 +61,7 @@ export default async function GradingWorkspace({
 
   const { data: responses } = await supabase
     .from("mock_responses")
-    .select("question_id, answer, audio_path, word_count, question:mock_questions(part, prompt, module, question_type, options)")
+    .select("question_id, answer, audio_path, word_count, question:mock_questions(part, prompt, module, question_type, options, media_url)")
     .eq("attempt_id", attemptId);
 
   const { data: gradesRaw } = await supabase
@@ -86,6 +86,7 @@ export default async function GradingWorkspace({
 
   // Sign speaking audio for playback
   const audioByQuestion = new Map<string, { paths: string[]; urls: string[] }>();
+  const imagesByQuestion = new Map<string, string[]>();
   for (const r of speakingResponses) {
     const paths = ((r.answer as { audio_paths?: string[] } | null)?.audio_paths ?? []).filter(
       Boolean
@@ -96,11 +97,39 @@ export default async function GradingWorkspace({
       if (data?.signedUrl) urls.push(data.signedUrl);
     }
     audioByQuestion.set(r.question_id, { paths, urls });
+
+    // The prompt photo(s) the student saw
+    const q = r.question as unknown as {
+      question_type: string;
+      media_url: string | null;
+      options: { images?: string[] } | null;
+    };
+    const imgPaths =
+      q.question_type === "s3_compare"
+        ? (q.options?.images ?? []).filter(Boolean)
+        : q.media_url
+          ? [q.media_url]
+          : [];
+    const imgUrls: string[] = [];
+    for (const p of imgPaths) {
+      const { data } = await supabase.storage.from("mock-media").createSignedUrl(p, 60 * 60);
+      if (data?.signedUrl) imgUrls.push(data.signedUrl);
+    }
+    if (imgUrls.length) imagesByQuestion.set(r.question_id, imgUrls);
   }
 
   const allManualGraded = manualModules.every((m) => grades.get(m)?.teacher_score != null);
   const student = attempt.student as unknown as { full_name: string; email: string } | null;
   const test = attempt.test as unknown as { title: string } | null;
+
+  // Full score picture (auto modules computed live, manual from grades)
+  const { data: preview } = await supabase.rpc("mock_preview_result", { p_attempt: attemptId });
+  const previewModules = (preview?.modules ?? {}) as Record<
+    string,
+    { scale?: number; band?: string; auto?: boolean; graded?: boolean; earned?: number; max?: number }
+  >;
+  const previewOverall = preview?.overall as { scale: number; band: string } | null;
+  const MODULE_ORDER = ["core", "reading", "listening", "writing", "speaking"];
 
   return (
     <div className="space-y-8">
@@ -120,6 +149,52 @@ export default async function GradingWorkspace({
       {error ? (
         <p className="rounded-md bg-alert-bg text-alert px-3 py-2 text-[13px]">{error}</p>
       ) : null}
+
+      {/* Full score summary — all sections */}
+      <Card className="p-5">
+        <div className="flex items-center justify-between mb-3">
+          <p className="label-caps">Score summary</p>
+          {previewOverall ? (
+            <p className="text-[13px]">
+              Overall{" "}
+              <span className="font-display text-lg">{previewOverall.band}</span>{" "}
+              <span className="figures text-ink-muted">{previewOverall.scale}/50</span>
+            </p>
+          ) : (
+            <p className="text-[12px] text-pending">provisional — grade all sections for overall</p>
+          )}
+        </div>
+        <table className="w-full text-left">
+          <thead>
+            <tr className="border-b border-line">
+              <th className="label-caps py-1.5 font-medium">Module</th>
+              <th className="label-caps py-1.5 font-medium text-right">Scale</th>
+              <th className="label-caps py-1.5 font-medium text-right">CEFR</th>
+              <th className="label-caps py-1.5 font-medium text-right">Source</th>
+            </tr>
+          </thead>
+          <tbody>
+            {MODULE_ORDER.filter((m) => previewModules[m]).map((m) => {
+              const pm = previewModules[m];
+              return (
+                <tr key={m} className="border-b border-line last:border-0">
+                  <td className="py-2 text-[14px]">{MODULE_LABEL[m] ?? m}</td>
+                  <td className="py-2 text-[14px] text-right figures">
+                    {pm.graded ? pm.scale : "—"}
+                    {pm.auto && pm.graded ? (
+                      <span className="text-ink-muted text-[12px]"> ({pm.earned}/{pm.max})</span>
+                    ) : null}
+                  </td>
+                  <td className="py-2 text-right font-display">{pm.graded ? pm.band : "—"}</td>
+                  <td className="py-2 text-right text-[12px] text-ink-muted">
+                    {pm.auto ? "auto" : pm.graded ? "teacher" : "pending"}
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </Card>
 
       {manualModules.length === 0 ? (
         <Card className="p-6">
@@ -200,9 +275,23 @@ export default async function GradingWorkspace({
                     options: { questions?: string[] } | null;
                   };
                   const audio = audioByQuestion.get(r.question_id);
+                  const images = imagesByQuestion.get(r.question_id) ?? [];
                   return (
                     <div key={r.question_id} className="space-y-2">
                       <p className="text-[14px] font-medium">Part {q.part} — {q.prompt}</p>
+                      {images.length > 0 ? (
+                        <div className="flex flex-wrap gap-2">
+                          {images.map((url, i) => (
+                            // eslint-disable-next-line @next/next/no-img-element
+                            <img
+                              key={i}
+                              src={url}
+                              alt="Prompt"
+                              className="h-32 rounded-md border border-line object-cover"
+                            />
+                          ))}
+                        </div>
+                      ) : null}
                       {(audio?.urls ?? []).length === 0 ? (
                         <p className="text-[13px] text-ink-muted">No audio.</p>
                       ) : (

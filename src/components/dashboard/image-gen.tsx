@@ -5,7 +5,14 @@ import { createClient } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
-type Slot = { qid: string; prompt: string; index: number; label: string; ready: boolean };
+type Slot = {
+  qid: string;
+  prompt: string;
+  index: number;
+  label: string;
+  path: string | null;
+  url: string | null;
+};
 
 export function ImageGen() {
   const supabase = useMemo(() => createClient(), []);
@@ -14,6 +21,13 @@ export function ImageGen() {
   const [running, setRunning] = useState(false);
   const [busyKey, setBusyKey] = useState<string | null>(null);
   const [log, setLog] = useState<string[]>([]);
+
+  const key = (s: { qid: string; index: number }) => `${s.qid}:${s.index}`;
+
+  async function sign(path: string): Promise<string | null> {
+    const { data } = await supabase.storage.from("mock-media").createSignedUrl(path, 60 * 60);
+    return data?.signedUrl ?? null;
+  }
 
   async function load() {
     setLoading(true);
@@ -24,17 +38,24 @@ export function ImageGen() {
       .in("question_type", ["s2_photo", "s3_compare"])
       .eq("is_active", true)
       .order("created_at");
+
     const next: Slot[] = [];
     (data ?? []).forEach((q) => {
       const prompt = q.prompt ?? "—";
       if (q.question_type === "s3_compare") {
         const images = ((q.options as { images?: string[] })?.images ?? ["", ""]) as string[];
-        next.push({ qid: q.id, prompt, index: 0, label: "photo 1", ready: Boolean(images[0]) });
-        next.push({ qid: q.id, prompt, index: 1, label: "photo 2", ready: Boolean(images[1]) });
+        next.push({ qid: q.id, prompt, index: 0, label: "photo 1", path: images[0] || null, url: null });
+        next.push({ qid: q.id, prompt, index: 1, label: "photo 2", path: images[1] || null, url: null });
       } else {
-        next.push({ qid: q.id, prompt, index: 0, label: "photo", ready: Boolean(q.media_url) });
+        next.push({ qid: q.id, prompt, index: 0, label: "photo", path: q.media_url || null, url: null });
       }
     });
+    // resolve signed URLs for existing images
+    await Promise.all(
+      next.map(async (s) => {
+        if (s.path) s.url = await sign(s.path);
+      })
+    );
     setSlots(next);
     setLoading(false);
   }
@@ -43,8 +64,6 @@ export function ImageGen() {
     load();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  const key = (s: Slot) => `${s.qid}:${s.index}`;
 
   async function generate(s: Slot) {
     setBusyKey(key(s));
@@ -59,21 +78,22 @@ export function ImageGen() {
       setLog((l) => [`✗ ${s.qid.slice(0, 8)} ${s.label}: ${j.error}`, ...l]);
       return;
     }
-    setSlots((ss) => ss.map((x) => (key(x) === key(s) ? { ...x, ready: true } : x)));
+    const url = await sign(j.path);
+    setSlots((ss) => ss.map((x) => (key(x) === key(s) ? { ...x, path: j.path, url } : x)));
     setLog((l) => [`✓ ${s.qid.slice(0, 8)} ${s.label}`, ...l]);
   }
 
   async function generateMissing() {
     setRunning(true);
     setLog([]);
-    for (const s of slots.filter((x) => !x.ready)) {
+    for (const s of slots.filter((x) => !x.path)) {
       // eslint-disable-next-line no-await-in-loop
       await generate(s);
     }
     setRunning(false);
   }
 
-  const missing = slots.filter((s) => !s.ready).length;
+  const missing = slots.filter((s) => !s.path).length;
 
   return (
     <div className="space-y-5">
@@ -96,14 +116,13 @@ export function ImageGen() {
         </div>
         <p className="text-[13px] text-ink-muted mt-3">
           Photos are generated with AI from each question&apos;s topic. Set an{" "}
-          <code>image_prompt</code> (or <code>image_prompts</code> for compare
-          tasks) on the question for precise control; otherwise the topic is taken
-          from the question. Review generated images before publishing.
+          <code>image_prompt</code> on the question for precise control. Review the
+          images below before publishing.
         </p>
       </Card>
 
       {log.length > 0 ? (
-        <Card className="p-4 max-h-56 overflow-auto">
+        <Card className="p-4 max-h-40 overflow-auto">
           <ul className="space-y-1 text-[13px] figures">
             {log.map((l, i) => (
               <li key={i} className={l.startsWith("✗") ? "text-alert" : "text-good"}>
@@ -114,33 +133,39 @@ export function ImageGen() {
         </Card>
       ) : null}
 
-      <Card className="divide-y divide-line">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {slots.map((s) => (
-          <div key={key(s)} className="px-4 py-2.5 flex items-center gap-3">
-            <span className="text-[14px] flex-1 min-w-40 truncate">{s.prompt}</span>
-            <span className="text-[12px] text-ink-muted w-16">{s.label}</span>
-            {busyKey === key(s) ? (
-              <span className="text-[12px] text-crimson">generating…</span>
-            ) : s.ready ? (
-              <button
-                onClick={() => generate(s)}
-                disabled={running}
-                className="text-[12px] text-ink-muted underline underline-offset-2 cursor-pointer disabled:opacity-50"
-              >
-                regenerate
-              </button>
-            ) : (
-              <button
-                onClick={() => generate(s)}
-                disabled={running}
-                className="text-[12px] text-crimson underline underline-offset-2 cursor-pointer disabled:opacity-50"
-              >
-                generate
-              </button>
-            )}
-          </div>
+          <Card key={key(s)} className="p-3 space-y-2">
+            <div className="aspect-[4/3] rounded-md border border-line bg-cream-50 overflow-hidden flex items-center justify-center">
+              {s.url ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img src={s.url} alt={s.label} className="w-full h-full object-cover" />
+              ) : (
+                <span className="text-[12px] text-ink-muted">no image yet</span>
+              )}
+            </div>
+            <p className="text-[13px] truncate" title={s.prompt}>
+              {s.prompt}
+            </p>
+            <div className="flex items-center justify-between">
+              <span className="text-[12px] text-ink-muted">{s.label}</span>
+              {busyKey === key(s) ? (
+                <span className="text-[12px] text-crimson">generating…</span>
+              ) : (
+                <button
+                  onClick={() => generate(s)}
+                  disabled={running}
+                  className={`text-[12px] underline underline-offset-2 cursor-pointer disabled:opacity-50 ${
+                    s.path ? "text-ink-muted" : "text-crimson"
+                  }`}
+                >
+                  {s.path ? "regenerate" : "generate"}
+                </button>
+              )}
+            </div>
+          </Card>
         ))}
-      </Card>
+      </div>
     </div>
   );
 }
