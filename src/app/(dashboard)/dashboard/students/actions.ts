@@ -21,10 +21,12 @@ export async function deleteAttempt(formData: FormData) {
   redirect(`${dest}?removed=1`);
 }
 
+const SETTINGS = "/dashboard/settings";
+
 export async function createAccount(formData: FormData) {
   const profile = await getProfile();
   if (profile?.role !== "admin") {
-    redirect(`${PAGE}?error=${encodeURIComponent("Only an admin can create accounts.")}`);
+    redirect(`${SETTINGS}?error=${encodeURIComponent("Only an admin can create accounts.")}`);
   }
 
   const email = String(formData.get("email") ?? "").trim();
@@ -34,7 +36,7 @@ export async function createAccount(formData: FormData) {
 
   if (!email || !fullName || password.length < 8) {
     redirect(
-      `${PAGE}?error=${encodeURIComponent("Name, email and a password of 8+ characters are required.")}`
+      `${SETTINGS}?error=${encodeURIComponent("Name, email and a password of 8+ characters are required.")}`
     );
   }
 
@@ -47,11 +49,11 @@ export async function createAccount(formData: FormData) {
   });
 
   if (error) {
-    redirect(`${PAGE}?error=${encodeURIComponent(error.message)}`);
+    redirect(`${SETTINGS}?error=${encodeURIComponent(error.message)}`);
   }
 
-  revalidatePath(PAGE);
+  revalidatePath(SETTINGS);
   redirect(
-    `${PAGE}?created=${encodeURIComponent(`${fullName} (${role}) — they sign in with the email and password you set.`)}`
+    `${SETTINGS}?created=${encodeURIComponent(`${fullName} (${role}) — they sign in with the email and password you set.`)}`
   );
 }
