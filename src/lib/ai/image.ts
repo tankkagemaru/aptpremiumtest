@@ -13,10 +13,10 @@ export function buildImagePrompt(topic: string): string {
 }
 
 export async function generateImage(prompt: string): Promise<Buffer> {
-  const model = process.env.OPENAI_IMAGE_MODEL || "dall-e-3";
+  const model = process.env.OPENAI_IMAGE_MODEL || "gpt-image-1";
+  // No response_format: gpt-image-1 rejects it (returns b64_json by default);
+  // dall-e-* returns a url by default. The handler below copes with either.
   const body: Record<string, unknown> = { model, prompt, size: "1024x1024", n: 1 };
-  // dall-e-* accepts response_format; gpt-image-1 returns b64 by default.
-  if (model.startsWith("dall-e")) body.response_format = "b64_json";
 
   const res = await fetch("https://api.openai.com/v1/images/generations", {
     method: "POST",
