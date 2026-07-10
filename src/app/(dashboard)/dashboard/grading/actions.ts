@@ -120,35 +120,21 @@ export async function saveGrade(formData: FormData) {
   redirect(base(attemptId));
 }
 
-/** Finalise scores, then verify and release the result to the student. */
+/** Finalise scores, verify and release — all in one atomic server function. */
 export async function verifyAndRelease(formData: FormData) {
   const attemptId = String(formData.get("attempt_id"));
   const comment = String(formData.get("teacher_comment") ?? "");
-  const profile = await getProfile();
   const supabase = await createClient();
 
-  const { error: finErr } = await supabase.rpc("mock_finalize_result", {
+  const { error } = await supabase.rpc("mock_verify_and_release", {
     p_attempt: attemptId,
+    p_comment: comment,
   });
-  if (finErr) {
-    redirect(`${base(attemptId)}?error=${encodeURIComponent(finErr.message)}`);
+  if (error) {
+    redirect(`${base(attemptId)}?error=${encodeURIComponent(error.message)}`);
   }
-
-  const { error: relErr } = await supabase
-    .from("mock_results")
-    .update({
-      verified_by: profile?.userId ?? null,
-      verified_at: new Date().toISOString(),
-      released_at: new Date().toISOString(),
-      teacher_comment: comment || null,
-    })
-    .eq("attempt_id", attemptId);
-  if (relErr) {
-    redirect(`${base(attemptId)}?error=${encodeURIComponent(relErr.message)}`);
-  }
-
-  await supabase.from("mock_attempts").update({ status: "completed" }).eq("id", attemptId);
 
   revalidatePath("/dashboard/grading");
+  revalidatePath(base(attemptId));
   redirect(`/dashboard/grading?released=1`);
 }
