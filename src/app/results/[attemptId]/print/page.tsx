@@ -51,6 +51,15 @@ export default async function PrintReport({
         <div className="border border-line rounded-card p-8 print:border-0 print:p-0 print-avoid-break">
           {/* Letterhead */}
           <header className="text-center border-b border-line pb-5 mb-6">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/plc-logo.png"
+              alt="Premium Language Centre"
+              width={48}
+              height={48}
+              className="mx-auto mb-2 rounded-[6px]"
+              style={{ width: 48, height: 48 }}
+            />
             <p className="label-caps print-accent">Premium Language Centre</p>
             <h1 className="font-display text-2xl mt-1">Mock test score report</h1>
             <p className="text-[13px] text-ink-muted mt-1">

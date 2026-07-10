@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { type ReactNode } from "react";
 import { getProfile, isStaff } from "@/lib/auth";
 import { Button } from "@/components/ui/button";
+import { Logo } from "@/components/brand/logo";
 
 const NAV = [
   { n: "01", label: "Overview", href: "/dashboard" },
@@ -27,10 +28,7 @@ export default async function DashboardLayout({
       <header className="border-b border-line bg-cream-50">
         <div className="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between gap-4">
           <Link href="/dashboard">
-            <p className="label-caps">Premium Language Centre</p>
-            <p className="font-display text-lg leading-tight">
-              Mock tests · Staff
-            </p>
+            <Logo subtitle="Mock tests · Staff" />
           </Link>
           <div className="flex items-center gap-3 shrink-0">
             <span className="text-[13px] text-ink-muted hidden sm:inline">

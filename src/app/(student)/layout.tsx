@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { type ReactNode } from "react";
 import { getProfile } from "@/lib/auth";
 import { Button } from "@/components/ui/button";
+import { Logo } from "@/components/brand/logo";
 
 export default async function StudentLayout({
   children,
@@ -17,8 +18,7 @@ export default async function StudentLayout({
       <header className="border-b border-line bg-cream-50">
         <div className="mx-auto max-w-5xl px-4 py-4 flex items-center justify-between gap-4">
           <Link href="/home" className="min-w-0">
-            <p className="label-caps">Premium Language Centre</p>
-            <p className="font-display text-lg leading-tight truncate">Mock tests</p>
+            <Logo subtitle="Mock tests" />
           </Link>
           <div className="flex items-center gap-3 shrink-0">
             <span className="text-[13px] text-ink-muted hidden sm:inline">
