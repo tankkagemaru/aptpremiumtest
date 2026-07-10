@@ -7,7 +7,7 @@ export default function AuthLayout({ children }: { children: ReactNode }) {
       <div className="w-full max-w-md">
         <div className="mb-8 flex flex-col items-center text-center gap-3">
           <Logo size="lg" />
-          <p className="label-caps">Mock test platform</p>
+          <p className="label-caps">English proficiency practice</p>
         </div>
         {children}
       </div>

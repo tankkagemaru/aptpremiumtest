@@ -1,9 +1,10 @@
 "use client";
 
-import { type ReactNode } from "react";
+import { type ReactNode, useMemo, useState } from "react";
 import { AudioPlayer } from "./audio-player";
 import { W1Form, W2Short, W3Chat, W4Email } from "./renderers-writing";
 import { SpeakingTask } from "./speaking-task";
+import { seededShuffle } from "./shuffle";
 import type { Answer, RunnerCtx, StudentQuestion } from "./types";
 
 type P = {
@@ -72,7 +73,8 @@ function GrammarMC3({ q, value, onChange }: P) {
 }
 
 function VocabSet({ q, value, onChange }: P) {
-  const bank = (q.options?.bank as string[]) ?? [];
+  const rawBank = (q.options?.bank as string[]) ?? [];
+  const bank = useMemo(() => seededShuffle(rawBank, q.id), [q.id]); // eslint-disable-line react-hooks/exhaustive-deps
   const items = (q.options?.items as { text: string }[]) ?? [];
   return (
     <div className="space-y-3">
@@ -145,10 +147,14 @@ function GapPassage({
 
 function R1GapMC3({ q, value, onChange }: P) {
   const gaps = (q.options?.gaps as { choices: string[] }[]) ?? [];
+  const shuffled = useMemo(
+    () => gaps.map((g, i) => seededShuffle(g.choices ?? [], `${q.id}-${i}`)),
+    [q.id] // eslint-disable-line react-hooks/exhaustive-deps
+  );
   return (
     <GapPassage
       passage={q.passage ?? ""}
-      gapOptions={(i) => gaps[i]?.choices ?? []}
+      gapOptions={(i) => shuffled[i] ?? []}
       value={value}
       onChange={onChange}
       gapCount={gaps.length}
@@ -157,7 +163,8 @@ function R1GapMC3({ q, value, onChange }: P) {
 }
 
 function R4BankedCloze({ q, value, onChange }: P) {
-  const bank = (q.options?.bank as string[]) ?? [];
+  const rawBank = (q.options?.bank as string[]) ?? [];
+  const bank = useMemo(() => seededShuffle(rawBank, q.id), [q.id]); // eslint-disable-line react-hooks/exhaustive-deps
   const gapCount = ((q.passage ?? "").match(/\[\[\d+\]\]/g) ?? []).length;
   return (
     <GapPassage
@@ -173,6 +180,8 @@ function R4BankedCloze({ q, value, onChange }: P) {
 function R2Ordering({ q, value, onChange }: P) {
   const sentences = (q.options?.sentences as string[]) ?? [];
   const order = value.order ?? sentences.map((_, i) => i);
+  const [dragPos, setDragPos] = useState<number | null>(null);
+  const [overPos, setOverPos] = useState<number | null>(null);
 
   function move(pos: number, dir: -1 | 1) {
     const next = [...order];
@@ -182,17 +191,51 @@ function R2Ordering({ q, value, onChange }: P) {
     onChange({ ...value, order: next });
   }
 
+  function reorder(from: number, to: number) {
+    if (from === to) return;
+    const next = [...order];
+    const [moved] = next.splice(from, 1);
+    next.splice(to, 0, moved);
+    onChange({ ...value, order: next });
+  }
+
   return (
     <div className="space-y-2">
       <div className="rounded-md border border-line bg-cream-50 px-3 py-2.5 text-[15px]">
         <span className="label-caps mr-2">First</span>
         {q.options?.fixed_first as string}
       </div>
+      <p className="text-[13px] text-ink-muted">
+        Drag the sentences into order, or use the arrows.
+      </p>
       {order.map((sentenceIdx, pos) => (
         <div
           key={sentenceIdx}
-          className="flex items-center gap-2 rounded-md border border-line bg-paper px-3 py-2.5"
+          draggable
+          onDragStart={() => setDragPos(pos)}
+          onDragOver={(e) => {
+            e.preventDefault();
+            setOverPos(pos);
+          }}
+          onDrop={(e) => {
+            e.preventDefault();
+            if (dragPos !== null) reorder(dragPos, pos);
+            setDragPos(null);
+            setOverPos(null);
+          }}
+          onDragEnd={() => {
+            setDragPos(null);
+            setOverPos(null);
+          }}
+          className={`flex items-center gap-2 rounded-md border px-3 py-2.5 cursor-grab active:cursor-grabbing transition-colors ${
+            overPos === pos && dragPos !== null
+              ? "border-crimson bg-crimson-bg"
+              : "border-line bg-paper"
+          } ${dragPos === pos ? "opacity-50" : ""}`}
         >
+          <span className="text-ink-muted select-none" aria-hidden>
+            ⠿
+          </span>
           <span className="figures text-[12px] text-ink-muted w-5">{pos + 2}</span>
           <span className="flex-1 text-[15px]">{sentences[sentenceIdx]}</span>
           <button
@@ -483,5 +526,7 @@ export function QuestionRenderer(props: P) {
       </p>
     );
   }
-  return <>{R(props)}</>;
+  // key by question id so each question gets a fresh instance (stable shuffles,
+  // no state bleed between same-type questions).
+  return <R key={props.q.id} {...props} />;
 }

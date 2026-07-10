@@ -24,7 +24,7 @@ export function Logo({
       />
       <span className="leading-tight">
         <span className={`font-display ${wordSize} block`}>
-          Premium Language Centre<span className="text-crimson">.</span>
+          Mock<span className="text-crimson">·</span>Test
         </span>
         {subtitle ? (
           <span className="label-caps block mt-0.5">{subtitle}</span>

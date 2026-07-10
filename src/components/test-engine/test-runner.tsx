@@ -50,19 +50,21 @@ export function TestRunner({
     const batch = Array.from(pending.current.entries());
     pending.current.clear();
     setSaveState("saving");
-    const rows = batch.map(([questionId, answer]) => ({
-      attempt_id: attemptId,
-      question_id: questionId,
-      answer,
-      word_count: answerWordCount(answer) || null,
-      answered_at: new Date().toISOString(),
-    }));
-    const { error } = await supabase
-      .from("mock_responses")
-      .upsert(rows, { onConflict: "attempt_id,question_id" });
-    if (error) {
+    // Each answer is saved via a definer RPC (enforces ownership, blocks score columns).
+    const results = await Promise.all(
+      batch.map(([questionId, answer]) =>
+        supabase.rpc("mock_save_response", {
+          p_attempt: attemptId,
+          p_question: questionId,
+          p_answer: answer,
+          p_word_count: answerWordCount(answer) || null,
+        })
+      )
+    );
+    const failed = batch.filter((_, i) => results[i].error);
+    if (failed.length > 0) {
       // put failed saves back so the next flush retries them
-      batch.forEach(([qid, a]) => {
+      failed.forEach(([qid, a]) => {
         if (!pending.current.has(qid)) pending.current.set(qid, a);
       });
       setSaveState("error");
