@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { isAiConfigured } from "@/lib/ai/writing";
 import { MODULE_LABEL } from "@/lib/scoring/cefr";
 import { GradingRubric } from "@/components/dashboard/grading-rubric";
-import { runAiWriting, saveGrade, verifyAndRelease } from "../actions";
+import { runAiWriting, saveGrade, verifyAndRelease, regenerateAnalysis } from "../actions";
 
 export const dynamic = "force-dynamic";
 
@@ -163,11 +163,19 @@ export default async function GradingWorkspace({
       {released ? (
         <div className="rounded-md bg-good-bg text-good px-4 py-3 text-[14px] flex flex-wrap items-center justify-between gap-3">
           <span>✓ Result verified and released to the student.</span>
-          <a href={`/results/${attemptId}/print`} target="_blank" rel="noopener">
-            <Button variant="secondary" className="!py-1.5 text-[13px]">
-              Open candidate report
-            </Button>
-          </a>
+          <div className="flex gap-2">
+            <form action={regenerateAnalysis}>
+              <input type="hidden" name="attempt_id" value={attemptId} />
+              <Button variant="secondary" type="submit" className="!py-1.5 text-[13px]">
+                Refresh AI analysis
+              </Button>
+            </form>
+            <a href={`/results/${attemptId}/print`} target="_blank" rel="noopener">
+              <Button variant="secondary" className="!py-1.5 text-[13px]">
+                Open candidate report
+              </Button>
+            </a>
+          </div>
         </div>
       ) : null}
 

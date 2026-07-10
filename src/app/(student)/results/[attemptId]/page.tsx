@@ -3,7 +3,18 @@ import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { Card } from "@/components/ui/card";
 import { ScoreTable } from "@/components/result/score-table";
+import { AnimatedCefrProfile } from "@/components/result/animated-cefr-profile";
+import { ResultAnalysis } from "@/components/result/result-analysis";
 import { CEFR_LABEL, MODULE_LABEL, type ModuleScores } from "@/lib/scoring/cefr";
+
+export const dynamic = "force-dynamic";
+
+const SKILLS = [
+  { key: "listening", label: "Listening" },
+  { key: "reading", label: "Reading" },
+  { key: "speaking", label: "Speaking" },
+  { key: "writing", label: "Writing" },
+];
 
 export default async function StudentResult({
   params,
@@ -16,7 +27,7 @@ export default async function StudentResult({
   // RLS returns this row only if released_at is set and it's the student's own.
   const { data: result } = await supabase
     .from("mock_results")
-    .select("module_scores, overall_scale, overall_band, teacher_comment, released_at")
+    .select("module_scores, overall_scale, overall_band, teacher_comment, released_at, ai_analysis")
     .eq("attempt_id", attemptId)
     .maybeSingle();
   if (!result) notFound();
@@ -27,6 +38,12 @@ export default async function StudentResult({
     .eq("attempt_id", attemptId);
 
   const scores = result.module_scores as ModuleScores;
+  const analysis = result.ai_analysis as Record<string, unknown> | null;
+
+  const profile = [
+    ...SKILLS.filter((s) => scores[s.key]).map((s) => ({ label: s.label, band: scores[s.key].band })),
+    { label: "Overall", band: result.overall_band ?? "A0" },
+  ];
 
   return (
     <div className="max-w-2xl mx-auto space-y-8">
@@ -52,9 +69,28 @@ export default async function StudentResult({
         </p>
       </Card>
 
+      {/* Animated CEFR chart */}
       <Card className="p-6">
-        <ScoreTable scores={scores} />
+        <p className="label-caps mb-4">CEFR skill profile</p>
+        <AnimatedCefrProfile rows={profile} />
       </Card>
+
+      {/* Score table + per-skill meaning */}
+      <Card className="p-6 space-y-4">
+        <ScoreTable scores={scores} />
+        <div className="border-t border-line pt-4 space-y-1.5">
+          <p className="label-caps mb-1">What your levels mean</p>
+          {SKILLS.filter((s) => scores[s.key]).map((s) => (
+            <p key={s.key} className="text-[13px] text-ink-soft">
+              <span className="font-medium">{s.label} — {scores[s.key].band}:</span>{" "}
+              {CEFR_LABEL[scores[s.key].band] ?? ""}
+            </p>
+          ))}
+        </div>
+      </Card>
+
+      {/* AI analysis */}
+      {analysis ? <ResultAnalysis analysis={analysis} /> : null}
 
       {result.teacher_comment ? (
         <Card className="p-6">
