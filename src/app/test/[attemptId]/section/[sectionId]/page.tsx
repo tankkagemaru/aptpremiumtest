@@ -34,6 +34,15 @@ export default async function SectionPage({
     .maybeSingle();
   if (!section) notFound();
 
+  // Position of this section within the test (for the "Section X of N" stepper)
+  const { data: ordered } = await supabase.rpc("mock_ordered_sections", {
+    p_test: attempt.test_id,
+  });
+  const orderedList = (ordered ?? []) as { section_id: string; idx: number }[];
+  const totalSections = orderedList.length;
+  const sectionIndex =
+    orderedList.find((s) => s.section_id === sectionId)?.idx ?? 0;
+
   const { data: sq } = await supabase
     .from("mock_section_questions")
     .select("question_id, position")
@@ -103,6 +112,8 @@ export default async function SectionPage({
       studentId={profile.studentId}
       sectionModule={section.module}
       sectionTitle={section.title ?? section.module}
+      sectionIndex={sectionIndex}
+      totalSections={totalSections}
       deadline={deadline}
       questions={questions}
       initialAnswers={initialAnswers}

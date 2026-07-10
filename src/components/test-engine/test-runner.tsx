@@ -18,6 +18,8 @@ export function TestRunner({
   studentId,
   sectionModule,
   sectionTitle,
+  sectionIndex,
+  totalSections,
   deadline,
   questions,
   initialAnswers,
@@ -27,6 +29,8 @@ export function TestRunner({
   studentId: string;
   sectionModule: string;
   sectionTitle: string;
+  sectionIndex?: number;
+  totalSections?: number;
   deadline: string; // ISO
   questions: StudentQuestion[];
   initialAnswers: Record<string, Answer>;
@@ -35,6 +39,7 @@ export function TestRunner({
   const supabase = useMemo(() => createClient(), []);
   const [answers, setAnswers] = useState<Record<string, Answer>>(initialAnswers);
   const [current, setCurrent] = useState(0);
+  const [reviewing, setReviewing] = useState(false);
   const [secondsLeft, setSecondsLeft] = useState(() =>
     Math.max(0, Math.floor((new Date(deadline).getTime() - Date.now()) / 1000))
   );
@@ -133,7 +138,14 @@ export function TestRunner({
       <header className="border-b border-line bg-cream-50 sticky top-0 z-10">
         <div className="mx-auto max-w-4xl px-4 py-3 flex items-center justify-between gap-4">
           <div>
-            <p className="label-caps">{sectionTitle}</p>
+            <p className="label-caps">
+              {totalSections ? (
+                <span className="text-ink-muted mr-2">
+                  Section {(sectionIndex ?? 0) + 1} of {totalSections}
+                </span>
+              ) : null}
+              {sectionTitle}
+            </p>
             <p className="figures text-[12px] text-ink-muted">
               {answeredCount}/{questions.length} answered ·{" "}
               {saveState === "saved" ? "saved" : saveState === "saving" ? "saving…" : "offline — retrying"}
@@ -182,20 +194,8 @@ export function TestRunner({
                 Next →
               </Button>
             ) : (
-              <Button
-                onClick={() => {
-                  if (
-                    answeredCount < questions.length &&
-                    !confirm(
-                      `You have answered ${answeredCount} of ${questions.length} questions. Submit this section anyway? You cannot return to it.`
-                    )
-                  )
-                    return;
-                  doSubmit();
-                }}
-                disabled={submitting}
-              >
-                {submitting ? "Submitting…" : "Submit section"}
+              <Button onClick={() => setReviewing(true)} disabled={submitting}>
+                {submitting ? "Submitting…" : "Review & submit"}
               </Button>
             )}
           </div>
@@ -223,6 +223,59 @@ export function TestRunner({
           </div>
         </aside>
       </div>
+
+      {reviewing ? (
+        <div className="fixed inset-0 z-50 bg-ink/40 flex items-center justify-center p-4">
+          <div className="w-full max-w-md rounded-card border border-line bg-paper shadow-lg p-6 space-y-4">
+            <div>
+              <p className="label-caps mb-1">Before you submit</p>
+              <p className="text-[15px]">
+                You&apos;ve answered{" "}
+                <span className="figures">{answeredCount}</span> of{" "}
+                <span className="figures">{questions.length}</span> questions.
+              </p>
+            </div>
+
+            {answeredCount < questions.length ? (
+              <div>
+                <p className="text-[13px] text-ink-muted mb-2">Unanswered — tap to jump:</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {questions.map((qq, i) =>
+                    isAnswered(qq) ? null : (
+                      <button
+                        key={qq.id}
+                        type="button"
+                        onClick={() => {
+                          setCurrent(i);
+                          setReviewing(false);
+                        }}
+                        className="figures h-8 w-8 rounded-md border border-pending bg-pending-bg text-pending text-[13px] cursor-pointer"
+                      >
+                        {i + 1}
+                      </button>
+                    )
+                  )}
+                </div>
+              </div>
+            ) : (
+              <p className="text-[13px] text-good">All questions answered.</p>
+            )}
+
+            <p className="text-[12px] text-ink-muted">
+              You cannot return to this section once submitted.
+            </p>
+
+            <div className="flex justify-end gap-2">
+              <Button variant="secondary" onClick={() => setReviewing(false)} disabled={submitting}>
+                Keep working
+              </Button>
+              <Button onClick={doSubmit} disabled={submitting}>
+                {submitting ? "Submitting…" : "Submit section"}
+              </Button>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 }

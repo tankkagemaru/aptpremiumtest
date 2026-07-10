@@ -3,7 +3,10 @@ import { createClient } from "@/lib/supabase/server";
 import { getProfile } from "@/lib/auth";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { ProgressTrend } from "@/components/result/progress-trend";
 import { startAttempt } from "./actions";
+
+export const dynamic = "force-dynamic";
 
 const MODULE_LABELS: Record<string, string> = {
   core: "Core (Grammar & Vocabulary)",
@@ -38,6 +41,38 @@ export default async function StudentHome({
             .limit(10)
         : Promise.resolve({ data: [] as never[] }),
     ]);
+
+  // Length / section count per published test (only sections that have questions)
+  const testIds = (tests ?? []).map((t) => t.id);
+  const { data: secRows } = testIds.length
+    ? await supabase
+        .from("mock_sections")
+        .select("test_id, duration_seconds, mock_section_questions(question_id)")
+        .in("test_id", testIds)
+    : { data: [] as { test_id: string; duration_seconds: number; mock_section_questions: unknown[] }[] };
+  const testMeta = new Map<string, { minutes: number; sections: number }>();
+  (secRows ?? []).forEach((s) => {
+    if (((s.mock_section_questions as unknown[]) ?? []).length === 0) return;
+    const m = testMeta.get(s.test_id) ?? { minutes: 0, sections: 0 };
+    m.minutes += Math.round(s.duration_seconds / 60);
+    m.sections += 1;
+    testMeta.set(s.test_id, m);
+  });
+
+  // Progress trend from released results
+  const { data: results } = profile?.studentId
+    ? await supabase
+        .from("mock_results")
+        .select("overall_scale, overall_band, released_at, attempt:mock_attempts(submitted_at)")
+        .order("released_at", { ascending: true })
+    : { data: [] as never[] };
+  const trend = (results ?? [])
+    .map((r) => ({
+      scale: Number(r.overall_scale ?? 0),
+      band: String(r.overall_band ?? ""),
+      date: (r.attempt as unknown as { submitted_at: string } | null)?.submitted_at ?? r.released_at,
+    }))
+    .filter((r) => r.date);
 
   return (
     <div className="space-y-10">
@@ -87,7 +122,15 @@ export default async function StudentHome({
                           key={t.id}
                           className="border border-line rounded-md px-3 py-2 text-[14px] flex items-center justify-between gap-3"
                         >
-                          <span className="min-w-0 truncate">{t.title}</span>
+                          <span className="min-w-0">
+                            <span className="block truncate">{t.title}</span>
+                            {testMeta.get(t.id) ? (
+                              <span className="figures text-[12px] text-ink-muted">
+                                {testMeta.get(t.id)!.sections} sections · ~
+                                {testMeta.get(t.id)!.minutes} min
+                              </span>
+                            ) : null}
+                          </span>
                           {profile?.studentId ? (
                             <form action={startAttempt}>
                               <input type="hidden" name="test_id" value={t.id} />
@@ -110,6 +153,8 @@ export default async function StudentHome({
           })}
         </div>
       </section>
+
+      <ProgressTrend points={trend} />
 
       <section>
         <p className="label-caps mb-2">02 · History</p>

@@ -32,7 +32,8 @@ export function MicCheck({ onPassed }: { onPassed: () => void }) {
       };
       rec.start();
       setStage("recording");
-      setTimeout(() => rec.state !== "inactive" && rec.stop(), 3000);
+      // ~15s practice window (auto-stops); they can also replay
+      setTimeout(() => rec.state !== "inactive" && rec.stop(), 15000);
     } catch {
       setStage("error");
     }
@@ -40,12 +41,16 @@ export function MicCheck({ onPassed }: { onPassed: () => void }) {
 
   return (
     <div className="mx-auto max-w-md py-16 text-center space-y-5">
-      <p className="label-caps">Microphone check</p>
-      <h2 className="text-xl">Before you begin</h2>
+      <p className="label-caps">Speaking warm-up</p>
+      <h2 className="text-xl">Practice before you begin</h2>
       <p className="text-[14px] text-ink-soft">
-        Your answers in this section are recorded. Say a few words to check your
-        microphone — recording lasts 3 seconds.
+        The speaking section is recorded and you cannot re-record, so try a
+        practice answer first. This one is <strong>not saved or marked</strong>.
       </p>
+      <div className="rounded-card border border-line bg-cream-50 p-4 text-[15px]">
+        Practice question: “Tell me your name, where you are from, and one thing
+        you enjoy doing.”
+      </div>
       {stage === "error" ? (
         <p className="rounded-md bg-alert-bg text-alert px-3 py-2 text-[13px]">
           Microphone access was blocked. Allow microphone access in your browser
@@ -54,19 +59,21 @@ export function MicCheck({ onPassed }: { onPassed: () => void }) {
       ) : null}
       {stage === "playback" && url ? (
         <div className="space-y-4">
+          <p className="text-[13px] text-good">✓ Recording works. Here&apos;s your practice answer:</p>
           <audio src={url} controls className="mx-auto" />
           <div className="flex justify-center gap-3">
             <Button variant="secondary" onClick={test}>
-              Test again
+              Practise again
             </Button>
-            <Button onClick={onPassed}>I can hear myself — start</Button>
+            <Button onClick={onPassed}>Start the section</Button>
           </div>
         </div>
       ) : (
         <Button onClick={test} disabled={stage === "recording"}>
-          {stage === "recording" ? "Recording… speak now" : "Test microphone"}
+          {stage === "recording" ? "Recording… answer now (auto-stops)" : "Start practice recording"}
         </Button>
       )}
+      <p className="text-[12px] text-ink-muted">Recording stops automatically after ~15 seconds.</p>
     </div>
   );
 }
