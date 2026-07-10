@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing Test</title>
+    <link rel="stylesheet" href="../../css/unified-styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .header-left {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .header-right {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .nav-btn {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid white;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: white;
+            color: #667eea;
+        }
+
+        .student-display-name {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        .page-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 280px;
+            gap: 0;
+            min-height: calc(100vh - 65px);
+        }
+
+        .main-content {
+            background: white;
+            padding: 40px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .content-inner {
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .timer-display {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 40px;
+            width: 100%;
+        }
+
+        .timer {
+            font-size: 56px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 4px;
+        }
+
+        .timer-label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .page-header {
+            margin-bottom: 35px;
+            text-align: center;
+        }
+
+        .page-header h2 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .page-subtitle {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .part-nav {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 40px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .part-btn {
+            background: #f0f0f0;
+            border: 2px solid #ddd;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s;
+        }
+
+        .part-btn:hover {
+            border-color: #667eea;
+            color: #667eea;
+        }
+
+        .part-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .question-content {
+            margin-bottom: 40px;
+            min-height: 300px;
+        }
+
+        .task-section {
+            display: none;
+        }
+
+        .task-section.active {
+            display: block;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .section-intro {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #667eea;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .task-item {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border-left: 4px solid #667eea;
+        }
+
+        .task-item-number {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 32px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .task-title {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        .task-author {
+            color: #999;
+            font-size: 13px;
+            margin-bottom: 12px;
+        }
+
+        .task-instruction {
+            color: #555;
+            font-size: 15px;
+            margin-bottom: 18px;
+            line-height: 1.6;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 15px;
+            resize: vertical;
+            min-height: 140px;
+            transition: all 0.3s;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .word-count {
+            text-align: right;
+            font-size: 13px;
+            color: #999;
+            margin-top: 8px;
+        }
+
+        .word-count.warning {
+            color: #ff9800;
+        }
+
+        .word-count.error {
+            color: #f44336;
+        }
+
+        .navigation {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .btn {
+            padding: 13px 32px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+        }
+
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+
+        .btn-success {
+            background: #48bb78;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #38a169;
+        }
+
+        .sidebar {
+            background: #f8f9fa;
+            border-left: 1px solid #e9ecef;
+            padding: 30px 20px;
+            overflow-y: auto;
+        }
+
+        .sidebar-title {
+            font-weight: 600;
+            color: #333;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+            display: block;
+            letter-spacing: 1px;
+        }
+
+        .part-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .part-item {
+            background: white;
+            border: 2px solid #ddd;
+            padding: 14px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+            color: #333;
+        }
+
+        .part-item:hover {
+            border-color: #667eea;
+            background: #f0f0f0;
+        }
+
+        .part-item.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+        }
+
+        .part-item-label {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 4px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .modal-content h2 {
+            margin: 0 0 25px 0;
+            color: #333;
+            font-size: 24px;
+        }
+
+        .result-summary {
+            background: #f0f0f0;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            color: #333;
+            font-size: 15px;
+        }
+
+        .result-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .result-label {
+            font-weight: 600;
+        }
+
+        .result-value {
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .result-buttons {
+            display: flex;
+            gap: 12px;
+            flex-direction: column;
+        }
+
+        .loading-spinner {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .loading-spinner.show {
+            display: block;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .page-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                border-left: none;
+                border-top: 1px solid #e9ecef;
+                padding: 20px;
+            }
+
+            .header {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .main-content {
+                padding: 25px;
+            }
+
+            .timer {
+                font-size: 40px;
+            }
+
+            .part-nav {
+                gap: 8px;
+            }
+
+            .part-btn {
+                padding: 10px 16px;
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-left">
+            <button onclick="returnToDashboard()" class="nav-btn">← Dashboard</button>
+        </div>
+        <h1 style="flex: 1; text-align: center; margin: 0; font-size: 22px;">Writing Test</h1>
+        <div class="header-right">
+            <span class="student-display-name" id="student-display-name">Student</span>
+            <button onclick="logout()" class="nav-btn">Logout</button>
+        </div>
+    </div>
+
+    <div class="page-wrapper">
+        <div class="main-content">
+            <div class="content-inner">
+                <div class="timer-display">
+                    <span class="timer" id="timer">50:00</span>
+                    <span class="timer-label">Time Remaining</span>
+                </div>
+
+                <div class="page-header">
+                    <h2>📝 Writing Test</h2>
+                    <p class="page-subtitle">Complete all 4 parts of the writing test. Click on a part below or use Previous/Next buttons to navigate.</p>
+                </div>
+
+                <div class="part-nav" id="part-nav"></div>
+                <div class="question-content" id="question-content"></div>
+
+                <div class="navigation">
+                    <button onclick="previousPart()" class="btn btn-secondary" id="prev-btn">← Previous</button>
+                    <button onclick="nextPart()" class="btn btn-primary" id="next-btn">Next →</button>
+                    <button onclick="submitTest()" class="btn btn-success" id="submit-btn" style="display:none;">✓ Submit Test</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar" id="sidebar">
+            <span class="sidebar-title">Parts</span>
+            <div class="part-list" id="part-list"></div>
+        </div>
+    </div>
+
+    <div class="modal" id="results-modal">
+        <div class="modal-content">
+            <h2>✅ Test Complete</h2>
+            <div class="result-summary">
+                <div class="result-item">
+                    <span class="result-label">Parts Completed:</span>
+                    <span class="result-value" id="parts-completed">0/4</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Total Words Written:</span>
+                    <span class="result-value" id="total-words">0</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Time Spent:</span>
+                    <span class="result-value" id="time-spent">0:00</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">Student:</span>
+                    <span class="result-value" id="result-student">Name</span>
+                </div>
+            </div>
+            <div class="result-buttons">
+                <button onclick="sendEmailToTeacher()" class="btn btn-success" id="email-btn">📧 Send to test@premium.edu.my</button>
+                <button onclick="downloadPDF()" class="btn btn-primary" id="pdf-btn">📄 Download as PDF</button>
+                <button onclick="returnToDashboard()" class="btn btn-secondary">← Back to Dashboard</button>
+            </div>
+            <div class="loading-spinner" id="loading-spinner">
+                <div class="spinner"></div>
+                <p id="loading-text">Sending test...</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../js/session.js"></script>
+    <script src="writing-questions.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <script>
+        emailjs.init("_Y_vKQJRLwt7F5zJl");
+
+        if (!sessionManager.isLoggedIn()) {
+            window.location.href = '../../index.html';
+        }
+
+        const studentInfo = sessionManager.getStudentInfo();
+        document.getElementById('student-display-name').textContent = studentInfo.name;
+
+        let test = {
+            currentPart: 1,
+            timerDuration: 50 * 60,
+            remainingTime: 50 * 60,
+            startTime: Date.now(),
+            responses: {
+                part1: {},
+                part2: '',
+                part3: {},
+                part4: { informal: '', formal: '' }
+            },
+            wordCounts: {
+                part2: 0,
+                part3: {},
+                part4: { informal: 0, formal: 0 }
+            }
+        };
+
+        function init() {
+            renderParts();
+            startTimer();
+            loadPart(1);
+        }
+
+        function renderParts() {
+            const navHtml = [1, 2, 3, 4].map(i => 
+                `<button class="part-btn ${i === 1 ? 'active' : ''}" onclick="goToPart(${i})" id="part-btn-${i}">Part ${i}</button>`
+            ).join('');
+            document.getElementById('part-nav').innerHTML = navHtml;
+
+            const listHtml = [1, 2, 3, 4].map(i => 
+                `<div class="part-item ${i === 1 ? 'active' : ''}" onclick="goToPart(${i})" id="part-item-${i}">
+                    <span class="part-item-label">Part</span>
+                    <strong>${i}</strong>
+                </div>`
+            ).join('');
+            document.getElementById('part-list').innerHTML = listHtml;
+        }
+
+        function loadPart(partNum) {
+            test.currentPart = partNum;
+            
+            document.querySelectorAll('.part-btn').forEach((btn, i) => {
+                btn.classList.toggle('active', i + 1 === partNum);
+            });
+            document.querySelectorAll('.part-item').forEach((item, i) => {
+                item.classList.toggle('active', i + 1 === partNum);
+            });
+
+            let html = '';
+            if (partNum === 1) html = renderPart1();
+            else if (partNum === 2) html = renderPart2();
+            else if (partNum === 3) html = renderPart3();
+            else if (partNum === 4) html = renderPart4();
+
+            document.getElementById('question-content').innerHTML = html;
+            
+            document.getElementById('prev-btn').style.display = partNum > 1 ? 'block' : 'none';
+            document.getElementById('next-btn').style.display = partNum < 4 ? 'block' : 'none';
+            document.getElementById('submit-btn').style.display = partNum === 4 ? 'block' : 'none';
+
+            restoreAnswers(partNum);
+        }
+
+        function renderPart1() {
+            const part1 = WRITING_QUESTION_BANK.part1;
+            let html = `
+                <div class="task-section active">
+                    <div class="section-title">Part 1: Word-Level Writing</div>
+                    <div class="section-intro">
+                        <strong>Task:</strong> In this part you need to respond in single words or short phrases to five text messages from another member of the club or group.
+                        <br><br>
+                        <strong>Word Limit:</strong> 1-5 words per message
+                        <br><strong>Recommended Time:</strong> 3 minutes
+                    </div>
+            `;
+
+            part1.messages.forEach((msg, i) => {
+                html += `
+                    <div class="task-item">
+                        <div class="task-item-number">${i + 1}</div>
+                        <div class="task-instruction">"${msg.question}"</div>
+                        <textarea id="msg-${msg.id}" maxlength="50" placeholder="Reply (1-5 words)..." onchange="saveAnswers(1)"></textarea>
+                        <div class="word-count"><span id="char-${msg.id}">0</span> / 50 characters</div>
+                    </div>
+                `;
+            });
+
+            html += `</div>`;
+            return html;
+        }
+
+        function renderPart2() {
+            const part2 = WRITING_QUESTION_BANK.part2;
+            return `
+                <div class="task-section active">
+                    <div class="section-title">Part 2: Short Text Writing</div>
+                    <div class="section-intro">
+                        <strong>Task:</strong> In this part, you will respond to a request for information from the club or group by writing sentences. 
+                        <br><br>
+                        <strong>Word Limit:</strong> 20-30 words
+                        <br><strong>Focus:</strong> Write sentences that are relevant to the request with accurate grammar, punctuation and spelling.
+                        <br><strong>Recommended Time:</strong> 7 minutes
+                    </div>
+                    <div class="task-item">
+                        <div class="task-instruction">${part2.question}</div>
+                        <textarea id="part2-response" placeholder="Type your response here..." onchange="countWords(2)"></textarea>
+                        <div class="word-count"><span id="part2-count">0</span> / 30 words</div>
+                    </div>
+                </div>
+            `;
+        }
+
+function renderPart3() {
+    const part3 = WRITING_QUESTION_BANK.part3;
+    let html = `
+        <div class="task-section active">
+            <div class="section-title">Part 3: Three Written Responses to Questions</div>
+            <div class="section-intro">
+                <strong>Task:</strong> You will have to respond to three questions from other members of the club or group on a social network platform.
+                <br><br>
+                <strong>Word Limit:</strong> 30-40 words for each response
+                <br><strong>Focus:</strong> Write in sentences with accurate grammar, punctuation and spelling.
+                <br><strong>Recommended Time:</strong> 10 minutes
+            </div>
+    `;
+
+    part3.questions.forEach((q, i) => {
+        html += `
+            <div class="task-item">
+                <div class="task-item-number">${i + 1}</div>
+                <div class="task-title">@${q.author}</div>
+                <div class="task-instruction">"${q.question}"</div>
+                <textarea id="social-${q.id}" placeholder="Type your response here..." onchange="saveAnswers(3)" onkeyup="countWords(3)"></textarea>
+                <div class="word-count"><span id="social-count-${q.id}">0</span> / 40 words</div>
+            </div>
+        `;
+    });
+
+    html += `</div>`;
+    return html;
+}
+
+function countWords(part) {
+    if (part === 3) {
+        WRITING_QUESTION_BANK.part3.questions.forEach(q => {
+            const el = document.getElementById(`social-${q.id}`);
+            if (el) {
+                const text = el.value;
+                test.responses.part3[q.id] = text;  // SAVE IMMEDIATELY
+                const count = text.split(/\s+/).filter(w => w.length > 0).length;
+                test.wordCounts.part3[q.id] = count;
+                
+                const counter = document.getElementById(`social-count-${q.id}`);
+                if (counter) {
+                    counter.textContent = count;
+                    counter.parentElement.classList.toggle('warning', count > 40);
+                    counter.parentElement.classList.toggle('error', count > 45);
+                }
+            }
+        });
+        console.log('Part 3 saved:', test.responses.part3, test.wordCounts.part3);
+    }
+}
+
+function saveAnswers(part) {
+    console.log(`Saving Part ${part}...`);
+    countWords(part);
+    try {
+        localStorage.setItem('writing_draft', JSON.stringify(test.responses));
+        console.log('Saved to localStorage');
+    } catch (e) {
+        console.error('localStorage error:', e);
+    }
+}
+
+
+        function renderPart4() {
+            return `
+                <div class="task-section active">
+                    <div class="section-title">Part 4: Formal and Informal Writing</div>
+                    <div class="section-intro">
+                        <strong>Task:</strong> Here you are expected to write two emails in response to some information you have received from the club or group.
+                        <br><br>
+                        <strong>Requirements:</strong> Both emails are on the same topic, but should differ in terms of the language you use. Make sure that you use the appropriate vocabulary for each email and also that you use linking devices to make the text coherent. Watch your grammar, punctuation and spelling.
+                        <br><strong>Recommended Time:</strong> 35 minutes total
+                    </div>
+
+                    <div class="task-item">
+                        <div class="task-item-number">1</div>
+                        <div class="task-title">Informal Email to a Friend</div>
+                        <div class="task-instruction"><strong>Word Limit:</strong> 40-50 words</div>
+                        <div class="task-instruction">Write about your feelings and what you think the club should do about the situation.</div>
+                        <textarea id="email-informal" placeholder="Dear [Friend],&#10;&#10;..." onchange="countWords(4)"></textarea>
+                        <div class="word-count"><span id="email-informal-count">0</span> / 50 words</div>
+                    </div>
+
+                    <div class="task-item">
+                        <div class="task-item-number">2</div>
+                        <div class="task-title">Formal Email to a Person in Authority</div>
+                        <div class="task-instruction"><strong>Word Limit:</strong> 120-150 words</div>
+                        <div class="task-instruction">Write about your feelings and what you think the club should do about the situation.</div>
+                        <textarea id="email-formal" placeholder="Dear [President/Manager],&#10;&#10;..." onchange="countWords(4)"></textarea>
+                        <div class="word-count"><span id="email-formal-count">0</span> / 150 words</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function countWords(part) {
+            if (part === 1) {
+                WRITING_QUESTION_BANK.part1.messages.forEach(msg => {
+                    const text = document.getElementById(`msg-${msg.id}`).value;
+                    test.responses.part1[msg.id] = text;
+                    document.getElementById(`char-${msg.id}`).textContent = text.length;
+                });
+            } else if (part === 2) {
+                const text = document.getElementById('part2-response').value;
+                test.responses.part2 = text;
+                test.wordCounts.part2 = text.split(/\s+/).filter(w => w.length > 0).length;
+                const counter = document.getElementById('part2-count');
+                counter.textContent = test.wordCounts.part2;
+                counter.parentElement.classList.toggle('warning', test.wordCounts.part2 > 30);
+                counter.parentElement.classList.toggle('error', test.wordCounts.part2 > 35);
+            } else if (part === 3) {
+                WRITING_QUESTION_BANK.part3.questions.forEach(q => {
+                    const text = document.getElementById(`social-${q.id}`).value;
+                    test.responses.part3[q.id] = text;
+                    const count = text.split(/\s+/).filter(w => w.length > 0).length;
+                    test.wordCounts.part3[q.id] = count;
+                    const counter = document.getElementById(`social-count-${q.id}`);
+                    counter.textContent = count;
+                    counter.parentElement.classList.toggle('warning', count > 40);
+                    counter.parentElement.classList.toggle('error', count > 45);
+                });
+            } else if (part === 4) {
+                const informal = document.getElementById('email-informal').value;
+                const formal = document.getElementById('email-formal').value;
+                test.responses.part4.informal = informal;
+                test.responses.part4.formal = formal;
+                test.wordCounts.part4.informal = informal.split(/\s+/).filter(w => w.length > 0).length;
+                test.wordCounts.part4.formal = formal.split(/\s+/).filter(w => w.length > 0).length;
+                
+                const informalCounter = document.getElementById('email-informal-count');
+                const formalCounter = document.getElementById('email-formal-count');
+                informalCounter.textContent = test.wordCounts.part4.informal;
+                formalCounter.textContent = test.wordCounts.part4.formal;
+                
+                informalCounter.parentElement.classList.toggle('warning', test.wordCounts.part4.informal > 50);
+                informalCounter.parentElement.classList.toggle('error', test.wordCounts.part4.informal > 55);
+                formalCounter.parentElement.classList.toggle('warning', test.wordCounts.part4.formal > 150);
+                formalCounter.parentElement.classList.toggle('error', test.wordCounts.part4.formal > 160);
+            }
+        }
+
+        function saveAnswers(part) {
+            countWords(part);
+            try {
+                localStorage.setItem('writing_draft', JSON.stringify(test.responses));
+            } catch (e) {}
+        }
+
+        function restoreAnswers(part) {
+            try {
+                const saved = JSON.parse(localStorage.getItem('writing_draft'));
+                if (saved) {
+                    if (part === 1 && saved.part1) {
+                        Object.keys(saved.part1).forEach(id => {
+                            const el = document.getElementById(`msg-${id}`);
+                            if (el) el.value = saved.part1[id];
+                        });
+                    } else if (part === 2 && saved.part2) {
+                        const el = document.getElementById('part2-response');
+                        if (el) el.value = saved.part2;
+                    } else if (part === 3 && saved.part3) {
+                        Object.keys(saved.part3).forEach(id => {
+                            const el = document.getElementById(`social-${id}`);
+                            if (el) el.value = saved.part3[id];
+                        });
+                    } else if (part === 4 && saved.part4) {
+                        if (document.getElementById('email-informal')) document.getElementById('email-informal').value = saved.part4.informal;
+                        if (document.getElementById('email-formal')) document.getElementById('email-formal').value = saved.part4.formal;
+                    }
+                    countWords(part);
+                }
+            } catch (e) {}
+        }
+
+        function goToPart(partNum) {
+            saveAnswers(test.currentPart);
+            loadPart(partNum);
+        }
+
+        function previousPart() {
+            if (test.currentPart > 1) goToPart(test.currentPart - 1);
+        }
+
+        function nextPart() {
+            if (test.currentPart < 4) goToPart(test.currentPart + 1);
+        }
+
+        function startTimer() {
+            setInterval(() => {
+                test.remainingTime--;
+                updateTimer();
+                if (test.remainingTime <= 0) submitTest();
+            }, 1000);
+        }
+
+        function updateTimer() {
+            const mins = Math.floor(test.remainingTime / 60);
+            const secs = test.remainingTime % 60;
+            document.getElementById('timer').textContent = `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function submitTest() {
+            saveAnswers(test.currentPart);
+
+            let totalWords = (test.wordCounts.part2 || 0) +
+                           Object.values(test.wordCounts.part3 || {}).reduce((a, b) => a + b, 0) +
+                           (test.wordCounts.part4.informal || 0) +
+                           (test.wordCounts.part4.formal || 0);
+
+            const partsComplete = [
+                Object.keys(test.responses.part1).some(id => test.responses.part1[id].trim().length > 0),
+                test.responses.part2.trim().length > 0,
+                Object.keys(test.responses.part3).some(id => test.responses.part3[id].trim().length > 0),
+                test.responses.part4.informal.trim().length > 0
+            ].filter(Boolean).length;
+
+            document.getElementById('parts-completed').textContent = partsComplete + '/4';
+            document.getElementById('total-words').textContent = totalWords;
+            document.getElementById('result-student').textContent = studentInfo.name;
+            
+            const timeTaken = Math.round((Date.now() - test.startTime) / 1000);
+            const mins = Math.floor(timeTaken / 60);
+            const secs = timeTaken % 60;
+            document.getElementById('time-spent').textContent = `${mins}:${secs.toString().padStart(2, '0')}`;
+
+            document.getElementById('results-modal').classList.add('show');
+        }
+
+        function sendEmailToTeacher() {
+            const emailBtn = document.getElementById('email-btn');
+            const spinner = document.getElementById('loading-spinner');
+            const loadingText = document.getElementById('loading-text');
+
+            emailBtn.disabled = true;
+            spinner.classList.add('show');
+            loadingText.textContent = 'Sending test to test@premium.edu.my...';
+
+            const emailContent = buildEmailContent();
+
+            console.log('Sending email with:', {
+                service_id: 'service_wiqggep',
+                template_id: 'template_writing_test',
+                student_name: studentInfo.name,
+                student_email: studentInfo.email || 'no-email',
+                student_id: studentInfo.studentIdNumber || 'N/A'
+            });
+
+            emailjs.send(
+                'service_wiqggep',
+                'template_writing_test',
+                {
+                    to_email: 'test@premium.edu.my',
+                    student_name: studentInfo.name || 'Student',
+                    student_email: studentInfo.email || 'no-email@student.com',
+                    student_id: studentInfo.studentIdNumber || 'N/A',
+                    test_date: new Date().toLocaleDateString(),
+                    test_time: new Date().toLocaleTimeString(),
+                    email_body: emailContent
+                },
+                '_Y_vKQJRLwt7F5zJl'
+            ).then(function(response) {
+                console.log('Email sent successfully:', response);
+                spinner.classList.remove('show');
+                loadingText.textContent = 'Sent to test@premium.edu.my ✓';
+                emailBtn.disabled = false;
+                alert('✅ Test successfully sent to test@premium.edu.my\n\nStatus: ' + response.status);
+            }).catch(function(error) {
+                console.error('EmailJS Error:', error);
+                spinner.classList.remove('show');
+                loadingText.textContent = 'Error sending email';
+                
+                alert('❌ Email sending failed:\n\n' + 
+                      'Error: ' + JSON.stringify(error.text || error) + '\n\n' +
+                      'Please verify in EmailJS dashboard:\n' +
+                      '1. Service ID: service_wiqggep\n' +
+                      '2. Template ID: template_writing_test exists\n' +
+                      '3. Template variables: student_name, student_email, student_id, test_date, test_time, email_body\n\n' +
+                      'You can still download the PDF as backup.');
+                
+                emailBtn.disabled = false;
+            });
+        }
+
+        function buildEmailContent() {
+            let content = `WRITING TEST SUBMISSION\n`;
+            content += `=====================================\n\n`;
+            content += `STUDENT INFORMATION\n`;
+            content += `Name: ${studentInfo.name}\n`;
+            content += `Email: ${studentInfo.email}\n`;
+            content += `Student ID: ${studentInfo.studentIdNumber}\n`;
+            content += `Date: ${new Date().toLocaleDateString()}\n`;
+            content += `Time: ${new Date().toLocaleTimeString()}\n\n`;
+
+            content += `PART 1: WORD-LEVEL WRITING\n`;
+            content += `---\n`;
+            WRITING_QUESTION_BANK.part1.messages.forEach((msg, i) => {
+                const answer = test.responses.part1[msg.id] || '';
+                content += `Message ${i + 1}: "${msg.question}"\nAnswer: ${answer || '(No answer)'}\n\n`;
+            });
+
+            content += `\nPART 2: SHORT TEXT WRITING\n`;
+            content += `---\n`;
+            content += `Question: ${WRITING_QUESTION_BANK.part2.question}\n`;
+            content += `Answer:\n${test.responses.part2 || '(No answer)'}\n`;
+            content += `Word Count: ${test.wordCounts.part2} words\n\n`;
+
+            content += `\nPART 3: SOCIAL MEDIA RESPONSES\n`;
+            content += `---\n`;
+            WRITING_QUESTION_BANK.part3.questions.forEach((q, i) => {
+                const answer = test.responses.part3[q.id] || '';
+                const wordCount = test.wordCounts.part3[q.id] || 0;
+                console.log(`Part3[${q.id}]:`, {answer: answer.substring(0, 30), wordCount});
+                content += `Response ${i + 1} (${q.author}):\n`;
+                content += `"${q.question}"\n`;
+                content += `Answer:\n${answer || '(No answer)'}\n`;
+                content += `Word Count: ${wordCount} words\n\n`;
+            });
+
+            content += `\nPART 4: FORMAL AND INFORMAL EMAILS\n`;
+            content += `---\n`;
+            content += `INFORMAL EMAIL (40-50 words)\n`;
+            content += `${test.responses.part4.informal || '(No answer)'}\n`;
+            content += `Word Count: ${test.wordCounts.part4.informal} words\n\n`;
+            content += `FORMAL EMAIL (120-150 words)\n`;
+            content += `${test.responses.part4.formal || '(No answer)'}\n`;
+            content += `Word Count: ${test.wordCounts.part4.formal} words\n\n`;
+
+            content += `=====================================\n`;
+            content += `SUMMARY\n`;
+            content += `Total Words: ${(test.wordCounts.part2 || 0) + Object.values(test.wordCounts.part3 || {}).reduce((a, b) => a + b, 0) + (test.wordCounts.part4.informal || 0) + (test.wordCounts.part4.formal || 0)}\n`;
+            content += `End of Report\n`;
+
+            return content;
+        }
+
+function downloadPDF() {
+    const pdfBtn = document.getElementById('pdf-btn');
+    const spinner = document.getElementById('loading-spinner');
+    const loadingText = document.getElementById('loading-text');
+
+    pdfBtn.disabled = true;
+    spinner.classList.add('show');
+    loadingText.textContent = 'Generating PDF...';
+
+    console.log('=== STARTING PDF GENERATION ===');
+    
+    // CRITICAL: Force save all Part 3 data
+    if (WRITING_QUESTION_BANK && WRITING_QUESTION_BANK.part3 && WRITING_QUESTION_BANK.part3.questions) {
+        WRITING_QUESTION_BANK.part3.questions.forEach((q, i) => {
+            const textarea = document.getElementById(`social-${q.id}`);
+            if (textarea) {
+                const text = textarea.value;
+                test.responses.part3[q.id] = text;
+                const count = text.split(/\s+/).filter(w => w.length > 0).length;
+                test.wordCounts.part3[q.id] = count;
+            }
+        });
+    }
+
+    // CRITICAL: Force save all Part 4 data directly from textareas
+    const informalTextarea = document.getElementById('informal-email');
+    const formalTextarea = document.getElementById('formal-email');
+    
+    if (informalTextarea) {
+        test.responses.part4.informal = informalTextarea.value;
+        const informalCount = informalTextarea.value.split(/\s+/).filter(w => w.length > 0).length;
+        test.wordCounts.part4.informal = informalCount;
+        console.log(`✓ Part 4 Informal collected: ${informalCount} words`);
+    }
+    
+    if (formalTextarea) {
+        test.responses.part4.formal = formalTextarea.value;
+        const formalCount = formalTextarea.value.split(/\s+/).filter(w => w.length > 0).length;
+        test.wordCounts.part4.formal = formalCount;
+        console.log(`✓ Part 4 Formal collected: ${formalCount} words`);
+    }
+
+    // Create PDF content
+    const element = document.createElement('div');
+    element.style.padding = '20px';
+    element.style.fontFamily = 'Arial, sans-serif';
+    element.style.fontSize = '12px';
+    element.style.lineHeight = '1.6';
+    element.style.color = '#333';
+    element.style.width = '100%';
+    element.style.boxSizing = 'border-box';
+
+    let html = `
+        <h1 style="color: #667eea; border-bottom: 2px solid #667eea; padding-bottom: 10px; margin: 0 0 20px 0;">WRITING TEST SUBMISSION</h1>
+        
+        <h2 style="color: #333; margin: 20px 0 10px 0;">STUDENT INFORMATION</h2>
+        <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+            <tr>
+                <td style="padding: 8px; font-weight: bold; width: 120px; border-bottom: 1px solid #ddd;">Name:</td>
+                <td style="padding: 8px; border-bottom: 1px solid #ddd;">${studentInfo.name || 'N/A'}</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; font-weight: bold; border-bottom: 1px solid #ddd;">Email:</td>
+                <td style="padding: 8px; border-bottom: 1px solid #ddd;">${studentInfo.email || 'N/A'}</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; font-weight: bold; border-bottom: 1px solid #ddd;">Student ID:</td>
+                <td style="padding: 8px; border-bottom: 1px solid #ddd;">${studentInfo.studentIdNumber || 'N/A'}</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; font-weight: bold; border-bottom: 1px solid #ddd;">Date:</td>
+                <td style="padding: 8px; border-bottom: 1px solid #ddd;">${new Date().toLocaleDateString()}</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; font-weight: bold; border-bottom: 1px solid #ddd;">Time:</td>
+                <td style="padding: 8px; border-bottom: 1px solid #ddd;">${new Date().toLocaleTimeString()}</td>
+            </tr>
+        </table>
+        
+        <h2 style="color: #333; margin: 30px 0 15px 0;">PART 1: WORD-LEVEL WRITING</h2>
+    `;
+
+    // Part 1
+    if (WRITING_QUESTION_BANK && WRITING_QUESTION_BANK.part1) {
+        WRITING_QUESTION_BANK.part1.messages.forEach((msg, i) => {
+            const answer = test.responses.part1[msg.id] || '(No answer)';
+            html += `
+                <div style="margin: 10px 0;">
+                    <strong>Message ${i + 1}:</strong> "${msg.question}"<br>
+                    <strong>Answer:</strong> ${answer}
+                </div>
+            `;
+        });
+    }
+
+    // Part 2
+    html += `<h2 style="color: #333; margin: 30px 0 15px 0;">PART 2: SHORT TEXT WRITING</h2>`;
+    if (WRITING_QUESTION_BANK && WRITING_QUESTION_BANK.part2) {
+        const part2Text = (test.responses.part2 || '(No answer)').replace(/\n/g, '<br>');
+        html += `
+            <div style="margin: 10px 0;">
+                <strong>Question:</strong> ${WRITING_QUESTION_BANK.part2.question}
+            </div>
+            <div style="margin: 10px 0;">
+                <strong>Answer:</strong><br>
+                ${part2Text}
+            </div>
+            <div style="margin: 10px 0; color: #666; font-size: 11px;">
+                <strong>Word Count:</strong> ${test.wordCounts.part2 || 0} words
+            </div>
+        `;
+    }
+
+    // Part 3
+    html += `<h2 style="color: #333; margin: 30px 0 15px 0;">PART 3: SOCIAL MEDIA RESPONSES</h2>`;
+    
+    if (WRITING_QUESTION_BANK && WRITING_QUESTION_BANK.part3 && WRITING_QUESTION_BANK.part3.questions) {
+        WRITING_QUESTION_BANK.part3.questions.forEach((q, i) => {
+            const answer = test.responses.part3[q.id] || '(No answer)';
+            const wordCount = test.wordCounts.part3[q.id] || 0;
+            const answerText = answer.replace(/\n/g, '<br>');
+            
+            html += `
+                <div style="margin: 15px 0; padding: 12px; background-color: #f9f9f9; border-left: 4px solid #667eea;">
+                    <h3 style="color: #555; margin: 0 0 8px 0;">Response ${i + 1} - ${q.author}</h3>
+                    <p style="margin: 6px 0; font-size: 12px;">
+                        <strong>Question:</strong> "${q.question}"
+                    </p>
+                    <p style="margin: 6px 0; font-size: 12px;">
+                        <strong>Answer:</strong><br>
+                        ${answerText}
+                    </p>
+                    <p style="margin: 6px 0; color: #666; font-size: 11px;">
+                        <strong>Word Count:</strong> ${wordCount} words
+                    </p>
+                </div>
+            `;
+        });
+    }
+
+    // ✅ PART 4 - SIMPLIFIED FOR HTML2PDF COMPATIBILITY
+    html += `<div style="page-break-before: always; height: 5px;"></div>`;
+    html += `<h2 style="color: #333; margin: 20px 0 15px 0;">PART 4: FORMAL AND INFORMAL EMAILS</h2>`;
+    
+    // Informal Email - Simple Structure
+    const informalEmail = test.responses.part4.informal || '(No answer)';
+    const informalWordCount = test.wordCounts.part4.informal || 0;
+    
+    html += `<h3 style="color: #555; margin: 15px 0 8px 0; font-size: 13px;">Informal Email (40-50 words)</h3>`;
+    html += `<p style="margin: 8px 0; padding: 8px; background-color: #f9f9f9; font-size: 11px; line-height: 1.5; border-left: 3px solid #667eea; padding-left: 12px;">`;
+    html += informalEmail.replace(/\n/g, '<br>');
+    html += `</p>`;
+    html += `<p style="color: #666; font-size: 10px; margin: 5px 0;"><strong>Word Count:</strong> ${informalWordCount} words</p>`;
+    
+    // Formal Email - Simple Structure
+    const formalEmail = test.responses.part4.formal || '(No answer)';
+    const formalWordCount = test.wordCounts.part4.formal || 0;
+    
+    html += `<h3 style="color: #555; margin: 15px 0 8px 0; font-size: 13px;">Formal Email (120-150 words)</h3>`;
+    html += `<p style="margin: 8px 0; padding: 8px; background-color: #f9f9f9; font-size: 11px; line-height: 1.5; border-left: 3px solid #667eea; padding-left: 12px;">`;
+    html += formalEmail.replace(/\n/g, '<br>');
+    html += `</p>`;
+    html += `<p style="color: #666; font-size: 10px; margin: 5px 0;"><strong>Word Count:</strong> ${formalWordCount} words</p>`;
+
+
+    // Summary
+    const totalWords = (test.wordCounts.part2 || 0) + 
+                      Object.values(test.wordCounts.part3 || {}).reduce((a, b) => a + b, 0) + 
+                      (test.wordCounts.part4.informal || 0) + 
+                      (test.wordCounts.part4.formal || 0);
+    
+    html += `
+        <h2 style="color: #333; margin: 20px 0 15px 0; border-top: 2px solid #ddd; padding-top: 15px;">SUMMARY</h2>
+        <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
+            <tr>
+                <td style="padding: 8px; font-weight: bold; width: 200px; border-bottom: 1px solid #ddd;">Total Words Written:</td>
+                <td style="padding: 8px; border-bottom: 1px solid #ddd;">${totalWords}</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; font-weight: bold; border-bottom: 1px solid #ddd;">Generated:</td>
+                <td style="padding: 8px; border-bottom: 1px solid #ddd;">${new Date().toLocaleString()}</td>
+            </tr>
+        </table>
+    `;
+
+    element.innerHTML = html;
+
+    // Increased timeout for proper rendering
+    setTimeout(() => {
+        console.log('Starting PDF conversion...');
+        
+        const opt = {
+            margin: [10, 10, 10, 10],
+            filename: `Writing-Test-${(studentInfo.name || 'Student').replace(/\s+/g, '-')}-${new Date().toISOString().split('T')}.pdf`,
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { 
+                scale: 2,
+                useCORS: true,
+                logging: false,
+                allowTaint: true,
+                backgroundColor: '#ffffff',
+                windowHeight: element.scrollHeight
+            },
+            jsPDF: { 
+                orientation: 'portrait', 
+                unit: 'mm', 
+                format: 'a4',
+                compress: true,
+                precision: 10
+            }
+        };
+
+        html2pdf()
+            .set(opt)
+            .from(element)
+            .save()
+            .then(() => {
+                console.log('✅ PDF generated successfully!');
+                spinner.classList.remove('show');
+                loadingText.textContent = 'PDF Generated!';
+                pdfBtn.disabled = false;
+                
+                setTimeout(() => {
+                    loadingText.textContent = 'Loading...';
+                }, 3500);
+            })
+            .catch((error) => {
+                console.error('❌ PDF error:', error);
+                spinner.classList.remove('show');
+                alert('Error generating PDF: ' + error.message);
+                pdfBtn.disabled = false;
+            });
+    }, 3500);
+}
+
+
+
+        function returnToDashboard() {
+            window.location.href = '../../dashboard.html';
+        }
+
+        function logout() {
+            sessionManager.logout();
+            window.location.href = '../../index.html';
+        }
+
+        init();
+    </script>
+</body>
+</html>

@@ -1,0 +1,320 @@
+// APTIS Writing Test - Expanded Question Bank with Random Loading
+// Follows official APTIS guidelines and specifications
+
+const WRITING_QUESTION_BANK = {
+
+    // PART 1: WORD-LEVEL WRITING (1-5 words each)
+    // APTIS Guideline: Quick, single/short-phrase responses to text messages
+    
+    part1: {
+        title: "Part 1: Word-Level Writing",
+        instruction: "In this part you need to respond in single words or short phrases to five text messages from another member of the club or group.",
+        context: "You are part of various groups and clubs. You receive text messages from members. Write short answers (1-5 words each). Time: 3 minutes.",
+        
+        questionSets: [
+            {
+                messages: [
+                    { id: "msg1", question: "What do you usually do in the morning?" },
+                    { id: "msg2", question: "What is your favourite place?" },
+                    { id: "msg3", question: "What is your favourite animal?" },
+                    { id: "msg4", question: "What is the weather like today?" },
+                    { id: "msg5", question: "What is your favourite time of year?" }
+                ]
+            },
+            {
+                messages: [
+                    { id: "msg1", question: "How do you spend your weekends?" },
+                    { id: "msg2", question: "What's your favourite food?" },
+                    { id: "msg3", question: "What sport do you enjoy playing?" },
+                    { id: "msg4", question: "Where would you like to travel?" },
+                    { id: "msg5", question: "What's your favourite hobby?" }
+                ]
+            },
+            {
+                messages: [
+                    { id: "msg1", question: "What did you do last weekend?" },
+                    { id: "msg2", question: "What's your favourite colour?" },
+                    { id: "msg3", question: "What language do you speak?" },
+                    { id: "msg4", question: "What kind of music do you like?" },
+                    { id: "msg5", question: "What time do you usually wake up?" }
+                ]
+            },
+            {
+                messages: [
+                    { id: "msg1", question: "What's your favourite book?" },
+                    { id: "msg2", question: "How many siblings do you have?" },
+                    { id: "msg3", question: "What's your job or course?" },
+                    { id: "msg4", question: "Do you prefer coffee or tea?" },
+                    { id: "msg5", question: "What's your favourite movie?" }
+                ]
+            }
+        ]
+    },
+
+    // PART 2: SHORT TEXT WRITING (20-30 words)
+    // APTIS Guideline: Cohesive sentences responding to a simple request
+    
+    part2: {
+        title: "Part 2: Short Text Writing",
+        instruction: "In this part, you will respond to a request for information by writing sentences. Write 20 to 30 words. Focus on relevance, grammar, punctuation and spelling.",
+        minWords: 20,
+        maxWords: 30,
+        
+        questionSets: [
+            {
+                context: "You are applying for a club or group membership.",
+                question: "Please tell us why you are interested in joining this club."
+            },
+            {
+                context: "You are filling out a form for an activity group.",
+                question: "Describe your experience with outdoor activities and why you enjoy them."
+            },
+            {
+                context: "You are applying to participate in a community project.",
+                question: "Explain what skills you can offer to help the project succeed."
+            },
+            {
+                context: "You are joining a hobby club.",
+                question: "Tell us about your main interests and what you hope to learn from our club."
+            },
+            {
+                context: "You are registering for a workshop or training program.",
+                question: "What are your goals for taking this course, and how will it help your future?"
+            },
+            {
+                context: "You are joining a sports team.",
+                question: "Describe your sports experience and explain why you want to join our team."
+            }
+        ]
+    },
+
+    // PART 3: SOCIAL MEDIA RESPONSES (30-40 words each)
+    // APTIS Guideline: Natural, conversational responses to questions on social platforms
+    
+    part3: {
+        title: "Part 3: Three Written Responses to Questions",
+        instruction: "You will respond to three questions from group members on a social network. Write around 40 words for each response in sentences.",
+        minWords: 30,
+        maxWords: 40,
+        
+        questionSets: [
+            {
+                questions: [
+                    {
+                        id: "social1",
+                        author: "Sam",
+                        question: "Hi! Welcome to the club. Can you remember the first time you went on a journey by yourself? What was it like?"
+                    },
+                    {
+                        id: "social2",
+                        author: "Miguel",
+                        question: "Welcome! What are the most interesting places to visit in your country?"
+                    },
+                    {
+                        id: "social3",
+                        author: "Michelle",
+                        question: "What is the most exciting journey you've been on?"
+                    }
+                ]
+            },
+            {
+                questions: [
+                    {
+                        id: "social1",
+                        author: "Jessica",
+                        question: "Hi everyone! What inspired you to start learning English? Share your story!"
+                    },
+                    {
+                        id: "social2",
+                        author: "Carlos",
+                        question: "What's your favourite thing about our local community? Why do you love it?"
+                    },
+                    {
+                        id: "social3",
+                        author: "Anna",
+                        question: "What has been your biggest achievement this year? How did you accomplish it?"
+                    }
+                ]
+            },
+            {
+                questions: [
+                    {
+                        id: "social1",
+                        author: "David",
+                        question: "When did you start your current hobby? What made you interested in it?"
+                    },
+                    {
+                        id: "social2",
+                        author: "Sophie",
+                        question: "Tell us about a memorable experience you had with family or friends."
+                    },
+                    {
+                        id: "social3",
+                        author: "Marco",
+                        question: "What advice would you give to someone learning a new skill like you did?"
+                    }
+                ]
+            },
+            {
+                questions: [
+                    {
+                        id: "social1",
+                        author: "Elena",
+                        question: "What's your dream job and why do you want to work in that field?"
+                    },
+                    {
+                        id: "social2",
+                        author: "Tom",
+                        question: "Which country have you enjoyed visiting the most and what was special about it?"
+                    },
+                    {
+                        id: "social3",
+                        author: "Lisa",
+                        question: "How do you usually spend your free time? What activities make you happy?"
+                    }
+                ]
+            }
+        ]
+    },
+
+    // PART 4: EMAIL WRITING (Informal 40-50 words, Formal 120-150 words)
+    // APTIS Guideline: Register-appropriate emails with clear purpose and structure
+    
+    part4: {
+        title: "Part 4: Formal and Informal Writing",
+        instruction: "Write two emails on the same topic: an informal email (40-50 words) to a friend and a formal email (120-150 words) to a person in authority. Use appropriate vocabulary and linking devices. Watch grammar, punctuation and spelling.",
+        
+        scenarios: [
+            {
+                topic: "Club Price Increase",
+                context: "You are a member of a club. You have received notification that membership fees are increasing.",
+                emailReceived: {
+                    subject: "Club Membership Price Increase",
+                    from: "The Club President",
+                    content: "Dear Member,\n\nWe are writing to inform you that the club's annual membership price will increase from £50 to £70 next month. This increase is necessary due to inflation and rising operational costs. With the additional funds, we will organize more activities, visit new destinations, and improve our facilities.\n\nBest regards,\nThe Club President"
+                },
+                informalTask: {
+                    id: "informal",
+                    minWords: 40,
+                    maxWords: 50,
+                    instruction: "Write to your friend about the price increase. Express your feelings and ask for their opinion."
+                },
+                formalTask: {
+                    id: "formal",
+                    minWords: 120,
+                    maxWords: 150,
+                    instruction: "Write to the club president expressing your concerns about the price increase and suggesting solutions."
+                }
+            },
+            {
+                topic: "Special Event Cancellation",
+                context: "The club you belong to has cancelled an important annual event.",
+                emailReceived: {
+                    subject: "Annual Conference Postponement",
+                    from: "Event Coordinator",
+                    content: "Dear Member,\n\nUnfortunately, we must inform you that this year's annual conference scheduled for next month has been postponed to next year. Due to unexpected circumstances and budget constraints, we cannot organize the event as planned. We apologize for any inconvenience this may cause.\n\nBest regards,\nEvent Coordinator"
+                },
+                informalTask: {
+                    id: "informal",
+                    minWords: 40,
+                    maxWords: 50,
+                    instruction: "Text a club friend about the cancellation. Express your disappointment and discuss alternatives."
+                },
+                formalTask: {
+                    id: "formal",
+                    minWords: 120,
+                    maxWords: 150,
+                    instruction: "Write formally to request a refund and suggest when the event should be rescheduled."
+                }
+            },
+            {
+                topic: "New Activity Proposal",
+                context: "You want to propose a new activity for your group.",
+                emailReceived: {
+                    subject: "Call for Activity Suggestions",
+                    from: "Club Manager",
+                    content: "Dear Members,\n\nWe are looking for fresh ideas to enhance our club activities. If you have suggestions for new events or activities, please send us your proposals. We welcome all creative ideas that would benefit our community.\n\nBest regards,\nClub Manager"
+                },
+                informalTask: {
+                    id: "informal",
+                    minWords: 40,
+                    maxWords: 50,
+                    instruction: "Tell a friend about a new activity you want to propose to the club."
+                },
+                formalTask: {
+                    id: "formal",
+                    minWords: 120,
+                    maxWords: 150,
+                    instruction: "Submit a formal proposal for a new activity, including details and expected benefits."
+                }
+            }
+        ]
+    }
+};
+
+// ✅ RANDOM QUESTION SELECTION FUNCTION
+// Loads one random set from each part
+
+function loadRandomQuestions() {
+    const questionSet = {};
+    
+    // Part 1: Random word-level writing set
+    const part1Sets = WRITING_QUESTION_BANK.part1.questionSets;
+    const randomPart1Index = Math.floor(Math.random() * part1Sets.length);
+    questionSet.part1 = {
+        ...WRITING_QUESTION_BANK.part1,
+        messages: part1Sets[randomPart1Index].messages
+    };
+    delete questionSet.part1.questionSets;
+    
+    // Part 2: Random short text set
+    const part2Sets = WRITING_QUESTION_BANK.part2.questionSets;
+    const randomPart2Index = Math.floor(Math.random() * part2Sets.length);
+    const part2Selected = part2Sets[randomPart2Index];
+    questionSet.part2 = {
+        ...WRITING_QUESTION_BANK.part2,
+        ...part2Selected
+    };
+    delete questionSet.part2.questionSets;
+    
+    // Part 3: Random social media responses set
+    const part3Sets = WRITING_QUESTION_BANK.part3.questionSets;
+    const randomPart3Index = Math.floor(Math.random() * part3Sets.length);
+    questionSet.part3 = {
+        ...WRITING_QUESTION_BANK.part3,
+        questions: part3Sets[randomPart3Index].questions
+    };
+    delete questionSet.part3.questionSets;
+    
+    // Part 4: Random email scenario
+    const part4Scenarios = WRITING_QUESTION_BANK.part4.scenarios;
+    const randomPart4Index = Math.floor(Math.random() * part4Scenarios.length);
+    questionSet.part4 = {
+        ...WRITING_QUESTION_BANK.part4,
+        ...part4Scenarios[randomPart4Index]
+    };
+    delete questionSet.part4.scenarios;
+    
+    return questionSet;
+}
+
+// ✅ UTILITY FUNCTIONS
+
+function countWords(text) {
+    if (!text || text.trim() === '') return 0;
+    return text.trim().split(/\s+/).length;
+}
+
+function countCharacters(text) {
+    if (!text) return 0;
+    return text.length;
+}
+
+function formatText(command, value = null) {
+    document.execCommand(command, false, value);
+}
+
+// Export for use in main script
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { WRITING_QUESTION_BANK, loadRandomQuestions, countWords, countCharacters, formatText };
+}

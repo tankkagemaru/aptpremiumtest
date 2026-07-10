@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Results - UPSI Language Assessment</title>
+    <link rel="stylesheet" href="css/unified-styles.css">
+</head>
+<body>
+    <script src="js/session.js"></script>
+    <script>
+        if (!sessionManager.isLoggedIn()) {
+            window.location.href = 'index.html';
+        }
+    </script>
+
+    <!-- Top Navigation -->
+    <nav class="top-navigation">
+        <div class="nav-left">
+            <button onclick="window.location.href='dashboard.html'" class="btn-nav">← Back to Dashboard</button>
+        </div>
+        <div class="nav-right">
+            <span class="student-display-name" id="student-name"></span>
+            <button onclick="sessionManager.logout()" class="btn-nav">Logout</button>
+        </div>
+    </nav>
+
+    <div class="results-container">
+        <div class="results-header">
+            <h1>📊 Your Test Results</h1>
+            <p>View all your test attempts and track your progress</p>
+            
+            <!-- Filters -->
+            <div class="results-filters">
+                <button class="filter-btn active" onclick="filterResults('all')">All Tests</button>
+                <button class="filter-btn" onclick="filterResults('grammar')">Grammar</button>
+                <button class="filter-btn" onclick="filterResults('writing')">Writing</button>
+                <button class="filter-btn" onclick="filterResults('listening')">Listening</button>
+                <button class="filter-btn" onclick="filterResults('reading')">Reading</button>
+                <button class="filter-btn" onclick="filterResults('speaking')">Speaking</button>
+            </div>
+
+            <!-- Actions -->
+            <div class="action-section">
+                <button onclick="downloadAllResults()" class="btn-secondary">📥 Download All Results</button>
+                <button onclick="emailAllResults()" class="btn-secondary">📧 Email All Results</button>
+            </div>
+        </div>
+
+        <!-- Results Grid -->
+        <div class="results-grid" id="results-grid">
+            <!-- Results will be dynamically loaded here -->
+        </div>
+
+        <!-- Empty State -->
+        <div class="empty-state" id="empty-state" style="display: none;">
+            <h3>No test results yet</h3>
+            <p>Complete a test to see your results here</p>
+            <button onclick="window.location.href='dashboard.html'" class="btn-start" style="margin-top: 20px;">Go to Dashboard</button>
+        </div>
+    </div>
+
+    <script>
+        let currentFilter = 'all';
+
+        function loadUserInfo() {
+            const session = sessionManager.getStudentInfo();
+            if (!session) return;
+            document.getElementById('student-name').textContent = session.name;
+        }
+
+        function filterResults(type) {
+            currentFilter = type;
+            
+            // Update filter buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            loadResults();
+        }
+
+        function loadResults() {
+            const history = sessionManager.getTestHistory();
+            const session = sessionManager.getStudentInfo();
+            
+            if (!session) return;
+            
+            // Filter by current user and type
+            let results = history.filter(test => test.studentId === session.studentId);
+            
+            if (currentFilter !== 'all') {
+                results = results.filter(test => test.testType === currentFilter);
+            }
+            
+            // Sort by timestamp (newest first)
+            results.sort((a, b) => b.timestamp - a.timestamp);
+            
+            const resultsGrid = document.getElementById('results-grid');
+            const emptyState = document.getElementById('empty-state');
+            
+            if (results.length === 0) {
+                resultsGrid.style.display = 'none';
+                emptyState.style.display = 'block';
+                return;
+            }
+            
+            resultsGrid.style.display = 'grid';
+            emptyState.style.display = 'none';
+            
+            resultsGrid.innerHTML = results.map(test => createResultCard(test)).join('');
+        }
+
+        function createResultCard(test) {
+            const testNames = {
+                'grammar': 'Grammar & Vocabulary',
+                'writing': 'Writing Test',
+                'listening': 'Listening Test',
+                'reading': 'Reading Test',
+                'speaking': 'Speaking Test'
+            };
+            
+            const hasScore = test.score !== undefined && test.score !== null;
+            
+            return `
+                <div class="result-card">
+                    <div class="result-header">
+                        <div class="result-title">
+                            <h3>${testNames[test.testType] || test.testType}</h3>
+                            <p>Test ID: ${test.testId}</p>
+                            <p>Submitted: ${test.submittedAt || test.date + ' ' + test.time}</p>
+                        </div>
+                        ${hasScore ? `
+                            <div class="result-score">
+                                <div class="score-value">${test.percentage || '0'}%</div>
+                                <p style="font-size: 14px; color: #718096;">${test.score}</p>
+                            </div>
+                        ` : `
+                            <div class="result-score">
+                                <div class="score-value">✓</div>
+                                <p style="font-size: 14px; color: #718096;">Completed</p>
+                            </div>
+                        `}
+                    </div>
+                    
+                    <div class="result-details">
+                        ${test.duration ? `
+                            <div class="detail-box">
+                                <label>Duration</label>
+                                <strong>${test.duration}</strong>
+                            </div>
+                        ` : ''}
+                        
+                        ${test.totalQuestions ? `
+                            <div class="detail-box">
+                                <label>Questions</label>
+                                <strong>${test.totalQuestions}</strong>
+                            </div>
+                        ` : ''}
+                        
+                        ${hasScore ? `
+                            <div class="detail-box">
+                                <label>Correct</label>
+                                <strong style="color: #48bb78;">${test.score.split('/')[0]}</strong>
+                            </div>
+                        ` : ''}
+                        
+                        <div class="detail-box">
+                            <label>Status</label>
+                            <strong style="color: #48bb78;">Completed</strong>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function downloadAllResults() {
+            sessionManager.downloadHistory();
+        }
+
+        function emailAllResults() {
+            alert('Email functionality will send all results to your registered email address.');
+            // In production, integrate with EmailJS or similar service
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            loadUserInfo();
+            loadResults();
+        });
+    </script>
+</body>
+</html>

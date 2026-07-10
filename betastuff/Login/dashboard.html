@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - UPSI Language Assessment</title>
+    <link rel="stylesheet" href="css/unified-styles.css">
+</head>
+<body>
+    <!-- Session validation -->
+    <script src="js/session.js"></script>
+    <script>
+        if (!sessionManager.isLoggedIn()) {
+            window.location.href = 'index.html';
+        }
+    </script>
+
+    <div class="dashboard-container">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <h1>🎓 UPSI Language Assessment</h1>
+                    <p class="subtitle">English Proficiency Test Platform</p>
+                </div>
+                <div class="user-section">
+                    <div class="user-info">
+                        <strong id="user-name">Loading...</strong>
+                        <p id="user-email" class="user-email">Loading...</p>
+                        <p id="user-id" class="user-id">Loading...</p>
+                    </div>
+                    <button onclick="handleLogout()" class="btn-logout">Logout</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <div class="welcome-section">
+                <h2>Welcome back, <span id="welcome-name">Student</span>! 👋</h2>
+                <p>Select a test below to begin your assessment. You can take each test multiple times.</p>
+            </div>
+
+            <!-- Test Cards -->
+            <div class="test-grid">
+                <!-- Test 1: Grammar & Vocabulary -->
+                <div class="test-card">
+                    <div class="test-number">01</div>
+                    <h3>Grammar & Vocabulary</h3>
+                    <p class="test-description">Test your knowledge of English grammar structures and vocabulary usage.</p>
+                    <div class="test-details">
+                        <span class="detail-item">⏱️ 30 minutes</span>
+                        <span class="detail-item">📊 25 questions</span>
+                        <span class="detail-item">📝 MCQ + Dropdown</span>
+                    </div>
+                    <div class="test-stats" id="stats-grammar">
+                        <p class="attempts">No attempts yet</p>
+                    </div>
+                    <button onclick="startTest('grammar')" class="btn-start">Start Test →</button>
+                </div>
+
+                <!-- Test 2: Writing -->
+                <div class="test-card">
+                    <div class="test-number">02</div>
+                    <h3>Writing Test</h3>
+                    <p class="test-description">Demonstrate your writing skills through various text types and formats.</p>
+                    <div class="test-details">
+                        <span class="detail-item">⏱️ 50 minutes</span>
+                        <span class="detail-item">📝 4 parts</span>
+                        <span class="detail-item">✍️ Written responses</span>
+                    </div>
+                    <div class="test-stats" id="stats-writing">
+                        <p class="attempts">No attempts yet</p>
+                    </div>
+                    <button onclick="startTest('writing')" class="btn-start">Start Test →</button>
+                </div>
+
+                <!-- Test 3: Listening -->
+                <div class="test-card">
+                    <div class="test-number">03</div>
+                    <h3>Listening Test</h3>
+                    <p class="test-description">Test your ability to understand spoken English in various contexts.</p>
+                    <div class="test-details">
+                        <span class="detail-item">⏱️ 40 minutes</span>
+                        <span class="detail-item">🎧 17 tasks</span>
+                        <span class="detail-item">🔊 20 recordings</span>
+                    </div>
+                    <div class="test-stats" id="stats-listening">
+                        <p class="attempts">No attempts yet</p>
+                    </div>
+                    <button onclick="startTest('listening')" class="btn-start">Start Test →</button>
+                </div>
+
+                <!-- Test 4: Reading -->
+                <div class="test-card">
+                    <div class="test-number">04</div>
+                    <h3>Reading Test</h3>
+                    <p class="test-description">Assess your reading comprehension and text analysis skills.</p>
+                    <div class="test-details">
+                        <span class="detail-item">⏱️ 35 minutes</span>
+                        <span class="detail-item">📖 25 questions</span>
+                        <span class="detail-item">📄 4 reading parts</span>
+                    </div>
+                    <div class="test-stats" id="stats-reading">
+                        <p class="attempts">No attempts yet</p>
+                    </div>
+                    <button onclick="startTest('reading')" class="btn-start">Start Test →</button>
+                </div>
+
+                <!-- Test 5: Speaking -->
+                <div class="test-card">
+                    <div class="test-number">05</div>
+                    <h3>Speaking Test</h3>
+                    <p class="test-description">Record your spoken responses to demonstrate your speaking abilities.</p>
+                    <div class="test-details">
+                        <span class="detail-item">⏱️ 15-20 minutes</span>
+                        <span class="detail-item">🎤 4 parts</span>
+                        <span class="detail-item">🔴 Audio recording</span>
+                    </div>
+                    <div class="test-stats" id="stats-speaking">
+                        <p class="attempts">No attempts yet</p>
+                    </div>
+                    <button onclick="startTest('speaking')" class="btn-start">Start Test →</button>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-section">
+                <button onclick="viewResults()" class="btn-secondary">
+                    📊 View All Results
+                </button>
+                <button onclick="downloadHistory()" class="btn-secondary">
+                    📥 Download Test History
+                </button>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="dashboard-footer">
+            <p>© 2025 UPSI Language Assessment Platform | All tests can be retaken unlimited times</p>
+        </footer>
+    </div>
+
+    <script>
+        // Load user info
+        function loadUserInfo() {
+            const session = sessionManager.getStudentInfo();
+            if (!session) {
+                window.location.href = 'index.html';
+                return;
+            }
+
+            document.getElementById('user-name').textContent = session.name;
+            document.getElementById('user-email').textContent = session.email;
+            document.getElementById('user-id').textContent = 
+                session.studentIdNumber !== 'N/A' ? `ID: ${session.studentIdNumber}` : '';
+            document.getElementById('welcome-name').textContent = session.name.split(' ')[0];
+        }
+
+        // Load test statistics
+        function loadTestStats() {
+            const tests = ['grammar', 'writing', 'listening', 'reading', 'speaking'];
+            
+            tests.forEach(testType => {
+                const stats = sessionManager.getTestStats(testType);
+                const statsElement = document.getElementById(`stats-${testType}`);
+                
+                if (stats.attempts === 0) {
+                    statsElement.innerHTML = '<p class="attempts">No attempts yet</p>';
+                } else {
+                    let html = `<p class="attempts">${stats.attempts} attempt${stats.attempts > 1 ? 's' : ''}</p>`;
+                    
+                    if (stats.lastAttempt) {
+                        html += `<p class="last-attempt">Last: ${stats.lastAttempt.date || 'Recently'}</p>`;
+                        
+                        if (stats.lastAttempt.score) {
+                            html += `<p class="last-score">Score: ${stats.lastAttempt.score} (${stats.lastAttempt.percentage}%)</p>`;
+                        }
+                    }
+                    
+                    statsElement.innerHTML = html;
+                }
+            });
+        }
+
+        // Start test
+        function startTest(testType) {
+            const testUrls = {
+                'grammar': 'tests/01-grammar/index.html',
+                'writing': 'tests/02-writing/writing-index.html',
+                'listening': 'tests/03-listening/listening-index.html',
+                'reading': 'tests/04-reading/reading-index.html',
+                'speaking': 'tests/05-speaking/index.html'
+            };
+
+            if (confirm(`Start ${testType.charAt(0).toUpperCase() + testType.slice(1)} Test?\n\nMake sure you have enough time to complete the test.`)) {
+                window.location.href = testUrls[testType];
+            }
+        }
+
+        // View results
+        function viewResults() {
+            window.location.href = 'results.html';
+        }
+
+        // Download history
+        function downloadHistory() {
+            sessionManager.downloadHistory();
+        }
+
+        // Logout
+        function handleLogout() {
+            if (confirm('Are you sure you want to logout?\n\nYour test history will be preserved for your next login.')) {
+                sessionManager.logout();
+            }
+        }
+
+        // Initialize dashboard
+        document.addEventListener('DOMContentLoaded', function() {
+            loadUserInfo();
+            loadTestStats();
+        });
+    </script>
+</body>
+</html>

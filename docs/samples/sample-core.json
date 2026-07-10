@@ -1,0 +1,42 @@
+{
+  "exam": "aptis-general",
+  "module": "core",
+  "questions": [
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "A1",
+      "prompt": "She ______ a teacher at my school.",
+      "options": { "choices": ["is", "are", "am"] },
+      "correct_answers": { "choice": 0 },
+      "tags": ["sample"]
+    },
+    {
+      "question_type": "grammar_mc3",
+      "difficulty": "B1",
+      "prompt": "If I ______ more time, I would learn another language.",
+      "options": { "choices": ["have", "had", "would have"] },
+      "correct_answers": { "choice": 1 },
+      "tags": ["sample"]
+    },
+    {
+      "question_type": "vocab_set",
+      "difficulty": "A2",
+      "prompt": "Choose the word with the same meaning.",
+      "options": {
+        "kind": "synonym",
+        "bank": ["large", "quick", "silent", "angry", "wealthy", "tired", "clever", "kind", "brave", "strange"],
+        "items": [
+          { "text": "big" },
+          { "text": "fast" },
+          { "text": "quiet" },
+          { "text": "rich" },
+          { "text": "smart" }
+        ]
+      },
+      "correct_answers": {
+        "answers": ["large", "quick", "silent", "wealthy", "clever"]
+      },
+      "tags": ["sample"]
+    }
+  ]
+}

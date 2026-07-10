@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grammar & Vocabulary Test - UPSI</title>
+    <link rel="stylesheet" href="styles.css">
+	    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init("_Y_vKQJRLwt7F5zJl");
+       })();
+    </script>
+	</head>
+<body>
+
+    <!-- Session Management -->
+    <script src="../../js/session.js"></script>
+    <script>
+        // Redirect to login if no session
+        if (!sessionManager.isLoggedIn()) {
+            alert('Please login first');
+            window.location.href = '../../index.html';
+        }
+    </script>
+
+    <!-- Top Navigation Bar -->
+    <nav class="top-navigation">
+        <div class="nav-left">
+            <button onclick="returnToDashboard()" class="btn-nav">← Dashboard</button>
+            <span class="test-title">Grammar & Vocabulary Test</span>
+        </div>
+        <div class="nav-right">
+            <span class="student-display-name" id="student-display-name"></span>
+            <button onclick="sessionManager.logout()" class="btn-nav">Logout</button>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Test Interface -->
+        <div id="test-container" class="test-container">
+            <!-- Question Display Area -->
+            <div class="question-section">
+                <div class="question-header">
+                    <span id="question-number">Question 1 of 25</span>
+                    <span id="timer" class="timer">30:00</span>
+                </div>
+                
+                <div id="question-content" class="question-content">
+                    <!-- Question will be loaded here dynamically -->
+                </div>
+                
+                <button id="bookmark-btn" class="bookmark-btn">📚 Bookmark</button>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="navigation-buttons">
+                <button id="prev-btn" class="nav-btn">← Previous</button>
+                <button id="next-btn" class="nav-btn">Next →</button>
+                <button id="submit-btn" class="submit-btn" style="display: none;">Submit Test</button>
+            </div>
+        </div>
+
+        <!-- Question Navigator Sidebar -->
+        <aside id="sidebar" class="sidebar">
+            <h3>Question Navigator</h3>
+            <div id="question-nav-grid" class="question-nav-grid">
+                <!-- Question numbers will be loaded here -->
+            </div>
+            <div class="legend">
+                <div class="legend-item">
+                    <span class="status-indicator answered"></span> Answered
+                </div>
+                <div class="legend-item">
+                    <span class="status-indicator current"></span> Current
+                </div>
+                <div class="legend-item">
+                    <span class="status-indicator bookmarked"></span> Bookmarked
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Results Modal -->
+    <div id="results-modal" class="modal" style="display: none;">
+        <div class="modal-content results-modal-content">
+            <h2>📊 Test Results</h2>
+            
+            <div class="results-summary">
+                <div class="result-row">
+                    <label>Student:</label>
+                    <span id="result-student-name"></span>
+                </div>
+                <div class="result-row">
+                    <label>Test ID:</label>
+                    <span id="result-test-id"></span>
+                </div>
+                <div class="result-row">
+                    <label>Date:</label>
+                    <span id="result-date"></span>
+                </div>
+                <div class="result-row">
+                    <label>Time:</label>
+                    <span id="result-time"></span>
+                </div>
+            </div>
+
+            <div class="score-display">
+                <div class="score-circle">
+                    <span id="percentage" class="percentage">0%</span>
+                </div>
+                <div class="score-details">
+                    <p>Correct Answers: <strong id="correct-answers">0</strong></p>
+                    <p>Total Questions: <strong>25</strong></p>
+                    <p>Time Taken: <strong id="time-taken">00:00</strong></p>
+                </div>
+            </div>
+
+            <div id="detailed-results" class="detailed-results">
+                <!-- Detailed results will be loaded here -->
+            </div>
+
+            <div class="results-actions">
+                <button onclick="emailResults()" class="btn-primary">📧 Email Results</button>
+                <button onclick="downloadReport()" class="btn-secondary">📥 Download Report</button>
+                <button onclick="returnToDashboard()" class="btn-secondary">← Back to Dashboard</button>
+                <button onclick="location.reload()" class="btn-secondary">🔄 Take Test Again</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Email Modal -->
+    <div id="email-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeEmailModal()">&times;</span>
+            <h2>📧 Email Test Results</h2>
+            <form id="email-form">
+                <div class="form-group">
+                    <label for="recipient-email">Recipient Email:</label>
+                    <input type="email" id="recipient-email" required>
+                    <small>Results will be sent to this email address</small>
+                </div>
+                <div class="form-group">
+                    <label for="email-message">Additional Message (Optional):</label>
+                    <textarea id="email-message" rows="3"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" onclick="closeEmailModal()" class="btn-secondary">Cancel</button>
+                    <button type="submit" class="btn-primary">Send Email</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Load Scripts -->
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+	    <!-- jsPDF Library -->
+    <script src="https://unpkg.com/jspdf@latest/dist/jspdf.umd.min.js"></script>
+
+</body>
+
+</body>
+</html>

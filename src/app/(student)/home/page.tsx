@@ -1,0 +1,141 @@
+import { createClient } from "@/lib/supabase/server";
+import { getProfile } from "@/lib/auth";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { startAttempt } from "./actions";
+
+const MODULE_LABELS: Record<string, string> = {
+  core: "Core (Grammar & Vocabulary)",
+  reading: "Reading",
+  listening: "Listening",
+  writing: "Writing",
+  speaking: "Speaking",
+};
+
+export default async function StudentHome({
+  searchParams,
+}: {
+  searchParams: Promise<{ error?: string }>;
+}) {
+  const { error } = await searchParams;
+  const supabase = await createClient();
+  const profile = await getProfile();
+
+  const [{ data: exams }, { data: tests }, { data: attempts }] =
+    await Promise.all([
+      supabase.from("mock_exams").select("*").order("name"),
+      supabase
+        .from("mock_tests")
+        .select("id, exam_id, title, description")
+        .eq("is_published", true)
+        .order("created_at", { ascending: false }),
+      profile?.studentId
+        ? supabase
+            .from("mock_attempts")
+            .select("id, test_id, status, started_at")
+            .order("started_at", { ascending: false })
+            .limit(10)
+        : Promise.resolve({ data: [] as never[] }),
+    ]);
+
+  return (
+    <div className="space-y-10">
+      <section>
+        <p className="label-caps mb-2">01 · Available exams</p>
+        <h1 className="text-2xl mb-6">Practice tests</h1>
+
+        {error ? (
+          <p className="mb-4 rounded-md bg-alert-bg text-alert px-3 py-2 text-[13px]">
+            {error}
+          </p>
+        ) : null}
+
+        <div className="grid gap-4 sm:grid-cols-2">
+          {(exams ?? []).map((exam) => {
+            const examTests = (tests ?? []).filter(
+              (t) => t.exam_id === exam.id
+            );
+            return (
+              <Card key={exam.id} className="p-6">
+                <h2 className="text-lg mb-1">{exam.name}</h2>
+                <p className="text-[13px] text-ink-muted mb-4">
+                  {exam.description}
+                </p>
+                <ul className="space-y-1 mb-4">
+                  {exam.modules.map((m: string, i: number) => (
+                    <li key={m} className="text-[13px] text-ink-soft">
+                      <span className="figures text-ink-muted mr-2">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      {MODULE_LABELS[m] ?? m}
+                    </li>
+                  ))}
+                </ul>
+                {examTests.length === 0 ? (
+                  <p className="inline-block rounded-md bg-pending-bg text-pending px-2.5 py-1 text-[12px]">
+                    Tests coming soon
+                  </p>
+                ) : (
+                  <ul className="space-y-2">
+                    {examTests.map((t) => {
+                      const open = (attempts ?? []).find(
+                        (a) => a.test_id === t.id && a.status === "in_progress"
+                      );
+                      return (
+                        <li
+                          key={t.id}
+                          className="border border-line rounded-md px-3 py-2 text-[14px] flex items-center justify-between gap-3"
+                        >
+                          <span className="min-w-0 truncate">{t.title}</span>
+                          {profile?.studentId ? (
+                            <form action={startAttempt}>
+                              <input type="hidden" name="test_id" value={t.id} />
+                              <Button
+                                type="submit"
+                                variant={open ? "secondary" : "primary"}
+                                className="!px-3 !py-1.5 text-[13px]"
+                              >
+                                {open ? "Continue" : "Start test"}
+                              </Button>
+                            </form>
+                          ) : null}
+                        </li>
+                      );
+                    })}
+                  </ul>
+                )}
+              </Card>
+            );
+          })}
+        </div>
+      </section>
+
+      <section>
+        <p className="label-caps mb-2">02 · History</p>
+        <h2 className="text-xl mb-4">Your attempts</h2>
+        {(attempts ?? []).length === 0 ? (
+          <Card className="p-6">
+            <p className="text-ink-muted text-[14px]">
+              No attempts yet. Your completed and in-progress tests will appear
+              here.
+            </p>
+          </Card>
+        ) : (
+          <Card className="divide-y divide-line">
+            {(attempts ?? []).map((a) => (
+              <div
+                key={a.id}
+                className="px-4 py-3 flex items-center justify-between"
+              >
+                <span className="figures text-[13px]">
+                  {new Date(a.started_at).toLocaleDateString("en-GB")}
+                </span>
+                <span className="text-[13px] text-ink-soft">{a.status}</span>
+              </div>
+            ))}
+          </Card>
+        )}
+      </section>
+    </div>
+  );
+}

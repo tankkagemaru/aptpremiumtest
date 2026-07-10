@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+/* PECSB brand tokens — Brand Sheet v1.0 (Jul 2026).
+   Warm editorial: cream surfaces, ink text, crimson as spice. */
+:root {
+  --cream: #f4ece3;
+  --cream-50: #faf4ea;
+  --paper: #fdf9f1;
+  --ink: #1b1612;
+  --ink-soft: #4a4239;
+  --ink-muted: #6e655c;
+  --line: #e8dfd2;
+  --crimson: #a8242e;
+  --crimson-soft: #c84d56;
+  --crimson-bg: #f5d8db;
+  --gold: #b78850;
+  --good: #3f6e48;
+  --good-bg: #dceadf;
+  --pending: #b78850;
+  --pending-bg: #f1e3c9;
+  --alert: #a8242e;
+  --alert-bg: #f5d8db;
+}
+
+/* Dark mode: same tokens, values flipped to warm near-black; crimson lifted so it still reads. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --cream: #17130f;
+    --cream-50: #1e1912;
+    --paper: #221c14;
+    --ink: #f0e8dc;
+    --ink-soft: #c8beaf;
+    --ink-muted: #95897a;
+    --line: #2e271e;
+    --crimson: #d95d66;
+    --crimson-soft: #e37b82;
+    --crimson-bg: #3b2125;
+    --gold: #c79a62;
+    --good: #7fae8a;
+    --good-bg: #24352a;
+    --pending: #c79a62;
+    --pending-bg: #3a2f1d;
+    --alert: #d95d66;
+    --alert-bg: #3b2125;
+  }
+}
+
+@theme inline {
+  --color-cream: var(--cream);
+  --color-cream-50: var(--cream-50);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-muted: var(--ink-muted);
+  --color-line: var(--line);
+  --color-crimson: var(--crimson);
+  --color-crimson-soft: var(--crimson-soft);
+  --color-crimson-bg: var(--crimson-bg);
+  --color-gold: var(--gold);
+  --color-good: var(--good);
+  --color-good-bg: var(--good-bg);
+  --color-pending: var(--pending);
+  --color-pending-bg: var(--pending-bg);
+  --color-alert: var(--alert);
+  --color-alert-bg: var(--alert-bg);
+
+  --font-display: var(--font-playfair), Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+
+  --radius-card: 0.625rem;
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-playfair), Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+@layer utilities {
+  /* Small-caps labels: 10–11px, medium, uppercase, tracked, ink-muted */
+  .label-caps {
+    font-size: 0.6875rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--ink-muted);
+  }
+
+  /* Figures never jitter as they update */
+  .figures {
+    font-family: var(--font-jetbrains), ui-monospace, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+}
