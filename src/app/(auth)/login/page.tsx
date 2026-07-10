@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Field } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
@@ -13,8 +12,8 @@ export default async function LoginPage({
   const { error, message } = await searchParams;
 
   return (
-    <Card className="p-8">
-      <h2 className="text-xl mb-1">Sign in</h2>
+    <div>
+      <h2 className="font-display text-2xl mb-1 text-crimson">Sign in</h2>
       <p className="text-ink-muted text-[13px] mb-6">
         Use the same account as the placement test.
       </p>
@@ -54,6 +53,6 @@ export default async function LoginPage({
           Create an account
         </Link>
       </p>
-    </Card>
+    </div>
   );
 }

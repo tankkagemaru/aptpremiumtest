@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Field } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
@@ -13,8 +12,8 @@ export default async function RegisterPage({
   const { error } = await searchParams;
 
   return (
-    <Card className="p-8">
-      <h2 className="text-xl mb-1">Create an account</h2>
+    <div>
+      <h2 className="font-display text-2xl mb-1 text-crimson">Create an account</h2>
       <p className="text-ink-muted text-[13px] mb-6">
         One account works for both the placement test and mock tests.
       </p>
@@ -60,6 +59,6 @@ export default async function RegisterPage({
           Sign in
         </Link>
       </p>
-    </Card>
+    </div>
   );
 }
