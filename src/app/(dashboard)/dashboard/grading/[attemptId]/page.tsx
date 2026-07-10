@@ -5,7 +5,10 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { isAiConfigured } from "@/lib/ai/writing";
 import { MODULE_LABEL } from "@/lib/scoring/cefr";
+import { GradingRubric } from "@/components/dashboard/grading-rubric";
 import { runAiWriting, saveGrade, verifyAndRelease } from "../actions";
+
+export const dynamic = "force-dynamic";
 
 type Grade = {
   module: string;
@@ -131,6 +134,13 @@ export default async function GradingWorkspace({
   const previewOverall = preview?.overall as { scale: number; band: string } | null;
   const MODULE_ORDER = ["core", "reading", "listening", "writing", "speaking"];
 
+  const { data: resultRow } = await supabase
+    .from("mock_results")
+    .select("released_at")
+    .eq("attempt_id", attemptId)
+    .maybeSingle();
+  const released = Boolean(resultRow?.released_at);
+
   return (
     <div className="space-y-8">
       <div>
@@ -148,6 +158,17 @@ export default async function GradingWorkspace({
 
       {error ? (
         <p className="rounded-md bg-alert-bg text-alert px-3 py-2 text-[13px]">{error}</p>
+      ) : null}
+
+      {released ? (
+        <div className="rounded-md bg-good-bg text-good px-4 py-3 text-[14px] flex flex-wrap items-center justify-between gap-3">
+          <span>✓ Result verified and released to the student.</span>
+          <a href={`/results/${attemptId}/print`} target="_blank" rel="noopener">
+            <Button variant="secondary" className="!py-1.5 text-[13px]">
+              Open candidate report
+            </Button>
+          </a>
+        </div>
       ) : null}
 
       {/* Full score summary — all sections */}
@@ -217,6 +238,7 @@ export default async function GradingWorkspace({
               </Button>
             </form>
           </div>
+          <GradingRubric module="writing" />
           {!isAiConfigured() ? (
             <p className="text-[12px] text-ink-muted">
               AI suggestions are off (no OPENAI_API_KEY set) — grade manually below.
@@ -257,6 +279,7 @@ export default async function GradingWorkspace({
       {manualModules.includes("speaking") ? (
         <section className="space-y-4">
           <h2 className="text-xl">Speaking</h2>
+          <GradingRubric module="speaking" />
           <Card className="p-5 space-y-5">
             <p className="label-caps">Recordings</p>
             {speakingResponses.length === 0 ? (

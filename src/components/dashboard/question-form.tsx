@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -179,6 +179,26 @@ function MediaField({
   const supabase = useMemo(() => createClient(), []);
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState("");
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const isImage = accept.startsWith("image");
+
+  // Preview the current media via a signed URL
+  useEffect(() => {
+    let cancelled = false;
+    if (!value) {
+      setPreviewUrl(null);
+      return;
+    }
+    supabase.storage
+      .from("mock-media")
+      .createSignedUrl(value, 60 * 60)
+      .then(({ data }) => {
+        if (!cancelled) setPreviewUrl(data?.signedUrl ?? null);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [value, supabase]);
 
   async function upload(file: File) {
     setBusy(true);
@@ -212,6 +232,16 @@ function MediaField({
         </label>
       </div>
       {err ? <p className="text-alert text-[12px] mt-1">{err}</p> : null}
+      {previewUrl ? (
+        isImage ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={previewUrl} alt="preview" className="mt-2 h-28 rounded-md border border-line object-cover" />
+        ) : (
+          <audio src={previewUrl} controls className="mt-2 w-full max-w-sm" />
+        )
+      ) : value ? (
+        <p className="text-[12px] text-ink-muted mt-1">Preview unavailable (file not found in storage).</p>
+      ) : null}
     </div>
   );
 }
