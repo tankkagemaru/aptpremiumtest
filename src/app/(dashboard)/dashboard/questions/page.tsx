@@ -27,6 +27,7 @@ export default async function QuestionsPage({
     difficulty?: string;
     type?: string;
     status?: string;
+    page?: string;
   }>;
 }) {
   const sp = await searchParams;
@@ -55,14 +56,16 @@ export default async function QuestionsPage({
     a[0].localeCompare(b[0])
   );
 
-  // Filtered list
+  // Filtered, paged list
+  const PAGE_SIZE = 50;
+  const page = Math.max(1, Number(sp.page ?? 1) || 1);
   let query = supabase
     .from("mock_questions")
-    .select("id, module, part, question_type, prompt, difficulty, is_active")
+    .select("id, module, part, question_type, prompt, difficulty, is_active", { count: "exact" })
     .order("module")
     .order("part")
     .order("created_at", { ascending: false })
-    .limit(200);
+    .range((page - 1) * PAGE_SIZE, page * PAGE_SIZE - 1);
   if (sp.module) query = query.eq("module", sp.module);
   if (sp.part) query = query.eq("part", Number(sp.part));
   if (sp.difficulty) query = query.eq("difficulty", sp.difficulty);
@@ -70,7 +73,17 @@ export default async function QuestionsPage({
   if (sp.q) query = query.ilike("prompt", `%${sp.q}%`);
   if (sp.status === "retired") query = query.eq("is_active", false);
   else if (sp.status !== "all") query = query.eq("is_active", true);
-  const { data: questions } = await query;
+  const { data: questions, count: totalCount } = await query;
+  const totalPages = Math.max(1, Math.ceil((totalCount ?? 0) / PAGE_SIZE));
+
+  const pageHref = (p: number) => {
+    const params = new URLSearchParams();
+    Object.entries(sp).forEach(([k, v]) => {
+      if (v && k !== "page") params.set(k, String(v));
+    });
+    params.set("page", String(p));
+    return `/dashboard/questions?${params.toString()}`;
+  };
 
   const typeOptions = sp.module
     ? Object.keys(TYPE_PARTS).filter((t) => TYPE_PARTS[t].module === sp.module)
@@ -228,14 +241,38 @@ export default async function QuestionsPage({
 
         <div className="flex items-center justify-between mb-2">
           <h2 className="text-lg">
-            Questions <span className="figures text-[13px] text-ink-muted">({(questions ?? []).length})</span>
+            Questions <span className="figures text-[13px] text-ink-muted">({totalCount ?? 0})</span>
           </h2>
+          {totalPages > 1 ? (
+            <span className="figures text-[13px] text-ink-muted">
+              page {page} of {totalPages}
+            </span>
+          ) : null}
         </div>
         <BulkQuestionList
           questions={questions ?? []}
           bulkDelete={bulkDeleteQuestions}
           bulkSetActive={bulkSetActive}
         />
+        {totalPages > 1 ? (
+          <div className="flex items-center justify-center gap-3 mt-4 text-[13px]">
+            {page > 1 ? (
+              <Link href={pageHref(page - 1)} className="rounded-md border border-line bg-paper px-3 py-1.5 hover:border-crimson">
+                ← Prev
+              </Link>
+            ) : (
+              <span className="rounded-md border border-line px-3 py-1.5 text-ink-muted opacity-50">← Prev</span>
+            )}
+            <span className="figures text-ink-muted">{page} / {totalPages}</span>
+            {page < totalPages ? (
+              <Link href={pageHref(page + 1)} className="rounded-md border border-line bg-paper px-3 py-1.5 hover:border-crimson">
+                Next →
+              </Link>
+            ) : (
+              <span className="rounded-md border border-line px-3 py-1.5 text-ink-muted opacity-50">Next →</span>
+            )}
+          </div>
+        ) : null}
       </section>
     </div>
   );

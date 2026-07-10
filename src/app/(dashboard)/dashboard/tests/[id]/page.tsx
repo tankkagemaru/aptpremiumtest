@@ -5,6 +5,15 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { togglePublish, deleteTest } from "../actions";
 
+// APTIS target question count per module (matches auto-fill)
+const MODULE_TARGET: Record<string, number> = {
+  core: 30,
+  reading: 5,
+  listening: 17,
+  writing: 4,
+  speaking: 4,
+};
+
 export default async function TestDetailPage({
   params,
 }: {
@@ -69,28 +78,43 @@ export default async function TestDetailPage({
       </div>
 
       <Card className="divide-y divide-line">
-        {(sections ?? []).map((s, i) => (
-          <div key={s.id} className="px-4 py-4 flex items-center gap-4">
-            <span className="figures text-ink-muted text-[13px] w-8">
-              {String(i + 1).padStart(2, "0")}
-            </span>
-            <div className="flex-1 min-w-0">
-              <p className="text-[15px]">{s.title ?? s.module}</p>
-              <p className="figures text-[12px] text-ink-muted">
-                {Math.round(s.duration_seconds / 60)} min · {counts[i]} question
-                {counts[i] === 1 ? "" : "s"}
-              </p>
-            </div>
-            {counts[i] === 0 ? (
-              <span className="rounded bg-pending-bg text-pending px-2 py-0.5 text-[11px]">
-                empty — skipped in test
+        {(sections ?? []).map((s, i) => {
+          const target = MODULE_TARGET[s.module] ?? 0;
+          const count = counts[i];
+          const full = target > 0 && count >= target;
+          return (
+            <div key={s.id} className="px-4 py-4 flex items-center gap-3 sm:gap-4">
+              <span className="figures text-ink-muted text-[13px] w-8 shrink-0">
+                {String(i + 1).padStart(2, "0")}
               </span>
-            ) : null}
-            <Link href={`/dashboard/tests/${test.id}/sections/${s.id}`}>
-              <Button variant="secondary">Edit questions</Button>
-            </Link>
-          </div>
-        ))}
+              <div className="flex-1 min-w-0">
+                <p className="text-[15px]">{s.title ?? s.module}</p>
+                <p className="figures text-[12px] text-ink-muted">
+                  {Math.round(s.duration_seconds / 60)} min
+                </p>
+              </div>
+              {count === 0 ? (
+                <span className="rounded bg-pending-bg text-pending px-2 py-0.5 text-[11px] shrink-0">
+                  empty
+                </span>
+              ) : (
+                <span
+                  className={`rounded px-2 py-0.5 text-[11px] figures shrink-0 ${
+                    full ? "bg-good-bg text-good" : "bg-pending-bg text-pending"
+                  }`}
+                  title={full ? "Meets APTIS target" : `Target ${target} questions`}
+                >
+                  {count}/{target || count}
+                </span>
+              )}
+              <Link href={`/dashboard/tests/${test.id}/sections/${s.id}`} className="shrink-0">
+                <Button variant="secondary" className="!px-3 text-[13px]">
+                  Edit
+                </Button>
+              </Link>
+            </div>
+          );
+        })}
       </Card>
 
       <p className="text-[13px] text-ink-muted">

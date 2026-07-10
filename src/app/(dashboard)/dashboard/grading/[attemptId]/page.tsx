@@ -235,9 +235,28 @@ export default async function GradingWorkspace({
         </Card>
       ) : null}
 
+      {/* Jump bar */}
+      {manualModules.length > 0 ? (
+        <div className="flex flex-wrap gap-2 text-[13px]">
+          {manualModules.includes("writing") ? (
+            <a href="#writing" className="rounded-md border border-line bg-paper px-3 py-1 hover:border-crimson">
+              Writing
+            </a>
+          ) : null}
+          {manualModules.includes("speaking") ? (
+            <a href="#speaking" className="rounded-md border border-line bg-paper px-3 py-1 hover:border-crimson">
+              Speaking
+            </a>
+          ) : null}
+          <a href="#verify" className="rounded-md border border-line bg-paper px-3 py-1 hover:border-crimson">
+            Verify &amp; release
+          </a>
+        </div>
+      ) : null}
+
       {/* WRITING */}
       {manualModules.includes("writing") ? (
-        <section className="space-y-4">
+        <section id="writing" className="space-y-4 scroll-mt-4">
           <div className="flex items-center justify-between">
             <h2 className="text-xl">Writing</h2>
             <form action={runAiWriting}>
@@ -286,7 +305,7 @@ export default async function GradingWorkspace({
 
       {/* SPEAKING */}
       {manualModules.includes("speaking") ? (
-        <section className="space-y-4">
+        <section id="speaking" className="space-y-4 scroll-mt-4">
           <h2 className="text-xl">Speaking</h2>
           <GradingRubric module="speaking" />
           <Card className="p-5 space-y-5">
@@ -346,7 +365,7 @@ export default async function GradingWorkspace({
       ) : null}
 
       {/* VERIFY & RELEASE */}
-      <section>
+      <section id="verify" className="scroll-mt-4">
         <h2 className="text-xl mb-3">Verify &amp; release</h2>
         <Card className="p-5">
           {!allManualGraded ? (

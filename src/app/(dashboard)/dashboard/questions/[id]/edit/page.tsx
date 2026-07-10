@@ -35,17 +35,25 @@ export default async function EditQuestionPage({
 
   return (
     <div className="space-y-6">
-      <div>
-        <p className="label-caps mb-2">
-          <Link href="/dashboard/questions" className="hover:text-crimson">
-            02 · Question bank
-          </Link>{" "}
-          / edit
-        </p>
-        <h1 className="text-2xl">Edit question</h1>
-        <p className="figures text-[12px] text-ink-muted">
-          {row.module} · {row.question_type}
-        </p>
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <p className="label-caps mb-2">
+            <Link href="/dashboard/questions" className="hover:text-crimson">
+              02 · Question bank
+            </Link>{" "}
+            / edit
+          </p>
+          <h1 className="text-2xl">Edit question</h1>
+          <p className="figures text-[12px] text-ink-muted">
+            {row.module} · {row.question_type}
+          </p>
+        </div>
+        <Link
+          href={`/dashboard/questions/${id}/preview`}
+          className="text-[13px] text-crimson underline underline-offset-2 shrink-0"
+        >
+          Preview as student →
+        </Link>
       </div>
       <QuestionForm
         examCode={(row.exam as unknown as { code: string } | null)?.code ?? "aptis-general"}

@@ -108,10 +108,12 @@ export function BulkQuestionList({
               onChange={() => toggle(q.id)}
               className="accent-[var(--crimson)] shrink-0"
             />
-            <span className="figures text-[12px] text-ink-muted w-24 shrink-0">
+            <span className="figures text-[12px] text-ink-muted w-24 shrink-0 hidden sm:inline">
               {q.module} · P{q.part}
             </span>
-            <span className="text-[13px] text-ink-soft w-36 shrink-0">{q.question_type}</span>
+            <span className="text-[13px] text-ink-soft w-36 shrink-0 hidden md:inline">
+              {q.question_type}
+            </span>
             <Link
               href={`/dashboard/questions/${q.id}/edit`}
               className="text-[14px] flex-1 min-w-48 truncate hover:text-crimson hover:underline underline-offset-2"

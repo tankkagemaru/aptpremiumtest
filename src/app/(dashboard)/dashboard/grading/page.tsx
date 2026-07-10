@@ -2,6 +2,8 @@ import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { Card } from "@/components/ui/card";
 
+export const dynamic = "force-dynamic";
+
 export default async function GradingQueue({
   searchParams,
 }: {
@@ -14,13 +16,31 @@ export default async function GradingQueue({
   const { data: attempts } = await supabase
     .from("mock_attempts")
     .select(
-      "id, status, submitted_at, student:students(full_name, email), test:mock_tests(title)"
+      "id, status, test_id, submitted_at, student:students(full_name, email), test:mock_tests(title)"
     )
     .in("status", ["submitted", "grading"])
     .order("submitted_at", { ascending: true });
 
-  // Which of these already have manual grades in place
   const ids = (attempts ?? []).map((a) => a.id);
+  const testIds = [...new Set((attempts ?? []).map((a) => a.test_id))];
+
+  // Which manual modules each test actually contains (has questions for)
+  const { data: sectionRows } = testIds.length
+    ? await supabase
+        .from("mock_sections")
+        .select("test_id, module, mock_section_questions(question_id)")
+        .in("test_id", testIds)
+        .in("module", ["writing", "speaking"])
+    : { data: [] as { test_id: string; module: string; mock_section_questions: unknown[] }[] };
+  const manualByTest = new Map<string, Set<string>>();
+  (sectionRows ?? []).forEach((s) => {
+    const has = ((s.mock_section_questions as unknown[]) ?? []).length > 0;
+    if (!has) return;
+    if (!manualByTest.has(s.test_id)) manualByTest.set(s.test_id, new Set());
+    manualByTest.get(s.test_id)!.add(s.module);
+  });
+
+  // Which of these already have manual grades in place
   const { data: grades } = ids.length
     ? await supabase
         .from("mock_grades")
@@ -61,6 +81,10 @@ export default async function GradingQueue({
             const student = a.student as unknown as { full_name: string; email: string } | null;
             const test = a.test as unknown as { title: string } | null;
             const done = gradedModules.get(a.id);
+            const required = manualByTest.get(a.test_id) ?? new Set<string>();
+            const allGraded =
+              [...required].every((m) => done?.has(m)) && required.size > 0;
+            const readyToVerify = a.status === "submitted" || allGraded;
             return (
               <Link
                 key={a.id}
@@ -79,19 +103,17 @@ export default async function GradingQueue({
                   </p>
                 </div>
                 <div className="flex items-center gap-2 shrink-0">
-                  {done && done.size > 0 ? (
-                    <span className="rounded bg-good-bg text-good px-2 py-0.5 text-[11px]">
-                      {done.size} graded
+                  {required.size > 0 ? (
+                    <span className="rounded bg-cream-50 border border-line text-ink-muted px-2 py-0.5 text-[11px] figures">
+                      {done?.size ?? 0}/{required.size} graded
                     </span>
                   ) : null}
                   <span
                     className={`rounded px-2 py-0.5 text-[11px] ${
-                      a.status === "grading"
-                        ? "bg-pending-bg text-pending"
-                        : "bg-crimson-bg text-crimson"
+                      readyToVerify ? "bg-good-bg text-good" : "bg-pending-bg text-pending"
                     }`}
                   >
-                    {a.status === "grading" ? "needs marking" : "ready to verify"}
+                    {readyToVerify ? "ready to verify" : "needs marking"}
                   </span>
                 </div>
               </Link>
