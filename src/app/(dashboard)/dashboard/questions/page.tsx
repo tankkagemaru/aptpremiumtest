@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -7,6 +8,7 @@ import {
   importQuestions,
   toggleQuestionActive,
   deleteQuestion,
+  editRandomQuestion,
 } from "./actions";
 
 export default async function QuestionsPage({
@@ -43,9 +45,22 @@ export default async function QuestionsPage({
 
   return (
     <div className="space-y-8">
-      <div>
-        <p className="label-caps mb-2">02 · Question bank</p>
-        <h1 className="text-2xl">Question bank</h1>
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div>
+          <p className="label-caps mb-2">02 · Question bank</p>
+          <h1 className="text-2xl">Question bank</h1>
+        </div>
+        <div className="flex gap-2">
+          <form action={editRandomQuestion}>
+            <input type="hidden" name="module" value={moduleFilter ?? ""} />
+            <Button variant="secondary" type="submit">
+              Edit a random question
+            </Button>
+          </form>
+          <Link href="/dashboard/questions/new">
+            <Button>+ Add question</Button>
+          </Link>
+        </div>
       </div>
 
       {error ? (
@@ -134,9 +149,12 @@ export default async function QuestionsPage({
                 <span className="text-[13px] text-ink-soft w-36 shrink-0">
                   {q.question_type}
                 </span>
-                <span className="text-[14px] flex-1 min-w-48 truncate">
+                <Link
+                  href={`/dashboard/questions/${q.id}/edit`}
+                  className="text-[14px] flex-1 min-w-48 truncate hover:text-crimson hover:underline underline-offset-2"
+                >
                   {q.prompt ?? "—"}
-                </span>
+                </Link>
                 <span className="figures text-[12px] text-ink-muted w-8 shrink-0">
                   {q.difficulty ?? ""}
                 </span>

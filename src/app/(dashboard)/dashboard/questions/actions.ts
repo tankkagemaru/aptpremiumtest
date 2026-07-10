@@ -3,7 +3,12 @@
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
-import { validateImportFile, TYPE_PARTS } from "@/lib/question-import";
+import {
+  validateImportFile,
+  validateQuestion,
+  TYPE_PARTS,
+  type ImportQuestion,
+} from "@/lib/question-import";
 
 const PAGE = "/dashboard/questions";
 
@@ -67,6 +72,74 @@ export async function importQuestions(formData: FormData) {
 
   revalidatePath(PAGE);
   redirect(`${PAGE}?imported=${imported}&module=${data.module}`);
+}
+
+/** Create or update one question from the form-based editor. */
+export async function saveQuestion(payload: string): Promise<{ error?: string } | void> {
+  const parsed = JSON.parse(payload) as {
+    id?: string;
+    exam: string;
+    module: string;
+    question: ImportQuestion;
+  };
+  const q = parsed.question;
+
+  const errors = validateQuestion(q);
+  if (errors.length) return { error: errors.join(" • ") };
+
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  const { data: exam } = await supabase
+    .from("mock_exams")
+    .select("id")
+    .eq("code", parsed.exam)
+    .maybeSingle();
+  if (!exam) return { error: `Unknown exam "${parsed.exam}".` };
+
+  const row = {
+    exam_id: exam.id,
+    module: parsed.module,
+    part: q.part ?? TYPE_PARTS[q.question_type].part,
+    question_type: q.question_type,
+    prompt: q.prompt ?? null,
+    passage: q.passage ?? null,
+    media_url: q.media ?? null,
+    options: q.options ?? null,
+    correct_answers: q.correct_answers ?? null,
+    points: q.points ?? 1,
+    difficulty: q.difficulty ?? null,
+    tags: q.tags ?? null,
+  };
+
+  if (parsed.id) {
+    const { error } = await supabase.from("mock_questions").update(row).eq("id", parsed.id);
+    if (error) return { error: error.message };
+  } else {
+    const { error } = await supabase
+      .from("mock_questions")
+      .insert({ ...row, created_by: user?.id ?? null });
+    if (error) return { error: error.message };
+  }
+
+  revalidatePath(PAGE);
+  redirect(PAGE);
+}
+
+/** Jump to a random active question's editor (optionally within a module). */
+export async function editRandomQuestion(formData: FormData) {
+  const module = String(formData.get("module") ?? "");
+  const supabase = await createClient();
+  let query = supabase.from("mock_questions").select("id").eq("is_active", true);
+  if (module) query = query.eq("module", module);
+  const { data } = await query;
+  if (!data || data.length === 0) {
+    redirect(`${PAGE}?error=${encodeURIComponent("No questions to edit yet.")}`);
+  }
+  const pick = data![Math.floor(Math.random() * data!.length)];
+  redirect(`${PAGE}/${pick.id}/edit`);
 }
 
 export async function toggleQuestionActive(formData: FormData) {

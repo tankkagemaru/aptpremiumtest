@@ -174,6 +174,14 @@ function checkQuestion(q: ImportQuestion): string[] {
   return e;
 }
 
+/** Validate a single question (used by the form-based editor). */
+export function validateQuestion(q: ImportQuestion): string[] {
+  if (!TYPE_PARTS[q.question_type]) {
+    return [`unknown question_type "${q.question_type}"`];
+  }
+  return checkQuestion(q);
+}
+
 export type ValidationResult = {
   ok: boolean;
   errors: string[];
