@@ -151,6 +151,23 @@ export default async function StudentHome({
               </Card>
             );
           })}
+
+          {/* Coming soon — other exams */}
+          {[
+            { name: "IELTS", note: "Academic & General Training" },
+            { name: "MUET", note: "Malaysian University English Test" },
+            { name: "TOEFL", note: "iBT" },
+          ].map((e) => (
+            <Card key={e.name} className="p-6 opacity-60 select-none">
+              <div className="flex items-center justify-between mb-1">
+                <h2 className="text-lg">{e.name}</h2>
+                <span className="rounded bg-cream-50 border border-line text-ink-muted px-2 py-0.5 text-[11px]">
+                  Coming soon
+                </span>
+              </div>
+              <p className="text-[13px] text-ink-muted">{e.note}</p>
+            </Card>
+          ))}
         </div>
       </section>
 

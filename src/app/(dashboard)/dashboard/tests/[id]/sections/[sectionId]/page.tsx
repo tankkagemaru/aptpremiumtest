@@ -93,7 +93,7 @@ export default async function SectionEditorPage({
               <div key={q!.id} className="px-4 py-2.5 flex items-center gap-4">
                 <span className="figures text-[12px] text-ink-muted w-6">{i + 1}</span>
                 <span className="figures text-[12px] text-ink-muted w-8">P{q!.part}</span>
-                <span className="text-[13px] text-ink-soft w-36 shrink-0">
+                <span className="text-[13px] text-ink-soft w-36 shrink-0 hidden md:inline">
                   {q!.question_type}
                 </span>
                 <span className="text-[14px] flex-1 min-w-40 truncate">
@@ -136,7 +136,7 @@ export default async function SectionEditorPage({
             {available.map((q) => (
               <div key={q.id} className="px-4 py-2.5 flex items-center gap-4">
                 <span className="figures text-[12px] text-ink-muted w-8">P{q.part}</span>
-                <span className="text-[13px] text-ink-soft w-36 shrink-0">
+                <span className="text-[13px] text-ink-soft w-36 shrink-0 hidden md:inline">
                   {q.question_type}
                 </span>
                 <span className="text-[14px] flex-1 min-w-40 truncate">{q.prompt ?? "—"}</span>

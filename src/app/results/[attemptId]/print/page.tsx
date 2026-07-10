@@ -82,7 +82,7 @@ export default async function PrintReport({
             </div>
             <div className="text-right">
               <p className="font-display text-2xl">Candidate report</p>
-              <p className="text-[12px] text-ink-muted">{test?.exam?.name ?? "APTIS General"}</p>
+              <p className="text-[12px] text-ink-muted">{test?.exam?.name ?? "UPSI - British Council APTIS General"}</p>
             </div>
           </header>
 

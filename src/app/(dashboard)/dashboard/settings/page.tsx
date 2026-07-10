@@ -6,25 +6,50 @@ import { Input } from "@/components/ui/input";
 import { Field } from "@/components/ui/field";
 import { SubmitButton } from "@/components/ui/submit-button";
 import { createAccount } from "../students/actions";
+import { updateScoringBands } from "./actions";
 
 export const dynamic = "force-dynamic";
+
+const MODULE_ORDER = ["core", "reading", "listening", "writing", "speaking", "overall"];
+const MODULE_LABEL: Record<string, string> = {
+  core: "Grammar & Vocabulary",
+  reading: "Reading",
+  listening: "Listening",
+  writing: "Writing",
+  speaking: "Speaking",
+  overall: "Overall",
+};
 
 export default async function SettingsPage({
   searchParams,
 }: {
-  searchParams: Promise<{ error?: string; created?: string }>;
+  searchParams: Promise<{ error?: string; created?: string; bands?: string }>;
 }) {
-  const { error, created } = await searchParams;
+  const { error, created, bands } = await searchParams;
   const profile = await getProfile();
   const isAdmin = profile?.role === "admin";
   const supabase = await createClient();
 
-  const { data: staff } = await supabase
-    .from("users")
-    .select("id, full_name, email, role")
-    .in("role", ["teacher", "admin"])
-    .order("role")
-    .order("full_name");
+  const [{ data: staff }, { data: bandRows }] = await Promise.all([
+    supabase
+      .from("users")
+      .select("id, full_name, email, role")
+      .in("role", ["teacher", "admin"])
+      .order("role")
+      .order("full_name"),
+    supabase
+      .from("mock_scoring_bands")
+      .select("id, module, band, min_scale, max_scale")
+      .eq("is_active", true)
+      .order("module")
+      .order("min_scale"),
+  ]);
+
+  const bandsByModule = new Map<string, typeof bandRows>();
+  (bandRows ?? []).forEach((b) => {
+    if (!bandsByModule.has(b.module)) bandsByModule.set(b.module, []);
+    bandsByModule.get(b.module)!.push(b);
+  });
 
   return (
     <div className="space-y-8">
@@ -39,6 +64,11 @@ export default async function SettingsPage({
       {created ? (
         <p className="rounded-md bg-good-bg text-good px-3 py-2 text-[13px]">
           Account created: {created}
+        </p>
+      ) : null}
+      {bands ? (
+        <p className="rounded-md bg-good-bg text-good px-3 py-2 text-[13px]">
+          Updated {bands} scoring band{bands === "1" ? "" : "s"}.
         </p>
       ) : null}
 
@@ -104,15 +134,50 @@ export default async function SettingsPage({
         </Card>
       </section>
 
-      {/* Scoring bands note */}
+      {/* Scoring bands editor */}
       <section>
         <h2 className="text-lg mb-3">Scoring bands</h2>
         <Card className="p-6">
-          <p className="text-[14px] text-ink-soft">
-            CEFR band boundaries are stored in <code>mock_scoring_bands</code> and can be
-            recalibrated per exam and module. A visual editor is planned; for now these are
-            managed directly in the database.
+          <p className="text-[13px] text-ink-muted mb-4">
+            CEFR band boundaries on the 0–50 scale, per module. Edit the min/max
+            for each band to recalibrate how scale scores map to CEFR levels.
           </p>
+          {isAdmin ? (
+            <form action={updateScoringBands} className="space-y-6">
+              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {MODULE_ORDER.filter((m) => bandsByModule.get(m)?.length).map((m) => (
+                  <div key={m}>
+                    <p className="label-caps mb-2">{MODULE_LABEL[m] ?? m}</p>
+                    <div className="space-y-1">
+                      {(bandsByModule.get(m) ?? []).map((b) => (
+                        <div key={b.id} className="flex items-center gap-2 text-[13px]">
+                          <span className="font-display w-8">{b.band}</span>
+                          <input
+                            name={`min_${b.id}`}
+                            type="number"
+                            step="0.01"
+                            defaultValue={Number(b.min_scale)}
+                            className="figures w-16 rounded-md border border-line bg-paper px-2 py-1"
+                          />
+                          <span className="text-ink-muted">–</span>
+                          <input
+                            name={`max_${b.id}`}
+                            type="number"
+                            step="0.01"
+                            defaultValue={Number(b.max_scale)}
+                            className="figures w-16 rounded-md border border-line bg-paper px-2 py-1"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <SubmitButton pendingLabel="Saving…">Save scoring bands</SubmitButton>
+            </form>
+          ) : (
+            <p className="text-[13px] text-ink-muted">Only an admin can edit scoring bands.</p>
+          )}
         </Card>
       </section>
     </div>

@@ -20,8 +20,9 @@ export default function AuthLayout({ children }: { children: ReactNode }) {
             Mock<span className="text-crimson">·</span>Test
           </h1>
           <p className="text-ink-soft text-[15px] leading-6 max-w-xs">
-            Practise APTIS General — and soon IELTS and TOEFL — with timed,
-            exam-style mock tests and teacher-verified CEFR results.
+            Practise the UPSI - British Council APTIS — and soon IELTS, MUET and
+            TOEFL — with timed, exam-style mock tests and teacher-verified CEFR
+            results.
           </p>
         </div>
 
