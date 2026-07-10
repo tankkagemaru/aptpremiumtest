@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { getProfile } from "@/lib/auth";
 import { Card } from "@/components/ui/card";
@@ -122,17 +123,35 @@ export default async function StudentHome({
           </Card>
         ) : (
           <Card className="divide-y divide-line">
-            {(attempts ?? []).map((a) => (
-              <div
-                key={a.id}
-                className="px-4 py-3 flex items-center justify-between"
-              >
-                <span className="figures text-[13px]">
-                  {new Date(a.started_at).toLocaleDateString("en-GB")}
-                </span>
-                <span className="text-[13px] text-ink-soft">{a.status}</span>
-              </div>
-            ))}
+            {(attempts ?? []).map((a) => {
+              const label =
+                a.status === "completed"
+                  ? "view result"
+                  : a.status === "grading" || a.status === "submitted"
+                    ? "pending review"
+                    : a.status;
+              const row = (
+                <>
+                  <span className="figures text-[13px]">
+                    {new Date(a.started_at).toLocaleDateString("en-GB")}
+                  </span>
+                  <span className="text-[13px] text-ink-soft">{label}</span>
+                </>
+              );
+              return a.status === "completed" ? (
+                <Link
+                  key={a.id}
+                  href={`/results/${a.id}`}
+                  className="px-4 py-3 flex items-center justify-between hover:bg-cream-50"
+                >
+                  {row}
+                </Link>
+              ) : (
+                <div key={a.id} className="px-4 py-3 flex items-center justify-between">
+                  {row}
+                </div>
+              );
+            })}
           </Card>
         )}
       </section>

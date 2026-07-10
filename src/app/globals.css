@@ -103,3 +103,27 @@ h3 {
     font-variant-numeric: tabular-nums;
   }
 }
+
+/* Printable score report — clean A4, ink on white, crimson accent preserved */
+@media print {
+  @page {
+    size: A4;
+    margin: 18mm;
+  }
+  html,
+  body {
+    background: #ffffff !important;
+    color: #1b1612 !important;
+  }
+  .print\:hidden {
+    display: none !important;
+  }
+  .print-accent {
+    color: #a8242e !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .print-avoid-break {
+    break-inside: avoid;
+  }
+}
