@@ -186,6 +186,16 @@ export type ValidationResult = {
   file?: ImportFile;
 };
 
+/** Result of importing one .json file (per-file progress in the UI). */
+export type ImportFileResult = {
+  file: string;
+  ok: boolean;
+  imported: number;
+  module?: string;
+  exam?: string;
+  error?: string;
+};
+
 export function validateImportFile(raw: unknown): ValidationResult {
   const errors: string[] = [];
   if (typeof raw !== "object" || raw === null)

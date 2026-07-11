@@ -256,11 +256,17 @@ export function QuestionForm({
   initial,
   questionId,
   saveAction,
+  onSaved,
+  onCancel,
 }: {
   examCode: string;
   initial?: Draft;
   questionId?: string;
-  saveAction: (payload: string) => Promise<{ error?: string } | void>;
+  saveAction: (payload: string) => Promise<{ ok?: true; error?: string } | void>;
+  /** Called after a successful save (modal use: close + refresh). */
+  onSaved?: () => void;
+  /** Called when the user cancels (modal use: close). */
+  onCancel?: () => void;
 }) {
   const router = useRouter();
   const isEdit = Boolean(questionId);
@@ -305,9 +311,18 @@ export function QuestionForm({
     setSaving(true);
     setServerErr("");
     const res = await saveAction(payload);
-    setSaving(false);
-    if (res && "error" in res && res.error) setServerErr(res.error);
-    // on success the action redirects
+    if (res && "error" in res && res.error) {
+      setSaving(false);
+      setServerErr(res.error);
+      return;
+    }
+    // success
+    if (onSaved) {
+      onSaved();
+    } else {
+      router.push("/dashboard/questions");
+      router.refresh();
+    }
   }
 
   return (
@@ -404,7 +419,10 @@ export function QuestionForm({
         <Button onClick={submit} disabled={errors.length > 0 || saving}>
           {saving ? "Saving…" : isEdit ? "Save changes" : "Add question"}
         </Button>
-        <Button variant="secondary" onClick={() => router.push("/dashboard/questions")}>
+        <Button
+          variant="secondary"
+          onClick={() => (onCancel ? onCancel() : router.push("/dashboard/questions"))}
+        >
           Cancel
         </Button>
       </div>

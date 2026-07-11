@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
@@ -19,10 +18,13 @@ export function BulkQuestionList({
   questions,
   bulkDelete,
   bulkSetActive,
+  onEdit,
 }: {
   questions: Q[];
   bulkDelete: (formData: FormData) => void;
   bulkSetActive: (formData: FormData) => void;
+  /** Open the edit wizard for a question (modal). */
+  onEdit?: (id: string) => void;
 }) {
   const [sel, setSel] = useState<Set<string>>(new Set());
   const allChecked = questions.length > 0 && sel.size === questions.length;
@@ -114,12 +116,14 @@ export function BulkQuestionList({
             <span className="text-[13px] text-ink-soft w-36 shrink-0 hidden md:inline">
               {q.question_type}
             </span>
-            <Link
-              href={`/dashboard/questions/${q.id}/edit`}
-              className="text-[14px] flex-1 min-w-48 truncate hover:text-crimson hover:underline underline-offset-2"
+            <button
+              type="button"
+              onClick={() => onEdit?.(q.id)}
+              className="text-[14px] flex-1 min-w-48 truncate text-left hover:text-crimson hover:underline underline-offset-2 cursor-pointer"
+              title="Edit question"
             >
               {q.prompt ?? "—"}
-            </Link>
+            </button>
             <span className="figures text-[12px] text-ink-muted w-8 shrink-0">
               {q.difficulty ?? ""}
             </span>

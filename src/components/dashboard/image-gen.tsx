@@ -4,15 +4,31 @@ import { useEffect, useMemo, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { setSpeakingImage } from "@/app/(dashboard)/dashboard/questions/images/actions";
 
 type Slot = {
   qid: string;
+  qtype: string;
   prompt: string;
   index: number;
   label: string;
+  /** the effective prompt sent to the image model */
+  imagePrompt: string;
+  /** true when the prompt was set explicitly on the question (vs. derived) */
+  explicit: boolean;
   path: string | null;
   url: string | null;
 };
+
+/** Mirror the server's fallback when no explicit image_prompt is set. */
+function derive(questions: string[], prompt: string | null): string {
+  return (
+    questions.find((x) => !/describe|compare|picture|photo/i.test(x)) ??
+    questions[1] ??
+    prompt ??
+    "an everyday scene"
+  );
+}
 
 export function ImageGen() {
   const supabase = useMemo(() => createClient(), []);
@@ -42,12 +58,38 @@ export function ImageGen() {
     const next: Slot[] = [];
     (data ?? []).forEach((q) => {
       const prompt = q.prompt ?? "—";
+      const options = (q.options ?? {}) as Record<string, unknown>;
+      const questions = (options.questions as string[]) ?? [];
       if (q.question_type === "s3_compare") {
-        const images = ((q.options as { images?: string[] })?.images ?? ["", ""]) as string[];
-        next.push({ qid: q.id, prompt, index: 0, label: "photo 1", path: images[0] || null, url: null });
-        next.push({ qid: q.id, prompt, index: 1, label: "photo 2", path: images[1] || null, url: null });
+        const images = ((options.images as string[]) ?? ["", ""]) as string[];
+        const iprompts = (options.image_prompts as string[]) ?? [];
+        [0, 1].forEach((i) => {
+          const explicit = Boolean(iprompts[i]);
+          next.push({
+            qid: q.id,
+            qtype: q.question_type,
+            prompt,
+            index: i,
+            label: `photo ${i + 1}`,
+            imagePrompt: explicit ? iprompts[i] : `${derive(questions, q.prompt)} (variation ${i + 1})`,
+            explicit,
+            path: images[i] || null,
+            url: null,
+          });
+        });
       } else {
-        next.push({ qid: q.id, prompt, index: 0, label: "photo", path: q.media_url || null, url: null });
+        const explicit = Boolean(options.image_prompt);
+        next.push({
+          qid: q.id,
+          qtype: q.question_type,
+          prompt,
+          index: 0,
+          label: "photo",
+          imagePrompt: explicit ? (options.image_prompt as string) : derive(questions, q.prompt),
+          explicit,
+          path: q.media_url || null,
+          url: null,
+        });
       }
     });
     // resolve signed URLs for existing images
@@ -80,7 +122,30 @@ export function ImageGen() {
     }
     const url = await sign(j.path);
     setSlots((ss) => ss.map((x) => (key(x) === key(s) ? { ...x, path: j.path, url } : x)));
-    setLog((l) => [`✓ ${s.qid.slice(0, 8)} ${s.label}`, ...l]);
+    setLog((l) => [`✓ generated ${s.qid.slice(0, 8)} ${s.label}`, ...l]);
+  }
+
+  async function upload(s: Slot, file: File) {
+    setBusyKey(key(s));
+    const ext = (file.name.split(".").pop() ?? "jpg").toLowerCase().replace(/[^a-z0-9]/g, "");
+    const path = `speaking/${s.qid}${s.qtype === "s3_compare" ? `-${s.index}` : ""}-manual-${Date.now()}.${ext}`;
+    const { error: upErr } = await supabase.storage
+      .from("mock-media")
+      .upload(path, file, { upsert: true, contentType: file.type || undefined });
+    if (upErr) {
+      setBusyKey(null);
+      setLog((l) => [`✗ upload ${s.qid.slice(0, 8)} ${s.label}: ${upErr.message}`, ...l]);
+      return;
+    }
+    const res = await setSpeakingImage(s.qid, s.index, path);
+    setBusyKey(null);
+    if (res.error) {
+      setLog((l) => [`✗ save ${s.qid.slice(0, 8)} ${s.label}: ${res.error}`, ...l]);
+      return;
+    }
+    const url = await sign(path);
+    setSlots((ss) => ss.map((x) => (key(x) === key(s) ? { ...x, path, url } : x)));
+    setLog((l) => [`✓ uploaded ${s.qid.slice(0, 8)} ${s.label}`, ...l]);
   }
 
   async function generateMissing() {
@@ -103,7 +168,7 @@ export function ImageGen() {
             <p className="figures text-2xl font-display">
               {slots.length - missing}/{slots.length}
             </p>
-            <p className="label-caps mt-1">speaking photos generated</p>
+            <p className="label-caps mt-1">speaking photos ready</p>
           </div>
           <div className="flex gap-2">
             <Button variant="secondary" onClick={load} disabled={running || loading}>
@@ -115,9 +180,9 @@ export function ImageGen() {
           </div>
         </div>
         <p className="text-[13px] text-ink-muted mt-3">
-          Photos are generated with AI from each question&apos;s topic. Set an{" "}
-          <code>image_prompt</code> on the question for precise control. Review the
-          images below before publishing.
+          Each photo is generated by AI from the prompt shown on its card. Set an{" "}
+          <code>image_prompt</code> on the question (in the wizard) for precise control,
+          or <strong>upload your own photo</strong> instead. Review before publishing.
         </p>
       </Card>
 
@@ -134,37 +199,86 @@ export function ImageGen() {
       ) : null}
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {slots.map((s) => (
-          <Card key={key(s)} className="p-3 space-y-2">
-            <div className="aspect-[4/3] rounded-md border border-line bg-cream-50 overflow-hidden flex items-center justify-center">
-              {s.url ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img src={s.url} alt={s.label} className="w-full h-full object-cover" />
-              ) : (
-                <span className="text-[12px] text-ink-muted">no image yet</span>
-              )}
-            </div>
-            <p className="text-[13px] truncate" title={s.prompt}>
-              {s.prompt}
-            </p>
-            <div className="flex items-center justify-between">
-              <span className="text-[12px] text-ink-muted">{s.label}</span>
-              {busyKey === key(s) ? (
-                <span className="text-[12px] text-crimson">generating…</span>
-              ) : (
-                <button
-                  onClick={() => generate(s)}
-                  disabled={running}
-                  className={`text-[12px] underline underline-offset-2 cursor-pointer disabled:opacity-50 ${
-                    s.path ? "text-ink-muted" : "text-crimson"
+        {slots.map((s) => {
+          const busy = busyKey === key(s);
+          return (
+            <Card key={key(s)} className="p-3 space-y-2 flex flex-col">
+              <div className="aspect-[4/3] rounded-md border border-line bg-cream-50 overflow-hidden flex items-center justify-center">
+                {s.url ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={s.url} alt={s.label} className="w-full h-full object-cover" />
+                ) : (
+                  <span className="text-[12px] text-ink-muted">no image yet</span>
+                )}
+              </div>
+
+              <div className="flex items-center justify-between">
+                <span className="text-[12px] text-ink-muted">{s.label}</span>
+                {s.path ? (
+                  <span className="rounded bg-good-bg text-good px-1.5 py-0.5 text-[11px]">ready</span>
+                ) : (
+                  <span className="rounded bg-pending-bg text-pending px-1.5 py-0.5 text-[11px]">
+                    missing
+                  </span>
+                )}
+              </div>
+
+              <p className="text-[12px] text-ink-soft truncate" title={s.prompt}>
+                {s.prompt}
+              </p>
+
+              {/* The prompt that will be sent to the image model */}
+              <div className="rounded-md border border-line bg-cream-50 p-2">
+                <p className="label-caps mb-0.5 flex items-center gap-1.5">
+                  Image prompt
+                  <span
+                    className={`rounded px-1 py-0.5 text-[10px] ${
+                      s.explicit
+                        ? "bg-paper border border-line text-ink-muted"
+                        : "bg-pending-bg text-pending"
+                    }`}
+                  >
+                    {s.explicit ? "set on question" : "auto (from questions)"}
+                  </span>
+                </p>
+                <p className="text-[12px] leading-5 text-ink">{s.imagePrompt}</p>
+              </div>
+
+              <div className="mt-auto flex items-center justify-between pt-1">
+                {busy ? (
+                  <span className="text-[12px] text-crimson">working…</span>
+                ) : (
+                  <button
+                    onClick={() => generate(s)}
+                    disabled={running}
+                    className={`text-[12px] underline underline-offset-2 cursor-pointer disabled:opacity-50 ${
+                      s.path ? "text-ink-muted" : "text-crimson"
+                    }`}
+                  >
+                    {s.path ? "regenerate" : "generate"}
+                  </button>
+                )}
+                <label
+                  className={`text-[12px] cursor-pointer text-ink-soft hover:text-crimson underline underline-offset-2 ${
+                    running || busy ? "opacity-50 pointer-events-none" : ""
                   }`}
                 >
-                  {s.path ? "regenerate" : "generate"}
-                </button>
-              )}
-            </div>
-          </Card>
-        ))}
+                  upload photo
+                  <input
+                    type="file"
+                    accept="image/*"
+                    className="hidden"
+                    onChange={(e) => {
+                      const f = e.target.files?.[0];
+                      if (f) void upload(s, f);
+                      e.target.value = "";
+                    }}
+                  />
+                </label>
+              </div>
+            </Card>
+          );
+        })}
       </div>
     </div>
   );

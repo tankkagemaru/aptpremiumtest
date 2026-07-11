@@ -3,9 +3,10 @@ import { createClient } from "@/lib/supabase/server";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { MODULES, TYPE_PARTS } from "@/lib/question-import";
-import { SubmitButton } from "@/components/ui/submit-button";
-import { BulkQuestionList } from "@/components/dashboard/bulk-question-list";
-import { importQuestions, deleteSet, bulkDeleteQuestions, bulkSetActive } from "./actions";
+import { QuestionImport } from "@/components/dashboard/question-import";
+import { ExamScopeBar } from "@/components/dashboard/exam-scope-bar";
+import { QuestionBankClient } from "@/components/dashboard/question-bank-client";
+import { bulkDeleteQuestions, bulkSetActive } from "./actions";
 
 const CEFR = ["A1", "A2", "B1", "B2", "C1", "C2"];
 const inputCls =
@@ -16,11 +17,9 @@ export default async function QuestionsPage({
 }: {
   searchParams: Promise<{
     error?: string;
-    imported?: string;
-    files?: string;
     deleted?: string;
     retired?: string;
-    tag?: string;
+    exam?: string;
     q?: string;
     module?: string;
     part?: string;
@@ -33,30 +32,30 @@ export default async function QuestionsPage({
   const sp = await searchParams;
   const supabase = await createClient();
 
-  // Module counts
+  // Active exams (only these have a bank you can edit today)
+  const { data: examRows } = await supabase
+    .from("mock_exams")
+    .select("id, code, name")
+    .eq("is_active", true)
+    .order("name");
+  const exams = examRows ?? [];
+  const activeExam = exams.find((e) => e.code === sp.exam) ?? exams[0] ?? null;
+  const examId = activeExam?.id ?? null;
+
+  // Module counts (scoped to the active exam)
   const counts = await Promise.all(
     MODULES.map(async (m) => {
-      const { count } = await supabase
+      let cq = supabase
         .from("mock_questions")
         .select("id", { count: "exact", head: true })
         .eq("module", m);
+      if (examId) cq = cq.eq("exam_id", examId);
+      const { count } = await cq;
       return { module: m, count: count ?? 0 };
     })
   );
 
-  // Tag/set aggregation
-  const { data: tagRows } = await supabase.from("mock_questions").select("tags");
-  const tagCounts = new Map<string, number>();
-  (tagRows ?? []).forEach((r) =>
-    ((r.tags as string[] | null) ?? []).forEach((t) =>
-      tagCounts.set(t, (tagCounts.get(t) ?? 0) + 1)
-    )
-  );
-  const tags = [...tagCounts.entries()].sort((a, b) =>
-    a[0].localeCompare(b[0])
-  );
-
-  // Filtered, paged list
+  // Filtered, paged list (scoped to the active exam)
   const PAGE_SIZE = 50;
   const page = Math.max(1, Number(sp.page ?? 1) || 1);
   let query = supabase
@@ -66,6 +65,7 @@ export default async function QuestionsPage({
     .order("part")
     .order("created_at", { ascending: false })
     .range((page - 1) * PAGE_SIZE, page * PAGE_SIZE - 1);
+  if (examId) query = query.eq("exam_id", examId);
   if (sp.module) query = query.eq("module", sp.module);
   if (sp.part) query = query.eq("part", Number(sp.part));
   if (sp.difficulty) query = query.eq("difficulty", sp.difficulty);
@@ -76,13 +76,17 @@ export default async function QuestionsPage({
   const { data: questions, count: totalCount } = await query;
   const totalPages = Math.max(1, Math.ceil((totalCount ?? 0) / PAGE_SIZE));
 
-  const pageHref = (p: number) => {
+  const withParams = (over: Record<string, string | number | undefined>) => {
     const params = new URLSearchParams();
     Object.entries(sp).forEach(([k, v]) => {
-      if (v && k !== "page") params.set(k, String(v));
+      if (v) params.set(k, String(v));
     });
-    params.set("page", String(p));
-    return `/dashboard/questions?${params.toString()}`;
+    Object.entries(over).forEach(([k, v]) => {
+      if (v === undefined || v === "") params.delete(k);
+      else params.set(k, String(v));
+    });
+    const s = params.toString();
+    return `/dashboard/questions${s ? `?${s}` : ""}`;
   };
 
   const typeOptions = sp.module
@@ -103,32 +107,46 @@ export default async function QuestionsPage({
           <Link href="/dashboard/questions/images">
             <Button variant="secondary">Speaking images</Button>
           </Link>
-          <Link href="/dashboard/questions/new">
-            <Button>+ Add question</Button>
-          </Link>
         </div>
       </div>
 
       {sp.error ? (
         <p className="rounded-md bg-alert-bg text-alert px-3 py-2 text-[13px]">{sp.error}</p>
       ) : null}
-      {sp.imported ? (
-        <p className="rounded-md bg-good-bg text-good px-3 py-2 text-[13px]">
-          Imported {sp.imported} question{sp.imported === "1" ? "" : "s"}
-          {sp.files ? ` from ${sp.files} file${sp.files === "1" ? "" : "s"}` : ""}.
-        </p>
-      ) : null}
       {sp.deleted || sp.retired ? (
         <p className="rounded-md bg-good-bg text-good px-3 py-2 text-[13px]">
-          Set “{sp.tag}”: deleted {sp.deleted ?? 0}
-          {sp.retired && sp.retired !== "0" ? `, retired ${sp.retired} (had answers)` : ""}.
+          Deleted {sp.deleted ?? 0}
+          {sp.retired && sp.retired !== "0"
+            ? `, retired ${sp.retired} (already had student answers)`
+            : ""}
+          .
         </p>
       ) : null}
+
+      {/* Which exam are we editing? (#2) */}
+      {exams.length > 0 && activeExam ? (
+        <ExamScopeBar exams={exams} activeExam={activeExam.code} />
+      ) : (
+        <p className="rounded-md bg-pending-bg text-pending px-3 py-2 text-[13px]">
+          No active exam found. Create one in the database before importing questions.
+        </p>
+      )}
 
       {/* Module cards */}
       <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-5">
         {counts.map((c) => (
-          <Link key={c.module} href={`/dashboard/questions?module=${c.module}`}>
+          <Link
+            key={c.module}
+            href={withParams({
+              module: c.module,
+              type: undefined,
+              part: undefined,
+              difficulty: undefined,
+              q: undefined,
+              status: undefined,
+              page: undefined,
+            })}
+          >
             <Card
               className={`p-4 hover:border-crimson transition-colors ${
                 sp.module === c.module ? "border-crimson" : ""
@@ -141,65 +159,13 @@ export default async function QuestionsPage({
         ))}
       </div>
 
-      {/* Sets & tags */}
-      {tags.length > 0 ? (
-        <section>
-          <h2 className="text-lg mb-3">Sets &amp; tags</h2>
-          <Card className="p-4 flex flex-wrap gap-2">
-            {tags.map(([tag, n]) => (
-              <div
-                key={tag}
-                className="inline-flex items-center gap-2 rounded-md border border-line bg-cream-50 pl-3 pr-1.5 py-1"
-              >
-                <Link
-                  href={`/dashboard/questions?q=&tag=${encodeURIComponent(tag)}`}
-                  className="text-[13px]"
-                >
-                  {tag} <span className="figures text-ink-muted">{n}</span>
-                </Link>
-                <form action={deleteSet}>
-                  <input type="hidden" name="tag" value={tag} />
-                  <button
-                    type="submit"
-                    className="text-alert text-[14px] px-1 cursor-pointer hover:bg-alert-bg rounded"
-                    title={`Delete all ${n} questions tagged ${tag}`}
-                  >
-                    ×
-                  </button>
-                </form>
-              </div>
-            ))}
-          </Card>
-          <p className="text-[12px] text-ink-muted mt-2">
-            The × deletes every question in that set (questions already used in an
-            attempt are retired, not deleted).
-          </p>
-        </section>
-      ) : null}
-
-      {/* Import */}
-      <Card className="p-6">
-        <h2 className="text-lg mb-1">Import questions</h2>
-        <p className="text-[13px] text-ink-muted mb-4">
-          Upload one or more .json files in the import format. Select several at
-          once to import a whole set. Each file is validated before anything is saved.
-        </p>
-        <form action={importQuestions} className="flex flex-wrap items-center gap-3">
-          <input
-            type="file"
-            name="file"
-            accept=".json,application/json"
-            multiple
-            required
-            className="text-[13px] text-ink-soft file:mr-3 file:rounded-md file:border file:border-line file:bg-paper file:px-3 file:py-1.5 file:text-ink"
-          />
-          <SubmitButton pendingLabel="Importing…">Import</SubmitButton>
-        </form>
-      </Card>
+      {/* Import with progress + logs (#1) */}
+      <QuestionImport />
 
       {/* Filter + search */}
       <section>
         <form method="get" className="flex flex-wrap items-end gap-3 mb-4">
+          {activeExam ? <input type="hidden" name="exam" value={activeExam.code} /> : null}
           <div>
             <label className="label-caps block mb-1">Search prompt</label>
             <input name="q" defaultValue={sp.q ?? ""} placeholder="text…" className={inputCls} />
@@ -234,30 +200,34 @@ export default async function QuestionsPage({
             <option value="all">all</option>
           </select>
           <Button type="submit" variant="secondary">Filter</Button>
-          <Link href="/dashboard/questions" className="text-[13px] text-crimson underline underline-offset-2 pb-2">
+          <Link
+            href={withParams({
+              q: undefined,
+              module: undefined,
+              type: undefined,
+              part: undefined,
+              difficulty: undefined,
+              status: undefined,
+              page: undefined,
+            })}
+            className="text-[13px] text-crimson underline underline-offset-2 pb-2"
+          >
             Reset
           </Link>
         </form>
 
-        <div className="flex items-center justify-between mb-2">
-          <h2 className="text-lg">
-            Questions <span className="figures text-[13px] text-ink-muted">({totalCount ?? 0})</span>
-          </h2>
-          {totalPages > 1 ? (
-            <span className="figures text-[13px] text-ink-muted">
-              page {page} of {totalPages}
-            </span>
-          ) : null}
-        </div>
-        <BulkQuestionList
+        <QuestionBankClient
+          activeExam={activeExam?.code ?? "aptis-general"}
           questions={questions ?? []}
+          totalCount={totalCount ?? 0}
           bulkDelete={bulkDeleteQuestions}
           bulkSetActive={bulkSetActive}
         />
+
         {totalPages > 1 ? (
           <div className="flex items-center justify-center gap-3 mt-4 text-[13px]">
             {page > 1 ? (
-              <Link href={pageHref(page - 1)} className="rounded-md border border-line bg-paper px-3 py-1.5 hover:border-crimson">
+              <Link href={withParams({ page: page - 1 })} className="rounded-md border border-line bg-paper px-3 py-1.5 hover:border-crimson">
                 ← Prev
               </Link>
             ) : (
@@ -265,7 +235,7 @@ export default async function QuestionsPage({
             )}
             <span className="figures text-ink-muted">{page} / {totalPages}</span>
             {page < totalPages ? (
-              <Link href={pageHref(page + 1)} className="rounded-md border border-line bg-paper px-3 py-1.5 hover:border-crimson">
+              <Link href={withParams({ page: page + 1 })} className="rounded-md border border-line bg-paper px-3 py-1.5 hover:border-crimson">
                 Next →
               </Link>
             ) : (

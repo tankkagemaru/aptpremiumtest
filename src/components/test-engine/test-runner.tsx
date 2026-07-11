@@ -48,35 +48,63 @@ export function TestRunner({
   const [saveState, setSaveState] = useState<"saved" | "saving" | "error">("saved");
   const pending = useRef(new Map<string, Answer>());
   const flushTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const inFlight = useRef<Promise<void> | null>(null);
+  const flushRef = useRef<() => Promise<void>>(() => Promise.resolve());
   const submittedRef = useRef(false);
 
   const flush = useCallback(async () => {
+    // Serialize: never let two save passes interleave (avoids a submit racing
+    // ahead of an in-flight save and grading a stale answer).
+    if (inFlight.current) {
+      try {
+        await inFlight.current;
+      } catch {
+        /* previous pass already handled its own error */
+      }
+    }
     if (pending.current.size === 0) return;
-    const batch = Array.from(pending.current.entries());
-    pending.current.clear();
-    setSaveState("saving");
-    // Each answer is saved via a definer RPC (enforces ownership, blocks score columns).
-    const results = await Promise.all(
-      batch.map(([questionId, answer]) =>
-        supabase.rpc("mock_save_response", {
-          p_attempt: attemptId,
-          p_question: questionId,
-          p_answer: answer,
-          p_word_count: answerWordCount(answer) || null,
-        })
-      )
-    );
-    const failed = batch.filter((_, i) => results[i].error);
-    if (failed.length > 0) {
-      // put failed saves back so the next flush retries them
-      failed.forEach(([qid, a]) => {
-        if (!pending.current.has(qid)) pending.current.set(qid, a);
-      });
-      setSaveState("error");
-    } else {
-      setSaveState(pending.current.size > 0 ? "saving" : "saved");
+
+    const run = (async () => {
+      const batch = Array.from(pending.current.entries());
+      pending.current.clear();
+      setSaveState("saving");
+      // Each answer is saved via a definer RPC (enforces ownership, blocks score columns).
+      const results = await Promise.all(
+        batch.map(([questionId, answer]) =>
+          supabase.rpc("mock_save_response", {
+            p_attempt: attemptId,
+            p_question: questionId,
+            p_answer: answer,
+            p_word_count: answerWordCount(answer) || null,
+          })
+        )
+      );
+      const failed = batch.filter((_, i) => results[i].error);
+      if (failed.length > 0) {
+        // put failed saves back so they retry
+        failed.forEach(([qid, a]) => {
+          if (!pending.current.has(qid)) pending.current.set(qid, a);
+        });
+        setSaveState("error");
+        // auto-retry even if the student stops typing
+        if (flushTimer.current) clearTimeout(flushTimer.current);
+        flushTimer.current = setTimeout(() => {
+          void flushRef.current();
+        }, 2000);
+      } else {
+        setSaveState(pending.current.size > 0 ? "saving" : "saved");
+      }
+    })();
+    inFlight.current = run;
+    try {
+      await run;
+    } finally {
+      if (inFlight.current === run) inFlight.current = null;
     }
   }, [attemptId, supabase]);
+
+  // Always call the latest flush from timers/listeners.
+  flushRef.current = flush;
 
   const handleChange = useCallback(
     (questionId: string, answer: Answer) => {
@@ -84,19 +112,40 @@ export function TestRunner({
       pending.current.set(questionId, answer);
       setSaveState("saving");
       if (flushTimer.current) clearTimeout(flushTimer.current);
-      flushTimer.current = setTimeout(flush, 800);
+      flushTimer.current = setTimeout(() => void flushRef.current(), 800);
     },
-    [flush]
+    []
   );
+
+  // Save immediately when a text field loses focus (covers fast typists who
+  // move to the next question or submit before the 800ms debounce fires).
+  const handleBlur = useCallback(() => {
+    if (pending.current.size === 0) return;
+    if (flushTimer.current) clearTimeout(flushTimer.current);
+    void flushRef.current();
+  }, []);
 
   const doSubmit = useCallback(async () => {
     if (submittedRef.current) return;
     submittedRef.current = true;
     setSubmitting(true);
     if (flushTimer.current) clearTimeout(flushTimer.current);
-    await flush();
+    await flush(); // waits for any in-flight pass, then saves what's left
     await submitAction();
   }, [flush, submitAction]);
+
+  // Best-effort save if the tab is hidden or the student navigates away.
+  useEffect(() => {
+    const onHide = () => {
+      if (pending.current.size > 0) void flushRef.current();
+    };
+    document.addEventListener("visibilitychange", onHide);
+    window.addEventListener("pagehide", onHide);
+    return () => {
+      document.removeEventListener("visibilitychange", onHide);
+      window.removeEventListener("pagehide", onHide);
+    };
+  }, []);
 
   // countdown + auto-submit
   useEffect(() => {
@@ -161,7 +210,7 @@ export function TestRunner({
       </header>
 
       <div className="flex-1 mx-auto w-full max-w-4xl px-4 py-6 grid gap-6 lg:grid-cols-[1fr_180px]">
-        <main>
+        <main onBlur={handleBlur}>
           <div className="mb-4">
             <p className="label-caps mb-1">
               Question {current + 1} of {questions.length}
