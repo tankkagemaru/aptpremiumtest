@@ -1,0 +1,170 @@
+{
+  "exam": "aptis-general",
+  "module": "core",
+  "questions": [
+    { "question_type": "grammar_mc3", "difficulty": "A1",
+      "prompt": "My sister ______ a teacher at the primary school.",
+      "options": { "choices": ["are", "is", "be"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-05", "work"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A1",
+      "prompt": "I ______ two younger brothers and one older sister.",
+      "options": { "choices": ["have", "has", "having"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-05", "family"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A1",
+      "prompt": "There is ______ interesting article about families in today's paper.",
+      "options": { "choices": ["a", "an", "the"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-05", "family"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A1",
+      "prompt": "My parents ______ the news every morning before work.",
+      "options": { "choices": ["read", "reads", "reading"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-05", "family"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A1",
+      "prompt": "The college library closes ______ six o'clock on Fridays.",
+      "options": { "choices": ["in", "on", "at"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-05", "education"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A2",
+      "prompt": "Last week I ______ a novel about a family in a small town.",
+      "options": { "choices": ["finish", "finished", "finishing"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-05", "hobbies"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A2",
+      "prompt": "This chapter is ______ than the one we read last week.",
+      "options": { "choices": ["long", "longer", "longest"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-05", "hobbies"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A2",
+      "prompt": "Next term the college ______ open a new reading room.",
+      "options": { "choices": ["is going to", "going to", "will to"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-05", "education"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A2",
+      "prompt": "My cousin ______ borrows books from the library at weekends.",
+      "options": { "choices": ["usually", "is usually", "usually is"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-05", "hobbies"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A2",
+      "prompt": "There aren't ______ copies of the book left in the shop.",
+      "options": { "choices": ["much", "many", "a lot"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-05", "hobbies"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B1",
+      "prompt": "I ______ crime novels for ten years, and I still enjoy them.",
+      "options": { "choices": ["read", "have read", "am reading"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-05", "hobbies"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B1",
+      "prompt": "If you finish the chapter tonight, we ______ discuss it at the meeting.",
+      "options": { "choices": ["will", "would", "had"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-05", "hobbies"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B1",
+      "prompt": "The main prize ______ to a young writer from Ipoh last year.",
+      "options": { "choices": ["gave", "was given", "has given"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-05", "work"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B1",
+      "prompt": "You ______ return the book by Friday, or you will have to pay a fine.",
+      "options": { "choices": ["could", "must", "might"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-05", "education"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B1",
+      "prompt": "She ______ for the same publisher since she left university.",
+      "options": { "choices": ["works", "is working", "has been working"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-05", "work"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B1",
+      "prompt": "If I had a quieter room at home, I ______ read a great deal more.",
+      "options": { "choices": ["would", "will", "can"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-05", "family"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B2",
+      "prompt": "If we ______ the event earlier, far more members would have come.",
+      "options": { "choices": ["had advertised", "advertised", "have advertised"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-05", "work"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B2",
+      "prompt": "The chairperson said that the next discussion ______ the following month.",
+      "options": { "choices": ["would take place", "will take place", "takes place"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-05", "work"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B2",
+      "prompt": "The novelist ______ first book we read in May is visiting our college.",
+      "options": { "choices": ["who", "whose", "which"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-05", "education"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B2",
+      "prompt": "I wish I ______ more time to read during the working week.",
+      "options": { "choices": ["have", "had", "would have"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-05", "work"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B2",
+      "prompt": "By the time I joined the group, they ______ already read six novels.",
+      "options": { "choices": ["has", "was", "had"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-05", "hobbies"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "C1",
+      "prompt": "Rarely ______ a first novel attracted so much attention from critics.",
+      "options": { "choices": ["have", "has", "did"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-05", "hobbies"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "C1",
+      "prompt": "Had she studied literature at university, she ______ a teacher of English today.",
+      "options": { "choices": ["would be", "would have been", "will be"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-05", "education"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "C1",
+      "prompt": "It was the quiet ending ______ made the whole novel worth reading.",
+      "options": { "choices": ["what", "that", "who"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-05", "hobbies"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "C1",
+      "prompt": "The manuscript ______ have been lost in the post; we simply cannot be sure.",
+      "options": { "choices": ["must", "may", "can"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-05", "work"] },
+
+    { "question_type": "vocab_set", "difficulty": "A2",
+      "prompt": "Choose the word from the bank that has the same meaning as each word below.",
+      "options": { "kind": "synonym",
+        "bank": ["start", "hard", "well-known", "amusing", "select", "borrow", "return", "quiet", "expensive", "careful"],
+        "items": [ { "text": "begin" }, { "text": "difficult" }, { "text": "famous" }, { "text": "funny" }, { "text": "choose" } ] },
+      "correct_answers": { "answers": ["start", "hard", "well-known", "amusing", "select"] },
+      "tags": ["set-05", "education"] },
+
+    { "question_type": "vocab_set", "difficulty": "B1",
+      "prompt": "Match each word about books with its definition.",
+      "options": { "kind": "definition",
+        "bank": ["a long written story about imaginary people and events", "the person who writes a book", "one of the numbered parts into which a book is divided", "the series of events that make up a story", "an article giving an opinion about a new book", "a book that gives the meanings of words", "a shop where new books are sold", "a place where books can be borrowed free of charge", "a short summary printed on the back cover", "a list of the books used in a piece of research"],
+        "items": [ { "text": "novel" }, { "text": "author" }, { "text": "chapter" }, { "text": "plot" }, { "text": "review" } ] },
+      "correct_answers": { "answers": ["a long written story about imaginary people and events", "the person who writes a book", "one of the numbered parts into which a book is divided", "the series of events that make up a story", "an article giving an opinion about a new book"] },
+      "tags": ["set-05", "hobbies"] },
+
+    { "question_type": "vocab_set", "difficulty": "B1",
+      "prompt": "Choose the word from the bank that best completes each sentence.",
+      "options": { "kind": "usage",
+        "bank": ["recommend", "return", "summarise", "announce", "expand", "postpone", "translate", "complain", "apologise", "deliver"],
+        "items": [ { "text": "Our tutor will ______ three novels for us to choose between." }, { "text": "Please ______ the book to the library before the end of the month." }, { "text": "We were asked to ______ the whole chapter in a single sentence." }, { "text": "The judges will ______ the winner of the writing competition on Friday." }, { "text": "Reading widely is the fastest way to ______ your vocabulary." } ] },
+      "correct_answers": { "answers": ["recommend", "return", "summarise", "announce", "expand"] },
+      "tags": ["set-05", "education"] },
+
+    { "question_type": "vocab_set", "difficulty": "B2",
+      "prompt": "Choose the word from the bank that goes with each verb to make a common expression.",
+      "options": { "kind": "collocation",
+        "bank": ["deadline", "conclusion", "question", "promise", "break", "suggestion", "effort", "chapter", "notice", "invitation"],
+        "items": [ { "text": "meet a ______" }, { "text": "reach a ______" }, { "text": "raise a ______" }, { "text": "keep a ______" }, { "text": "take a ______" } ] },
+      "correct_answers": { "answers": ["deadline", "conclusion", "question", "promise", "break"] },
+      "tags": ["set-05", "work"] },
+
+    { "question_type": "vocab_set", "difficulty": "B2",
+      "prompt": "Match each word about studying with the phrase that explains it.",
+      "options": { "kind": "matching",
+        "bank": ["a formal talk given to a large group of students", "a short teaching session for one student or a very small group", "a piece of work that a student must complete and hand in", "a class in which students discuss a topic with their tutor", "comments telling you how well you have done and how to improve", "a formal test taken at the end of a course", "a list of the topics that a course will cover", "the mark given for a piece of written work", "a long essay written over several months", "a period of practical experience in a company"],
+        "items": [ { "text": "lecture" }, { "text": "tutorial" }, { "text": "assignment" }, { "text": "seminar" }, { "text": "feedback" } ] },
+      "correct_answers": { "answers": ["a formal talk given to a large group of students", "a short teaching session for one student or a very small group", "a piece of work that a student must complete and hand in", "a class in which students discuss a topic with their tutor", "comments telling you how well you have done and how to improve"] },
+      "tags": ["set-05", "education"] }
+  ]
+}

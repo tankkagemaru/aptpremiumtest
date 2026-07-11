@@ -1,0 +1,144 @@
+{
+  "exam": "aptis-general",
+  "module": "listening",
+  "questions": [
+    { "question_type": "l1_mc4", "difficulty": "A2",
+      "prompt": "Listen to the voicemail. What time does the library close on Saturdays?",
+      "media": "listening/set05-l1-q01.mp3",
+      "passage": "TRANSCRIPT: [Woman] Hi, it's Hana from the college library. You asked me about our opening hours. From Monday to Friday we close at eight in the evening, but on Saturdays we close earlier, at half past five. We are not open at all on Sundays. Hope that helps!",
+      "options": { "choices": ["8:00 p.m.", "5:30 p.m.", "5:00 p.m.", "6:30 p.m."] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-05", "education"] },
+
+    { "question_type": "l1_mc4", "difficulty": "A2",
+      "prompt": "Listen to the announcement. Where will the study skills talk take place?",
+      "media": "listening/set05-l1-q02.mp3",
+      "passage": "TRANSCRIPT: [Man] Good morning. A quick notice for first-year students. The study skills talk was going to be in the main lecture hall, but that room is being repainted this week. The talk will now take place in the seminar room on the ground floor. The careers office is holding a separate event in room 4.",
+      "options": { "choices": ["the main lecture hall", "the seminar room", "room 4", "the careers office"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-05", "education"] },
+
+    { "question_type": "l1_mc4", "difficulty": "A2",
+      "prompt": "Listen to the conversation in a library. What does the woman borrow?",
+      "media": "listening/set05-l1-q03.mp3",
+      "passage": "TRANSCRIPT: [Woman] Excuse me, do you have the new book about birds? [Man] I'm sorry, both copies are out at the moment. We have one on butterflies and one on trees, though. [Woman] Oh, I'll take the one on trees, please. My father is planting a garden. [Man] Certainly. It's due back in three weeks.",
+      "options": { "choices": ["a book about birds", "a book about butterflies", "a book about trees", "a book about gardens"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-05", "hobbies"] },
+
+    { "question_type": "l1_mc4", "difficulty": "A2",
+      "prompt": "Listen to the message. Which day will the family visit the grandparents?",
+      "media": "listening/set05-l1-q04.mp3",
+      "passage": "TRANSCRIPT: [Man] Hi, it's Dad. About the trip to see your grandparents. We can't go on Saturday, because your sister has an exam in the morning. Sunday is difficult too, as the car is being repaired. So we'll go on Monday instead. It's a holiday, so nobody has work or school.",
+      "options": { "choices": ["Saturday", "Sunday", "Friday", "Monday"] },
+      "correct_answers": { "choice": 3 }, "tags": ["set-05", "family"] },
+
+    { "question_type": "l1_mc4", "difficulty": "B1",
+      "prompt": "Listen to the voicemail. Why has the writing workshop been cancelled?",
+      "media": "listening/set05-l1-q05.mp3",
+      "passage": "TRANSCRIPT: [Woman] Hi Leon, it's Nadira, about tomorrow's writing workshop. I'm afraid it's off. The room is fine, and we've got plenty of people signed up — twelve, in fact. The problem is that the tutor has completely lost her voice and can't speak for more than a minute. We'll rearrange it for the following week.",
+      "options": { "choices": ["The room is not available", "Too few people signed up", "The tutor is unwell", "It clashes with an exam"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-05", "education"] },
+
+    { "question_type": "l1_mc4", "difficulty": "B1",
+      "prompt": "Listen to the announcement. How much does a student normally pay for a ticket?",
+      "media": "listening/set05-l1-q06.mp3",
+      "passage": "TRANSCRIPT: [Man] Attention, please. Tickets for Saturday's author talk are now on sale at the information desk. The full price is twelve pounds, but students pay only seven. Anyone who brings a friend along gets a further two pounds off. Doors open at seven, and the talk begins at half past.",
+      "options": { "choices": ["£12", "£7", "£5", "£10"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-05", "education"] },
+
+    { "question_type": "l1_mc4", "difficulty": "B1",
+      "prompt": "Listen to the conversation. What will the two students do first?",
+      "media": "listening/set05-l1-q07.mp3",
+      "passage": "TRANSCRIPT: [Woman] Shall we start the group project now? [Man] The library closes in twenty minutes. [Woman] Then let's find a café somewhere. [Man] Actually, before anything else we should email the tutor and ask which topic she prefers. There's no point starting until we know. [Woman] Fair point. I'll write to her now.",
+      "options": { "choices": ["start the project", "go to a café", "email the tutor", "leave the library"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-05", "education"] },
+
+    { "question_type": "l1_mc4", "difficulty": "B1",
+      "prompt": "Listen to the message. How does the speaker advise the listener to travel?",
+      "media": "listening/set05-l1-q08.mp3",
+      "passage": "TRANSCRIPT: [Woman] Hi, it's about Friday's teachers' conference up at the university. I wouldn't drive if I were you — the campus car park is closed for building work. There is a train, but it only runs once an hour and you'd have a long walk at the other end. Honestly, the simplest thing is the tram. It stops right outside the main gate.",
+      "options": { "choices": ["by tram", "by car", "by train", "on foot"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-05", "work"] },
+
+    { "question_type": "l1_mc4", "difficulty": "B1",
+      "prompt": "Listen to the announcement. What is happening at two o'clock?",
+      "media": "listening/set05-l1-q09.mp3",
+      "passage": "TRANSCRIPT: [Man] Welcome to the university open day. Here's what's on this afternoon. At one, there's a tour of the science laboratories. At two, a former student will talk about finding your first job. At three, the sports centre opens to visitors, and the day finishes with a question session at four.",
+      "options": { "choices": ["a tour of the laboratories", "a talk about starting a career", "a visit to the sports centre", "a question session"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-05", "education"] },
+
+    { "question_type": "l1_mc4", "difficulty": "B2",
+      "prompt": "Listen to the voicemail. What does the caller ask Colin to do?",
+      "media": "listening/set05-l1-q10.mp3",
+      "passage": "TRANSCRIPT: [Woman] Hi Colin, it's Rosa from the training team. Thanks for booking the meeting room for Thursday's induction — that's all confirmed, and the room itself is easily big enough. The thing is, four more new starters have joined, so we're expecting nineteen people now rather than fifteen. Could you order some extra handouts before the print room closes this afternoon?",
+      "options": { "choices": ["book a larger room", "book the meeting room", "order more handouts", "cancel the induction"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-05", "work"] },
+
+    { "question_type": "l1_mc4", "difficulty": "B2",
+      "prompt": "Listen to the conversation. What is the woman's main complaint about her new job?",
+      "media": "listening/set05-l1-q11.mp3",
+      "passage": "TRANSCRIPT: [Man] So how's the new job going? [Woman] The people are lovely, and the office is five minutes from my flat. [Man] It sounds perfect, then. [Woman] Well… I spend most of the day copying numbers from one spreadsheet into another. I didn't study for four years to do that. [Man] Ah. Early days, though.",
+      "options": { "choices": ["her colleagues are unfriendly", "the journey takes too long", "the work is not challenging enough", "the pay is too low"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-05", "work"] },
+
+    { "question_type": "l1_mc4", "difficulty": "B2",
+      "prompt": "Listen to the announcement. What should staff who have not yet registered do?",
+      "media": "listening/set05-l1-q12.mp3",
+      "passage": "TRANSCRIPT: [Woman] Attention, all staff. This morning's fire-safety training has been postponed, because the instructor's flight was delayed. Anyone who has already signed up needs to do nothing at all; you will keep your place automatically. Those who have not yet registered should email the office manager by Friday, and not the training team, as the list is being handled here this time.",
+      "options": { "choices": ["email the office manager", "do nothing", "contact the training team", "attend this morning"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-05", "work"] },
+
+    { "question_type": "l1_mc4", "difficulty": "B2",
+      "prompt": "Listen to the conversation. Why will the interviews be held online this year?",
+      "media": "listening/set05-l1-q13.mp3",
+      "passage": "TRANSCRIPT: [Man] Are the interviews still happening in person? [Woman] We've moved them online this year. [Man] Is that because of the building work? [Woman] That's part of it, but mainly because half the candidates live overseas, and it seems unfair to expect them to fly here for a twenty-minute conversation. [Man] Makes sense.",
+      "options": { "choices": ["because of the building work", "because it is cheaper", "because many candidates live abroad", "because the rooms are all booked"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-05", "work"] },
+
+    { "question_type": "l2_speaker_match", "difficulty": "B1",
+      "prompt": "Four people talk about a skill they are learning as adults. Match each statement to the correct speaker.",
+      "media": "listening/set05-l2-q14.mp3",
+      "passage": "TRANSCRIPT: Speaker A: My nephew was born deaf, and for years I could only smile at him across the room. So I signed up for a sign-language course. It is slow work at my age, but last month we had our first proper conversation, and honestly nothing I have ever learned has mattered as much.\nSpeaker B: I do two hours of coding every evening after the children are asleep. I am not doing it for fun, if I am honest. There is a technical team upstairs at work, they earn far more than we do, and in a year or so I intend to be on it.\nSpeaker C: I played the piano until I was fourteen, and then I stopped, and I have regretted it ever since. Sitting down at a keyboard again after twenty-five years felt strange, almost embarrassing. But the pieces I abandoned as a child are finally starting to come back to me.\nSpeaker D: I never go near a classroom. Everything I know about photography, I learned from free videos, and that suits me perfectly. I can watch a lesson at six in the morning or at midnight, repeat the difficult parts, and never worry about missing a class or holding anybody up.",
+      "options": { "statements": [
+        "This person hopes the new skill will improve their job prospects.",
+        "This person values being able to study at any hour that suits them.",
+        "This person is learning so that they can talk to a family member.",
+        "This person has taken up something they gave up as a child."
+      ] },
+      "correct_answers": { "answers": [1, 3, 0, 2] },
+      "tags": ["set-05", "education"] },
+
+    { "question_type": "l3_opinion_id", "difficulty": "B2",
+      "prompt": "Listen to two people discussing homework in schools. Who expresses each opinion?",
+      "media": "listening/set05-l3-q15.mp3",
+      "passage": "TRANSCRIPT: [Man] Did you read that some schools are planning to scrap homework completely? [Woman] I did, and honestly I think they have a point. Most of what my nephew brings home is copying, not thinking. He's still at the kitchen table at nine o'clock, exhausted. [Man] I agree that a great deal of it is pointless — copying out definitions teaches nobody anything. Where I'd disagree is getting rid of it altogether. Some subjects simply need practice, and you can't fit all of that into a forty-minute lesson. [Woman] Practice, perhaps. But there's a fairness problem as well. Some children have a quiet desk and a parent who can help; others are sharing a room with three brothers and sisters. Homework quietly rewards the lucky ones. [Man] I'd say that's an argument for better support, not for abolishing the work itself. A homework club after school would deal with most of it. [Woman] And who exactly is going to run this club? Teachers are already working every evening as it is. [Man] Volunteers. Older students, retired teachers, parents. It isn't impossible. [Woman] Hmm. What I'd really like to see is schools setting far less, and making what's left genuinely worth doing. [Man] On that we agree entirely. Quality rather than quantity — that's the answer, whatever else changes.",
+      "options": { "statements": [
+        "A great deal of the homework currently set is not worth doing.",
+        "Homework should not be abolished completely.",
+        "Homework is unfair to pupils who have nowhere quiet to work.",
+        "Schools should set less homework but make it more useful."
+      ] },
+      "correct_answers": { "answers": ["both", "man", "woman", "both"] },
+      "tags": ["set-05", "education"] },
+
+    { "question_type": "l4_monologue_mc", "difficulty": "C1",
+      "prompt": "Listen to the extract from a talk about revision, and answer both questions.",
+      "media": "listening/set05-l4a-q16.mp3",
+      "passage": "TRANSCRIPT: [Female speaker] Ask a group of students how they revise, and most will describe the same routine: they read their notes, and then they read them again, perhaps with a highlighter in hand. It feels productive. The page becomes familiar, the sentences begin to flow, and that fluency is quietly mistaken for knowledge. Yet study after study points in an uncomfortable direction. When learners are tested some weeks later, those who simply re-read remember strikingly little, while those who shut the book and tried to recall the material — often getting it wrong at first — remember a great deal more. The act of retrieving information, it seems, is what fixes it in place. Recognising it does almost nothing. What interests me is not the finding itself, which is now thoroughly established, but our stubborn resistance to it. Retrieval practice feels difficult and unrewarding. You sit staring at a blank page, painfully aware of everything you cannot remember, and you conclude that the method is not working. Re-reading, by contrast, feels smooth and reassuring. We are, in short, poor judges of our own learning, and we consistently choose the strategy that feels effective over the one that is. Until teachers make that gap between feeling and fact explicit, students will go on highlighting their notes into the small hours, and wondering why so little of it survives the examination.",
+      "options": { "questions": [
+        { "text": "What is the speaker's main point?", "choices": ["Students spend far too few hours revising before examinations.", "The revision method that feels most effective is in fact the least useful.", "Re-reading notes works only if it is done several weeks in advance.", "Teachers should test their students far more often than they do."] },
+        { "text": "What does the speaker imply about students who dislike retrieval practice?", "choices": ["They judge the method by how difficult it feels rather than by its results.", "They have usually never been shown how to use it properly.", "They perform badly in examinations for quite different reasons.", "They prefer highlighting because it takes them less time."] }
+      ] },
+      "correct_answers": { "answers": [1, 0] },
+      "tags": ["set-05", "education"] },
+
+    { "question_type": "l4_monologue_mc", "difficulty": "C1",
+      "prompt": "Listen to the extract from a talk about training at work, and answer both questions.",
+      "media": "listening/set05-l4b-q17.mp3",
+      "passage": "TRANSCRIPT: [Male speaker] For thirty years, the advice offered to school leavers was blunt: get a degree, or get left behind. Universities expanded, graduate numbers soared, and practical training was quietly treated as the option for everybody else. Now, in a number of industries, that hierarchy is being reconsidered. Engineering firms, software companies and hospitals are all rebuilding the apprenticeship schemes they had allowed to wither, and they are doing so, I would argue, for reasons that have nothing whatever to do with nostalgia. The first is simply supply. Employers report that they can find any number of candidates who can describe a process, and remarkably few who can actually carry it out. The second is retention. Someone trained inside a company, alongside colleagues who know their name, tends to stay; someone recruited on the strength of a certificate alone is far more likely to move on within a year. And the third reason, which is rarely stated aloud, is cost — for the employer, certainly, but also for the young person who leaves with a skill rather than a debt. None of this means that degrees are worthless. For a great many careers they remain essential. But it does suggest that our long habit of ranking one route above the other was never quite as sensible as it appeared.",
+      "options": { "questions": [
+        { "text": "What is the speaker's main argument?", "choices": ["University degrees are no longer worth what they cost.", "Employers are reviving apprenticeships for practical reasons, not sentimental ones.", "Companies should stop recruiting graduates altogether.", "Apprentices perform better than graduates in every industry."] },
+        { "text": "What does the speaker suggest about people recruited on qualifications alone?", "choices": ["They usually lack confidence when given practical tasks.", "They expect higher salaries than employers can afford.", "They are more likely to leave the company within a year.", "They are rarely interested in working for engineering firms."] }
+      ] },
+      "correct_answers": { "answers": [1, 2] },
+      "tags": ["set-05", "work"] }
+  ]
+}

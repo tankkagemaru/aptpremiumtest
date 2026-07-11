@@ -1,0 +1,45 @@
+{
+  "exam": "aptis-general",
+  "module": "writing",
+  "questions": [
+    { "question_type": "w1_form",
+      "prompt": "You have just joined the Riverbend Cycling Club. Answer the questions about yourself. Use 1–5 words for each answer.",
+      "options": { "questions": [
+        { "text": "What kind of bicycle do you ride?" },
+        { "text": "How often do you cycle each week?" },
+        { "text": "Where do you usually ride?" },
+        { "text": "Who do you normally ride with?" },
+        { "text": "Which day are you free for club rides?" }
+      ] },
+      "tags": ["set-06", "sport"] },
+
+    { "question_type": "w2_short",
+      "prompt": "You are a new member of the Riverbend Cycling Club. Write a short message to introduce yourself to the other members. Write 20–30 words.",
+      "options": { "min_words": 20, "max_words": 30 },
+      "tags": ["set-06", "sport"] },
+
+    { "question_type": "w3_chat",
+      "prompt": "You are chatting with other members in the club's online chat room. Reply to each message. Write 30–40 words for each reply.",
+      "options": { "messages": [
+        { "author": "Aisha", "text": "Welcome to Riverbend! What made you decide to take up cycling?" },
+        { "author": "Bruno", "text": "We're choosing the route for next month's ride. Do you prefer hills or flat paths, and why?" },
+        { "author": "Kiran", "text": "Tell us about the best bicycle ride you have ever been on." }
+      ], "min_words": 30, "max_words": 40 },
+      "tags": ["set-06", "sport"] },
+
+    { "question_type": "w4_email",
+      "prompt": "You have received this email from the Riverbend Cycling Club. Write two replies.",
+      "options": {
+        "email": {
+          "subject": "Changes to your membership from next month",
+          "from": "Riverbend Cycling Club",
+          "body": "Dear member, We are writing to let you know that, from the first of next month, the annual membership fee will rise from thirty pounds to forty-five pounds. The extra money will pay for a set of club bicycles that members can borrow, new repair tools for the workshop, and a qualified leader for every Saturday ride. Our Sunday beginners' ride will also move to eight o'clock, so that we finish before the roads become busy. Thank you for your support. The Committee"
+        },
+        "tasks": [
+          { "register": "informal", "audience": "a friend in the club", "min_words": 40, "max_words": 50 },
+          { "register": "formal", "audience": "the club manager", "min_words": 120, "max_words": 150 }
+        ]
+      },
+      "tags": ["set-06", "sport"] }
+  ]
+}

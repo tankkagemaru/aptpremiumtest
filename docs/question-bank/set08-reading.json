@@ -1,0 +1,83 @@
+{
+  "exam": "aptis-general",
+  "module": "reading",
+  "questions": [
+    { "question_type": "r1_gap_mc3", "difficulty": "A2",
+      "prompt": "Read the message from a garden volunteer. Choose the best word for each gap.",
+      "passage": "Hi Aisha, I hope you are well. I [[1]] to write and tell you about our garden group. We meet [[2]] Sunday mornings near the old gate. Last week we [[3]] twenty young apple trees along the fence. It [[4]] hard work, but the weather was lovely and we finished by lunchtime. There [[5]] plenty of tools in the shed, so you do not need to buy anything. Would you like to [[6]] us next weekend? Best wishes, Leon",
+      "options": { "gaps": [
+        { "choices": ["want", "wants", "wanted"] },
+        { "choices": ["in", "on", "at"] },
+        { "choices": ["planted", "plant", "planting"] },
+        { "choices": ["is", "was", "were"] },
+        { "choices": ["are", "is", "be"] },
+        { "choices": ["join", "joins", "joining"] }
+      ] },
+      "correct_answers": { "answers": ["wanted", "on", "planted", "was", "are", "join"] },
+      "tags": ["set-08", "environment"] },
+
+    { "question_type": "r2_ordering", "difficulty": "A2",
+      "prompt": "Put the sentences in the correct order to tell the story.",
+      "options": { "fixed_first": "Last April, Nurul joined a small group that grows vegetables on a piece of empty land.",
+        "sentences": [
+          "In September, she picked her first basket of tomatoes and peppers.",
+          "At first, she knew nothing about plants, and her tiny seedlings all died.",
+          "Her neighbours were so impressed that they asked her to teach a short class.",
+          "So she borrowed a gardening book from the library and read it every evening.",
+          "After two months, her corner of the land was full of healthy green leaves."
+        ] },
+      "correct_answers": { "order": [1, 3, 4, 0, 2] },
+      "tags": ["set-08", "food"] },
+
+    { "question_type": "r3_opinion_match", "difficulty": "B1",
+      "prompt": "Four people give their views on growing your own vegetables. Who says the following?",
+      "options": { "people": [
+        { "name": "Person A", "text": "I took on a plot mainly for my health. Two hours of digging at the weekend does far more for me than any gym, and being outdoors in the fresh air lifts my mood after a week in front of a screen. The vegetables are really just a bonus. I even sleep much better on the nights after I have been down there." },
+        { "name": "Person B", "text": "I will be honest: I tried it and gave up. Between my job and my evening course, I simply could not find the time to water anything regularly, and most of my plants died. The market near my flat sells vegetables cheaply, so growing my own never saved me a single penny. I do admire the people who keep going, though." },
+        { "name": "Person C", "text": "What surprised me was how much I learned from the older gardeners on the site. One of them has been growing beans for forty years, and she shows me exactly when to sow and when to be patient. I arrived knowing nobody in the area, and now there are a dozen doors I can knock on." },
+        { "name": "Person D", "text": "For me, it is really about waste. Everything I pick comes home without a single piece of plastic around it, and it has travelled a hundred metres rather than a thousand miles. Our kitchen scraps go straight back into the compost bin instead of the rubbish. It is a very small circle, but it feels like the right one." }
+      ],
+        "questions": [
+          "Who says the physical work is better for them than a gym?",
+          "Who has been taught practical skills by more experienced gardeners?",
+          "Who mentions bringing food home without any packaging?",
+          "Who stopped gardening because of a lack of time?",
+          "Who says that gardening has improved their sleep?",
+          "Who has made friends in an area where they knew nobody?",
+          "Who believes that buying vegetables costs less than growing them?"
+        ] },
+      "correct_answers": { "answers": [0, 2, 3, 1, 0, 2, 1] },
+      "tags": ["set-08", "health"] },
+
+    { "question_type": "r4_banked_cloze", "difficulty": "B2",
+      "prompt": "Read the article about food waste in cities. Choose the correct word from the bank for each gap.",
+      "passage": "Every year, cities throw away an astonishing [[1]] of food that was perfectly fit to eat. Supermarkets tend to [[2]] most of the blame, yet studies now show that ordinary households are responsible for the largest share. Much of the problem is poor planning: shoppers buy more than they need, [[3]] the dates printed on the packet, and end up filling the bin. A growing number of neighbourhood projects are trying to [[4]] this trend. Some gather unsold bread and vegetables from local shops and [[5]] them free of charge to anyone who calls in. Others run evening courses that teach people how to [[6]] yesterday's leftovers into a decent meal. The results can be [[7]]: one scheme in a northern city reports that families taking part cut their waste almost by half within a year. Campaigners argue that such projects succeed because they treat waste as a practical [[8]] rather than a moral failing.",
+      "options": { "bank": ["quantity", "attract", "ignore", "reverse", "distribute", "turn", "striking", "challenge", "estimate", "expand", "shortage", "modest"] },
+      "correct_answers": { "answers": ["quantity", "attract", "ignore", "reverse", "distribute", "turn", "striking", "challenge"] },
+      "tags": ["set-08", "food"] },
+
+    { "question_type": "r5_heading_match", "difficulty": "C1",
+      "prompt": "Read the article about soil. Match a heading to each paragraph. There is one heading you do not need.",
+      "options": { "paragraphs": [
+        "To most of us, soil is simply dirt: something to be brushed off our shoes. To a scientist it is a remarkably complex material, part mineral and part living. Roughly half of a healthy soil is solid — ground-up rock mixed with the remains of decayed plants — while the rest is air and water held in countless tiny spaces. It is this delicate structure, rather than the rock itself, that allows a plant to take root.",
+        "Such structure is not built quickly. Rain, frost and roots break stone into ever smaller fragments, and only very slowly do dead plants bind those fragments together again. Researchers estimate that a single centimetre of fertile topsoil may take several hundred years to appear. Whatever is washed away in one violent storm, therefore, cannot simply be replaced the following season. On any human timescale, soil behaves as a resource that does not renew itself.",
+        "Nor is soil merely a passive mixture. A single handful may contain more living organisms than there are people on the planet: bacteria, fungi, mites and worms, most of them still unnamed. These creatures break down dead material, release the nutrients that roots can absorb, and glue loose particles into crumbs. Remove them, and even the richest-looking earth slowly turns into a lifeless dust that water simply runs straight through.",
+        "Because almost everything we eat depends on this thin layer, its condition is a question of food security rather than of gardening. Crops draw nitrogen, potassium and dozens of trace elements from the ground beneath them, and no bag of fertiliser can fully replace what a living soil provides. Yields on exhausted land fall season after season, and growers find themselves spending more and more merely to stand still.",
+        "Yet that thin layer is disappearing at an alarming rate. Ploughing leaves bare earth exposed to wind and rain; heavy machinery presses the crumbs flat; and continuous cropping strips out organic matter far faster than it can be returned. In some regions, fields now lose soil dozens of times more quickly than nature can create it. Deserts have spread where wheat once grew, and rivers run brown after every heavy downpour.",
+        "The response, encouragingly, has not been despair but experiment. Many growers now leave the ground undisturbed, sowing seed directly through the residue of the previous crop. Others plant clover or rye between harvests, so that living roots hold the surface together through the winter months. Such methods can cut erosion sharply and, given time, rebuild the very structure that generations of ploughing quietly destroyed.",
+        "There is one further reason to care. Soil holds more carbon than the atmosphere and all the world's plants combined, and any practice that rebuilds organic matter draws still more of it out of the air. If even a fraction of the world's farmland were managed in this way, the effect on the climate would be considerable. The ground beneath our feet may yet prove to be a quiet ally in a warming century."
+      ],
+        "headings": [
+          "A crowded world beneath our feet",
+          "Vanishing faster than nature can replace it",
+          "How to test your garden soil at home",
+          "Far more complex than plain dirt",
+          "An unexpected ally against a warming climate",
+          "The foundation of the world's food supply",
+          "Centuries in the making",
+          "New habits in the fields"
+        ] },
+      "correct_answers": { "answers": [3, 6, 0, 5, 1, 7, 4] },
+      "tags": ["set-08", "environment"] }
+  ]
+}

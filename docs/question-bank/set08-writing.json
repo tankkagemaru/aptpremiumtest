@@ -1,0 +1,45 @@
+{
+  "exam": "aptis-general",
+  "module": "writing",
+  "questions": [
+    { "question_type": "w1_form",
+      "prompt": "You have just joined the Green Hands Community Garden Club. Answer the questions about yourself. Use 1–5 words for each answer.",
+      "options": { "questions": [
+        { "text": "What is your favourite vegetable or fruit?" },
+        { "text": "How often can you come to the garden?" },
+        { "text": "Which garden job would you most enjoy?" },
+        { "text": "What would you like to learn to grow?" },
+        { "text": "Who told you about our club?" }
+      ] },
+      "tags": ["set-08", "environment"] },
+
+    { "question_type": "w2_short",
+      "prompt": "You are a new member of the Green Hands Community Garden Club. Write a short message to introduce yourself to the other volunteers. Write 20–30 words.",
+      "options": { "min_words": 20, "max_words": 30 },
+      "tags": ["set-08", "environment"] },
+
+    { "question_type": "w3_chat",
+      "prompt": "You are chatting with other volunteers in the club's online chat group. Reply to each message. Write 30–40 words for each reply.",
+      "options": { "messages": [
+        { "author": "Farah", "text": "Welcome to Green Hands! What made you decide to join our garden?" },
+        { "author": "Kevin", "text": "We are choosing what to plant next season. Which vegetables or herbs would you like to grow, and why?" },
+        { "author": "Anjali", "text": "Tell us about a time you spent a whole day outdoors. What did you do?" }
+      ], "min_words": 30, "max_words": 40 },
+      "tags": ["set-08", "environment"] },
+
+    { "question_type": "w4_email",
+      "prompt": "You have received this email from the Green Hands Community Garden Club. Write two replies.",
+      "options": {
+        "email": {
+          "subject": "Important changes to our weekend sessions",
+          "from": "Green Hands Community Garden Club",
+          "body": "Dear member, We are writing to tell you about two changes from the first of next month. Our land beside the station is being sold, so all sessions will move to a larger site at Riverbank Field, about twenty minutes further from the town centre. Sessions will also change from Sunday afternoon to Saturday morning, starting at eight o'clock. The new site has water, a proper shed and space for more beds. Kind regards, The Committee"
+        },
+        "tasks": [
+          { "register": "informal", "audience": "a friend in the club", "min_words": 40, "max_words": 50 },
+          { "register": "formal", "audience": "the club manager", "min_words": 120, "max_words": 150 }
+        ]
+      },
+      "tags": ["set-08", "environment"] }
+  ]
+}

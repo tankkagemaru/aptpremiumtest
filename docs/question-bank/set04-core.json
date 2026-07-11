@@ -1,0 +1,170 @@
+{
+  "exam": "aptis-general",
+  "module": "core",
+  "questions": [
+    { "question_type": "grammar_mc3", "difficulty": "A1",
+      "prompt": "This camera ______ very light, so I carry it everywhere.",
+      "options": { "choices": ["is", "are", "be"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-04", "technology"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A1",
+      "prompt": "We ______ photos of the old town every weekend.",
+      "options": { "choices": ["takes", "taking", "take"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-04", "hobbies"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A1",
+      "prompt": "My cousin works in ______ office in the city centre.",
+      "options": { "choices": ["an", "a", "the"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-04", "city life"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A1",
+      "prompt": "My phone ______ have enough space for long videos.",
+      "options": { "choices": ["don't", "doesn't", "not"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-04", "technology"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A1",
+      "prompt": "The group always meets ______ half past six.",
+      "options": { "choices": ["in", "on", "at"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-04", "hobbies"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A2",
+      "prompt": "Last Sunday we ______ to the harbour to photograph the sunrise.",
+      "options": { "choices": ["walk", "walked", "walking"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-04", "travel"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A2",
+      "prompt": "The new lens is ______ than my old one, so my bag feels full.",
+      "options": { "choices": ["heavy", "heaviest", "heavier"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-04", "technology"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A2",
+      "prompt": "How ______ pictures did you take during the trip?",
+      "options": { "choices": ["much", "many", "often"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-04", "travel"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A2",
+      "prompt": "The streets are quiet at dawn, ______ we always start early.",
+      "options": { "choices": ["so", "but", "because"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-04", "city life"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A2",
+      "prompt": "Tomorrow we ______ travel to the coast by train.",
+      "options": { "choices": ["will to", "are going to", "going to"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-04", "travel"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B1",
+      "prompt": "I ______ this camera three years ago, and it still works perfectly.",
+      "options": { "choices": ["have bought", "buy", "bought"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-04", "technology"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B1",
+      "prompt": "If the sky ______ clear tonight, we will photograph the stars.",
+      "options": { "choices": ["is", "will be", "would be"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-04", "hobbies"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B1",
+      "prompt": "If I had a better lens, I ______ enter the competition.",
+      "options": { "choices": ["will", "would", "can"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-04", "hobbies"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B1",
+      "prompt": "The exhibition ______ by a group of students last spring.",
+      "options": { "choices": ["was organised", "organised", "has organised"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-04", "city life"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B1",
+      "prompt": "I ______ take photos on film, but now I use a digital camera.",
+      "options": { "choices": ["used", "used to", "use to"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-04", "technology"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B1",
+      "prompt": "She ______ on the same picture since eight o'clock this morning.",
+      "options": { "choices": ["works", "is working", "has been working"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-04", "hobbies"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B2",
+      "prompt": "If we ______ the timetable, we would not have missed the last ferry.",
+      "options": { "choices": ["checked", "had checked", "have checked"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-04", "travel"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B2",
+      "prompt": "The organiser said that the results ______ announced the following week.",
+      "options": { "choices": ["will be", "are", "would be"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-04", "hobbies"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B2",
+      "prompt": "This is the rooftop ______ we took the night shots of the harbour.",
+      "options": { "choices": ["which", "where", "that"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-04", "city life"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B2",
+      "prompt": "I wish I ______ brought a spare battery with me yesterday.",
+      "options": { "choices": ["had", "have", "would have"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-04", "technology"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B2",
+      "prompt": "The pictures ______ have been deleted by mistake — they are not on the card.",
+      "options": { "choices": ["must", "should", "can"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-04", "technology"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "C1",
+      "prompt": "Rarely ______ such clear light over the city at this time of year.",
+      "options": { "choices": ["we see", "do we see", "we do see"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-04", "city life"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "C1",
+      "prompt": "Had we set off earlier, we ______ at the viewpoint by now.",
+      "options": { "choices": ["would have been", "will be", "would be"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-04", "travel"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "C1",
+      "prompt": "It was not until midnight ______ the lights on the bridge finally came on.",
+      "options": { "choices": ["when", "that", "then"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-04", "city life"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "C1",
+      "prompt": "You ______ have carried all that equipment — I could easily have brought the car.",
+      "options": { "choices": ["mustn't", "shouldn't", "needn't"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-04", "hobbies"] },
+
+    { "question_type": "vocab_set", "difficulty": "A2",
+      "prompt": "Choose the word from the bank that has the same meaning as each word below.",
+      "options": { "kind": "synonym",
+        "bank": ["tiny", "affordable", "hard", "lovely", "well-known", "heavy", "modern", "distant", "noisy", "sharp"],
+        "items": [ { "text": "small" }, { "text": "cheap" }, { "text": "difficult" }, { "text": "beautiful" }, { "text": "famous" } ] },
+      "correct_answers": { "answers": ["tiny", "affordable", "hard", "lovely", "well-known"] },
+      "tags": ["set-04", "hobbies"] },
+
+    { "question_type": "vocab_set", "difficulty": "B1",
+      "prompt": "Match each photography word with its definition.",
+      "options": { "kind": "definition",
+        "bank": ["a three-legged stand that holds a camera steady", "the piece of glass that focuses light inside a camera", "a picture of a person, usually showing the face", "a picture of wide natural scenery", "a public display of pictures for people to look at", "a dark room in which photographs used to be developed", "a short description printed underneath a picture", "a padded bag for carrying equipment safely", "a device that stores electrical power", "a person who takes pictures for a newspaper"],
+        "items": [ { "text": "tripod" }, { "text": "lens" }, { "text": "portrait" }, { "text": "landscape" }, { "text": "exhibition" } ] },
+      "correct_answers": { "answers": ["a three-legged stand that holds a camera steady", "the piece of glass that focuses light inside a camera", "a picture of a person, usually showing the face", "a picture of wide natural scenery", "a public display of pictures for people to look at"] },
+      "tags": ["set-04", "hobbies"] },
+
+    { "question_type": "vocab_set", "difficulty": "B1",
+      "prompt": "Choose the word from the bank that best completes each sentence.",
+      "options": { "kind": "usage",
+        "bank": ["upload", "adjust", "capture", "reserve", "restore", "borrow", "deliver", "announce", "measure", "replace"],
+        "items": [ { "text": "Please ______ your three best photos to the club website before Friday." }, { "text": "If the light is too bright, ______ the settings on your camera." }, { "text": "A skilled photographer can ______ a moment that lasts less than a second." }, { "text": "You should ______ a place on the weekend course early, as it fills up quickly." }, { "text": "Experts managed to ______ the damaged photograph to its original condition." } ] },
+      "correct_answers": { "answers": ["upload", "adjust", "capture", "reserve", "restore"] },
+      "tags": ["set-04", "technology"] },
+
+    { "question_type": "vocab_set", "difficulty": "B2",
+      "prompt": "Choose the word from the bank that goes with each verb to make a common expression.",
+      "options": { "kind": "collocation",
+        "bank": ["battery", "flight", "deadline", "workshop", "signal", "screen", "journey", "message", "delay", "app"],
+        "items": [ { "text": "charge the ______" }, { "text": "book a ______" }, { "text": "meet a ______" }, { "text": "attend a ______" }, { "text": "lose the ______" } ] },
+      "correct_answers": { "answers": ["battery", "flight", "deadline", "workshop", "signal"] },
+      "tags": ["set-04", "technology"] },
+
+    { "question_type": "vocab_set", "difficulty": "B2",
+      "prompt": "Match each travel word with the phrase that explains it.",
+      "options": { "kind": "matching",
+        "bank": ["a detailed plan of the stages of a journey", "a well-known building or feature that helps you recognise a place", "an object kept to remind you of a place you have visited", "a longer route taken to avoid a problem on the direct road", "a spare copy of files kept in case the original is lost", "an official document allowing you to enter a country", "the money charged for a journey on public transport", "a person whose job is to show visitors around a place", "a short rest taken in the middle of a long journey", "a device that shows your exact position on a map"],
+        "items": [ { "text": "itinerary" }, { "text": "landmark" }, { "text": "souvenir" }, { "text": "detour" }, { "text": "backup" } ] },
+      "correct_answers": { "answers": ["a detailed plan of the stages of a journey", "a well-known building or feature that helps you recognise a place", "an object kept to remind you of a place you have visited", "a longer route taken to avoid a problem on the direct road", "a spare copy of files kept in case the original is lost"] },
+      "tags": ["set-04", "travel"] }
+  ]
+}

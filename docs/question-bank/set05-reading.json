@@ -1,0 +1,83 @@
+{
+  "exam": "aptis-general",
+  "module": "reading",
+  "questions": [
+    { "question_type": "r1_gap_mc3", "difficulty": "A2",
+      "prompt": "Read the message from a fellow student. Choose the best word for each gap.",
+      "passage": "Hi Kavitha, Thanks for [[1]] me your notes from the seminar. They [[2]] very useful. Our study group [[3]] going to meet again next Wednesday. Could you [[4]] your laptop this time? We are in room 12, [[5]] the first floor of the library. The session starts [[6]] half past four. See you then. Best wishes, Ruben",
+      "options": { "gaps": [
+        { "choices": ["send", "sending", "sent"] },
+        { "choices": ["was", "were", "is"] },
+        { "choices": ["is", "are", "am"] },
+        { "choices": ["bring", "brings", "bringing"] },
+        { "choices": ["in", "on", "at"] },
+        { "choices": ["in", "on", "at"] }
+      ] },
+      "correct_answers": { "answers": ["sending", "were", "is", "bring", "on", "at"] },
+      "tags": ["set-05", "education"] },
+
+    { "question_type": "r2_ordering", "difficulty": "A2",
+      "prompt": "Put the sentences in the correct order to tell the story.",
+      "options": { "fixed_first": "Two years ago, Suriani decided to improve her English by reading every evening.",
+        "sentences": [
+          "At first, she found even short newspaper articles far too difficult.",
+          "Her tutor was so impressed that she asked Suriani to speak to the whole class.",
+          "After a few months, she was finishing a chapter in a single evening.",
+          "So she borrowed a simple novel from the library and read one page a night.",
+          "Finally, she read an entire book without opening her dictionary once."
+        ] },
+      "correct_answers": { "order": [0, 3, 2, 4, 1] },
+      "tags": ["set-05", "education"] },
+
+    { "question_type": "r3_opinion_match", "difficulty": "B1",
+      "prompt": "Four people give their views on how they prefer to read. Who says the following?",
+      "options": { "people": [
+        { "name": "Person A", "text": "Nothing will ever replace a printed book for me. I like the weight of it in my hands, and I can see at a glance how far I have come. Screens tire my eyes within about twenty minutes, whatever I do with the brightness. Best of all, when I finish something wonderful, I can hand it straight to my sister and tell her to start it tonight." },
+        { "name": "Person B", "text": "I listen to audiobooks almost every day, usually on the long bus ride to the office and back again. I get through three or four titles a month that way, which I could never manage otherwise. I will admit that my mind sometimes drifts towards work, and then I have to rewind ten minutes and start the chapter all over again." },
+        { "name": "Person C", "text": "My e-reader goes everywhere with me. I travel constantly for my job, and carrying two hundred titles in something lighter than a notebook has completely changed the way I pack. If I meet an unfamiliar word, I press it and the meaning appears at once. The one thing I do miss is wandering round a bookshop with no particular purpose." },
+        { "name": "Person D", "text": "I borrow everything from the public library, and I would encourage anyone to do the same. Paying fifteen pounds for something I will read once and never open again strikes me as a waste. The staff there know my taste better than I do, and the suggestions they slide across the desk are almost always excellent." }
+      ],
+        "questions": [
+          "Who says that reading from a screen makes their eyes tired?",
+          "Who reads during a daily journey to work?",
+          "Who carries hundreds of books in a single device?",
+          "Who believes that buying books is a waste of money?",
+          "Who admits that they sometimes lose concentration?",
+          "Who misses looking around a bookshop?",
+          "Who enjoys passing books on to someone else?"
+        ] },
+      "correct_answers": { "answers": [0, 1, 2, 3, 1, 2, 0] },
+      "tags": ["set-05", "hobbies"] },
+
+    { "question_type": "r4_banked_cloze", "difficulty": "B2",
+      "prompt": "Read the article about reading aloud to children. Choose the correct word from the bank for each gap.",
+      "passage": "Reading aloud to children is one of the simplest [[1]] a parent can develop, and one of the most powerful. Research consistently [[2]] that children who are read to before they start school arrive in the classroom with a wider vocabulary and a longer attention span. Surprisingly, the difficulty of the text [[3]] very little. What counts is the shared attention: the child follows the pictures, asks questions, and slowly learns that marks on a page carry [[4]]. Experts therefore advise parents to choose stories that they themselves [[5]], since a bored reader is detected at once. Nor should the habit be [[6]] as soon as a child can read alone. Older children still gain from hearing texts that they could not yet manage by themselves, and the conversation that [[7]] a chapter is often worth as much as the reading. The greatest [[8]], though, is that a book at bedtime becomes something a family looks forward to rather than a task to be finished.",
+      "options": { "bank": ["habits", "suggests", "matters", "meaning", "enjoy", "abandoned", "follows", "pleasure", "duties", "denies", "measured", "avoid"] },
+      "correct_answers": { "answers": ["habits", "suggests", "matters", "meaning", "enjoy", "abandoned", "follows", "pleasure"] },
+      "tags": ["set-05", "family"] },
+
+    { "question_type": "r5_heading_match", "difficulty": "C1",
+      "prompt": "Read the article about the working week. Match a heading to each paragraph. There is one heading you do not need.",
+      "options": { "paragraphs": [
+        "The five-day week is so familiar that it feels natural, yet it is barely a century old. Factory workers in the nineteenth century often laboured six days, and the free Saturday was won slowly, half day by half day. Employers who agreed to it discovered, rather to their surprise, that output seldom fell. The pattern we now defend as traditional was itself, in its day, an experiment that many predicted would ruin industry.",
+        "The idea of shortening the week further has resurfaced for several reasons. Software now performs tasks that once filled entire afternoons, and yet working hours have barely moved in decades. At the same time, the sudden spread of home working showed millions of employees that long-standing assumptions about where and when work must happen could be rewritten almost overnight. Once one rule has fallen, the rest begin to look negotiable.",
+        "Large trials in several countries have now tested a four-day week in real workplaces, with pay held at its previous level. The headline results were remarkably consistent: most firms reported that productivity held steady or rose slightly, absence fell, and very few chose to go back to the old timetable once the study had ended. Critics note, however, that companies willing to volunteer for such trials are unlikely to be typical.",
+        "Enthusiasts sometimes forget how narrow the evidence still is. Almost all of the successful trials took place in offices, where a pointless meeting can simply be deleted from the calendar. A hospital ward, a production line or a classroom cannot be made twenty per cent shorter without hiring additional staff. For much of the workforce, a shorter week is not a matter of working more cleverly but of somebody else being paid to fill the gap.",
+        "There is a further danger. Where the same volume of work is squeezed into fewer days, employees simply arrive earlier and stay later, and the promised rest never arrives. Some staff in the trials described finishing a compressed Thursday far too exhausted to enjoy the Friday they had won. A shorter week helps only if the work itself is genuinely reduced, and that is a much harder task than redrawing a timetable.",
+        "The most striking findings may lie outside the office altogether. Parents in the trials reported eating with their children more often and sharing household tasks more evenly. Volunteering rose, as did visits to elderly relatives. Medical appointments and repairs, previously crammed into a frantic Saturday, quietly moved to a weekday morning. Whatever the effect on output, the effect on family life was rarely in any doubt.",
+        "Where all of this leads remains uncertain. Governments have shown little appetite for legislating, and the change, if it comes at all, will probably arrive company by company, driven by the need to attract staff rather than by any grand design. It may well take a generation. But those who insist that the five-day week is fixed for ever should remember how recently, and how reluctantly, it was invented."
+      ],
+        "headings": [
+          "Not a solution for every workplace",
+          "How the modern week took shape",
+          "An uncertain but likely future",
+          "The risk of longer, harder days",
+          "The cost of retraining managers",
+          "What the large trials revealed",
+          "Why the idea has returned",
+          "Gains beyond the workplace"
+        ] },
+      "correct_answers": { "answers": [1, 6, 5, 0, 3, 7, 2] },
+      "tags": ["set-05", "work"] }
+  ]
+}

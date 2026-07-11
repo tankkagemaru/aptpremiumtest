@@ -1,0 +1,170 @@
+{
+  "exam": "aptis-general",
+  "module": "core",
+  "questions": [
+    { "question_type": "grammar_mc3", "difficulty": "A1",
+      "prompt": "My sister ______ a new bicycle.",
+      "options": { "choices": ["have", "has", "having"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-06", "sport"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A1",
+      "prompt": "We ______ to the park every Sunday morning.",
+      "options": { "choices": ["cycle", "cycles", "cycling"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-06", "sport"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A1",
+      "prompt": "There is ______ new cycle path beside the river.",
+      "options": { "choices": ["the", "an", "a"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-06", "city life"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A1",
+      "prompt": "The air ______ much cleaner outside the city.",
+      "options": { "choices": ["are", "is", "be"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-06", "environment"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A1",
+      "prompt": "I ride my bicycle to college ______ the morning.",
+      "options": { "choices": ["in", "on", "at"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-06", "city life"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A2",
+      "prompt": "Yesterday we ______ twenty kilometres along the coast.",
+      "options": { "choices": ["ride", "rode", "riding"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-06", "sport"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A2",
+      "prompt": "Cycling is ______ than driving in the city centre.",
+      "options": { "choices": ["cheap", "cheaper", "cheapest"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-06", "city life"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A2",
+      "prompt": "Next month the council ______ build a new cycle bridge.",
+      "options": { "choices": ["is going to", "going to", "will to"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-06", "city life"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A2",
+      "prompt": "There aren't ______ bicycle racks outside the station.",
+      "options": { "choices": ["much", "a lot", "many"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-06", "city life"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A2",
+      "prompt": "You ______ ride on the pavement — it is dangerous for people walking.",
+      "options": { "choices": ["mustn't", "not must", "don't must"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-06", "city life"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B1",
+      "prompt": "I ______ this bicycle since I started at college.",
+      "options": { "choices": ["own", "have owned", "owned"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-06", "sport"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B1",
+      "prompt": "If the weather is dry on Saturday, we ______ ride to the lake.",
+      "options": { "choices": ["will", "would", "were"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-06", "sport"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B1",
+      "prompt": "The cycle lane on Bridge Street ______ resurfaced last month.",
+      "options": { "choices": ["was", "is", "has"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-06", "city life"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B1",
+      "prompt": "If I had a lighter bicycle, I ______ climb these hills much more easily.",
+      "options": { "choices": ["will", "would", "did"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-06", "sport"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B1",
+      "prompt": "She ______ for the charity ride since February.",
+      "options": { "choices": ["trains", "is training", "has been training"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-06", "health"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B1",
+      "prompt": "We ______ cycle through the woods, but the path is closed now.",
+      "options": { "choices": ["used to", "use to", "are used to"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-06", "environment"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B2",
+      "prompt": "If we ______ the forecast, we would not have been caught in the storm.",
+      "options": { "choices": ["had checked", "checked", "have checked"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-06", "environment"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B2",
+      "prompt": "The coach said that the club ______ a new route the following week.",
+      "options": { "choices": ["will try", "tries", "would try"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-06", "sport"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B2",
+      "prompt": "By the time we reached the café, the rain ______ already stopped.",
+      "options": { "choices": ["has", "had", "was"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-06", "city life"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B2",
+      "prompt": "I wish I ______ a repair kit before setting off this morning.",
+      "options": { "choices": ["had packed", "packed", "would pack"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-06", "sport"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B2",
+      "prompt": "The scheme ______ to have cut traffic in the centre by a fifth.",
+      "options": { "choices": ["says", "said", "is said"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-06", "city life"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "C1",
+      "prompt": "Not only ______ the ride raise money, but it also brought the neighbourhood together.",
+      "options": { "choices": ["had", "did", "was"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-06", "city life"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "C1",
+      "prompt": "If he had bought a stronger lock, his bicycle ______ in the shed now.",
+      "options": { "choices": ["would have been", "would be", "will be"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-06", "city life"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "C1",
+      "prompt": "______ impressed the organisers most was the number of families who took part.",
+      "options": { "choices": ["That", "Which", "What"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-06", "sport"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "C1",
+      "prompt": "You ______ have told me the path was flooded — I rode straight into it!",
+      "options": { "choices": ["must", "might", "need"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-06", "environment"] },
+
+    { "question_type": "vocab_set", "difficulty": "A2",
+      "prompt": "Choose the word from the bank that has the same meaning as each word below.",
+      "options": { "kind": "synonym",
+        "bank": ["hard", "tiny", "chilly", "fit", "dangerous", "heavy", "empty", "quiet", "clean", "gentle"],
+        "items": [ { "text": "difficult" }, { "text": "small" }, { "text": "cold" }, { "text": "healthy" }, { "text": "risky" } ] },
+      "correct_answers": { "answers": ["hard", "tiny", "chilly", "fit", "dangerous"] },
+      "tags": ["set-06", "health"] },
+
+    { "question_type": "vocab_set", "difficulty": "B1",
+      "prompt": "Match each cycling word with its definition.",
+      "options": { "kind": "definition",
+        "bank": ["a hard hat worn to protect the head", "a small hole in a tyre that lets the air escape", "the part you push with your foot to move a bicycle", "the part you use to slow down or stop", "the seat of a bicycle", "a metal chain used to fasten a bicycle to a rack", "a lamp fixed to the front of a bicycle", "a narrow path reserved for people on foot", "a bag carried on the back while riding", "a machine that measures the speed of a vehicle"],
+        "items": [ { "text": "helmet" }, { "text": "puncture" }, { "text": "pedal" }, { "text": "brake" }, { "text": "saddle" } ] },
+      "correct_answers": { "answers": ["a hard hat worn to protect the head", "a small hole in a tyre that lets the air escape", "the part you push with your foot to move a bicycle", "the part you use to slow down or stop", "the seat of a bicycle"] },
+      "tags": ["set-06", "sport"] },
+
+    { "question_type": "vocab_set", "difficulty": "B1",
+      "prompt": "Choose the word from the bank that best completes each sentence.",
+      "options": { "kind": "usage",
+        "bank": ["reduce", "repair", "avoid", "improve", "encourage", "deliver", "measure", "collect", "arrange", "celebrate"],
+        "items": [ { "text": "Cycling to college every day can ______ your risk of heart disease." }, { "text": "A volunteer mechanic will ______ any broken chain free of charge on Saturday." }, { "text": "Most riders ______ the ring road, because the traffic there is so heavy." }, { "text": "Regular exercise can ______ your sleep as well as your mood." }, { "text": "The council hopes the new lanes will ______ more people to leave their cars at home." } ] },
+      "correct_answers": { "answers": ["reduce", "repair", "avoid", "improve", "encourage"] },
+      "tags": ["set-06", "health"] },
+
+    { "question_type": "vocab_set", "difficulty": "B2",
+      "prompt": "Choose the word from the bank that goes with each verb to make a common expression.",
+      "options": { "kind": "collocation",
+        "bank": ["exercise", "pollution", "route", "pace", "medal", "puncture", "helmet", "traffic", "chain", "distance"],
+        "items": [ { "text": "take regular ______" }, { "text": "reduce air ______" }, { "text": "plan a ______" }, { "text": "set a fast ______" }, { "text": "win a ______" } ] },
+      "correct_answers": { "answers": ["exercise", "pollution", "route", "pace", "medal"] },
+      "tags": ["set-06", "sport"] },
+
+    { "question_type": "vocab_set", "difficulty": "B2",
+      "prompt": "Match each word about transport and the environment with the phrase that explains it.",
+      "options": { "kind": "matching",
+        "bank": ["harmful gases released into the air by vehicles", "a situation in which roads are blocked by too much traffic", "able to continue for a long time without damaging the environment", "the physical energy that lets you keep going for a long time", "the basic roads, bridges and systems that a city needs in order to work", "a charge paid by drivers who enter the city centre", "the noise made by engines in a busy street", "a machine that cleans the air inside a building", "the highest speed at which a vehicle is allowed to travel", "a period during which public transport is free of charge"],
+        "items": [ { "text": "emissions" }, { "text": "congestion" }, { "text": "sustainable" }, { "text": "stamina" }, { "text": "infrastructure" } ] },
+      "correct_answers": { "answers": ["harmful gases released into the air by vehicles", "a situation in which roads are blocked by too much traffic", "able to continue for a long time without damaging the environment", "the physical energy that lets you keep going for a long time", "the basic roads, bridges and systems that a city needs in order to work"] },
+      "tags": ["set-06", "environment"] }
+  ]
+}

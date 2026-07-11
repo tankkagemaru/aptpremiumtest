@@ -1,0 +1,170 @@
+{
+  "exam": "aptis-general",
+  "module": "core",
+  "questions": [
+    { "question_type": "grammar_mc3", "difficulty": "A1",
+      "prompt": "The community garden ______ open every Saturday morning.",
+      "options": { "choices": ["are", "is", "be"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-08", "environment"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A1",
+      "prompt": "We ______ tomatoes and beans in the small greenhouse.",
+      "options": { "choices": ["grows", "growing", "grow"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-08", "food"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A1",
+      "prompt": "There is ______ apple tree beside the tool shed.",
+      "options": { "choices": ["an", "a", "the"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-08", "environment"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A1",
+      "prompt": "My sister ______ got a new watering can.",
+      "options": { "choices": ["have", "has", "having"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-08", "environment"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A1",
+      "prompt": "The volunteers start work ______ nine o'clock.",
+      "options": { "choices": ["in", "on", "at"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-08", "work"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A2",
+      "prompt": "Last spring we ______ fifty young trees along the river path.",
+      "options": { "choices": ["plant", "planted", "planting"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-08", "environment"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A2",
+      "prompt": "The soil near the wall is ______ than the soil by the gate.",
+      "options": { "choices": ["drier", "dry", "driest"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-08", "environment"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A2",
+      "prompt": "Next weekend the club ______ build a new greenhouse.",
+      "options": { "choices": ["is going to", "going to", "will to"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-08", "work"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A2",
+      "prompt": "There aren't ______ tools left in the shed.",
+      "options": { "choices": ["much", "many", "a lot"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-08", "work"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A2",
+      "prompt": "She ______ waters the herbs before she leaves for work.",
+      "options": { "choices": ["is always", "always is", "always"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-08", "health"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B1",
+      "prompt": "I ______ at the garden since March, and I still enjoy every session.",
+      "options": { "choices": ["work", "have worked", "worked"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-08", "work"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B1",
+      "prompt": "If it rains tomorrow, we ______ the planting until Sunday.",
+      "options": { "choices": ["will delay", "would delay", "delayed"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-08", "environment"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B1",
+      "prompt": "If I had a bigger balcony, I ______ grow my own vegetables.",
+      "options": { "choices": ["will", "would", "can"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-08", "food"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B1",
+      "prompt": "Last year a large water tank ______ behind the greenhouse.",
+      "options": { "choices": ["installed", "was installed", "has been installing"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-08", "environment"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B1",
+      "prompt": "Volunteers ______ wear gloves when they clear the thorny bushes.",
+      "options": { "choices": ["should", "might", "would"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-08", "health"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B1",
+      "prompt": "They ______ for a small grant since the beginning of the year.",
+      "options": { "choices": ["apply", "are applying", "have been applying"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-08", "work"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B2",
+      "prompt": "If we ______ the seeds earlier, we would have had a much bigger crop.",
+      "options": { "choices": ["had sown", "sowed", "have sown"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-08", "food"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B2",
+      "prompt": "The coordinator said that the training ______ the following week.",
+      "options": { "choices": ["would begin", "will begin", "begins"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-08", "work"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B2",
+      "prompt": "The neighbour ______ fence borders the garden has offered to help us.",
+      "options": { "choices": ["who", "which", "whose"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-08", "environment"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B2",
+      "prompt": "I wish I ______ more space for growing herbs in my flat.",
+      "options": { "choices": ["have", "would have", "had"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-08", "food"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B2",
+      "prompt": "By the time the rain started, the volunteers ______ already gone home.",
+      "options": { "choices": ["had", "have", "were"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-08", "work"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "C1",
+      "prompt": "Not only ______ the project won an award, but its membership had doubled as well.",
+      "options": { "choices": ["did", "had", "was"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-08", "work"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "C1",
+      "prompt": "If she had studied agriculture, she ______ an adviser to local farmers today.",
+      "options": { "choices": ["would be", "would have been", "will be"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-08", "work"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "C1",
+      "prompt": "______ impressed the judges most was the children's enthusiasm for composting.",
+      "options": { "choices": ["What", "That", "Which"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-08", "environment"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "C1",
+      "prompt": "You ______ have warned me the gate was locked — I waited half an hour in the rain!",
+      "options": { "choices": ["must", "need", "might"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-08", "health"] },
+
+    { "question_type": "vocab_set", "difficulty": "A2",
+      "prompt": "Choose the word from the bank that has the same meaning as each word below.",
+      "options": { "kind": "synonym",
+        "bank": ["chilly", "damp", "easy", "near", "powerful", "empty", "heavy", "quiet", "sharp", "bright"],
+        "items": [ { "text": "cold" }, { "text": "wet" }, { "text": "simple" }, { "text": "close" }, { "text": "strong" } ] },
+      "correct_answers": { "answers": ["chilly", "damp", "easy", "near", "powerful"] },
+      "tags": ["set-08", "environment"] },
+
+    { "question_type": "vocab_set", "difficulty": "B1",
+      "prompt": "Match each gardening word with its definition.",
+      "options": { "kind": "definition",
+        "bank": ["decayed plant material that is added to the soil", "a very young plant grown from a seed", "the crop that is gathered at the end of a season", "the top layer of earth in which plants grow", "a wild plant growing where it is not wanted", "a building made of glass for growing plants", "a narrow path between rows of vegetables", "a tool used for digging holes in the ground", "a container in which cut flowers are sold", "the season when the leaves fall from the trees"],
+        "items": [ { "text": "compost" }, { "text": "seedling" }, { "text": "harvest" }, { "text": "soil" }, { "text": "weed" } ] },
+      "correct_answers": { "answers": ["decayed plant material that is added to the soil", "a very young plant grown from a seed", "the crop that is gathered at the end of a season", "the top layer of earth in which plants grow", "a wild plant growing where it is not wanted"] },
+      "tags": ["set-08", "environment"] },
+
+    { "question_type": "vocab_set", "difficulty": "B1",
+      "prompt": "Choose the word from the bank that best completes each sentence.",
+      "options": { "kind": "usage",
+        "bank": ["water", "recycle", "donate", "volunteer", "harvest", "reserve", "repair", "measure", "advertise", "postpone"],
+        "items": [ { "text": "Please ______ the young plants early in the morning, before the sun gets hot." }, { "text": "The club asks members to ______ glass and paper instead of throwing them away." }, { "text": "Several local families ______ spare seeds and tools to the project each spring." }, { "text": "More than thirty people ______ at the garden every weekend without being paid." }, { "text": "We usually ______ the beans in late August, when the pods are completely full." } ] },
+      "correct_answers": { "answers": ["water", "recycle", "donate", "volunteer", "harvest"] },
+      "tags": ["set-08", "work"] },
+
+    { "question_type": "vocab_set", "difficulty": "B2",
+      "prompt": "Choose the word from the bank that goes with each verb to make a common expression.",
+      "options": { "kind": "collocation",
+        "bank": ["money", "waste", "exercise", "deadline", "difference", "attention", "advice", "progress", "reputation", "permission"],
+        "items": [ { "text": "raise ______ (for a charity)" }, { "text": "reduce ______" }, { "text": "take regular ______" }, { "text": "meet a ______" }, { "text": "make a ______" } ] },
+      "correct_answers": { "answers": ["money", "waste", "exercise", "deadline", "difference"] },
+      "tags": ["set-08", "health"] },
+
+    { "question_type": "vocab_set", "difficulty": "B2",
+      "prompt": "Match each word about the environment with the phrase that explains it.",
+      "options": { "kind": "matching",
+        "bank": ["able to continue for a long time without damaging the environment", "the variety of plant and animal life found in a place", "a long period with little or no rain", "an amount that is greater than what is needed", "a chemical used to kill insects that damage crops", "a machine that pumps water up from underground", "a sudden rise in the price of fresh food", "a spell of unusually cold weather in spring", "the practice of growing crops without any soil", "a payment made to farmers by the government"],
+        "items": [ { "text": "sustainable" }, { "text": "biodiversity" }, { "text": "drought" }, { "text": "surplus" }, { "text": "pesticide" } ] },
+      "correct_answers": { "answers": ["able to continue for a long time without damaging the environment", "the variety of plant and animal life found in a place", "a long period with little or no rain", "an amount that is greater than what is needed", "a chemical used to kill insects that damage crops"] },
+      "tags": ["set-08", "environment"] }
+  ]
+}

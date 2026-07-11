@@ -1,0 +1,83 @@
+{
+  "exam": "aptis-general",
+  "module": "reading",
+  "questions": [
+    { "question_type": "r1_gap_mc3", "difficulty": "A2",
+      "prompt": "Read the message from a member of a camera group. Choose the best word for each gap.",
+      "passage": "Hi Lina, Thanks for [[1]] me about the camera group. I really [[2]] the walk around the old town last Saturday. Next Sunday we [[3]] going to photograph the sunrise at the harbour. Could you [[4]] a spare memory card for me? Don't forget [[5]] a warm jacket, because it is very cold by the water. See you [[6]] half past five. Best wishes, Omar",
+      "options": { "gaps": [
+        { "choices": ["telling", "told", "tell"] },
+        { "choices": ["enjoy", "enjoyed", "enjoying"] },
+        { "choices": ["are", "is", "am"] },
+        { "choices": ["bring", "brings", "bringing"] },
+        { "choices": ["take", "to take", "taking"] },
+        { "choices": ["in", "at", "on"] }
+      ] },
+      "correct_answers": { "answers": ["telling", "enjoyed", "are", "bring", "to take", "at"] },
+      "tags": ["set-04", "hobbies"] },
+
+    { "question_type": "r2_ordering", "difficulty": "A2",
+      "prompt": "Put the sentences in the correct order to tell the story.",
+      "options": { "fixed_first": "Last year, Ravi found a cheap second-hand camera on a market stall.",
+        "sentences": [
+          "Finally, he entered one of them in a national competition.",
+          "So he watched tutorials every evening and practised in the park at weekends.",
+          "To his amazement, the judges awarded his picture second prize.",
+          "At first, every single photo he took came out blurred and far too dark.",
+          "After a few months, his pictures began to look sharp and full of colour."
+        ] },
+      "correct_answers": { "order": [3, 1, 4, 0, 2] },
+      "tags": ["set-04", "hobbies"] },
+
+    { "question_type": "r3_opinion_match", "difficulty": "B1",
+      "prompt": "Four people give their views on whether a phone is good enough for photography. Who says the following?",
+      "options": { "people": [
+        { "name": "Person A", "text": "My phone goes everywhere with me, and that is exactly the point. The best camera is simply the one you actually have in your hand when something interesting happens. A proper camera might produce a slightly better file, but it would be sitting at home in a drawer, and the picture would never exist at all." },
+        { "name": "Person B", "text": "I still use a proper camera, because I want to decide everything myself — the shutter speed, the depth of field, all of it. A phone makes those choices for me, and I find that frustrating. The one thing I will admit is that my bag is uncomfortably heavy, and after a long day my shoulder really aches." },
+        { "name": "Person C", "text": "People spend far too long arguing about equipment. Where you stand, what you leave out of the frame, when you press the button — that is what makes a picture work, not the price of the device. I would much rather put my money towards a train ticket somewhere new than towards another lens." },
+        { "name": "Person D", "text": "I carry both. In the street I use my phone, because nobody notices it and people behave naturally. For a planned trip I take the camera. What really keeps me awake, though, is storage: I have thousands of files on one small drive, and losing them all would be a disaster." }
+      ],
+        "questions": [
+          "Who thinks that composition matters more than the equipment used?",
+          "Who admits that their equipment is uncomfortable to carry?",
+          "Who says the best camera is the one you happen to have with you?",
+          "Who is anxious about keeping their pictures safe?",
+          "Who would rather spend money on travelling than on new equipment?",
+          "Who chooses a different device depending on the occasion?",
+          "Who values being able to control every setting personally?"
+        ] },
+      "correct_answers": { "answers": [2, 1, 0, 3, 2, 3, 1] },
+      "tags": ["set-04", "technology"] },
+
+    { "question_type": "r4_banked_cloze", "difficulty": "B2",
+      "prompt": "Read the article about photography clubs. Choose the correct word from the bank for each gap.",
+      "passage": "Photography clubs have quietly become one of the fastest-growing forms of city [[1]] in recent years. Once regarded as an expensive pursuit for specialists, photography is now [[2]] to anyone with a phone in their pocket. Most clubs organise a monthly walk, during which members explore an unfamiliar [[3]] of the city together, camera in hand. Beginners are usually paired with someone more [[4]], so that nobody feels lost or foolish. Organisers say the walks succeed because they give people a clear [[5]] to look closely at streets they normally rush through without thinking. Members gradually learn to [[6]] light, shadow and reflection instead of simply pointing and shooting. Sessions typically end in a café, where the group [[7]] the morning's pictures on a laptop and offers gentle criticism. The greatest [[8]], according to one organiser, is not technical skill but confidence: people who arrive nervous often leave convinced that they can see their own city differently.",
+      "options": { "bank": ["recreation", "accessible", "district", "experienced", "reason", "notice", "reviews", "benefit", "obstacle", "reliable", "ignore", "deletes"] },
+      "correct_answers": { "answers": ["recreation", "accessible", "district", "experienced", "reason", "notice", "reviews", "benefit"] },
+      "tags": ["set-04", "city life"] },
+
+    { "question_type": "r5_heading_match", "difficulty": "C1",
+      "prompt": "Read the article about the changing role of photography. Match a heading to each paragraph. There is one heading you do not need.",
+      "options": { "paragraphs": [
+        "In its earliest years, making a photograph was an act of patience rather than of speed. Plates had to be coated with chemicals, exposed for minutes at a time and developed almost immediately. Anyone sitting for a portrait was clamped into a metal frame to keep still, which is why the faces in those pictures look so solemn. The instant snapshot we take for granted today would have seemed like magic.",
+        "Everything changed once film came on a roll and cameras became small enough to hold in one hand. Suddenly a picture cost pennies rather than a day's wages, and ordinary families began recording birthdays, holidays and street corners for themselves. Photography stopped being the property of trained specialists and became something almost anyone could do, without understanding a single chemical process.",
+        "Once cameras were everywhere, photographs began to do political work. Images of crowded housing, of dangerous factories and of distant conflicts reached readers who would never visit such places, and what they saw was far harder to dismiss than a column of print. Governments were embarrassed, laws were rewritten, and the photograph acquired a reputation as a witness that could not lie.",
+        "The arrival of the electronic sensor removed the last practical limit on how much we could photograph. There was no longer any cost in taking one more frame, no waiting a fortnight to discover that every shot was ruined, and no small plastic canister to carry home. Photographers could look at a picture the moment they had taken it, and simply try again. Experiment became free.",
+        "What followed was less a change of technique than a change of scale. Every phone became a camera, every camera became connected, and images began to be made in their billions. Pictures are now less objects to keep than messages to send, glanced at for a second and scrolled past. The problem is no longer how to make an image, but how anything is supposed to be noticed among so many.",
+        "That abundance has had an unexpected consequence. Editing software, and more recently systems that generate pictures from nothing at all, mean that a convincing image proves very little on its own. Audiences have learned to ask where a photograph came from and who wants them to believe it. The old idea of the camera as an honest witness now looks less like a fact than a habit of a particular century.",
+        "None of this, though, makes the photographer redundant. A machine can sharpen an image, remove a stray tourist and invent a sky, but it cannot decide that this street corner, at this hour, is worth attention. Pointing the camera is a judgement about what matters, and that judgement is stubbornly human. Whatever the technology, someone still has to choose where to stand."
+      ],
+        "headings": [
+          "An ocean of images",
+          "The slow beginnings of the image",
+          "Pictures that changed public opinion",
+          "The high cost of early equipment",
+          "The choice that machines cannot make",
+          "A hobby for everyone, not just experts",
+          "Learning to doubt the picture",
+          "The end of the roll of film"
+        ] },
+      "correct_answers": { "answers": [1, 5, 2, 7, 0, 6, 4] },
+      "tags": ["set-04", "technology"] }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "exam": "aptis-general",
+  "module": "writing",
+  "questions": [
+    { "question_type": "w1_form",
+      "prompt": "You have just joined the Harbour Lights Music Club. Answer the questions about yourself. Use 1–5 words for each answer.",
+      "options": { "questions": [
+        { "text": "What kind of music do you like?" },
+        { "text": "Do you play a musical instrument?" },
+        { "text": "How often do you listen to music?" },
+        { "text": "Which evening can you come to rehearsals?" },
+        { "text": "What would you like to learn at the club?" }
+      ] },
+      "tags": ["set-07", "hobbies"] },
+
+    { "question_type": "w2_short",
+      "prompt": "You are a new member of the Harbour Lights Music Club. Write a short message to introduce yourself to the other members. Write 20–30 words.",
+      "options": { "min_words": 20, "max_words": 30 },
+      "tags": ["set-07", "hobbies"] },
+
+    { "question_type": "w3_chat",
+      "prompt": "You are chatting with other members in the club's online chat room. Reply to each message. Write 30–40 words for each reply.",
+      "options": { "messages": [
+        { "author": "Zoe", "text": "Welcome to Harbour Lights! What made you decide to join a music club?" },
+        { "author": "Arif", "text": "We're choosing songs for the summer showcase. What kind of music would you like us to play?" },
+        { "author": "Marta", "text": "Tell us about a concert or performance you have really enjoyed." }
+      ], "min_words": 30, "max_words": 40 },
+      "tags": ["set-07", "hobbies"] },
+
+    { "question_type": "w4_email",
+      "prompt": "You have received this email from the Harbour Lights Music Club. Write two replies.",
+      "options": {
+        "email": {
+          "subject": "Change to your membership fee",
+          "from": "Harbour Lights Music Club",
+          "body": "Dear member, We are writing to let you know that, from the first of September, the monthly membership fee will rise from twelve pounds to eighteen pounds. The increase will pay for a new sound system, two extra practice rooms on Sunday afternoons, and a library of sheet music that members may borrow free of charge. Members who choose to pay for a full year in advance will receive one month free. Thank you for your understanding. Kind regards, The Committee"
+        },
+        "tasks": [
+          { "register": "informal", "audience": "a friend in the club", "min_words": 40, "max_words": 50 },
+          { "register": "formal", "audience": "the club manager", "min_words": 120, "max_words": 150 }
+        ]
+      },
+      "tags": ["set-07", "hobbies"] }
+  ]
+}

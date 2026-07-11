@@ -1,0 +1,83 @@
+{
+  "exam": "aptis-general",
+  "module": "reading",
+  "questions": [
+    { "question_type": "r1_gap_mc3", "difficulty": "A2",
+      "prompt": "Read the message from a cycling club member. Choose the best word for each gap.",
+      "passage": "Hi Farah, Thanks for [[1]] me about the cycling club. I really [[2]] the ride last Sunday. Next Saturday we [[3]] going to cycle along the river to the old mill. Could you [[4]] a spare water bottle for me? Please [[5]] your helmet, because the roads are busy in the morning. We meet outside the sports hall [[6]] eight o'clock. See you there! Leo",
+      "options": { "gaps": [
+        { "choices": ["tell", "telling", "told"] },
+        { "choices": ["enjoyed", "enjoy", "enjoying"] },
+        { "choices": ["is", "are", "am"] },
+        { "choices": ["bring", "brings", "bringing"] },
+        { "choices": ["wear", "wears", "wearing"] },
+        { "choices": ["in", "on", "at"] }
+      ] },
+      "correct_answers": { "answers": ["telling", "enjoyed", "are", "bring", "wear", "at"] },
+      "tags": ["set-06", "sport"] },
+
+    { "question_type": "r2_ordering", "difficulty": "A2",
+      "prompt": "Put the sentences in the correct order to tell the story.",
+      "options": { "fixed_first": "In January, Yusuf decided to stop driving to the office and to cycle there instead.",
+        "sentences": [
+          "By the summer, he was riding to work every single day.",
+          "At first, the eight-kilometre journey left him completely exhausted.",
+          "His doctor was delighted, and his fuel bill had almost disappeared.",
+          "So he began riding only twice a week, on Tuesdays and Thursdays.",
+          "After two months, he noticed that the hills no longer troubled him."
+        ] },
+      "correct_answers": { "order": [1, 3, 4, 0, 2] },
+      "tags": ["set-06", "health"] },
+
+    { "question_type": "r3_opinion_match", "difficulty": "B1",
+      "prompt": "Four people give their views on cycling in the city. Who says the following?",
+      "options": { "people": [
+        { "name": "Person A", "text": "I worked out last spring that my bus pass and the occasional taxi were costing me nearly forty pounds a month, so I bought a second-hand bike instead. It had paid for itself by August. What I had not expected was the timing: the ride takes twenty-six minutes whatever happens, so I never sit in a queue wondering whether I will be late again." },
+        { "name": "Person B", "text": "I would love to ride to work, honestly, but the lorries on the ring road terrify me. Until the council builds lanes that are properly separated from the traffic, I simply will not do it. So my cycling happens at weekends, on the old railway path through the woods, where there is not a single car in sight. It is lovely, but it is not transport." },
+        { "name": "Person C", "text": "My doctor suggested it and I was sceptical. Six months on, I climb the stairs at the office without stopping and — this is the part that genuinely surprised me — I sleep straight through the night for the first time in years. I still could not tell you the difference between one bicycle and another. I ride because of how it has made me feel." },
+        { "name": "Person D", "text": "For me it is simple: every journey I make on two wheels is one that is not adding fumes to the air my neighbours breathe. That was the whole reason I started. What frustrates me is how little employers do to help. Give us a secure rack, somewhere to hang a wet jacket and a shower, and half the office would ride tomorrow." }
+      ],
+        "questions": [
+          "Who says that cycling has turned out cheaper than the alternatives?",
+          "Who is put off by the large vehicles on the road?",
+          "Who mentions an improvement in their sleep?",
+          "Who started cycling mainly for environmental reasons?",
+          "Who says their journey now takes a predictable length of time?",
+          "Who believes employers should provide better facilities for riders?",
+          "Who cycles only where there is no motor traffic?"
+        ] },
+      "correct_answers": { "answers": [0, 1, 2, 3, 0, 3, 1] },
+      "tags": ["set-06", "city life"] },
+
+    { "question_type": "r4_banked_cloze", "difficulty": "B2",
+      "prompt": "Read the article about bicycle-sharing schemes. Choose the correct word from the bank for each gap.",
+      "passage": "Bicycle-sharing schemes have spread rapidly through the world's cities over the past decade. The idea is simple: bicycles are parked at [[1]] across the city, riders unlock one with a phone, pay a small [[2]], and leave the machine at their destination. Early schemes were often [[3]] as a gimmick for tourists, yet the numbers now tell a rather different story. In several capitals, shared bicycles [[4]] for a noticeable share of the short journeys that were once made by car. Transport researchers argue that the benefits [[5]] far beyond simple convenience. Every car trip replaced cuts both congestion and [[6]], and regular riders report clear gains in fitness. There are difficulties, of course. Bicycles are damaged or abandoned, and the stations in the business district empty within minutes at the height of the morning [[7]]. Even so, most councils now regard the schemes as a cheap and flexible [[8]] to expensive new roads.",
+      "options": { "bank": ["stations", "fee", "dismissed", "account", "extend", "emissions", "rush", "alternative", "fine", "promoted", "reduce", "advantage"] },
+      "correct_answers": { "answers": ["stations", "fee", "dismissed", "account", "extend", "emissions", "rush", "alternative"] },
+      "tags": ["set-06", "environment"] },
+
+    { "question_type": "r5_heading_match", "difficulty": "C1",
+      "prompt": "Read the article about the bicycle and the city. Match a heading to each paragraph. There is one heading you do not need.",
+      "options": { "paragraphs": [
+        "The earliest ancestor of the bicycle appeared in Germany in 1817. It had two wheels and a wooden frame, but no pedals: the rider simply pushed along the ground with both feet. Newspapers mocked it, and several cities banned it from their pavements. Yet the machine proved something important — that a person could balance on two wheels while moving. Every later design, however sophisticated, rests on that simple and much-doubted discovery.",
+        "By the 1890s the modern shape had arrived: two equal wheels, a chain drive and air-filled tyres. Prices fell, factories multiplied, and for the first time ordinary workers could travel ten miles on a whim. Clubs sprang up in every town, and journeys that had once required a horse or a train ticket became the business of a single afternoon. For millions of people, independent movement was suddenly, thrillingly affordable.",
+        "After the Second World War, the bicycle slipped quietly out of fashion. Cars became cheap, and planners redrew the streets around them: wider carriageways, faster junctions and very little room for anything slower. Riding to work came to seem the mark of somebody who could not yet afford better. Within a single generation, machines that had once meant freedom were parked in garden sheds and forgotten.",
+        "The reversal began in the 1970s, when a sudden shortage of fuel forced several governments to think again. In the Netherlands, public anger about road deaths coincided with rising petrol prices, and money was redirected into separated tracks and safer junctions. The countries that made that choice now have cycling rates many times higher than those of their neighbours. The lesson was never about slogans or attitudes; it was about where the budget went.",
+        "Medical evidence has since strengthened the case considerably. Long-term studies following tens of thousands of commuters find that those who ride regularly are markedly less likely to develop heart disease, and that they take fewer days of sick leave. Economists translate such findings into money: for every kilometre pedalled rather than driven, a health service saves a measurable sum. On that arithmetic, a protected track pays for itself within a few years.",
+        "Why, then, do so many people still leave the bicycle in the garage? Surveys give a remarkably consistent answer, and it has nothing to do with laziness. People are frightened of traffic. Weather and hills matter far less than the prospect of sharing a narrow lane with a lorry. Cities that lecture their residents about fitness therefore achieve very little, while those that build a protected route see the same residents riding within months.",
+        "The next chapter is already visible on the street. Electric assistance flattens hills and shrinks distances, bringing older riders and longer commutes within reach, while cargo bicycles carry children, tools and parcels that once demanded a van. Delivery firms working in dense districts increasingly find two wheels quicker than four. If the pattern holds, the bicycle's second century in the city may look less like nostalgia and rather more like logistics."
+      ],
+        "headings": [
+          "Freedom becomes affordable",
+          "Fear, not effort, is the real obstacle",
+          "An awkward beginning that proved a point",
+          "Choosing the right frame for your height",
+          "The sums that persuade a health service",
+          "Pushed aside by the motor car",
+          "Batteries and boxes point the way ahead",
+          "A shortage that changed the budget"
+        ] },
+      "correct_answers": { "answers": [2, 0, 5, 7, 4, 1, 6] },
+      "tags": ["set-06", "city life"] }
+  ]
+}

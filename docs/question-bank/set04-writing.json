@@ -1,0 +1,45 @@
+{
+  "exam": "aptis-general",
+  "module": "writing",
+  "questions": [
+    { "question_type": "w1_form",
+      "prompt": "You have just joined the Skyline Photography Club. Answer the questions about yourself. Use 1–5 words for each answer.",
+      "options": { "questions": [
+        { "text": "What do you most enjoy photographing?" },
+        { "text": "What camera or phone do you use?" },
+        { "text": "How often do you take photographs?" },
+        { "text": "Which place in your city would you like to photograph?" },
+        { "text": "When are you free to join our photo walks?" }
+      ] },
+      "tags": ["set-04", "hobbies"] },
+
+    { "question_type": "w2_short",
+      "prompt": "You are a new member of the Skyline Photography Club. Write a short message to introduce yourself to the other members. Write 20–30 words.",
+      "options": { "min_words": 20, "max_words": 30 },
+      "tags": ["set-04", "hobbies"] },
+
+    { "question_type": "w3_chat",
+      "prompt": "You are chatting with other members in the club's online chat room. Reply to each message. Write 30–40 words for each reply.",
+      "options": { "messages": [
+        { "author": "Yasmin", "text": "Welcome to Skyline! What made you decide to join a photography club?" },
+        { "author": "Adrian", "text": "We're choosing a theme for next month's photo walk. What kind of pictures do you most like taking?" },
+        { "author": "Hana", "text": "Tell us about a photograph you are really proud of." }
+      ], "min_words": 30, "max_words": 40 },
+      "tags": ["set-04", "hobbies"] },
+
+    { "question_type": "w4_email",
+      "prompt": "You have received this email from the Skyline Photography Club. Write two replies.",
+      "options": {
+        "email": {
+          "subject": "Changes to your membership from next month",
+          "from": "Skyline Photography Club",
+          "body": "Dear member, We are writing to inform you of two changes that begin on the first of next month. The annual membership fee will rise from fifteen pounds to twenty-five pounds. The extra money will allow us to hire a proper studio, with lights and printing equipment, for one evening every week. In addition, our monthly photo walk will move from Saturday afternoon to Sunday morning, when the streets are quieter and the light is better. We hope you will support these changes. Kind regards, The Committee"
+        },
+        "tasks": [
+          { "register": "informal", "audience": "a friend in the club", "min_words": 40, "max_words": 50 },
+          { "register": "formal", "audience": "the club manager", "min_words": 120, "max_words": 150 }
+        ]
+      },
+      "tags": ["set-04", "hobbies"] }
+  ]
+}

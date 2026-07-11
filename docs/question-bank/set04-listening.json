@@ -1,0 +1,144 @@
+{
+  "exam": "aptis-general",
+  "module": "listening",
+  "questions": [
+    { "question_type": "l1_mc4", "difficulty": "A2",
+      "prompt": "Listen to the voicemail. What time will Sunday's photo walk start?",
+      "media": "listening/set04-l1-q01.mp3",
+      "passage": "TRANSCRIPT: [Woman] Hi, it's Farah from the camera group. It's about Sunday's photo walk. We were going to meet at seven o'clock, but the sunrise is much earlier now, so we'll start at six instead. We should be finished by nine. Bring a warm jacket!",
+      "options": { "choices": ["7:00", "6:00", "6:30", "9:00"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-04", "hobbies"] },
+
+    { "question_type": "l1_mc4", "difficulty": "A2",
+      "prompt": "Listen to the announcement. Where should visitors on the guided tour wait?",
+      "media": "listening/set04-l1-q02.mp3",
+      "passage": "TRANSCRIPT: [Man] Good morning, and welcome to the city gallery. The photography exhibition is on the second floor, and the café is next to the entrance. If you have booked the guided tour, please wait by the main staircase. Your guide will meet you there at eleven o'clock.",
+      "options": { "choices": ["by the main staircase", "in the café", "on the second floor", "at the entrance"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-04", "city life"] },
+
+    { "question_type": "l1_mc4", "difficulty": "A2",
+      "prompt": "Listen to the conversation in a shop. What does the woman buy?",
+      "media": "listening/set04-l1-q03.mp3",
+      "passage": "TRANSCRIPT: [Woman] Excuse me, do you have a sixty-four gigabyte memory card? [Man] I'm sorry, we've sold out of sixty-four. We have thirty-two and one hundred and twenty-eight. [Woman] I need plenty of space for video, so I'll take the one hundred and twenty-eight, please. [Man] Certainly. That's eighteen pounds.",
+      "options": { "choices": ["a 32-gigabyte card", "a 64-gigabyte card", "a 128-gigabyte card", "a camera bag"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-04", "technology"] },
+
+    { "question_type": "l1_mc4", "difficulty": "A2",
+      "prompt": "Listen to the recorded message. How much does a student pay each year?",
+      "media": "listening/set04-l1-q04.mp3",
+      "passage": "TRANSCRIPT: [Woman] Hello, and thank you for calling the Riverside Camera Group. Membership costs twenty pounds a year for students, and thirty-five pounds a year for everybody else. There is also a joining fee of five pounds, which you pay only once. Please leave your name after the tone.",
+      "options": { "choices": ["£5", "£20", "£35", "£40"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-04", "hobbies"] },
+
+    { "question_type": "l1_mc4", "difficulty": "B1",
+      "prompt": "Listen to the voicemail. Why has the rooftop shoot been postponed?",
+      "media": "listening/set04-l1-q05.mp3",
+      "passage": "TRANSCRIPT: [Man] Hi Aisha, it's Ben here. Bad news about the rooftop shoot tonight, I'm afraid. The weather's actually perfect, and the building manager has given us the key, but the lift is out of order, and we simply can't carry all that equipment up twelve floors. So we've moved it to next Wednesday. Sorry!",
+      "options": { "choices": ["The weather is too bad", "They cannot get into the building", "The lift is not working", "The equipment has been lost"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-04", "city life"] },
+
+    { "question_type": "l1_mc4", "difficulty": "B1",
+      "prompt": "Listen to the announcement. How many photographs may each person enter?",
+      "media": "listening/set04-l1-q06.mp3",
+      "passage": "TRANSCRIPT: [Woman] A quick reminder about our annual landscape competition. Entries close on the fifteenth of March, judging takes place the following week, and the winners will be announced at the club dinner on the second of April. Please send us no more than three photographs each. There is no entry fee this year.",
+      "options": { "choices": ["three", "one", "two", "fifteen"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-04", "hobbies"] },
+
+    { "question_type": "l1_mc4", "difficulty": "B1",
+      "prompt": "Listen to the conversation. What will the two friends do next?",
+      "media": "listening/set04-l1-q07.mp3",
+      "passage": "TRANSCRIPT: [Woman] Shall we go straight up to the viewpoint? [Man] The sun doesn't set until half past seven, and it's only five now. [Woman] True. We could get something to eat first, then. [Man] I'm not hungry yet, honestly. Why don't we collect the tripod from the hire shop before it closes, and eat afterwards? [Woman] Good thinking.",
+      "options": { "choices": ["go straight to the viewpoint", "have a meal", "go home", "collect a tripod from the shop"] },
+      "correct_answers": { "choice": 3 }, "tags": ["set-04", "city life"] },
+
+    { "question_type": "l1_mc4", "difficulty": "B1",
+      "prompt": "Listen to the message. How does the speaker advise people to travel to the lighthouse?",
+      "media": "listening/set04-l1-q08.mp3",
+      "passage": "TRANSCRIPT: [Man] Hi, it's about tomorrow's trip to the lighthouse. I wouldn't drive if I were you — the coast road is closed for repairs. The train only goes as far as Redhill, and after that it's an hour's walk. Honestly, the club minibus is the easiest option. It leaves the station car park at six.",
+      "options": { "choices": ["by car", "by train", "on the club minibus", "on foot"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-04", "travel"] },
+
+    { "question_type": "l1_mc4", "difficulty": "B1",
+      "prompt": "Listen to the announcement. What is happening at eleven o'clock?",
+      "media": "listening/set04-l1-q09.mp3",
+      "passage": "TRANSCRIPT: [Woman] Welcome to the open day at the photography school. Here's what's on. At ten there's a tour of the darkroom. At eleven, a professional photographer will talk about her work for travel magazines. Portfolio reviews begin at twelve, and the day finishes with the prize-giving at three.",
+      "options": { "choices": ["a tour of the darkroom", "a talk by a professional photographer", "portfolio reviews", "the prize-giving"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-04", "hobbies"] },
+
+    { "question_type": "l1_mc4", "difficulty": "B2",
+      "prompt": "Listen to the voicemail. What does the caller want the listener to do?",
+      "media": "listening/set04-l1-q10.mp3",
+      "passage": "TRANSCRIPT: [Woman] Hi Daniel, it's Sara from the exhibition team. The prints arrived this morning and they look wonderful, so that's one thing sorted. The problem is the frames. We ordered twenty, but three of them turned up damaged. Could you ring the supplier today and ask them to send replacements before Friday? Thanks.",
+      "options": { "choices": ["collect the prints", "order twenty more frames", "contact the supplier about replacements", "cancel the exhibition"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-04", "technology"] },
+
+    { "question_type": "l1_mc4", "difficulty": "B2",
+      "prompt": "Listen to the conversation about a photo-editing app. How does the woman feel about it?",
+      "media": "listening/set04-l1-q11.mp3",
+      "passage": "TRANSCRIPT: [Man] Have you tried that new photo-editing app everyone's talking about? [Woman] I downloaded it last week. The filters are genuinely impressive, I'll give them that. [Man] So you'll pay for the full version, then? [Woman] I'm not convinced. It drains the battery in about an hour, and for what they're charging I'd expect it to work offline. [Man] Fair point.",
+      "options": { "choices": ["She is enthusiastic and will pay for the full version", "She has serious doubts, although she likes some features", "She thinks it is excellent value for money", "She dislikes the filters"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-04", "technology"] },
+
+    { "question_type": "l1_mc4", "difficulty": "B2",
+      "prompt": "Listen to the announcement. What should passengers for Hillbrook do?",
+      "media": "listening/set04-l1-q12.mp3",
+      "passage": "TRANSCRIPT: [Woman] Attention, please. The fifteen forty coach to Hillbrook has been cancelled because of a mechanical fault. Passengers for Hillbrook should take the sixteen hundred service to Weston, and change there for the local bus, which will be waiting in the coach park. Your tickets remain valid on the alternative route.",
+      "options": { "choices": ["travel to Weston and change to a local bus", "wait for the coach to be repaired", "buy a new ticket at the desk", "take a taxi to Hillbrook"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-04", "travel"] },
+
+    { "question_type": "l1_mc4", "difficulty": "B2",
+      "prompt": "Listen to the conversation. Why has the exhibition been moved to the shopping centre?",
+      "media": "listening/set04-l1-q13.mp3",
+      "passage": "TRANSCRIPT: [Man] Is the exhibition still going ahead in the town hall? [Woman] We've moved it to the shopping centre, actually. [Man] Because the town hall was too expensive? [Woman] Partly, but the main reason is that thousands of people walk past the shopping centre every day. We want the work to be seen by people who would never think of stepping into a gallery. [Man] That makes sense.",
+      "options": { "choices": ["The town hall cost too much", "To reach people who do not visit galleries", "The town hall was already booked", "The shopping centre offered the space free"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-04", "city life"] },
+
+    { "question_type": "l2_speaker_match", "difficulty": "B1",
+      "prompt": "Four people talk about the kind of pictures they most enjoy taking. Match each statement to the correct speaker.",
+      "media": "listening/set04-l2-q14.mp3",
+      "passage": "TRANSCRIPT: Speaker A: I only really come alive once the sun has gone down. Wet pavements, shop signs, headlights reflected in a puddle — the whole city turns into colour. In daylight those same streets look completely ordinary to me, so I hardly ever bother taking my camera out before evening.\nSpeaker B: I walk for hours in the hills to find my pictures, and the walking is half the reason I go. What I'm really looking for is emptiness. If there's a car park and a queue of visitors at the viewpoint, I turn round and keep climbing until there's nobody else in the frame.\nSpeaker C: For me it's all about faces. I never take a picture of a stranger without speaking to them first — I'll spend ten minutes chatting at a market stall before I even lift the camera. By then they've relaxed, and you can see it. A photograph of somebody who trusts you looks completely different.\nSpeaker D: People assume you have to go somewhere exotic, but honestly, everything I shoot is within about three metres of my kitchen table. Steam rising off a cup, the shadow of a leaf on the wall. It costs me nothing, I don't need a ticket anywhere, and there is always something new if you look properly.",
+      "options": { "statements": [
+        "This person talks to the people they photograph before starting.",
+        "This person takes all of their pictures without leaving home.",
+        "This person avoids places where other visitors gather.",
+        "This person only photographs the city after dark."
+      ] },
+      "correct_answers": { "answers": [2, 3, 1, 0] },
+      "tags": ["set-04", "hobbies"] },
+
+    { "question_type": "l3_opinion_id", "difficulty": "B2",
+      "prompt": "Listen to two people discussing photography while travelling. Who expresses each opinion?",
+      "media": "listening/set04-l3-q15.mp3",
+      "passage": "TRANSCRIPT: [Man] I read something interesting: people who photograph everything on holiday actually remember less about the trip afterwards.\n[Woman] I can believe that. When I'm hunting for the perfect shot, I'm not really looking at what's in front of me at all. I've started leaving the camera in my bag for the first hour, just to see the place properly.\n[Man] I do exactly the same, funnily enough. Although I'd still argue the pictures themselves are worth having — years later, they bring back tiny details I'd completely forgotten.\n[Woman] Would they, though? Mine sit on a hard drive by the thousand, and I honestly never open the folder. Most of what we take is never looked at again.\n[Man] That's an argument for taking fewer and better pictures, not for giving up entirely.\n[Woman] Fair. What really irritates me is people filming an entire concert through their phone screens. It ruins the evening for everyone standing behind them.\n[Man] I'm far less bothered by that, to be honest. If filming is how they enjoy the show, that's their business — it doesn't spoil my evening.\n[Woman] It does when you're staring at somebody's screen for two hours!\n[Man] Well, that's a different complaint. Anyway, we do agree on the main thing: put the camera down sometimes and simply look.\n[Woman] Absolutely.",
+      "options": { "statements": [
+        "Photographs are worth taking because they bring back forgotten details.",
+        "Constantly taking photographs stops you noticing what is around you.",
+        "Filming a concert on a phone spoils it for other people nearby.",
+        "Most of the images we take are never looked at again."
+      ] },
+      "correct_answers": { "answers": ["man", "both", "woman", "woman"] },
+      "tags": ["set-04", "travel"] },
+
+    { "question_type": "l4_monologue_mc", "difficulty": "C1",
+      "prompt": "Listen to the extract from a talk about smartphone cameras, and answer both questions.",
+      "media": "listening/set04-l4a-q16.mp3",
+      "passage": "TRANSCRIPT: [Female speaker] When you press the button on a modern phone, you are not really taking one photograph. In the fraction of a second before and after, the device captures a whole burst of frames, then merges them, removes what it decides is noise, brightens the shadows, sharpens the eyes and, in some cases, fills in detail that the sensor never actually received. What you are handed is not a recording of the light in front of you; it is a very confident piece of software's opinion of what that light probably meant. People find this disturbing. They ask whether such an image can still be called a photograph at all. My own view is that the question is less dramatic than it sounds, because the honest, untouched photograph was always something of a fiction. A film photographer chose the film, the exposure, the moment and the crop, and then a printer in a darkroom made a dozen further decisions about how dark a shadow should be. The interpretation used to happen slowly, in human hands. Now it happens instantly, inside a chip. The difference is real, but it is a difference of speed and of who is deciding — not the sudden loss of an innocence that photography never had in the first place.",
+      "options": { "questions": [
+        { "text": "What is the speaker's main point about smartphone photographs?", "choices": ["They are technically inferior to photographs taken on film.", "They are constructed by software rather than simply recorded.", "They are far too easy for beginners to take.", "They use an unnecessary amount of storage space."] },
+        { "text": "What does the speaker imply about photography before digital cameras?", "choices": ["It also involved choices that shaped the final image.", "It was entirely free from any kind of manipulation.", "It produced images that nobody genuinely trusted.", "It required no technical knowledge whatsoever."] }
+      ] },
+      "correct_answers": { "answers": [1, 0] },
+      "tags": ["set-04", "technology"] },
+
+    { "question_type": "l4_monologue_mc", "difficulty": "C1",
+      "prompt": "Listen to the extract from a talk about travel photography, and answer both questions.",
+      "media": "listening/set04-l4b-q17.mp3",
+      "passage": "TRANSCRIPT: [Male speaker] There is a wooden footbridge in a valley I visited last summer. Ten years ago, perhaps three people a day crossed it. Last August I counted more than two hundred, and almost every one of them stopped at precisely the same spot, held up a phone at precisely the same angle, and walked away again within ninety seconds. They had all seen the same image online, and they had come to reproduce it. That, for me, is the uncomfortable part. It is not that people photograph their holidays; it is that a handful of pictures now decide where the crowds go, and everybody ends up queueing to take a picture that already exists. The village a mile down the road, which nobody has ever photographed well, sees no one at all. So my suggestion is a modest one. When you travel, spend a morning photographing the things that are not on anybody's list — the bus shelter, the man mending a net, the light on an ordinary wall. Those pictures will not collect much attention. They will, however, be yours, and years later they will be the ones that actually return you to the place.",
+      "options": { "questions": [
+        { "text": "What is the speaker's main concern?", "choices": ["Photographs shared online are often heavily edited.", "Camera equipment has become far too expensive.", "A few popular images now send crowds to identical viewpoints.", "Far fewer people travel than they used to."] },
+        { "text": "What does the speaker suggest that travellers should do?", "choices": ["Photograph the ordinary places that other people ignore.", "Stop posting their pictures online completely.", "Travel only outside the main holiday season.", "Leave their cameras at home altogether."] }
+      ] },
+      "correct_answers": { "answers": [2, 0] },
+      "tags": ["set-04", "travel"] }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "exam": "aptis-general",
+  "module": "core",
+  "questions": [
+    { "question_type": "grammar_mc3", "difficulty": "A1",
+      "prompt": "My sister ______ the piano every evening.",
+      "options": { "choices": ["play", "plays", "playing"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-07", "hobbies"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A1",
+      "prompt": "There ______ five guitars in the practice room.",
+      "options": { "choices": ["are", "is", "be"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-07", "hobbies"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A1",
+      "prompt": "We have ______ old piano in our living room.",
+      "options": { "choices": ["a", "the", "an"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-07", "family"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A1",
+      "prompt": "My cousins ______ very good singers.",
+      "options": { "choices": ["are", "is", "am"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-07", "family"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A1",
+      "prompt": "The music club meets ______ Friday evenings.",
+      "options": { "choices": ["in", "on", "at"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-07", "hobbies"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A2",
+      "prompt": "Last Saturday we ______ our new song for two hours.",
+      "options": { "choices": ["practise", "practised", "practising"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-07", "hobbies"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A2",
+      "prompt": "The drums are ______ than the violin, so we use a separate room.",
+      "options": { "choices": ["loud", "loudest", "louder"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-07", "hobbies"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A2",
+      "prompt": "Next month my brother ______ buy a second-hand keyboard.",
+      "options": { "choices": ["is going to", "going to", "will going to"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-07", "family"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A2",
+      "prompt": "While I ______ my homework, my sister was practising her scales.",
+      "options": { "choices": ["do", "was doing", "did"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-07", "education"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "A2",
+      "prompt": "Ravi is very good ______ playing the flute.",
+      "options": { "choices": ["in", "on", "at"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-07", "hobbies"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B1",
+      "prompt": "I ______ the guitar since I was twelve years old.",
+      "options": { "choices": ["have played", "played", "play"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-07", "hobbies"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B1",
+      "prompt": "If enough members sign up, the club ______ a second choir in April.",
+      "options": { "choices": ["would start", "will start", "started"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-07", "hobbies"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B1",
+      "prompt": "If I ______ read music, I would join the college orchestra.",
+      "options": { "choices": ["can", "will", "could"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-07", "education"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B1",
+      "prompt": "All the songs for the show ______ by students last year.",
+      "options": { "choices": ["wrote", "are writing", "were written"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-07", "education"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B1",
+      "prompt": "You ______ warm up your voice before you sing, or you may damage it.",
+      "options": { "choices": ["should", "might", "could"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-07", "health"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B1",
+      "prompt": "The app ______ I use for tuning my guitar is completely free.",
+      "options": { "choices": ["who", "which", "what"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-07", "technology"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B2",
+      "prompt": "If we ______ the tickets earlier, we would have got seats at the front.",
+      "options": { "choices": ["had booked", "booked", "have booked"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-07", "hobbies"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B2",
+      "prompt": "The teacher told us that the audition ______ postponed until the following week.",
+      "options": { "choices": ["is", "will be", "had been"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-07", "education"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B2",
+      "prompt": "I wish I ______ sing as beautifully as my grandmother.",
+      "options": { "choices": ["can", "could", "will"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-07", "family"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B2",
+      "prompt": "We had the old piano ______ before the summer concert.",
+      "options": { "choices": ["tuned", "tune", "tuning"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-07", "hobbies"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "B2",
+      "prompt": "______ having very little stage experience, she was chosen as the lead singer.",
+      "options": { "choices": ["Although", "However", "Despite"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-07", "hobbies"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "C1",
+      "prompt": "Not until the final rehearsal ______ we realise how much work was left.",
+      "options": { "choices": ["did", "we did", "had"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-07", "education"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "C1",
+      "prompt": "If he hadn't taken those lessons as a child, he ______ a professional musician today.",
+      "options": { "choices": ["wouldn't have been", "wouldn't be", "isn't"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-07", "family"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "C1",
+      "prompt": "It was the drummer ______ suggested changing the ending of the song.",
+      "options": { "choices": ["which", "what", "who"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-07", "hobbies"] },
+
+    { "question_type": "grammar_mc3", "difficulty": "C1",
+      "prompt": "The recording sounds very odd — the microphone ______ have been faulty.",
+      "options": { "choices": ["can", "must", "should"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-07", "technology"] },
+
+    { "question_type": "vocab_set", "difficulty": "A2",
+      "prompt": "Choose the word from the bank that has the same meaning as each word below.",
+      "options": { "kind": "synonym",
+        "bank": ["start", "select", "hard", "well-known", "entertaining", "quiet", "expensive", "early", "careful", "sudden"],
+        "items": [ { "text": "begin" }, { "text": "choose" }, { "text": "difficult" }, { "text": "famous" }, { "text": "enjoyable" } ] },
+      "correct_answers": { "answers": ["start", "select", "hard", "well-known", "entertaining"] },
+      "tags": ["set-07", "hobbies"] },
+
+    { "question_type": "vocab_set", "difficulty": "B1",
+      "prompt": "Match each music word with its definition.",
+      "options": { "kind": "definition",
+        "bank": ["a practice session held before a performance", "the people who watch or listen to a performance", "the words of a song", "a place where an event is held", "an object used to produce musical sounds", "a printed programme listing the performers", "a person who writes music for films", "the cost of entry to a concert", "a short break in the middle of a show", "a machine that records and stores sound"],
+        "items": [ { "text": "rehearsal" }, { "text": "audience" }, { "text": "lyrics" }, { "text": "venue" }, { "text": "instrument" } ] },
+      "correct_answers": { "answers": ["a practice session held before a performance", "the people who watch or listen to a performance", "the words of a song", "a place where an event is held", "an object used to produce musical sounds"] },
+      "tags": ["set-07", "hobbies"] },
+
+    { "question_type": "vocab_set", "difficulty": "B1",
+      "prompt": "Choose the word from the bank that best completes each sentence.",
+      "options": { "kind": "usage",
+        "bank": ["rehearse", "download", "apply", "tune", "perform", "borrow", "repair", "postpone", "deliver", "translate"],
+        "items": [ { "text": "The band will ______ their new song at the school concert next month." }, { "text": "You should always ______ your guitar before you start playing." }, { "text": "We ______ for two hours every Thursday in the week before a show." }, { "text": "You can ______ the sheet music from the club website for free." }, { "text": "Members must ______ for the summer course before the end of May." } ] },
+      "correct_answers": { "answers": ["perform", "tune", "rehearse", "download", "apply"] },
+      "tags": ["set-07", "technology"] },
+
+    { "question_type": "vocab_set", "difficulty": "B2",
+      "prompt": "Choose the word from the bank that goes with each verb to make a common expression.",
+      "options": { "kind": "collocation",
+        "bank": ["band", "melody", "album", "instrument", "audience", "ticket", "stage", "rhythm", "studio", "review"],
+        "items": [ { "text": "form a ______" }, { "text": "compose a ______" }, { "text": "record an ______" }, { "text": "take up an ______" }, { "text": "attract a large ______" } ] },
+      "correct_answers": { "answers": ["band", "melody", "album", "instrument", "audience"] },
+      "tags": ["set-07", "hobbies"] },
+
+    { "question_type": "vocab_set", "difficulty": "B2",
+      "prompt": "Match each word about music technology with the phrase that explains it.",
+      "options": { "kind": "matching",
+        "bank": ["listening to music over the internet without saving it", "a list of songs chosen to be played in order", "a device worn over the ears for private listening", "a regular payment that gives continued access to a service", "to send a file from your own device to the internet", "a small speaker placed in the corner of a room", "a paper ticket bought at the door of a concert", "the person who controls sound levels at a live show", "a copy of a song made in a recording studio", "to reduce the volume of a piece of music"],
+        "items": [ { "text": "streaming" }, { "text": "playlist" }, { "text": "headphones" }, { "text": "subscription" }, { "text": "upload" } ] },
+      "correct_answers": { "answers": ["listening to music over the internet without saving it", "a list of songs chosen to be played in order", "a device worn over the ears for private listening", "a regular payment that gives continued access to a service", "to send a file from your own device to the internet"] },
+      "tags": ["set-07", "technology"] }
+  ]
+}

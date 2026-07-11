@@ -1,0 +1,45 @@
+{
+  "exam": "aptis-general",
+  "module": "writing",
+  "questions": [
+    { "question_type": "w1_form",
+      "prompt": "You have just joined the Riverside Readers Book Club. Answer the questions about yourself. Use 1–5 words for each answer.",
+      "options": { "questions": [
+        { "text": "What kind of books do you enjoy most?" },
+        { "text": "How often do you read for pleasure?" },
+        { "text": "Which book are you reading at the moment?" },
+        { "text": "Where do you usually read?" },
+        { "text": "When are you free to attend meetings?" }
+      ] },
+      "tags": ["set-05", "hobbies"] },
+
+    { "question_type": "w2_short",
+      "prompt": "You are a new member of the Riverside Readers Book Club. Write a short message to introduce yourself to the other members. Write 20–30 words.",
+      "options": { "min_words": 20, "max_words": 30 },
+      "tags": ["set-05", "hobbies"] },
+
+    { "question_type": "w3_chat",
+      "prompt": "You are chatting with other members in the club's online chat room. Reply to each message. Write 30–40 words for each reply.",
+      "options": { "messages": [
+        { "author": "Zarina", "text": "Welcome to Riverside Readers! What made you decide to join a book club?" },
+        { "author": "Marcus", "text": "We are choosing next month's book. What kind of stories do you enjoy reading most?" },
+        { "author": "Ivy", "text": "Tell us about a book that changed the way you think about something." }
+      ], "min_words": 30, "max_words": 40 },
+      "tags": ["set-05", "hobbies"] },
+
+    { "question_type": "w4_email",
+      "prompt": "You have received this email from the Riverside Readers Book Club. Write two replies.",
+      "options": {
+        "email": {
+          "subject": "Changes to our monthly meetings",
+          "from": "Riverside Readers Book Club",
+          "body": "Dear member, We are writing to tell you about two changes from the first of next month. Our meetings will move from Thursday evening to Sunday afternoon, because the reading room above the bookshop is no longer free on weekday evenings. Meetings will also last two hours instead of one, so that everyone has a chance to speak. We understand that a weekend meeting will not suit every member, and we are sorry for the inconvenience. Kind regards, The Committee"
+        },
+        "tasks": [
+          { "register": "informal", "audience": "a friend in the club", "min_words": 40, "max_words": 50 },
+          { "register": "formal", "audience": "the club manager", "min_words": 120, "max_words": 150 }
+        ]
+      },
+      "tags": ["set-05", "hobbies"] }
+  ]
+}

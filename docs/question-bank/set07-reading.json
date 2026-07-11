@@ -1,0 +1,83 @@
+{
+  "exam": "aptis-general",
+  "module": "reading",
+  "questions": [
+    { "question_type": "r1_gap_mc3", "difficulty": "A2",
+      "prompt": "Read the message from a new music club member. Choose the best word for each gap.",
+      "passage": "Hi Leon, I hope you are well. Last month I joined [[1]] music club at the community hall, and I really [[2]] it. We meet every Thursday [[3]] seven o'clock. Last week we [[4]] two new songs together. You don't need [[5]] experience, so why don't you come with me next Thursday? Just send a short message [[6]] the club to book a free place. See you soon, Amira",
+      "options": { "gaps": [
+        { "choices": ["a", "an", "the"] },
+        { "choices": ["enjoy", "enjoys", "enjoying"] },
+        { "choices": ["in", "on", "at"] },
+        { "choices": ["learn", "learnt", "learning"] },
+        { "choices": ["some", "any", "much"] },
+        { "choices": ["to", "for", "with"] }
+      ] },
+      "correct_answers": { "answers": ["a", "enjoy", "at", "learnt", "any", "to"] },
+      "tags": ["set-07", "hobbies"] },
+
+    { "question_type": "r2_ordering", "difficulty": "A2",
+      "prompt": "Put the sentences in the correct order to tell the story.",
+      "options": { "fixed_first": "Two years ago, Hafiz found an old violin at the back of his grandmother's cupboard.",
+        "sentences": [
+          "So he saved his pocket money for months and took it to a repair shop in town.",
+          "His grandmother sat in the front row and clapped louder than anyone else.",
+          "At first, the strings were broken and the instrument would not play at all.",
+          "Last month, he played his first solo in front of two hundred people.",
+          "Once it was mended, he began lessons at a small club near his school."
+        ] },
+      "correct_answers": { "order": [2, 0, 4, 3, 1] },
+      "tags": ["set-07", "family"] },
+
+    { "question_type": "r3_opinion_match", "difficulty": "B1",
+      "prompt": "Four people give their views on learning a musical instrument. Who says the following?",
+      "options": { "people": [
+        { "name": "Person A", "text": "I taught myself the keyboard entirely from free video lessons, and I would happily do it again. It cost me nothing at all, and I could repeat a difficult section as many times as I needed without anyone losing patience with me. The one thing I missed was somebody telling me when my hand position was wrong. I only discovered that bad habit a whole year later." },
+        { "name": "Person B", "text": "I see a teacher every Saturday morning and I would never swap. She notices things I simply cannot hear in my own playing, and she changes the plan the moment she sees me struggling. It is certainly not cheap, and it does eat into my weekend. Even so, I have improved more in eight months with her than in three years of practising by myself." },
+        { "name": "Person C", "text": "Honestly, what keeps me going is the other people. I joined a community group where we all learn together, and knowing that eleven others are waiting for me on Wednesday means I actually turn up. Practising alone in my bedroom, I always gave up by February. The playing matters far less to me than the feeling of belonging to something." },
+        { "name": "Person D", "text": "I use an app that listens to me play and marks every note. At first I thought it was a gimmick, but the instant score is oddly addictive, and I now practise every single day. Of course, a machine cannot teach you how to put feeling into a phrase. For that I still watch recordings of real performers and try to copy what they do." }
+      ],
+        "questions": [
+          "Who says that their way of learning cost them nothing?",
+          "Who has improved more quickly than when they practised alone?",
+          "Who is motivated by not wanting to let other learners down?",
+          "Who finds that being given a score encourages them to practise?",
+          "Who developed a bad habit that went unnoticed for a long time?",
+          "Who believes that technology cannot teach musical expression?",
+          "Who accepts that their method is expensive but still worthwhile?"
+        ] },
+      "correct_answers": { "answers": [0, 1, 2, 3, 0, 3, 1] },
+      "tags": ["set-07", "education"] },
+
+    { "question_type": "r4_banked_cloze", "difficulty": "B2",
+      "prompt": "Read the article about music and the brain. Choose the correct word from the bank for each gap.",
+      "passage": "Learning to play a musical instrument does far more than fill an empty [[1]]. Over the past twenty years, researchers have gathered convincing [[2]] that regular practice changes the brain itself. Scanning studies show that the areas responsible for hearing, movement and memory become more closely [[3]] in trained musicians than in people who have never picked up an instrument. The benefits appear to [[4]] well beyond music. Children who take lessons often do better at tasks that [[5]] sustained concentration, and several schools report a noticeable [[6]] in reading scores. Scientists are careful, however, not to [[7]] too much. Families who arrange music lessons may already value study and reading highly, and that alone could explain part of the effect. What almost everyone agrees on is that the gains come from steady, patient repetition rather than from natural [[8]]; the brain rewards the hours, not the gift.",
+      "options": { "bank": ["hour", "evidence", "connected", "extend", "demand", "improvement", "claim", "talent", "routine", "reduce", "confirm", "occasion"] },
+      "correct_answers": { "answers": ["hour", "evidence", "connected", "extend", "demand", "improvement", "claim", "talent"] },
+      "tags": ["set-07", "education"] },
+
+    { "question_type": "r5_heading_match", "difficulty": "C1",
+      "prompt": "Read the article about recorded music. Match a heading to each paragraph. There is one heading you do not need.",
+      "options": { "paragraphs": [
+        "For most of human history, music was something that happened once and then vanished. A song existed only while it was being sung; if you were not in the room, you missed it for ever. Audiences walked for hours to hear a travelling player, knowing that the same piece would never sound quite the same again. Music lived in memory, and in the hands of whoever could still perform it.",
+        "That changed with a set of fragile machines in the late nineteenth century. Early devices scratched sound onto wax cylinders that held barely two minutes and wore out after a few dozen plays. Singers had to shout into a metal horn, and quieter instruments were simply inaudible. The results were thin and scratchy by any standard, yet crowds queued to hear them. For the first time, a voice could outlive the moment of its making.",
+        "Musicians soon discovered that the technology was not a neutral witness. If a disc held only three minutes, then three minutes was how long a popular song became, and composers trimmed introductions and repeats to fit. Players adjusted their phrasing so that nothing was lost in the crackle. A physical limit in a piece of shellac quietly decided the shape of songs for the next half-century, and in truth we are living with it still.",
+        "Broadcasting then removed the last barrier of distance. A performance given in one city could be heard the same evening in a farmhouse three hundred miles away, and a singer unknown on Monday could be familiar to millions by Friday. Regional styles that had developed in isolation began to travel, mix and borrow from one another. Within a single generation, a listener's musical world was no longer limited by where they happened to live.",
+        "By the middle of the twentieth century, engineers could record each instrument separately and assemble the parts afterwards. Suddenly the room full of microphones was no longer trying to capture a performance; it was helping to invent one. Producers layered voices, cut passages together and added effects that no concert hall could ever produce. The record became a work in its own right, and the finished track was often something nobody had played from beginning to end.",
+        "Digital files then swept away the shelves of discs altogether. A listener today can summon almost any recording ever made, instantly, for a fixed monthly sum, which by any historical measure is remarkable. Yet the money that reaches the people who made the music is small, and it is divided in ways that few artists claim fully to understand. Never have so many songs been so easy to hear, and so hard to earn a living from.",
+        "So what, in the end, has been gained and lost? A recording preserves a moment, but it also freezes it: the same solo, the same cough from the audience, repeated for ever. Perhaps that is why the concert hall has not emptied. When a performance cannot be paused, replayed or quietly corrected, it recovers precisely the quality that recording took away, and the listener is once again in the room."
+      ],
+        "headings": [
+          "Reaching millions of homes at once",
+          "Why live music still matters",
+          "Music that existed only in the moment",
+          "The studio becomes a creative tool",
+          "Choosing the right microphone",
+          "Capturing sound for the first time",
+          "Unlimited access, uncertain earnings",
+          "How the machine reshaped the music itself"
+        ] },
+      "correct_answers": { "answers": [2, 5, 7, 0, 3, 6, 1] },
+      "tags": ["set-07", "technology"] }
+  ]
+}

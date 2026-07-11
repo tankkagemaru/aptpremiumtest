@@ -1,0 +1,144 @@
+{
+  "exam": "aptis-general",
+  "module": "listening",
+  "questions": [
+    { "question_type": "l1_mc4", "difficulty": "A2",
+      "prompt": "Listen to the voicemail. What time will Sunday's planting session begin?",
+      "media": "listening/set08-l1-q01.mp3",
+      "passage": "TRANSCRIPT: [Woman] Hi, it's Marta from the garden project. Just a quick note about Sunday. We were going to start at eight o'clock, but the van with the young plants arrives late, so we'll begin at nine instead. We should still finish around twelve. See you there!",
+      "options": { "choices": ["8:00", "9:00", "10:00", "12:00"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-08", "environment"] },
+
+    { "question_type": "l1_mc4", "difficulty": "A2",
+      "prompt": "Listen to the announcement. Where should volunteers put the tools when they finish?",
+      "media": "listening/set08-l1-q02.mp3",
+      "passage": "TRANSCRIPT: [Man] Good morning, volunteers, and thank you for coming. Two quick notices. The drinking water is by the greenhouse, and the compost bins are behind the fence at the far end. When you finish this afternoon, please don't leave your tools next to the flower beds — put them back in the wooden shed by the entrance.",
+      "options": { "choices": ["by the greenhouse", "behind the fence", "next to the flower beds", "in the wooden shed"] },
+      "correct_answers": { "choice": 3 }, "tags": ["set-08", "work"] },
+
+    { "question_type": "l1_mc4", "difficulty": "A2",
+      "prompt": "Listen to the conversation at a plant stall. What does the woman buy?",
+      "media": "listening/set08-l1-q03.mp3",
+      "passage": "TRANSCRIPT: [Woman] Excuse me, do you have any strawberry plants? [Man] I'm sorry, we sold the last of them this morning. We still have tomato and chilli plants, though. [Woman] Hmm. My balcony gets a lot of afternoon sun. I'll take two of the chilli ones, then, please. [Man] Certainly. That's four pounds.",
+      "options": { "choices": ["chilli plants", "strawberry plants", "tomato plants", "herb plants"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-08", "food"] },
+
+    { "question_type": "l1_mc4", "difficulty": "A2",
+      "prompt": "Listen to the message. Which day is the workshop on now?",
+      "media": "listening/set08-l1-q04.mp3",
+      "passage": "TRANSCRIPT: [Man] Hello, this is a message about the healthy cooking workshop. It was going to be on Thursday, but the hall is being painted that day. Tuesday evening was already full, so we've moved the workshop to Monday instead. It's at the usual time, half past six. Sorry for the change.",
+      "options": { "choices": ["Tuesday", "Thursday", "Monday", "Friday"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-08", "health"] },
+
+    { "question_type": "l1_mc4", "difficulty": "B1",
+      "prompt": "Listen to the voicemail. Why has the tree planting been postponed?",
+      "media": "listening/set08-l1-q05.mp3",
+      "passage": "TRANSCRIPT: [Man] Hi Ravi, it's Colin from the park group. I'm afraid we've had to postpone Saturday's tree planting. The forecast is actually fine, and we've got more than enough volunteers this time, but the young trees still haven't been delivered from the nursery. Without them there's nothing for anyone to plant. Let's try again the following weekend.",
+      "options": { "choices": ["The trees have not been delivered.", "Bad weather is expected.", "Not enough volunteers signed up.", "The park will be closed."] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-08", "environment"] },
+
+    { "question_type": "l1_mc4", "difficulty": "B1",
+      "prompt": "Listen to the announcement. How much do club members normally pay for the composting course?",
+      "media": "listening/set08-l1-q06.mp3",
+      "passage": "TRANSCRIPT: [Woman] Attention, please. Places on next month's composting course are now open. The full price is thirty pounds, but garden club members pay only eighteen. Anyone who books before Friday gets a further two pounds off. Numbers are limited, so please sign up on the noticeboard by the gate.",
+      "options": { "choices": ["£30", "£18", "£16", "£2"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-08", "environment"] },
+
+    { "question_type": "l1_mc4", "difficulty": "B1",
+      "prompt": "Listen to the conversation. What will the two volunteers do first?",
+      "media": "listening/set08-l1-q07.mp3",
+      "passage": "TRANSCRIPT: [Man] Shall we start with the weeding? [Woman] The beds are still soaked from last night's rain. We'd ruin the soil walking all over it. [Man] True. We could paint the shed door instead. [Woman] The paint's still in my car and it's freezing out here. Why don't we sort the seed packets in the greenhouse until the sun dries things out a bit? [Man] Good plan.",
+      "options": { "choices": ["weed the beds", "paint the shed door", "sort the seed packets", "fetch the paint from the car"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-08", "work"] },
+
+    { "question_type": "l1_mc4", "difficulty": "B1",
+      "prompt": "Listen to the message. How does the speaker advise travelling to the open day?",
+      "media": "listening/set08-l1-q08.mp3",
+      "passage": "TRANSCRIPT: [Woman] Hi, it's about the open day at the riverside garden on Sunday. I wouldn't drive if I were you — there's no car park at all and the lane is far too narrow. The train is no good either, because the nearest station is a forty-minute walk away. Honestly, just take the number 7 bus. It stops right by the gate every fifteen minutes.",
+      "options": { "choices": ["by car", "by train", "by bus", "on foot"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-08", "environment"] },
+
+    { "question_type": "l1_mc4", "difficulty": "B1",
+      "prompt": "Listen to the announcement. What is happening at two o'clock?",
+      "media": "listening/set08-l1-q09.mp3",
+      "passage": "TRANSCRIPT: [Man] Welcome to our harvest afternoon. Here's the programme. At one o'clock there's a talk on growing herbs indoors. At two, the children can plant their own sunflower seeds in the polytunnel. At three we judge the vegetable competition, and at four we all share a bowl of soup in the hall. Enjoy your afternoon.",
+      "options": { "choices": ["the vegetable competition", "a talk on growing herbs", "a shared bowl of soup", "a seed-planting activity for children"] },
+      "correct_answers": { "choice": 3 }, "tags": ["set-08", "food"] },
+
+    { "question_type": "l1_mc4", "difficulty": "B2",
+      "prompt": "Listen to the voicemail. What does the caller want Tom to do?",
+      "media": "listening/set08-l1-q10.mp3",
+      "passage": "TRANSCRIPT: [Woman] Hi Tom, it's Bianca from the volunteer office. I know you've already ordered the compost for the new beds, and that's all confirmed, thanks. The thing is, four more schools have signed up for Friday's visit, so we're expecting sixty children now rather than forty. Could you tell the caterer the new number before they do the shopping tomorrow?",
+      "options": { "choices": ["order more compost", "cancel Friday's school visit", "give the caterer the new number of children", "invite four more schools"] },
+      "correct_answers": { "choice": 2 }, "tags": ["set-08", "work"] },
+
+    { "question_type": "l1_mc4", "difficulty": "B2",
+      "prompt": "Listen to the conversation about a new salad bar. How does the man feel about it?",
+      "media": "listening/set08-l1-q11.mp3",
+      "passage": "TRANSCRIPT: [Woman] Have you tried that new salad bar by the station? [Man] I went on Monday. The vegetables were genuinely fresh, I'll give them that. [Woman] So you'd go back, then? [Man] I'm really not sure. There's nowhere at all to sit at lunchtime, and for what they charge, I expected the portions to be a good deal bigger. [Woman] Fair enough.",
+      "options": { "choices": ["He is impressed and will definitely return.", "He has mixed feelings and cannot decide.", "He thinks it is excellent value for money.", "He was disappointed by the quality of the vegetables."] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-08", "food"] },
+
+    { "question_type": "l1_mc4", "difficulty": "B2",
+      "prompt": "Listen to the announcement. What are ticket holders asked to do now?",
+      "media": "listening/set08-l1-q12.mp3",
+      "passage": "TRANSCRIPT: [Man] Attention, please. This afternoon's guided tour of the glasshouses has been cancelled, as a large pane of glass has cracked and the whole area is unsafe. Ticket holders should make their way to the visitor centre, where our staff will offer them either a place on Sunday's tour or a full refund. We do apologise for the disruption.",
+      "options": { "choices": ["go to the visitor centre", "wait outside the glasshouses", "return on Sunday morning", "buy a new ticket online"] },
+      "correct_answers": { "choice": 0 }, "tags": ["set-08", "work"] },
+
+    { "question_type": "l1_mc4", "difficulty": "B2",
+      "prompt": "Listen to the conversation. Why has the first-aid training been moved?",
+      "media": "listening/set08-l1-q13.mp3",
+      "passage": "TRANSCRIPT: [Man] Are we still running the first-aid training in the meeting room? [Woman] We've moved it to the garden classroom, actually. [Man] Is that because of the noise from the building work? [Woman] That's part of it, but mainly because eighteen people have signed up and the meeting room only holds twelve. [Man] Ah, that makes sense.",
+      "options": { "choices": ["because of noise from the building work", "because the meeting room is too small for the group", "because the garden classroom is cheaper to hire", "because the trainer asked for a different room"] },
+      "correct_answers": { "choice": 1 }, "tags": ["set-08", "health"] },
+
+    { "question_type": "l2_speaker_match", "difficulty": "B1",
+      "prompt": "Four people talk about a change they have made to live more healthily. Match each statement to the correct speaker.",
+      "media": "listening/set08-l2-q14.mp3",
+      "passage": "TRANSCRIPT: Speaker A: I eat meat only at weekends now. It wasn't a decision I made on my own, to be honest — my doctor looked at the results of a check-up last year and suggested I try it for six months. I felt better within weeks, so I've simply carried on.\nSpeaker B: I live in a small flat with no garden at all, but I've filled the kitchen windowsill with pots of basil and mint. What pushed me into it was the packets from the supermarket. I'd use two leaves, forget the rest, and throw the whole thing away. That really began to bother me.\nSpeaker C: I sold my car in the spring and I cycle to the office instead. It takes me five minutes longer, which I can live with. The real difference is in my bank account: no fuel, no parking, no repairs. I had no idea how much that vehicle was quietly costing me every month.\nSpeaker D: My hours are long and unpredictable, so I spend Sunday afternoon cooking five meals and freezing them. If I don't, I get home at nine and order something greasy from an app. Having a proper dinner already waiting for me is the only thing that stops that happening.",
+      "options": { "statements": [
+        "This person changed their diet after medical advice.",
+        "This person was unhappy about throwing food away.",
+        "This person prepares meals in advance because of a demanding job.",
+        "This person has saved money by getting rid of a vehicle."
+      ] },
+      "correct_answers": { "answers": [0, 1, 3, 2] },
+      "tags": ["set-08", "health"] },
+
+    { "question_type": "l3_opinion_id", "difficulty": "B2",
+      "prompt": "Listen to two people discussing a plan to give all employees two paid days a year for volunteering. Who expresses each opinion?",
+      "media": "listening/set08-l3-q15.mp3",
+      "passage": "TRANSCRIPT: [Woman] Have you seen the proposal that every company should give staff two paid days a year to volunteer? [Man] I have, and in principle I'm all for it. People come back from that kind of work in a completely different frame of mind. It's good for their wellbeing, and honestly the employer gets that back with interest. [Woman] I agree with you there — the wellbeing argument is easily the strongest one. Where I hesitate is the cost. A large firm can absorb two days without noticing, but a shop with four staff simply cannot lose two of them for a day. [Man] Possibly, though shops already cover for illness and holidays somehow. I'm not convinced that's the real sticking point. [Woman] Then what is, in your view? [Man] Whether people would genuinely volunteer at all. I suspect a fair number would treat the days as extra holiday and head off to the beach. [Woman] Perhaps, but most schemes ask for a short note from the organisation you helped, so it's easy enough to check. That doesn't worry me in the least. [Man] Fair point. [Woman] For me it comes back to the small employers. And one more thing — it has to stay optional for the employee. Forcing someone to plant trees on a Saturday would defeat the entire purpose. [Man] Oh, completely. Volunteering that isn't freely chosen isn't really volunteering at all.",
+      "options": { "statements": [
+        "Volunteering days would be good for employees' wellbeing.",
+        "Small businesses would struggle to cope with the scheme.",
+        "Some staff would treat the days as an extra holiday.",
+        "Taking part should remain the employee's own choice."
+      ] },
+      "correct_answers": { "answers": ["both", "woman", "man", "both"] },
+      "tags": ["set-08", "work"] },
+
+    { "question_type": "l4_monologue_mc", "difficulty": "C1",
+      "prompt": "Listen to the extract from a talk about food and the environment, and answer both questions.",
+      "media": "listening/set08-l4a-q16.mp3",
+      "passage": "TRANSCRIPT: [Female speaker] For years, shoppers have been told that the greenest choice is the local one. Count the miles your food has travelled, the argument goes, and pick whatever has travelled least. It is an appealing rule, and it is largely wrong. Transport accounts for a surprisingly small proportion of the emissions attached to most foods — frequently under a tenth. What dominates is how the food was produced: whether a field was cleared from forest, how much fertiliser was spread on it, whether a greenhouse was heated through a northern winter. A tomato grown under artificial heat two hundred miles away can carry a far heavier footprint than one ripened in the sun and brought two thousand miles by sea, because a container ship moving thousands of tonnes at once is extraordinarily efficient per kilogram. None of this means that local food is a bad idea. There are excellent reasons to support the growers on your doorstep, from freshness to the health of the local economy. But we should be honest that those reasons are not, in the main, about carbon. My worry is that a simple number on a label allows us to feel we have done our duty, while the choices that genuinely matter — what we eat, and how much of it we throw away — go quietly unexamined.",
+      "options": { "questions": [
+        { "text": "What is the speaker's main claim?", "choices": ["Distance travelled is a poor guide to a food's environmental impact.", "Food should always be bought from growers in your own region.", "Transporting food by ship should be reduced wherever possible.", "Heated greenhouses are the single largest source of food emissions."] },
+        { "text": "What does the speaker suggest about food-mile labels?", "choices": ["They are usually calculated incorrectly.", "They can give shoppers a false sense of having acted responsibly.", "They ought to be printed on every product sold.", "They have made local food unnecessarily expensive."] }
+      ] },
+      "correct_answers": { "answers": [0, 1] },
+      "tags": ["set-08", "food"] },
+
+    { "question_type": "l4_monologue_mc", "difficulty": "C1",
+      "prompt": "Listen to the extract from a talk about city trees, and answer both questions.",
+      "media": "listening/set08-l4b-q17.mp3",
+      "passage": "TRANSCRIPT: [Male speaker] Every spring, another city announces that it will plant a million trees. The photographs are wonderful: officials with spades, children with saplings, a headline number that sounds unarguably like progress. And trees genuinely do cool our streets, soak up storm water and lift the spirits of everyone who walks beneath them. My quarrel is not with the ambition; it is with what happens after the cameras leave. A young street tree is a demanding thing. For its first three or four summers it needs water — a great deal of water — and it needs somebody to check that its ties have not begun to strangle it and that a reversing van has not snapped it in half. In far too many places nobody is actually paid to do any of that, and surveys suggest that a third or more of newly planted trees are dead within a few years. So we plant more, and count those as well, and call the whole thing a success. I would far rather a city planted half as many trees and looked after every one of them. A mature tree does incomparably more good than a sapling, and it is worth years of watering to get one. Counting trees put into the ground tells us almost nothing. The number that matters — and the one that almost nobody ever publishes — is how many are still standing and healthy ten years later.",
+      "options": { "questions": [
+        { "text": "What is the speaker's main criticism of city tree-planting schemes?", "choices": ["The species chosen are unsuitable for narrow city streets.", "Newly planted trees receive no care once they are in the ground.", "Cities are planting far too few trees to make any difference.", "Street trees do little to cool a city in summer."] },
+        { "text": "What does the speaker say cities should measure?", "choices": ["the number of trees planted each spring", "the amount of water given to each young tree", "how many trees are still alive and healthy years later", "public opinion about street trees"] }
+      ] },
+      "correct_answers": { "answers": [1, 2] },
+      "tags": ["set-08", "environment"] }
+  ]
+}
